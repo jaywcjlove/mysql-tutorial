@@ -1,10 +1,9 @@
 Awesome MySQL
 ---
 
-部分资源搜集来源于[shlomi-noach/awesome-mysql](https://github.com/shlomi-noach/awesome-mysql)，它的[中文翻译](https://github.com/jobbole/awesome-mysql-cn)在这里。
+这是一个MySQL软件库和资源列表清单。部分资源搜集来源于[shlomi-noach/awesome-mysql](https://github.com/shlomi-noach/awesome-mysql)，它的[中文翻译](https://github.com/jobbole/awesome-mysql-cn)在这里，没有完全fork过来，还有些并没有搜集，部分排版比较丑陋，部分工具慢慢搜集。
 
-## 目录
-
+### 说明
 
 ![Open-Source Software][OSS Icon] 表示**开源**标示，点击进入**开源**仓库；  
 ![Freeware][Freeware Icon] 表示**免费**标示，或者个人**免费**；  
@@ -13,17 +12,14 @@ Awesome MySQL
 ![必备][bibei Icon] 表示**装机必备**资源标示；  
 ![1 star][red Icon] 表示强烈推荐的，星星的数量来表达强烈的程度；
 
+## 目录
 
-- [官方资料](#官方资料)
 - [手册文档](#手册文档)
+- [分析工具](#分析工具)
 - [GUI](#gui)
+- [服务器](#服务器)
+- [官方资料](#官方资料)
 
-
-## 官方资料
-
-* MySQL官网：http://www.mysql.com/
-* MySQL开发者主页：http://dev.mysql.com/
-* MySQL社区：http://www.mysqlpub.com/
 
 ## 手册文档
 
@@ -32,12 +28,23 @@ _这里是一些非官方的手册文档_
 - http://www.w3school.com.cn/sql/index.asp
 - http://www.1keydata.com/cn/sql/sql-count.php
 
+## 分析工具
+
+_性能，结构和数据分析工具_
+
+* [Anemometer](https://github.com/box/Anemometer) - 一个 SQL 慢查询监控器。
+* [innodb-ruby](https://github.com/jeremycole/innodb_ruby) - 一个对 InooDB 格式文件的解析器，用于 Ruby 语言。
+* [innotop](https://github.com/innotop/innotop) - 一个具备多种特性和可扩展性的 MySQL 版 'top' 工具。
+* [pstop](https://github.com/sjmudd/ps-top) - 一个针对 MySQL 的类 top 程序，用于收集，汇总以及展示来自 performance_schema 的信息。
+* [mysql-statsd](https://github.com/db-art/mysql-statsd) - 一个收集 MySQL 信息的 Python 守护进程，并通过 StatsD 发送到 Graphite。
+
 ## GUI
 
 _这里是搜集的一些 MySQL 的客户端，也有命令行客户端。_
 
 * [Sequel Pro](http://www.sequelpro.com/) - 一个MySQL数据库管理软件。[![Open-Source Software][OSS Icon]](https://github.com/sequelpro/sequelpro) ![Freeware][Freeware Icon] ![hot][hot Icon] ![必备][bibei Icon]
 * [MySQL Workbench](http://dev.mysql.com/downloads/workbench/) - MySQL数据库官方管理软件。
+* [Navicat](https://www.navicat.com/products/navicat-for-mysql) - 同样跨平台，同时支持多个数据库系统（MySQL、SQL Server、Oracle）。
 * [ElectroCRUD](http://garrylachman.github.io/ElectroCRUD/) - MySQL数据库CRUD应用程序。[![Open-Source Software][OSS Icon]](https://github.com/garrylachman/ElectroCRUD) ![Freeware][Freeware Icon]
 * [Chrome MySQL Admin](https://www.eisbahn.jp/chrome_mysql_admin) - 一个Chrome插件，是MySQL开发的跨平台、可视化数据库工具。[![Open-Source Software][OSS Icon]](https://github.com/yoichiro/chrome_mysql_admin) ![Freeware][Freeware Icon]
 * [Adminer](https://www.adminer.org/) - 一个 PHP 编写的数据库管理工具。
@@ -65,6 +72,14 @@ _MySQL服务器的味道_
 * [MySQLDumper](http://www.mysqldumper.net/) - 基于 web 的开源备份工具-对于共享虚拟主机非常有用。
 * [mysqldump-secure](https://github.com/cytopia/mysqldump-secure) - 将加密，压缩，日志，黑名单和 Nagios 监控一体化的 mysqldump 安全脚本。
 * [Percona Xtrabackup](https://www.percona.com/doc/percona-xtrabackup) - 针对 MySQL 的一个开源热备份实用程序——在服务器的备份期间不会锁定你的数据库。
+
+
+## 官方资料
+
+* MySQL官网：http://www.mysql.com/
+* MySQL开发者主页：http://dev.mysql.com/
+* MySQL社区：http://www.mysqlpub.com/
+
 
 **[⬆ 返回顶部](#目录)**
 
