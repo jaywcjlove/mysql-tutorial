@@ -56,9 +56,9 @@ MySQL入门教程
 
 #### 第17章 各种问题解决
 
-　17.1 [让MySQL支持emoji图标存储](chapter17/1.1.md)
-　17.2 [Centos6下升级MySQL数据库](chapter17/1.2.md)
-　17.3 [Mac下重置MySQL的root密码](chapter17/1.3.md)
+- 17.1 [让MySQL支持emoji图标存储](chapter17/1.1.md)
+- 17.2 [Centos6下升级MySQL数据库](chapter17/1.2.md)
+- 17.3 [Mac下重置MySQL的root密码](chapter17/1.3.md)
 
 ## 读者对象
 
