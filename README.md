@@ -13,19 +13,19 @@ MySQL入门教程
 
 ### 第1章 初识MySQL
 
-　1.1 数据库基础  
-　1.2 数据库技术构成  
-　1.3 什么是MySQL  
-　1.4 MySQL工具  
-　1.5 如何学习MySQL  
+　1.1 [数据库基础](#)  
+　1.2 [数据库技术构成](#)  
+　1.3 [什么是MySQL](#)  
+　1.4 [MySQL工具](#)  
+　1.5 [如何学习MySQL](#)  
 
 ### 第2章 MySQL的安装与配置
 
-　2.1 Mac平台下安装与配置`MySQL5.6`  
-　2.2 linux平台下安装与配置`MySQL5.6`  
-　2.2 启动服务并登录MySQL数据库  
-　2.3 更改MySQL的配置  
-　2.4 MySQL常用图形管理工具  
+　2.1 [Mac平台下安装与配置`MySQL5.6`](#)  
+　2.2 [linux平台下安装与配置`MySQL5.6`](#)  
+　2.2 [启动服务并登录MySQL数据库](#)  
+　2.3 [更改MySQL的配置](#)  
+　2.4 [MySQL常用图形管理工具](#)  
 
 ### 第3章 数据库的基本操作
 
@@ -57,9 +57,9 @@ MySQL入门教程
 
 ### 第17章 各种问题解决
 
-  1.1 [让MySQL支持emoji图标存储](chapter17/1.1.md)  
-  1.2 [Centos6下升级MySQL数据库](chapter17/1.2.md)  
-  1.3 [Mac下重置MySQL的root密码](chapter17/1.3.md)  
+　17.1 [让MySQL支持emoji图标存储](chapter17/1.1.md)  
+　17.2 [Centos6下升级MySQL数据库](chapter17/1.2.md)  
+　17.3 [Mac下重置MySQL的root密码](chapter17/1.3.md)  
 
 ## 读者对象
 
