@@ -16,6 +16,10 @@ MySQL入门教程
 - 1.1 [数据库基础](chapter1/1.1.md)
 - 1.2 [数据库技术构成](chapter1/1.2.md)
 - 1.3 [什么是MySQL](chapter1/1.3.md)
+    - MySQL介绍
+    - 历史事件
+    - MySQL 版本
+    - MySQL 的优势
 - 1.4 [MySQL工具](chapter1/1.4.md)
 - 1.5 [如何学习MySQL](chapter1/1.5.md)
 
