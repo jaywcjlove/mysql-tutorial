@@ -11,7 +11,7 @@ MySQL入门教程
 
 ## 目录
 
-#### 第1章 [初识MySQL](chapter1/1.md)
+#### 第1章 初识MySQL
 
 - 1.1 [数据库基础](chapter1/1.1.md)
 - 1.2 [数据库技术构成](chapter1/1.2.md)
