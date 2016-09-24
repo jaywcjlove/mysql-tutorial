@@ -2,6 +2,8 @@
 MySQL入门教程
 --- 
 
+[![](https://jaywcjlove.github.io/sb/ico/mysql.svg)](http://www.mysql.com/) [![](https://jaywcjlove.github.io/sb/ico/awesome.svg)](awesome-mysql.md) [![](https://jaywcjlove.github.io/sb/license/mit.svg)](#)
+
 <img align="right" height="150" src="./img/mysql-logo.png">
 
 从零开始学习`MySQL`，主要是面向`MySQL`数据库管理系统初学者。身为前端开发工程师为什么写这个破玩意儿呢，最近项目强迫我这个前端老司机使用`MySQL`，虽然我在项目中已经使用过一段时间，为了写出高质量的`SQL`语句，系统的过一遍基础，你也可以当做是我的笔记。周围人都在玩儿`MySQL`，也认识一些玩儿`MySQL DBA`，所以我学习起来比较快，他们吹牛逼，说这玩意儿稳定、可靠、快速、管理方便以及夸平台等特点，大家还极力推荐我使用 `MySQL`，然后老板也要求我使用它。
