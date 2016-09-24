@@ -1,3 +1,83 @@
 Awesome MySQL
 ---
 
+部分资源搜集来源于[shlomi-noach/awesome-mysql](https://github.com/shlomi-noach/awesome-mysql)，它的[中文翻译](https://github.com/jobbole/awesome-mysql-cn)在这里。
+
+## 目录
+
+
+![Open-Source Software][OSS Icon] 表示**开源**标示，点击进入**开源**仓库；  
+![Freeware][Freeware Icon] 表示**免费**标示，或者个人**免费**；  
+![hot][hot Icon] 表示**热门**的资源标示；  
+![tuijian][tuijian Icon] 表示**推荐**资源标示；  
+![必备][bibei Icon] 表示**装机必备**资源标示；  
+![1 star][red Icon] 表示强烈推荐的，星星的数量来表达强烈的程度；
+
+
+- [官方资料](#官方资料)
+- [手册文档](#手册文档)
+- [GUI](#gui)
+
+
+## 官方资料
+
+* MySQL官网：http://www.mysql.com/
+* MySQL开发者主页：http://dev.mysql.com/
+* MySQL社区：http://www.mysqlpub.com/
+
+## 手册文档
+
+_这里是一些非官方的手册文档_
+
+- http://www.w3school.com.cn/sql/index.asp
+- http://www.1keydata.com/cn/sql/sql-count.php
+
+## GUI
+
+_这里是搜集的一些 MySQL 的客户端，也有命令行客户端。_
+
+* [Sequel Pro](http://www.sequelpro.com/) - 一个MySQL数据库管理软件。[![Open-Source Software][OSS Icon]](https://github.com/sequelpro/sequelpro) ![Freeware][Freeware Icon] ![hot][hot Icon] ![必备][bibei Icon]
+* [MySQL Workbench](http://dev.mysql.com/downloads/workbench/) - MySQL数据库官方管理软件。
+* [ElectroCRUD](http://garrylachman.github.io/ElectroCRUD/) - MySQL数据库CRUD应用程序。[![Open-Source Software][OSS Icon]](https://github.com/garrylachman/ElectroCRUD) ![Freeware][Freeware Icon]
+* [Chrome MySQL Admin](https://www.eisbahn.jp/chrome_mysql_admin) - 一个Chrome插件，是MySQL开发的跨平台、可视化数据库工具。[![Open-Source Software][OSS Icon]](https://github.com/yoichiro/chrome_mysql_admin) ![Freeware][Freeware Icon]
+* [Adminer](https://www.adminer.org/) - 一个 PHP 编写的数据库管理工具。
+* [HeidiSQL](http://www.heidisql.com/) - Windows 下的 MySQL 图形化管理工具。
+* [MySQL Workbench](http://dev.mysql.com/downloads/workbench/) - 提供给数据库管理员和开发人员进行数据库设计和建模的集成工具环境;SQL 开发;数据库管理。
+* [phpMyAdmin](https://www.phpmyadmin.net/) - 一个 PHP 写成的开源软件，意图对 web 上的 MySQL 进行管理。
+* [mycli](https://github.com/dbcli/mycli) - 为MySQL命令行客户端，提供语法高亮和提示功能的工具！
+[![Open-Source Software][OSS Icon]](https://github.com/dbcli/mycli) ![Freeware][Freeware Icon] ![tuijian][tuijian Icon] ![star 5][star5 Icon]
+
+
+## 服务器
+
+_MySQL服务器的味道_
+
+*   [MariaDB](https://github.com/MariaDB/server) - MySQL server 的一个由社区开发的分支。
+*   [MySQL Server & MySQL Cluster](https://github.com/mysql/mysql-server) - Oracle 官方的 MySQL server 和 MySQL 集群分布。
+*   [Percona Server](https://launchpad.net/percona-server) - 一个加强版的 MySQL 替代品
+*   [WebScaleSQL](https://github.com/webscalesql/webscalesql-5.6) - WebScaleSQL，5.6 版本，基于 MySQL 5.6 社区版本。
+
+## 备份
+
+*备份/存储/恢复 工具*
+
+* [MyDumper](https://launchpad.net/mydumper) - 逻辑的，并行的 MySQL 备份/转储工具。
+* [MySQLDumper](http://www.mysqldumper.net/) - 基于 web 的开源备份工具-对于共享虚拟主机非常有用。
+* [mysqldump-secure](https://github.com/cytopia/mysqldump-secure) - 将加密，压缩，日志，黑名单和 Nagios 监控一体化的 mysqldump 安全脚本。
+* [Percona Xtrabackup](https://www.percona.com/doc/percona-xtrabackup) - 针对 MySQL 的一个开源热备份实用程序——在服务器的备份期间不会锁定你的数据库。
+
+**[⬆ 返回顶部](#目录)**
+
+
+[OSS Icon]: https://jaywcjlove.github.io/sb/ico/min-oss.svg
+[Freeware Icon]: https://jaywcjlove.github.io/sb/ico/min-free.svg
+[hot Icon]: https://jaywcjlove.github.io/sb/ico/min-hot.svg
+[tuijian Icon]: https://jaywcjlove.github.io/sb/ico/min-tuijian.svg
+[bibei Icon]: https://jaywcjlove.github.io/sb/ico/min-bibei.svg
+[red Icon]: https://jaywcjlove.github.io/sb/star/red.svg
+[star0 Icon]: https://jaywcjlove.github.io/sb/star/red0.svg
+[star1 Icon]: https://jaywcjlove.github.io/sb/star/red1.svg
+[star2 Icon]: https://jaywcjlove.github.io/sb/star/red2.svg
+[star3 Icon]: https://jaywcjlove.github.io/sb/star/red3.svg
+[star4 Icon]: https://jaywcjlove.github.io/sb/star/red4.svg
+[star5 Icon]: https://jaywcjlove.github.io/sb/star/red5.svg
