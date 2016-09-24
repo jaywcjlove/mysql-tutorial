@@ -59,10 +59,10 @@ _这里是搜集的一些 MySQL 的客户端，也有命令行客户端。_
 
 _MySQL服务器的味道_
 
-*   [MariaDB](https://github.com/MariaDB/server) - MySQL server 的一个由社区开发的分支。
-*   [MySQL Server & MySQL Cluster](https://github.com/mysql/mysql-server) - Oracle 官方的 MySQL server 和 MySQL 集群分布。
-*   [Percona Server](https://launchpad.net/percona-server) - 一个加强版的 MySQL 替代品
-*   [WebScaleSQL](https://github.com/webscalesql/webscalesql-5.6) - WebScaleSQL，5.6 版本，基于 MySQL 5.6 社区版本。
+* [MariaDB](https://github.com/MariaDB/server) - MySQL server 的一个由社区开发的分支。
+* [MySQL Server & MySQL Cluster](https://github.com/mysql/mysql-server) - Oracle 官方的 MySQL server 和 MySQL 集群分布。
+* [Percona Server](https://launchpad.net/percona-server) - 一个加强版的 MySQL 替代品
+* [WebScaleSQL](https://github.com/webscalesql/webscalesql-5.6) - WebScaleSQL，5.6 版本，基于 MySQL 5.6 社区版本。
 
 ## 备份
 
