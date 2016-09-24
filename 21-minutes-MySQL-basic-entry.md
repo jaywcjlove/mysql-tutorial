@@ -1,4 +1,7 @@
-# 开始使用
+21分钟MySQL基础入门
+---
+
+## 开始使用
 
 我下面所有的SQL语句是基于MySQL 5.6+运行。 
 
@@ -12,7 +15,7 @@ MySQL 为关系型数据库(Relational Database Management System)，一个关�
 - `值(value)`: 行的具体信息, 每个值必须与该列的数据类型相同;
 - `键(key)`: 表中用来识别某个特定的人\物的方法, 键的值在当前列中具有唯一性。
 
-## 登录MySQL
+### 登录MySQL
 
 ```bash
 mysql -h 127.0.0.1 -u 用户名 -p
@@ -21,7 +24,7 @@ mysql> exit # 退出
 mysql> quit # 退出
 ```
 
-## 创建数据库
+### 创建数据库
 
 对于表的操作需要先进入库`use 库名;`
 
@@ -36,7 +39,7 @@ describe 表名;    -- 显示数据表的结构
 delete from 表名; -- 清空表中记录
 ```
 
-## 创建数据库表
+### 创建数据库表
 
 > 使用 create table 语句可完成对表的创建, create table 的常见形式:
 > 语法：create table 表名称(列声明);
@@ -69,7 +72,7 @@ COMMENT='用户表信息';
 
 # 增删改查
 
-## SELECT
+### SELECT
 
 > SELECT 语句用于从表中选取数据。  
 > 语法：`SELECT 列名称 FROM 表名称`  
@@ -89,7 +92,7 @@ SELECT DISTINCT Company FROM Orders
 SELECT p.LastName, p.FirstName, o.OrderNo FROM Persons p, Orders o WHERE p.Id_P = o.Id_P 
 ```
 
-## UPDATE
+### UPDATE
 
 > Update 语句用于修改表中的数据。  
 > 语法：`UPDATE 表名称 SET 列名称 = 新值 WHERE 列名称 = 某值`  
@@ -101,7 +104,7 @@ where id = (select id from user2 where user2 .name='小苏')
 ```
 
 
-## INSERT
+### INSERT
 
 > INSERT INTO 语句用于向表格中插入新的行。  
 > 语法：`INSERT INTO 表名称 VALUES (值1, 值2,....)`  
@@ -119,7 +122,7 @@ INSERT INTO meeting SET a=1,b=2;
 INSERT INTO orders (user_account_id, title) SELECT m.user_id, m.title FROM meeting m where m.id=1;
 ```
 
-## DELETE
+### DELETE
 
 > DELETE 语句用于删除表中的行。  
 > 语法：`DELETE FROM 表名称 WHERE 列名称 = 值`  
@@ -135,7 +138,7 @@ DELETE FROM Person WHERE LastName = 'Wilson'
 DELETE from meeting where id in (2,3);
 ```
 
-# WHERE
+## WHERE
 
 > WHERE 子句用于规定选择的标准。  
 > 语法：`SELECT 列名称 FROM 表名称 WHERE 列 运算符 值`  
@@ -145,12 +148,12 @@ DELETE from meeting where id in (2,3);
 SELECT * FROM Persons WHERE Year>1965
 ```
 
-# AND 和 OR
+## AND 和 OR
 
 > AND - 如果第一个条件和第二个条件都成立；  
 > OR - 如果第一个条件和第二个条件中只要有一个成立；  
 
-## AND
+### AND
 
 ```sql 
 -- 删除 meeting 表字段 
@@ -162,14 +165,14 @@ DELETE from meeting where id in (2,3) and user_id in (5,6);
 SELECT * FROM Persons WHERE FirstName='Thomas' AND LastName='Carter';
 ```
 
-## OR
+### OR
 
 ```sql 
 -- 使用 OR 来显示所有姓为 "Carter" 或者名为 "Thomas" 的人：
 SELECT * FROM Persons WHERE firstname='Thomas' OR lastname='Carter'
 ```
 
-# ORDER BY
+## ORDER BY
 
 > 语句默认按照升序对记录进行排序。  
 > `ORDER BY` - 语句用于根据指定的列对结果集进行排序。  
@@ -187,7 +190,7 @@ SELECT Company, OrderNumber FROM Orders ORDER BY Company DESC
 SELECT Company, OrderNumber FROM Orders ORDER BY Company DESC, OrderNumber ASC
 ```
 
-# IN
+## IN
 
 > IN - 操作符允许我们在 WHERE 子句中规定多个值。  
 > IN - 操作符用来指定范围，范围中的每一条，都进行匹配。IN取值规律，由逗号分割，全部放置括号中。
@@ -198,7 +201,7 @@ SELECT Company, OrderNumber FROM Orders ORDER BY Company DESC, OrderNumber ASC
 SELECT * FROM Persons WHERE LastName IN ('Adams','Carter')
 ```
 
-# NOT
+## NOT
 
 > NOT - 操作符总是与其他操作符一起使用，用在要过滤的前面。
 
@@ -207,7 +210,7 @@ SELECT vend_id, prod_name FROM Products WHERE NOT vend_id = 'DLL01' ORDER BY pro
 ```
 
 
-# AS 
+## AS 
 
 > as - 可理解为：用作、当成，作为；别名  
 > 一般是重命名列名或者表名。  
@@ -232,7 +235,7 @@ SELECT t.name from (SELECT * from users_profile a) AS t;
 SELECT ua.mobile,up.name FROM user_accounts as ua INNER JOIN users_profile as up ON ua.id = up.user_id;
 ```
 
-# JOIN 
+## JOIN 
 
 > 用于根据两个或多个表中的列之间的关系，从这些表中查询数据。  
 
@@ -250,9 +253,9 @@ ON Persons.Id_P = Orders.Id_P
 ORDER BY Persons.LastName;
 ```
 
-# SQL 函数
+## SQL 函数
 
-## COUNT
+### COUNT
 
 > COUNT 让我们能够数出在表格中有多少笔资料被选出来。  
 > 语法：`SELECT COUNT("字段名") FROM "表格名";`
@@ -267,7 +270,7 @@ SELECT COUNT(1) AS totals FROM Persons;
 select user_id, count(*) as totals from station group by user_id;
 ```
 
-## MAX
+### MAX
 
 > MAX 函数返回一列中的最大值。NULL 值不包括在计算中。  
 > 语法：`SELECT MAX("字段名") FROM "表格名"`  
@@ -278,9 +281,9 @@ select user_id, count(*) as totals from station group by user_id;
 SELECT MAX(OrderPrice) AS LargestOrderPrice FROM Orders
 ```
 
-# 添加索引
+## 添加索引
 
-## 普通索引(INDEX)
+### 普通索引(INDEX)
 
 > 语法：ALTER TABLE `表名字` ADD INDEX 索引名字 ( `字段名字` )
 
@@ -304,7 +307,7 @@ CREATE TABLE `table` (
 DROP INDEX index_name ON table
 ```
 
-## 主键索引(PRIMARY key)
+### 主键索引(PRIMARY key)
 
 > 语法：ALTER TABLE `表名字` ADD PRIMARY KEY ( `字段名字` )
 
@@ -313,7 +316,7 @@ DROP INDEX index_name ON table
 ALTER TABLE `user` ADD PRIMARY key (id);
 ```
 
-## 唯一索引(UNIQUE)
+### 唯一索引(UNIQUE)
 
 > 语法：ALTER TABLE `表名字` ADD UNIQUE (`字段名字`)
 
@@ -322,7 +325,7 @@ ALTER TABLE `user` ADD PRIMARY key (id);
 ALTER TABLE `user` ADD UNIQUE (creattime);
 ```
 
-## 全文索引(FULLTEXT)
+### 全文索引(FULLTEXT)
 
 > 语法：ALTER TABLE `表名字` ADD FULLTEXT (`字段名字`)
 
@@ -331,7 +334,7 @@ ALTER TABLE `user` ADD UNIQUE (creattime);
 ALTER TABLE `user` ADD FULLTEXT (description);
 ```
 
-## 添加多列索引
+### 添加多列索引
 
 > 语法：
 ALTER TABLE `table_name` ADD INDEX index_name ( `column1`, `column2`, `column3`)
@@ -341,7 +344,7 @@ ALTER TABLE `table_name` ADD INDEX index_name ( `column1`, `column2`, `column3`)
 ALTER TABLE user ADD INDEX name_city_age (name(10),city,age); 
 ```
 
-## 建立索引的时机
+### 建立索引的时机
 
 在`WHERE`和`JOIN`中出现的列需要建立索引，但也不完全如此：
 
@@ -366,9 +369,9 @@ SELECT * FROM mytable WHEREt Name like'%admin'; -- 因此，在使用LIKE时应�
 - 使用短索引
 - 不要在列上进行运算 索引会失效
 
-# 创建后表的修改
+## 创建后表的修改
 
-## 添加列
+### 添加列
 
 > 语法：`alter table 表名 add 列名 列数据类型 [after 插入位置];`
 
@@ -381,7 +384,7 @@ alter table students add address char(60);
 alter table students add birthday date after age;
 ```
 
-## 修改列
+### 修改列
 
 > 语法：`alter table 表名 change 列名称 列新名称 新数据类型;`
 
@@ -392,7 +395,7 @@ alter table students change tel telphone char(13) default "-";
 alter table students change name name char(16) not null;
 ```
 
-## 删除列
+### 删除列
 
 > 语法：`alter table 表名 drop 列名称;`
 
@@ -401,7 +404,7 @@ alter table students change name name char(16) not null;
 alter table students drop birthday;
 ```
 
-## 重命名表
+### 重命名表
 
 > 语法：`alter table 表名 rename 新表名;`
 
@@ -410,7 +413,7 @@ alter table students drop birthday;
 alter table students rename workmates;
 ```
 
-## 清空表数据
+### 清空表数据
 
 > 方法一：`delete from 表名;`
 > 方法二：`truncate from "表名";`
@@ -425,7 +428,7 @@ delete from workmates;
 truncate from workmates;
 ```
 
-## 删除整张表
+### 删除整张表
 
 > 语法：`drop table 表名;`
 
@@ -434,7 +437,7 @@ truncate from workmates;
 drop table workmates;
 ```
 
-## 删除整个数据库
+### 删除整个数据库
 
 > 语法：`drop database 数据库名;`
 
@@ -443,14 +446,7 @@ drop table workmates;
 drop database samp_db;
 ```
 
-# 其它相关
-
-- [让MySQL支持emoji图标存储](让MySQL支持emoji图标存储.md)
-- [Mac下重置MySQL的root密码](Mac下重置MySQL的root密码.md)
-- [MySQL安装](mysql安装.md)
-- [MySQL数据类型](MySQL数据类型.md)
-
-# 参考手册 
+## 参考手册 
 
 - http://www.w3school.com.cn/sql/index.asp
 - http://www.1keydata.com/cn/sql/sql-count.php

@@ -1,4 +1,3 @@
 Awesome MySQL
-
 ---
 
