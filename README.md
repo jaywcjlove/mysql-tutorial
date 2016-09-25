@@ -18,21 +18,24 @@ MySQL入门教程
 #### 第1章 初识MySQL
 
 - 1.1 [数据库基础](chapter1/1.1.md)
-    - 什么是数据库
-    - 数据库分类
-    - 数据库模型
-    - 数据表
-    - 关系键
+    - [什么是数据库](chapter1/1.1.md#什么是数据库)
+    - [数据库分类](chapter1/1.1.md#数据库分类)
+    - [数据库模型](chapter1/1.1.md#数据库模型)
+    - [数据表](chapter1/1.1.md#数据表)
+    - [关系键](chapter1/1.1.md#关系键)
 - 1.2 [数据库技术构成](chapter1/1.2.md)
     - 数据库系统
+    - 关系数据库基本概念
     - SQL语言
     - 数据库访问技术
 - 1.3 [什么是MySQL](chapter1/1.3.md)
-    - MySQL介绍
-    - 历史事件
-    - MySQL 版本
-    - MySQL 的优势
+    - [MySQL介绍](chapter1/1.3.md#mysql介绍)
+    - [历史事件](chapter1/1.3.md#历史事件)
+    - [MySQL版本](chapter1/1.3.md#mysql版本)
+    - [MySQL的优势](chapter1/1.3.md#mysql的优势)
 - 1.4 [MySQL工具](chapter1/1.4.md)
+    - 命令行使用程序
+    - 常用图形管理工具
 - 1.5 [如何学习MySQL](chapter1/1.5.md)
 
 #### 第2章 MySQL的安装与配置
@@ -41,7 +44,6 @@ MySQL入门教程
 - 2.2 [linux平台下安装与配置`MySQL5.6`](#)
 - 2.2 [启动服务并登录MySQL数据库](#)
 - 2.3 [更改MySQL的配置](#)
-- 2.4 [MySQL常用图形管理工具](#)
 
 #### 第3章 数据库的基本操作
 
