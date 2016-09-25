@@ -79,6 +79,7 @@ _MySQL服务器的味道_
 * MySQL官网：http://www.mysql.com/
 * MySQL开发者主页：http://dev.mysql.com/
 * MySQL社区：http://www.mysqlpub.com/
+* [What is MySQL?](http://dev.mysql.com/doc/refman/5.7/en/what-is-mysql.html)
 
 
 **[⬆ 返回顶部](#目录)**
