@@ -19,6 +19,7 @@ Awesome MySQL
 - [GUI](#gui)
 - [服务器](#服务器)
 - [官方资料](#官方资料)
+- [优秀文章](#优秀文章)
 
 
 ## 手册文档
@@ -80,6 +81,10 @@ _MySQL服务器的味道_
 * MySQL开发者主页：http://dev.mysql.com/
 * MySQL社区：http://www.mysqlpub.com/
 * [What is MySQL?](http://dev.mysql.com/doc/refman/5.7/en/what-is-mysql.html)
+
+## 优秀文章
+
+* [MySQL索引背后的数据结构及算法原理](http://blog.codinglabs.org/articles/theory-of-mysql-index.html)
 
 
 **[⬆ 返回顶部](#目录)**
