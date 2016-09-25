@@ -24,18 +24,18 @@ MySQL入门教程
     - [数据表](chapter1/1.1.md#数据表)
     - [关系键](chapter1/1.1.md#关系键)
 - 1.2 [数据库技术构成](chapter1/1.2.md)
-    - 数据库系统
-    - 关系数据库基本概念
-    - SQL语言
-    - 数据库访问技术
+    - [数据库系统](chapter1/1.2.md#数据库系统)
+    - [关系数据库基本概念](chapter1/1.2.md#关系数据库基本概念)
+    - [SQL语言](chapter1/1.2.md#sql语言)
+    - [数据库访问技术](chapter1/1.2.md#数据库访问技术)
 - 1.3 [什么是MySQL](chapter1/1.3.md)
     - [MySQL介绍](chapter1/1.3.md#mysql介绍)
     - [历史事件](chapter1/1.3.md#历史事件)
     - [MySQL版本](chapter1/1.3.md#mysql版本)
     - [MySQL的优势](chapter1/1.3.md#mysql的优势)
 - 1.4 [MySQL工具](chapter1/1.4.md)
-    - 命令行使用程序
-    - 常用图形管理工具
+    - [命令行使用程序](chapter1/1.4.md#命令行使用程序)
+    - [常用图形管理工具](chapter1/1.4.md#常用图形管理工具)
 - 1.5 [如何学习MySQL](chapter1/1.5.md)
 
 #### 第2章 MySQL的安装与配置
