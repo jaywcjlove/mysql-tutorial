@@ -10,7 +10,7 @@ MySQL入门教程
 
 原本我是使用 MongoDB 这种 NoSQL 数据库，Nodejs 在 Mongoose 的帮助下 JSON 数据直接插入 `MongoDB`中，对于一个前端开发工程师来说，使用起来非常舒服。但是没有办法，我是被逼的，从此入了一个新坑，我就决心系统的好好学习一下。如果你对本小电子书阅读非常没有耐心，你可以看看我做的一篇笔记 《[21分钟MySQL基础入门](21-minutes-MySQL-basic-entry.md)》 ，这个笔记还可以在 [SegmentFault](https://segmentfault.com/a/1190000006876419) 里面阅读，有导航阅读非常方便，为什么只需要21分钟呢？因为在我们大天朝有句话叫做三七二十一，你可以不管三七二十一开始使用 MySQL 及快速的方式入门 MySQL，里面系统的整理了一些常用的SQL语句。
 
-在本书中所搜集到得各种资源，我将放到这里[awesome-mysql](awesome-mysql.md)。所有例子都是基于`MySQL 5.6` 运行的。这里面的一些理论知识都是从[维基百科](https://zh.wikipedia.org)等各种百科和各种官网搬运过来的，偶尔会有一些基础理论知识总结，如果有错误或者误差可以给我来个疯狂的[Pull requesets](https://github.com/jaywcjlove/mysql-tutorial/pulls)或者[Issue](https://github.com/jaywcjlove/mysql-tutorial/issues)。如果实在过意不去你可以🔫。
+在本书中所搜集到得各种资源，我将放到这里 [Awesome MySQL](awesome-mysql.md)。所有例子都是基于`MySQL 5.6` 运行的。这里面的一些理论知识都是从[维基百科](https://zh.wikipedia.org)等各种百科和各种官网搬运过来的，偶尔会有一些基础理论知识总结，如果有错误或者误差可以给我来个疯狂的[Pull requesets](https://github.com/jaywcjlove/mysql-tutorial/pulls)或者[Issue](https://github.com/jaywcjlove/mysql-tutorial/issues)。如果实在过意不去你可以🔫。
 
 
 ## 目录
