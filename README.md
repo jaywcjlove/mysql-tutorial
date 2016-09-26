@@ -30,7 +30,7 @@ MySQL入门教程
     - [数据库访问技术](chapter1/1.2.md#数据库访问技术)
 - 1.3 [什么是MySQL](chapter1/1.3.md)
     - [MySQL介绍](chapter1/1.3.md#mysql介绍)
-    - [历史事件](chapter1/1.3.md#历史事件)
+    - [MySQL发展历史](chapter1/1.3.md#mysql发展历史)
     - [MySQL版本](chapter1/1.3.md#mysql版本)
     - [MySQL的优势](chapter1/1.3.md#mysql的优势)
 - 1.4 [MySQL工具](chapter1/1.4.md)
