@@ -35,8 +35,9 @@ MySQL入门教程
     - [MySQL的优势](chapter1/1.3.md#mysql-的优势)
 - 1.4 [MySQL工具](chapter1/1.4.md)
     - [命令行使用程序](chapter1/1.4.md#命令行使用程序)
-    - [常用图形管理工具](chapter1/1.4.md#常用图形管理工具)
     - [MySQL Workbench客户端](chapter1/1.4.md#mysql-workbench客户端)
+    - [常用图形管理工具](chapter1/1.4.md#常用图形管理工具)
+    - [mycli替代MySQL的mysql命令行工具](chapter1/1.4.md#常用图形管理工具)
 - 1.5 [如何学习MySQL](chapter1/1.5.md)
 
 #### 第2章 MySQL的安装与配置
