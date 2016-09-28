@@ -102,7 +102,9 @@ SELECT p.LastName, p.FirstName, o.OrderNo FROM Persons p, Orders o WHERE p.Id_P 
 ```sql 
 -- update语句设置字段值为另一个结果取出来的字段
 update user set name = (select name from user1 where user1 .id = 1 )
-where id = (select id from user2 where user2 .name='小苏')
+where id = (select id from user2 where user2 .name='小苏');
+-- 更新表 orders 中 id=1 的那一行数据更新它的 title 字段
+UPDATE `orders` set title='这里是标题' WHERE id=1;
 ```
 
 
