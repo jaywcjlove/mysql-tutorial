@@ -42,8 +42,8 @@ MySQL入门教程
 
 #### 第2章 MySQL的安装与配置
 
-- 2.1 Mac平台下安装与配置MySQL5.7.14
-- 2.2 [Linux平台下安装与配置MySQL5.7.14](chapter2/2.2.md)
+- 2.1 Mac平台下安装与配置MySQL
+- 2.2 [Linux平台下安装与配置MySQL](chapter2/2.2.md)
 - 2.2 启动服务并登录MySQL数据库
 - 2.3 更改MySQL的配置
 
