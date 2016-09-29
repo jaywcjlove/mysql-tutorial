@@ -399,6 +399,8 @@ alter table students add column `weeks` varchar(5) not null default "" after `nu
 alter table students change tel telphone char(13) default "-";
 -- 将 name 列的数据类型改为 char(16): 
 alter table students change name name char(16) not null;
+-- 修改 COMMENT 前面必须得有类型属性
+alter table students change name name char(16) COMMENT '这里是名字';
 ```
 
 ### 删除列
