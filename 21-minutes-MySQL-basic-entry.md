@@ -386,6 +386,8 @@ SELECT * FROM mytable WHEREt Name like'%admin'; -- 因此，在使用LIKE时应�
 alter table students add address char(60);
 -- 在名为 age 的列后插入列 birthday: 
 alter table students add birthday date after age;
+-- 在名为 number_people 的列后插入列 weeks: 
+alter table students add column `weeks` varchar(5) not null default "" after `number_people`;
 ```
 
 ### 修改列
