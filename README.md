@@ -44,8 +44,12 @@ MySQL入门教程
 
 - 2.1 Mac平台下安装与配置MySQL
 - 2.2 [Linux平台下安装与配置MySQL](chapter2/2.2.md)
-    - [Centos 6.5安装 MySQL](chapter2/2.2.md#centos-65安装-mysql)
+    - [Centos 6.5 安装 MySQL](chapter2/2.2.md#centos-65安装-mysql)
+    - Centos 6.5 卸载 MySQL 软件
 - 2.2 启动服务并登录MySQL数据库
+    - [图像界面启动关闭重启MySQL服务]
+    - [命令行启动关闭重启MySQL服务]
+    - [登录MySQL数据库]
 - 2.3 [MySQL配置修改](chapter2/2.3.md)
     - [MySQL安装目录说明](chapter2/2.3.md#mysql安装目录说明)
     - [配置文件的位置](chapter2/2.3.md#配置文件的位置)
