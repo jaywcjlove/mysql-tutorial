@@ -47,6 +47,11 @@ MySQL入门教程
     - [Centos 6.5安装 MySQL](chapter2/2.2.md#centos-65安装-mysql)
 - 2.2 启动服务并登录MySQL数据库
 - 2.3 [MySQL配置修改](chapter2/2.3.md)
+    - [MySQL安装目录说明](chapter2/2.3.md#mysql安装目录说明)
+    - [配置文件的位置](chapter2/2.3.md#配置文件的位置)
+    - [Windows系统配置文件读取](chapter2/2.3.md#windows系统配置文件读取)
+    - [Linux系统配置文件读取](chapter2/2.3.md#linux系统配置文件读取)
+    - [配置文件内容](chapter2/2.3.md#配置文件内容)
 
 #### 第3章 数据库的基本操作
 
