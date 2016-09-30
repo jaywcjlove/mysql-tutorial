@@ -28,6 +28,7 @@ _这里是一些非官方的手册文档_
 
 - http://www.w3school.com.cn/sql/index.asp
 - http://www.1keydata.com/cn/sql/sql-count.php
+- http://www.runoob.com/mysql/mysql-tutorial.html
 
 ## 分析工具
 
