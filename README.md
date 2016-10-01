@@ -99,6 +99,16 @@ MySQL入门教程
 - 17.2 [Centos6下升级MySQL数据库](chapter17/1.2.md)
 - 17.3 [Mac下重置MySQL的root密码](chapter17/1.3.md)
 
+#### 第18章 Awesome MySQL
+
+- [手册文档](awesome-mysql.md#手册文档)
+- [分析工具](awesome-mysql.md#分析工具)
+- [GUI](awesome-mysql.md#gui)
+- [服务器](awesome-mysql.md#服务器)
+- [官方资料](awesome-mysql.md#官方资料)
+- [优秀文章](awesome-mysql.md#优秀文章)
+
+
 ## 读者对象
 
 适合下读者学习使用：
