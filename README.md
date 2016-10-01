@@ -46,16 +46,16 @@ MySQL入门教程
 - 2.2 [Linux平台下安装与配置MySQL](chapter2/2.2.md)
     - [Centos 6.5 安装 MySQL](chapter2/2.2.md#centos-65安装-mysql)
     - Centos 6.5 卸载 MySQL 软件
-- 2.2 启动服务并登录MySQL数据库
-    - [图像界面启动关闭重启MySQL服务]
-    - [命令行启动关闭重启MySQL服务]
-    - [登录MySQL数据库]
-- 2.3 [MySQL配置修改](chapter2/2.3.md)
-    - [MySQL安装目录说明](chapter2/2.3.md#mysql安装目录说明)
-    - [配置文件的位置](chapter2/2.3.md#配置文件的位置)
-    - [Windows系统配置文件读取](chapter2/2.3.md#windows系统配置文件读取)
-    - [Linux系统配置文件读取](chapter2/2.3.md#linux系统配置文件读取)
-    - [配置文件内容](chapter2/2.3.md#配置文件内容)
+- 2.3 [启动服务并登录MySQL数据库](chapter2/2.3.md)
+    - 图像界面启动关闭重启MySQL服务
+    - [命令行启动关闭重启MySQL服务](chapter2/2.3.md#命令行启动关闭重启mysql服务)
+    - 登录MySQL数据库
+- 2.4 [MySQL配置修改](chapter2/2.4.md)
+    - [MySQL安装目录说明](chapter2/2.4.md#mysql安装目录说明)
+    - [配置文件的位置](chapter2/2.4.md#配置文件的位置)
+    - [Windows系统配置文件读取](chapter2/2.4.md#windows系统配置文件读取)
+    - [Linux系统配置文件读取](chapter2/2.4.md#linux系统配置文件读取)
+    - [配置文件内容](chapter2/2.4.md#配置文件内容)
 
 #### 第3章 数据库的基本操作
 
@@ -101,12 +101,12 @@ MySQL入门教程
 
 #### 第18章 Awesome MySQL
 
-- [手册文档](awesome-mysql.md#手册文档)
-- [分析工具](awesome-mysql.md#分析工具)
-- [GUI](awesome-mysql.md#gui)
-- [服务器](awesome-mysql.md#服务器)
-- [官方资料](awesome-mysql.md#官方资料)
-- [优秀文章](awesome-mysql.md#优秀文章)
+- 18.1 [手册文档](awesome-mysql.md#手册文档)
+- 18.2 [分析工具](awesome-mysql.md#分析工具)
+- 18.3 [GUI](awesome-mysql.md#gui)
+- 18.4 [服务器](awesome-mysql.md#服务器)
+- 18.5 [官方资料](awesome-mysql.md#官方资料)
+- 18.6 [优秀文章](awesome-mysql.md#优秀文章)
 
 
 ## 读者对象
