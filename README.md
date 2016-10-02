@@ -47,9 +47,9 @@ MySQL入门教程
     - [Centos 6.5 安装 MySQL](chapter2/2.2.md#centos-65安装-mysql)
     - Centos 6.5 卸载 MySQL 软件
 - 2.3 [启动服务并登录MySQL数据库](chapter2/2.3.md)
-    - 图像界面启动关闭重启MySQL服务
     - [命令行启动关闭重启MySQL服务](chapter2/2.3.md#命令行启动关闭重启mysql服务)
-    - 登录MySQL数据库
+    - [图像界面启动关闭重启MySQL服务](chapter2/2.3.md#图像界面启动关闭重启mysql服务)
+    - [登录MySQL数据库](chapter2/2.3.md##登录MySQL数据库)
 - 2.4 [MySQL配置修改](chapter2/2.4.md)
     - [MySQL安装目录说明](chapter2/2.4.md#mysql安装目录说明)
     - [配置文件的位置](chapter2/2.4.md#配置文件的位置)
