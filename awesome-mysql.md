@@ -86,6 +86,7 @@ _MySQL服务器的味道_
 ## 优秀文章
 
 * [MySQL索引背后的数据结构及算法原理](http://blog.codinglabs.org/articles/theory-of-mysql-index.html)
+* [MySQL数据库引擎](http://www.cnblogs.com/0201zcr/p/5296843.html)
 
 
 **[⬆ 返回顶部](#目录)**
