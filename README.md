@@ -15,14 +15,14 @@ MySQL入门教程
 
 ## 目录
 
-#### 第0章 Awesome MySQL
+#### Awesome MySQL
 
-- 0.1 [手册文档](awesome-mysql.md#手册文档)
-- 0.2 [分析工具](awesome-mysql.md#分析工具)
-- 0.3 [GUI](awesome-mysql.md#gui)
-- 0.4 [服务器](awesome-mysql.md#服务器)
-- 0.5 [官方资料](awesome-mysql.md#官方资料)
-- 0.6 [优秀文章](awesome-mysql.md#优秀文章)
+- [手册文档](awesome-mysql.md#手册文档)
+- [分析工具](awesome-mysql.md#分析工具)
+- [GUI](awesome-mysql.md#gui)
+- [服务器](awesome-mysql.md#服务器)
+- [官方资料](awesome-mysql.md#官方资料)
+- [优秀文章](awesome-mysql.md#优秀文章)
 
 #### 第1章 初识MySQL
 
