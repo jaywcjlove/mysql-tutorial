@@ -1,7 +1,7 @@
 Awesome MySQL
 ---
 
-这是一个MySQL软件库和资源列表清单。部分资源搜集来源于[shlomi-noach/awesome-mysql](https://github.com/shlomi-noach/awesome-mysql)，它的[中文翻译](https://github.com/jobbole/awesome-mysql-cn)在这里，没有完全fork过来，还有些并没有搜集，部分排版比较丑陋，部分工具慢慢搜集。
+这是一个MySQL软件库和资源列表清单。部分资源搜集来源于[shlomi-noach/awesome-mysql](https://github.com/shlomi-noach/awesome-mysql)，它的[中文翻译](https://github.com/jobbole/awesome-mysql-cn)在这里，没有完全fork过来，没有完全拷贝，是因为部分排版比较丑陋，部分工具慢慢搜集理解。
 
 ### 说明
 
@@ -9,7 +9,7 @@ Awesome MySQL
 ![Freeware][Freeware Icon] 表示**免费**标示，或者个人**免费**；  
 ![hot][hot Icon] 表示**热门**的资源标示；  
 ![tuijian][tuijian Icon] 表示**推荐**资源标示；  
-![必备][bibei Icon] 表示**装机必备**资源标示；  
+![必备][bibei Icon] 表示**必备**资源标示；  
 ![1 star][red Icon] 表示强烈推荐的，星星的数量来表达强烈的程度；
 
 ## 目录
