@@ -15,6 +15,15 @@ MySQL入门教程
 
 ## 目录
 
+#### 第0章 Awesome MySQL
+
+- 0.1 [手册文档](awesome-mysql.md#手册文档)
+- 0.2 [分析工具](awesome-mysql.md#分析工具)
+- 0.3 [GUI](awesome-mysql.md#gui)
+- 0.4 [服务器](awesome-mysql.md#服务器)
+- 0.5 [官方资料](awesome-mysql.md#官方资料)
+- 0.6 [优秀文章](awesome-mysql.md#优秀文章)
+
 #### 第1章 初识MySQL
 
 - 1.1 [数据库基础](chapter1/1.1.md)
@@ -107,14 +116,6 @@ MySQL入门教程
 - 17.2 [Centos6下升级MySQL数据库](chapter17/1.2.md)
 - 17.3 [Mac下重置MySQL的root密码](chapter17/1.3.md)
 
-#### 第18章 Awesome MySQL
-
-- 18.1 [手册文档](awesome-mysql.md#手册文档)
-- 18.2 [分析工具](awesome-mysql.md#分析工具)
-- 18.3 [GUI](awesome-mysql.md#gui)
-- 18.4 [服务器](awesome-mysql.md#服务器)
-- 18.5 [官方资料](awesome-mysql.md#官方资料)
-- 18.6 [优秀文章](awesome-mysql.md#优秀文章)
 
 
 ## 读者对象
