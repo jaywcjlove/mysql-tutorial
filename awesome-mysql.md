@@ -18,6 +18,7 @@ Awesome MySQL
 - [分析工具](#分析工具)
 - [GUI](#gui)
 - [服务器](#服务器)
+- [备份](#备份)
 - [官方资料](#官方资料)
 - [优秀文章](#优秀文章)
 
@@ -59,7 +60,7 @@ _这里是搜集的一些 MySQL 的客户端，也有命令行客户端。_
 
 ## 服务器
 
-_MySQL服务器的味道_
+_MySQL服务器的衍生品_
 
 * [MariaDB](https://github.com/MariaDB/server) - MySQL server 的一个由社区开发的分支。
 * [MySQL Server & MySQL Cluster](https://github.com/mysql/mysql-server) - Oracle 官方的 MySQL server 和 MySQL 集群分布。
@@ -68,7 +69,7 @@ _MySQL服务器的味道_
 
 ## 备份
 
-*备份/存储/恢复 工具*
+_备份/存储/恢复 工具_
 
 * [MyDumper](https://launchpad.net/mydumper) - 逻辑的，并行的 MySQL 备份/转储工具。
 * [MySQLDumper](http://www.mysqldumper.net/) - 基于 web 的开源备份工具-对于共享虚拟主机非常有用。
@@ -78,12 +79,16 @@ _MySQL服务器的味道_
 
 ## 官方资料
 
+_官方的一些网站和文章_
+
 * MySQL官网：http://www.mysql.com/
 * MySQL开发者主页：http://dev.mysql.com/
 * MySQL社区：http://www.mysqlpub.com/
 * [What is MySQL?](http://dev.mysql.com/doc/refman/5.7/en/what-is-mysql.html)
 
 ## 优秀文章
+
+_一些优秀的文章_
 
 * [MySQL索引背后的数据结构及算法原理](http://blog.codinglabs.org/articles/theory-of-mysql-index.html)
 * [MySQL数据库引擎](http://www.cnblogs.com/0201zcr/p/5296843.html)
