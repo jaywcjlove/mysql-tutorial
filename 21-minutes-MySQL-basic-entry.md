@@ -3,6 +3,47 @@
 
 为什么只需要21分钟呢？因为在我们大天朝有句话叫做三七二十一，你可以不管三七二十一开始使用 `MySQL` 及快速的方式入门 `MySQL`。其实21分钟把下面语句之行一遍是没有问题的，要理解的话估计不止21分钟，对于初学者来说只需满足自己需求可以增删改查等简易的维护即可。
 
+## 目录
+
+- [开始使用](#开始使用)
+- [登录MySQL](#登录mysql)
+- [创建数据库](#创建数据库)
+- [创建数据库表](#创建数据库表)
+- [增删改查](#增删改查)
+  - [SELECT](#SELECT)
+  - [UPDATE](#UPDATE)
+  - [INSERT](#INSERT)
+  - [DELETE](#DELETE)
+- [WHERE](#WHERE)
+- [AND 和 OR](#and-和-or)
+  - [AND](#and)
+  - [OR](#or)
+- [ORDER BY](#order-by)
+- [IN](#in)
+- [NOT](#not)
+- [AS](#as)
+- [JOIN](#join)
+- [SQL 函数](#sql-函数)
+  - [COUNT](#count)
+  - [MAX](#max)
+- [添加索引](#添加索引)
+  - [普通索引(INDEX)](#普通索引index)
+  - [主键索引(PRIMARY key)](#主键索引primary-key)
+  - [唯一索引(UNIQUE)](#唯一索引unique)
+  - [全文索引(FULLTEXT)](#全文索引fulltext)
+  - [添加多列索引](#添加多列索引)
+  - [建立索引的时机](#建立索引的时机)
+- [创建后表的修改](#创建后表的修改)
+  - [添加列](#添加列)
+  - [修改列](#修改列)
+  - [删除列](#删除列)
+  - [重命名表](#重命名表)
+  - [清空表数据](#清空表数据)
+  - [删除整张表](#删除整张表)
+  - [删除整张表](#删除整张表)
+  - [删除整个数据库](#删除整个数据库)
+- [参考手册](#参考手册)
+
 ## 开始使用
 
 我下面所有的SQL语句是基于MySQL 5.6+运行。 
@@ -22,8 +63,7 @@ MySQL 为关系型数据库(Relational Database Management System)，一个关�
 ```shell
 mysql -h 127.0.0.1 -u 用户名 -p
 mysql -D 所选择的数据库名 -h 主机名 -u 用户名 -p
-mysql> exit # 退出
-mysql> quit # 退出
+mysql> exit # 退出 使用 “quit;” 或 “\q;” 一样的效果
 mysql> status;  # 显示当前mysql的version的各种信息
 mysql> select version(); # 显示当前mysql的version信息
 mysql> show global variables like 'port'; # 查看MySQL端口号
@@ -75,7 +115,7 @@ COMMENT='用户表信息';
 - `CHARACTER SET name`：指定一个字符集；
 - `COMMENT`：对表或者字段说明；
 
-# 增删改查
+## 增删改查
 
 ### SELECT
 
