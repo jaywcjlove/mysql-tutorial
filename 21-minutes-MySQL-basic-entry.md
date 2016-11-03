@@ -19,11 +19,14 @@ MySQL 为关系型数据库(Relational Database Management System)，一个关�
 
 ### 登录MySQL
 
-```bash
+```shell
 mysql -h 127.0.0.1 -u 用户名 -p
 mysql -D 所选择的数据库名 -h 主机名 -u 用户名 -p
 mysql> exit # 退出
 mysql> quit # 退出
+mysql> status;  # 显示当前mysql的version的各种信息
+mysql> select version(); # 显示当前mysql的version信息
+mysql> show global variables like 'port'; # 查看MySQL端口号
 ```
 
 ### 创建数据库
