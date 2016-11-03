@@ -85,6 +85,7 @@ _官方的一些网站和文章_
 * MySQL开发者主页：http://dev.mysql.com/
 * MySQL社区：http://www.mysqlpub.com/
 * [What is MySQL?](http://dev.mysql.com/doc/refman/5.7/en/what-is-mysql.html)
+* [密码验证插件](http://dev.mysql.com/doc/refman/5.6/en/validate-password-plugin.html)
 
 ## 优秀文章
 
