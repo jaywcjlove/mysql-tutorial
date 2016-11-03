@@ -69,8 +69,9 @@ MySQL入门教程
 #### 第3章 数据库的基本操作
 
 - 3.1 [连接数据库](chapter3/3.1.md)
-    - [mysql命令语法](chapter3/3.1.md#mysql命令语法)
-    - [mysql命令连接数据库](chapter3/3.1.md#mysql命令连接数据库)
+    - [MySQL命令语法](chapter3/3.1.md#mysql命令语法)
+    - [MySQL命令连接数据库](chapter3/3.1.md#mysql命令连接数据库)
+    - [开启MySQL的远程帐号](chapter3/3.1.md#开启mysql的远程帐号)
 - 3.2 [查看选择数据库](chapter3/3.2.md)
     - [查看数据库](chapter3/3.2.md#查看数据库)
     - [选择数据库](chapter3/3.2.md#选择数据库)
