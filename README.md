@@ -1,8 +1,8 @@
 
 <img align="right" height="150" src="./img/mysql-logo.png">
 
-MySQL入门教程
---- 
+MySQL/MariaDB入门教程
+---
 
 [![](https://jaywcjlove.github.io/sb/ico/mysql.svg)](http://www.mysql.com/) [![](https://jaywcjlove.github.io/sb/ico/awesome.svg)](awesome-mysql.md) [![](https://jaywcjlove.github.io/sb/license/mit.svg)](#)
 
@@ -12,6 +12,7 @@ MySQL入门教程
 
 在本书中所搜集到得各种资源，我将放到这里 [Awesome MySQL](awesome-mysql.md)。所有例子都是基于`MySQL 5.7.14` 运行的。这里面的一些理论知识都是从[维基百科](https://zh.wikipedia.org)等各种百科和各种官网搬运过来的，偶尔会有一些基础理论知识总结，如果有错误或者误差可以给我来个疯狂的[Pull requesets](https://github.com/jaywcjlove/mysql-tutorial/pulls)或者[Issue](https://github.com/jaywcjlove/mysql-tutorial/issues)。如果实在过意不去你可以🔫。
 
+MariaDB，是 MySQL server 的一个由社区开发的分支，这里我是MySQL和MariaDB穿插着玩儿。本机是 MySQL 5.7.14 服务器上面是 MariaDB 最新版本。
 
 ## 目录
 
@@ -55,7 +56,8 @@ MySQL入门教程
 - 2.1 Mac平台下安装与配置MySQL
 - 2.2 [Linux平台下安装与配置MySQL](chapter2/2.2.md)
     - [Centos 6.5 安装 MySQL](chapter2/2.2.md#centos-65安装-mysql)
-    - Centos 6.5 卸载 MySQL 软件
+    - [Centos 7 安装MySQL](chapter2/2.2.md#centos7安装mysql)
+    - [Centos 卸载 MySQL 软件](centos-卸载-mysql-软件)
 - 2.3 [启动服务并登录MySQL数据库](chapter2/2.3.md)
     - [命令行启动关闭重启MySQL服务](chapter2/2.3.md#命令行启动关闭重启mysql服务)
     - [图像界面启动关闭重启MySQL服务](chapter2/2.3.md#图像界面启动关闭重启mysql服务)
