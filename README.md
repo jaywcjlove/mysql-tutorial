@@ -119,13 +119,15 @@ MariaDB，是 MySQL server 的一个由社区开发的分支，这里我是MySQL
 
 #### 第17章 各种问题解决
 
-- 17.1 [让MySQL支持emoji图标存储](chapter17/17.1.md)
-- 17.2 [Centos6下升级MySQL数据库](chapter17/17.2.md)
-- 17.3 [MySQL修改密码](chapter17/17.3.md)
+- [让MySQL支持emoji图标存储](chapter17/17.1.md)
+- [Centos6下升级MySQL数据库](chapter17/17.2.md)
+- [MySQL修改密码](chapter17/17.3.md)
     - [启动修改丢失的mysql单实例root密码方法](chapter17/17.3.md#启动修改丢失的mysql单实例root密码方法)
     - [Mac下重置MySQL的root密码](chapter17/17.3.md#Mac下重置MySQL的root密码)
-    - [不重启mysqld的方法](chapter17/17.3.md#不重启mysqld的方法)
-
+    - [不重启mysqld修改密码的方法](chapter17/17.3.md#不重启mysqld的方法)
+- [Centos7 默认为MariaDB导致mysql安装不上](chapter2/2.2.md#centos7安装mysql)
+- [MySQL服务启动失败解决方案](chapter2/2.3.md#linux-下命令操作)
+- [密码不满足当前的策略要求导致无法开启远程帐号](chapter2/2.3.md#linux-下命令操作)
 
 
 ## 读者对象
