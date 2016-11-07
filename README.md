@@ -131,7 +131,7 @@ MariaDB，是 MySQL server 的一个由社区开发的分支，MariaDB大部分�
     - [不重启mysqld修改密码的方法](chapter17/17.3.md#不重启mysqld的方法)
 - [Centos7 默认为MariaDB导致mysql安装不上](chapter2/2.2.md#centos7安装mysql)
 - [MySQL服务启动失败解决方案](chapter2/2.3.md#linux-下命令操作)
-- [密码不满足当前的策略要求导致无法开启远程帐号](chapter2/2.3.md#linux-下命令操作)
+- [密码不满足当前的策略要求导致无法开启远程帐号](chapter3/3.1.md#开启mysql的远程帐号)
 
 
 ## 读者对象
