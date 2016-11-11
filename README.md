@@ -44,7 +44,7 @@ MariaDB，是 MySQL server 的一个由社区开发的分支，MariaDB大部分�
     - [MySQL发展历史](chapter1/1.3.md#mysql-发展历史)
     - [MySQL版本](chapter1/1.3.md#mysql-版本)
     - [MySQL的优势](chapter1/1.3.md#mysql-的优势)
-- 1.5 [如何学习MySQL](chapter1/1.5.md)
+- 1.4 [如何学习MySQL](chapter1/1.4.md)
 
 #### 第2章 MySQL的安装与配置
 
