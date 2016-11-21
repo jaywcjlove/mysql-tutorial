@@ -124,7 +124,7 @@ COMMENT='用户表信息';
 > 语法：`SELECT * FROM 表名称`  
 
 ```sql
--- 表abc 两个 id  表abc中不包含 字段a=b 的 查询出来，只显示id
+-- 表station 两个 id  表station中不包含 字段a=b 的 查询出来，只显示id
 SELECT s.id from station s WHERE id in (13,14) and user_id not in (4);
 
 -- 从表 Persons 选取 LastName 列的数据
@@ -158,7 +158,7 @@ UPDATE `orders` set title='这里是标题' WHERE id=1;
 > 语法：`INSERT INTO 表名称 (列1, 列2,...) VALUES (值1, 值2,....)`  
 
 ```sql
--- 向表 Persons 插入一条字段 LastName = Wilson 字段 Address = shanghai
+-- 向表 Persons 插入一条字段 LastName = JSLite 字段 Address = shanghai
 INSERT INTO Persons (LastName, Address) VALUES ('JSLite', 'shanghai');
 -- 向表 meeting 插入 字段 a=1 和字段 b=2
 INSERT INTO meeting SET a=1,b=2;
@@ -179,8 +179,8 @@ INSERT INTO orders (user_account_id, title) SELECT m.user_id, m.title FROM meeti
 DELETE FROM table_name
 -- 或者
 DELETE * FROM table_name
--- 删除 Person表字段 LastName = 'Wilson' 
-DELETE FROM Person WHERE LastName = 'Wilson' 
+-- 删除 Person表字段 LastName = 'JSLite' 
+DELETE FROM Person WHERE LastName = 'JSLite' 
 -- 删除 表meeting id 为2和3的两条数据
 DELETE from meeting where id in (2,3);
 ```
