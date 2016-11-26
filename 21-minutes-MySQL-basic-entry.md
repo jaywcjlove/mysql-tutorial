@@ -135,6 +135,11 @@ SELECT DISTINCT Company FROM Orders
 -- 表 Persons 字段 Id_P 等于 Orders 字段 Id_P 的值，
 -- 结果集显示 Persons表的 LastName、FirstName字段，Orders表的OrderNo字段
 SELECT p.LastName, p.FirstName, o.OrderNo FROM Persons p, Orders o WHERE p.Id_P = o.Id_P 
+
+-- gbk 和 utf8 中英文混合排序最简单的办法 
+-- ci是 case insensitive, 即 “大小写不敏感”
+SELECT tag, COUNT(tag) from news GROUP BY tag order by convert(tag using gbk) collate gbk_chinese_ci;
+SELECT tag, COUNT(tag) from news GROUP BY tag order by convert(tag using utf8) collate utf8_unicode_ci;
 ```
 
 ### UPDATE
