@@ -21,6 +21,7 @@
 - [ORDER BY](#order-by)
 - [IN](#in)
 - [NOT](#not)
+- [UNION](#union)
 - [AS](#as)
 - [JOIN](#join)
 - [SQL 函数](#sql-函数)
@@ -259,6 +260,22 @@ SELECT * FROM Persons WHERE LastName IN ('Adams','Carter')
 
 ```sql
 SELECT vend_id, prod_name FROM Products WHERE NOT vend_id = 'DLL01' ORDER BY prod_name;
+```
+
+
+## UNION
+
+> UNION - 操作符用于合并两个或多个 SELECT 语句的结果集。
+
+
+```sql
+-- 列出所有在中国表（Employees_China）和美国（Employees_USA）的不同的雇员名
+SELECT E_Name FROM Employees_China UNION SELECT E_Name FROM Employees_USA
+
+-- 列出 meeting 表中的 pic_url，
+-- station 表中的 number_station 别名设置成 pic_url 避免字段不一样报错
+-- 按更新时间排序
+SELECT id,pic_url FROM meeting UNION ALL SELECT id,number_station AS pic_url FROM station  ORDER BY update_at;
 ```
 
 
