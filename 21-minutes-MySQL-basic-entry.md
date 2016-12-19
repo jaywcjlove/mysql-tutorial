@@ -27,6 +27,7 @@
 - [SQL 函数](#sql-函数)
   - [COUNT](#count)
   - [MAX](#max)
+- [触发器](#触发器)
 - [添加索引](#添加索引)
   - [普通索引(INDEX)](#普通索引index)
   - [主键索引(PRIMARY key)](#主键索引primary-key)
@@ -349,6 +350,32 @@ select user_id, count(*) as totals from station group by user_id;
 -- 结果集列不显示 OrderPrice 显示 LargestOrderPrice
 SELECT MAX(OrderPrice) AS LargestOrderPrice FROM Orders
 ```
+
+## 触发器
+
+> 语法：
+> create trigger <触发器名称>
+> { before | after}             # 之前或者之后出发
+> insert | update | delete      # 指明了激活触发程序的语句的类型
+> on <表名>                     # 操作哪张表
+> for each row                  # 触发器的执行间隔，for each row 通知触发器每隔一行执行一次动作，而不是对整个表执行一次。
+> <触发器SQL语句>
+
+```sql
+DELIMITER $ -- 自定义结束符号
+CREATE TRIGGER set_userdate BEFORE INSERT 
+on `message`
+for EACH ROW
+BEGIN
+  UPDATE `user_accounts` SET status=1 WHERE openid=NEW.openid;
+END
+$
+DELIMITER ; -- 恢复结束符号
+```
+
+OLD和NEW不区分大小写
+- NEW 用NEW.col_name，没有旧行。在DELETE触发程序中，仅能使用OLD.col_name，没有新行。
+- OLD 用OLD.col_name来引用更新前的某一行的列
 
 ## 添加索引
 
