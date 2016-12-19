@@ -362,12 +362,15 @@ SELECT MAX(OrderPrice) AS LargestOrderPrice FROM Orders
 > <触发器SQL语句>
 
 ```sql
-DELIMITER $ -- 自定义结束符号
+delimiter $
 CREATE TRIGGER set_userdate BEFORE INSERT 
 on `message`
 for EACH ROW
 BEGIN
-  UPDATE `user_accounts` SET status=1 WHERE openid=NEW.openid;
+  set @statu = new.status; -- 声明复制变量 statu
+  if @statu = 0 then       -- 判断 statu 是否等于 0
+    UPDATE `user_accounts` SET status=1 WHERE openid=NEW.openid;
+  end if;
 END
 $
 DELIMITER ; -- 恢复结束符号
