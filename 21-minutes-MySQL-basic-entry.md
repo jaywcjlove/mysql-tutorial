@@ -132,6 +132,9 @@ SELECT s.id from station s WHERE id in (13,14) and user_id not in (4);
 -- 从表 Persons 选取 LastName 列的数据
 SELECT LastName FROM Persons
 
+-- 从表 users 选取 id=3 的数据，并只拉一条数据(据说能优化性能)
+SELECT * FROM users where id=3 limit 1
+
 -- 结果集中会自动去重复数据
 SELECT DISTINCT Company FROM Orders 
 -- 表 Persons 字段 Id_P 等于 Orders 字段 Id_P 的值，
