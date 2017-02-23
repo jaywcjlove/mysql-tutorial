@@ -92,6 +92,8 @@ delete from 表名; -- 清空表中记录
 > 语法：create table 表名称(列声明);
 
 ```sql
+-- 如果数据库中存在samp_db表，就把它从数据库中drop掉
+DROP TABLE IF EXISTS `samp_db`;
 CREATE TABLE `user_accounts` (
   `id`             int(100) unsigned NOT NULL AUTO_INCREMENT primary key,
   `password`       varchar(32)       NOT NULL DEFAULT '' COMMENT '用户密码',
