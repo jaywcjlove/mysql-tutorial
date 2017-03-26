@@ -128,8 +128,8 @@ COMMENT='用户表信息';
 > 语法：`SELECT * FROM 表名称`  
 
 ```sql
--- 表station 两个 id  表station中不包含 字段a=b 的 查询出来，只显示id
-SELECT s.id from station s WHERE id in (13,14) and user_id not in (4);
+-- 表station取个别名叫s，表station中不包含 字段id=13或者14 的，并且id不等于4的 查询出来，只显示id
+SELECT s.id from station s WHERE id in (13,14) and id not in (4);
 
 -- 从表 Persons 选取 LastName 列的数据
 SELECT LastName FROM Persons
