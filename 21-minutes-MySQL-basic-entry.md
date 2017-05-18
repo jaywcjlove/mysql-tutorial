@@ -179,6 +179,9 @@ INSERT INTO meeting SET a=1,b=2;
 -- 如果只希望导入指定字段，可以用这种方法：
 -- INSERT INTO 目标表 (字段1, 字段2, ...) SELECT 字段1, 字段2, ... FROM 来源表;
 INSERT INTO orders (user_account_id, title) SELECT m.user_id, m.title FROM meeting m where m.id=1;
+
+-- 向表 charger 插入一条数据，已存在就对表 charger 更新 `type`,`update_at` 字段；
+INSERT INTO `charger` (`id`,`type`,`create_at`,`update_at`) VALUES (3,2,'2017-05-18 11:06:17','2017-05-18 11:06:17') ON DUPLICATE KEY UPDATE `id`=VALUES(`id`), `type`=VALUES(`type`), `update_at`=VALUES(`update_at`);
 ```
 
 ### DELETE
@@ -282,6 +285,8 @@ SELECT E_Name FROM Employees_China UNION SELECT E_Name FROM Employees_USA
 -- station 表中的 number_station 别名设置成 pic_url 避免字段不一样报错
 -- 按更新时间排序
 SELECT id,pic_url FROM meeting UNION ALL SELECT id,number_station AS pic_url FROM station  ORDER BY update_at;
+-- 通过 UNION 语法同时查询了 products 表 和 comments 表的总记录数，并且按照 count 排序
+SELECT 'product' AS type, count(*) as count FROM `products` union select 'comment' as type, count(*) as count FROM `comments` order by count;
 ```
 
 
