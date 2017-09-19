@@ -94,6 +94,9 @@ _一些优秀的文章_
 * [MySQL数据库引擎](http://www.cnblogs.com/0201zcr/p/5296843.html)
 * [Nodejs连接MySQL数据库](http://xieyufei.com/2016/11/15/Nodejs-Connect-Mysql.html)
 * [MySQL优化](http://blog.csdn.net/qq_22329521/article/details/54801950)
+* [10分钟让你明白MySQL是如何利用索引的](http://fordba.com/spend-10-min-to-understand-how-mysql-use-index.html)
+* [一个MySQL 5.7 分区表性能下降的案例分析](https://mp.weixin.qq.com/s/K3RpSBAIWFwGCIWyfF0QPA)
+* [一个不可思议的MySQL慢查分析与解决](http://fordba.com/optimize-an-amazing-mysql-slowlog.html)
 
 
 **[⬆ 返回顶部](#目录)**
