@@ -509,6 +509,8 @@ alter table students change name name char(16) COMMENT '这里是名字';
 -- 修改列属性的时候 建议使用modify,不需要重建表
 -- change用于修改列名字，这个需要重建表
 alter table meeting modify `weeks` varchar(20) NOT NULL DEFAULT "" COMMENT "开放日期 周一到周日：0~6，间隔用英文逗号隔开";
+-- `user`表的`id`列，修改成字符串类型长度50，不能为空，`FIRST`放在第一列的位置
+alter table `user` modify COLUMN `id` varchar(50) NOT NULL FIRST ;
 ```
 
 ### 删除列
