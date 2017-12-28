@@ -3,12 +3,15 @@
 
 为什么只需要21分钟呢？因为在我们大天朝有句话叫做三七二十一，你可以不管三七二十一开始使用 `MySQL` 及快速的方式入门 `MySQL`。其实21分钟把下面语句之行一遍是没有问题的，要理解的话估计不止21分钟，对于初学者来说只需满足自己需求可以增删改查等简易的维护即可。
 
-## 目录
+目录
+---
+
+<!-- TOC -->
 
 - [开始使用](#开始使用)
-- [登录MySQL](#登录mysql)
-- [创建数据库](#创建数据库)
-- [创建数据库表](#创建数据库表)
+  - [登录MySQL](#登录mysql)
+  - [创建数据库](#创建数据库)
+  - [创建数据库表](#创建数据库表)
 - [增删改查](#增删改查)
   - [SELECT](#select)
   - [UPDATE](#update)
@@ -42,9 +45,12 @@
   - [重命名表](#重命名表)
   - [清空表数据](#清空表数据)
   - [删除整张表](#删除整张表)
-  - [删除整张表](#删除整张表)
   - [删除整个数据库](#删除整个数据库)
+- [其它实例](#其它实例)
+  - [SQL删除重复记录](#sql删除重复记录)
 - [参考手册](#参考手册)
+
+<!-- /TOC -->
 
 ## 开始使用
 
@@ -562,6 +568,30 @@ drop table workmates;
 ```sql
 -- 删除 samp_db 数据库: 
 drop database samp_db;
+```
+
+## 其它实例
+
+### SQL删除重复记录
+
+[转载](http://www.xiangguo.li/sql_and_nosql/2015/01/01/sql)
+
+```sql
+-- 查找表中多余的重复记录，重复记录是根据单个字段（peopleId）来判断
+select * from people where peopleId in (select peopleId from people group by peopleId having count(peopleId) > 1)
+-- 删除表中多余的重复记录，重复记录是根据单个字段（peopleId）来判断，只留有rowid最小的记录
+delete from people 
+where peopleId in (select peopleId from people group by peopleId having count(peopleId) > 1)
+and rowid not in (select min(rowid) from people group by peopleId having count(peopleId )>1)
+-- 查找表中多余的重复记录（多个字段）
+select * from vitae a
+where (a.peopleId,a.seq) in (select peopleId,seq from vitae group by peopleId,seq having count(*) > 1)
+-- 删除表中多余的重复记录（多个字段），只留有rowid最小的记录
+delete from vitae a
+where (a.peopleId,a.seq) in (select peopleId,seq from vitae group by peopleId,seq having count(*) > 1) and rowid not in (select min(rowid) from vitae group by peopleId,seq having count(*)>1)
+-- 查找表中多余的重复记录（多个字段），不包含rowid最小的记录
+select * from vitae a
+where (a.peopleId,a.seq) in (select peopleId,seq from vitae group by peopleId,seq having count(*) > 1) and rowid not in (select min(rowid) from vitae group by peopleId,seq having count(*)>1)
 ```
 
 ## 参考手册 
