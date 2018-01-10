@@ -329,7 +329,7 @@ SELECT ua.mobile,up.name FROM user_accounts as ua INNER JOIN users_profile as up
 - `INNER JOIN`:在表中存在至少一个匹配时，INNER JOIN 关键字返回行。
 - `LEFT JOIN`: 即使右表中没有匹配，也从左表返回所有的行
 - `RIGHT JOIN`: 即使左表中没有匹配，也从右表返回所有的行
-- `FULL JOIN`: 只要其中一个表中存在匹配，就返回行
+- `FULL JOIN`: 只要其中一个表中存在匹配，就返回行(MySQL 是不支持的，通过  `LEFT JOIN + UNION + RIGHT JOIN` 的方式 来实现)
 
 ```sql
 SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo
