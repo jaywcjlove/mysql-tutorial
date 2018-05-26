@@ -549,7 +549,7 @@ alter table students rename workmates;
 -- 清空表为 workmates 里面的数据，不删除表。 
 delete from workmates;
 -- 删除workmates表中的所有数据，且无法恢复
-truncate from workmates;
+truncate table workmates;
 ```
 
 ### 删除整张表
