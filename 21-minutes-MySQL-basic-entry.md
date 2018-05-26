@@ -475,7 +475,7 @@ FROM mytable t LEFT JOIN mytable m ON t.Name=m.username
 WHERE m.age=20 AND m.city='上海';
 
 SELECT * FROM mytable WHERE username like'admin%'; -- 而下句就不会使用：
-SELECT * FROM mytable WHEREt Name like'%admin'; -- 因此，在使用LIKE时应注意以上的区别。
+SELECT * FROM mytable WHERE Name like'%admin'; -- 因此，在使用LIKE时应注意以上的区别。
 ```
 
 索引的注意事项
