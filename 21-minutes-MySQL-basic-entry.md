@@ -407,10 +407,10 @@ OLD和NEW不区分大小写
 CREATE INDEX index_user ON user(title)
 -- –修改表结构的方式添加索引
 ALTER TABLE table_name ADD INDEX index_name ON (column(length))
--- 给 user 表中的 name字段 添加普通索引(INDEX)
-ALTER TABLE `table` ADD INDEX index_name (name)
+-- 给 user 表中的 name 字段 添加普通索引(INDEX)
+ALTER TABLE `user` ADD INDEX index_name (name)
 -- –创建表的时候同时创建索引
-CREATE TABLE `table` (
+CREATE TABLE `user` (
     `id` int(11) NOT NULL AUTO_INCREMENT ,
     `title` char(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
     `content` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL ,
