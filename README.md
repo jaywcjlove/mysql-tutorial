@@ -18,6 +18,7 @@ MariaDB，是 MySQL server 的一个由社区开发的分支，MariaDB大部分�
 
 #### Awesome MySQL
 
+- [21分钟MySQL基础入门](21-minutes-MySQL-basic-entry.md)
 - [手册文档](awesome-mysql.md#手册文档) - 一些非官方的手册文档搜集
 - [分析工具](awesome-mysql.md#分析工具) - 性能，结构和数据分析工具
 - [GUI](awesome-mysql.md#gui) - 搜集的一些 MySQL 的客户端，也有命令行客户端
