@@ -45,7 +45,7 @@ _性能，结构和数据分析工具_
 
 _这里是搜集的一些 MySQL 的客户端，也有命令行客户端。_
 
-* [TablePlus](http://www.sequelpro.com/) - 支持PostgreSQL，MySQL，RedShift，MariaDB ...各种数据库的高颜值客户端。[![Open-Source Software][OSS Icon]](https://github.com/sequelpro/sequelpro) ![Freeware][Freeware Icon] ![hot][hot Icon] ![必备][bibei Icon]
+* [TablePlus](https://tableplus.io/) - 支持PostgreSQL，MySQL，RedShift，MariaDB ...各种数据库的高颜值客户端。[![Open-Source Software][OSS Icon]](https://github.com/sequelpro/sequelpro) ![Freeware][Freeware Icon] ![hot][hot Icon] ![必备][bibei Icon]
 * [Sequel Pro](http://www.sequelpro.com/) - 一个MySQL数据库管理软件。[![Open-Source Software][OSS Icon]](https://github.com/sequelpro/sequelpro) ![Freeware][Freeware Icon] ![hot][hot Icon]
 * [MySQL Workbench](http://dev.mysql.com/downloads/workbench/) - MySQL数据库官方管理软件。提供给数据库管理员和开发人员进行数据库设计和建模的集成工具环境；SQL 开发；数据库管理。
 * [Navicat](https://www.navicat.com/products/navicat-for-mysql) - 同样跨平台，同时支持多个数据库系统（MySQL、SQL Server、Oracle）。
