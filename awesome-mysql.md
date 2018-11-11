@@ -40,6 +40,7 @@ _性能，结构和数据分析工具_
 * [innotop](https://github.com/innotop/innotop) - 一个具备多种特性和可扩展性的 MySQL 版 'top' 工具。
 * [pstop](https://github.com/sjmudd/ps-top) - 一个针对 MySQL 的类 top 程序，用于收集，汇总以及展示来自 performance_schema 的信息。
 * [mysql-statsd](https://github.com/db-art/mysql-statsd) - 一个收集 MySQL 信息的 Python 守护进程，并通过 StatsD 发送到 Graphite。
+* [sql.ohrz.ne](https://sql.ohrz.ne) - SQL语句解读服务，支持高亮显示解析结果中表名、字段名、子查询语句等在原文中对应的位置。
 
 ## GUI
 
