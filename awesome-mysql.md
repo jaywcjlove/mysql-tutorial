@@ -57,6 +57,7 @@ _这里是搜集的一些 MySQL 的客户端，也有命令行客户端。_
 * [phpMyAdmin](https://www.phpmyadmin.net/) - 一个 PHP 写成的开源软件，意图对 web 上的 MySQL 进行管理。
 * [mycli](https://github.com/dbcli/mycli) - 为MySQL命令行客户端，提供语法高亮和提示功能的工具！
 [![Open-Source Software][OSS Icon]](https://github.com/dbcli/mycli) ![Freeware][Freeware Icon] ![tuijian][tuijian Icon] ![star 5][star5 Icon]
+* [dbdiagram](https://dbdiagram.io/) - 创建数据库的实体-关系图的工具。
 
 
 ## 服务器
