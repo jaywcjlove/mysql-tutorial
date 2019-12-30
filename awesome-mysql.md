@@ -52,9 +52,9 @@ _这里是搜集的一些 MySQL 的客户端，也有命令行客户端。_
 * [Navicat](https://www.navicat.com/products/navicat-for-mysql) - 同样跨平台，同时支持多个数据库系统（MySQL、SQL Server、Oracle）。
 * [ElectroCRUD](http://garrylachman.github.io/ElectroCRUD/) - MySQL数据库CRUD应用程序。[![Open-Source Software][OSS Icon]](https://github.com/garrylachman/ElectroCRUD) ![Freeware][Freeware Icon]
 * [Chrome MySQL Admin](https://www.eisbahn.jp/chrome_mysql_admin) - 一个Chrome插件，是MySQL开发的跨平台、可视化数据库工具。[![Open-Source Software][OSS Icon]](https://github.com/yoichiro/chrome_mysql_admin) ![Freeware][Freeware Icon]
-* [Adminer](https://www.adminer.org/) - 一个 PHP 编写的数据库管理工具。
-* [HeidiSQL](http://www.heidisql.com/) - Windows 下的 MySQL 图形化管理工具。
-* [phpMyAdmin](https://www.phpmyadmin.net/) - 一个 PHP 写成的开源软件，意图对 web 上的 MySQL 进行管理。
+* [Adminer](https://www.adminer.org/) - 一个 PHP 编写的数据库管理工具。[![Open-Source Software][OSS Icon]](https://github.com/vrana/adminer) ![Freeware][Freeware Icon]
+* [HeidiSQL](http://www.heidisql.com/) - Windows 下的 MySQL 图形化管理工具。[![Open-Source Software][OSS Icon]](https://github.com/HeidiSQL/HeidiSQL) ![Freeware][Freeware Icon]
+* [phpMyAdmin](https://www.phpmyadmin.net/) - 一个 PHP 写成的开源软件，意图对 web 上的 MySQL 进行管理。[![Open-Source Software][OSS Icon]](https://github.com/phpmyadmin/phpmyadmin)
 * [mycli](https://github.com/dbcli/mycli) - 为MySQL命令行客户端，提供语法高亮和提示功能的工具！
 [![Open-Source Software][OSS Icon]](https://github.com/dbcli/mycli) ![Freeware][Freeware Icon] ![tuijian][tuijian Icon] ![star 5][star5 Icon]
 * [dbdiagram](https://dbdiagram.io/) - 创建数据库的实体-关系图的工具。
