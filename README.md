@@ -6,6 +6,7 @@ MySQL入门教程
 
 [![](https://jaywcjlove.github.io/sb/ico/mysql.svg)](http://www.mysql.com/) [![](https://jaywcjlove.github.io/sb/ico/awesome.svg)](awesome-mysql.md) [![](https://jaywcjlove.github.io/sb/license/mit.svg)](#)
 
+从1看i是许欸升级到封建拉萨的飞机【2怕人肉福建建瓯啊撒旦解放了9
 从零开始学习MySQL，主要是面向MySQL数据库管理系统初学者。前端开发工程师为什么写这个入门教程呢？最近项目强迫我这个前端老司机使用MySQL，虽然我在项目中已经使用过一段时间，为了写出高质量的SQL语句，能快速定位解决数据库引发的问题，系统的过一遍基础，你也可以当做是我的笔记。有幸也认识一些 MySQL 的 DBA，这让我学习起来比较快，能快速入门，进入实战开发阶段。
 
 原本我是使用 MongoDB 这类型的 NoSQL 数据库，MongoDB在 Nodejs 在 Mongoose 包的帮助下 JSON 的数据格式直接插入 MongoDB 中，对于一个前端开发工程师，使用起来非常舒服。但是没有办法，我是被逼的，从此入了一个新坑，我就决心系统的好好学习一下。如果你对本小电子书阅读非常没有耐心，你可以看看我做的一篇笔记 **《[21分钟MySQL基础入门](21-minutes-MySQL-basic-entry.md)》** ，这个笔记还可以在 [SegmentFault](https://segmentfault.com/a/1190000006876419) 里面阅读，有导航阅读非常方便，为什么只需要21分钟呢？因为在我们大天朝有句话叫做“不管三七二十一”，你可以不管三七二十一开始使用 MySQL 及快速入门，里面系统的整理了，一些常用的SQL语句。
