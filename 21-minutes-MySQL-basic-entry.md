@@ -370,12 +370,14 @@ SELECT MAX(OrderPrice) AS LargestOrderPrice FROM Orders
 ## 触发器
 
 > 语法：
-> create trigger <触发器名称>
-> { before | after}             # 之前或者之后出发
-> insert | update | delete      # 指明了激活触发程序的语句的类型
-> on <表名>                     # 操作哪张表
-> for each row                  # 触发器的执行间隔，for each row 通知触发器每隔一行执行一次动作，而不是对整个表执行一次。
+> ```
+> create trigger <触发器名称>  
+> { before | after}          # 之前或者之后出发  
+> insert | update | delete   # 指明了激活触发程序的语句的类型  
+> on <表名>                   # 操作哪张表  
+> for each row               # 触发器的执行间隔，for each row 通知触发器每隔一行执行一次动作，而不是对整个表执行一次。  
 > <触发器SQL语句>
+> ```
 
 ```sql
 delimiter $
