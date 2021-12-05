@@ -1,0 +1,1227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>MySQL 配置修改 - mysql-tutorial</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta description="MySQL 配置修改。从零开始学习MySQL，主要是面向MySQL数据库管理系统初学者。- mysql-tutorial">
+    <meta keywords="example,mysql-tutorial,mysql,tutorial">
+    <link rel="icon" href="data:image/png;base64,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" type="image/x-icon">
+    <style>body { margin: 0; }.markdown-body { -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; max-width: 960px; margin: 28px auto 60px auto; padding: 8px; color: #24292f; background-color: #ffffff; font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"; font-size: 16px; line-height: 1.5; word-wrap: break-word;}.markdown-body .octicon { display: inline-block; fill: currentColor; vertical-align: text-bottom;}.markdown-body pre[class*="language-"] { position: relative;}.markdown-body pre[class*="language-"] .copied { visibility: hidden; display: flex; position: absolute; cursor: pointer; color: #a5afbb; top: 6px; right: 6px; border-radius: 5px; background: #e3e3e3; padding: 6px; font-size: 12px; transition: all .3s;}.markdown-body pre[class*="language-"]:hover .copied { visibility: visible;}.markdown-body pre[class*="language-"]:hover .copied:hover { background: #4caf50; color: #fff;}.markdown-body pre[class*="language-"]:hover .copied:active,.markdown-body pre[class*="language-"] .active { background: #2e9b33; color: #fff;}.markdown-body pre[class*="language-"] .copied .octicon-copy { display: block;}.markdown-body pre[class*="language-"] .copied .octicon-check { display: none;}.markdown-body pre[class*="language-"] .active .octicon-copy { display: none;}.markdown-body pre[class*="language-"] .active .octicon-check { display: block;}.markdown-body .octicon-video { border: 1px solid #d0d7de !important; border-radius: 6px !important; display: block;}.markdown-body .octicon-video summary { border-bottom: 1px solid #d0d7de !important; padding: 8px 16px !important; cursor: pointer;}.markdown-body .octicon-video > video { display: block !important; max-width: 100% !important; padding: 2px; box-sizing: border-box; border-bottom-right-radius: 6px !important; border-bottom-left-radius: 6px !important;}.markdown-body details.octicon-video:not([open])>*:not(summary) { display: none !important;}.markdown-body details.octicon-video:not([open]) > summary { border-bottom: 0 !important;}.markdown-body .octicon-video summary > svg + span { margin: 4px !important;}.markdown-body h1:hover a.anchor .octicon-link:before,.markdown-body h2:hover a.anchor .octicon-link:before,.markdown-body h3:hover a.anchor .octicon-link:before,.markdown-body h4:hover a.anchor .octicon-link:before,.markdown-body h5:hover a.anchor .octicon-link:before,.markdown-body h6:hover a.anchor .octicon-link:before { width: 16px; height: 16px; content: ' '; display: inline-block; background-color: currentColor; -webkit-mask-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' aria-hidden='true'><path fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z'></path></svg>"); mask-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' aria-hidden='true'><path fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z'></path></svg>");}.markdown-body a.anchor { float: left; padding-right: 4px; margin-left: -20px; line-height: 1; min-width: 16px;}.markdown-body a.anchor:focus { outline: none;}.markdown-body h1:hover a.anchor,.markdown-body h2:hover a.anchor,.markdown-body h3:hover a.anchor,.markdown-body h4:hover a.anchor,.markdown-body h5:hover a.anchor,.markdown-body h6:hover a.anchor { text-decoration: none;}.markdown-body h1:hover a.anchor .octicon-link,.markdown-body h2:hover a.anchor .octicon-link,.markdown-body h3:hover a.anchor .octicon-link,.markdown-body h4:hover a.anchor .octicon-link,.markdown-body h5:hover a.anchor .octicon-link,.markdown-body h6:hover a.anchor .octicon-link { visibility: visible;}.markdown-body details,.markdown-body figcaption,.markdown-body figure { display: block;}.markdown-body summary { display: list-item;}.markdown-body a { background-color: transparent; color: #0969da; text-decoration: none;}.markdown-body a:active,.markdown-body a:hover { outline-width: 0;}.markdown-body abbr[title] { border-bottom: none; -webkit-text-decoration: underline dotted; text-decoration: underline dotted;}.markdown-body b,.markdown-body strong { font-weight: 600;}.markdown-body dfn { font-style: italic;}.markdown-body h1 { margin: .67em 0; font-weight: 600; padding-bottom: .3em; font-size: 2em; border-bottom: 1px solid hsla(210,18%,87%,1);}.markdown-body mark { background-color: #ff0; color: #24292f;}.markdown-body small { font-size: 90%;}.markdown-body sub,.markdown-body sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline;}.markdown-body sub { bottom: -0.25em;}.markdown-body sup { top: -0.5em;}.markdown-body img { border-style: none; max-width: 100%; box-sizing: content-box; background-color: #ffffff;}.markdown-body code,.markdown-body kbd,.markdown-body pre,.markdown-body samp { font-family: monospace,monospace; font-size: 1em;}.markdown-body figure { margin: 1em 40px;}.markdown-body hr { box-sizing: content-box; overflow: hidden; background: transparent; border-bottom: 1px solid hsla(210,18%,87%,1); height: .25em; padding: 0; margin: 24px 0; background-color: #d0d7de; border: 0;}.markdown-body html [type=button],.markdown-body [type=reset],.markdown-body [type=submit] { -webkit-appearance: button;}.markdown-body [type=button]::-moz-focus-inner,.markdown-body [type=reset]::-moz-focus-inner,.markdown-body [type=submit]::-moz-focus-inner { border-style: none; padding: 0;}.markdown-body [type=button]:-moz-focusring,.markdown-body [type=reset]:-moz-focusring,.markdown-body [type=submit]:-moz-focusring { outline: 1px dotted ButtonText;}.markdown-body [type=checkbox],.markdown-body [type=radio] { box-sizing: border-box; padding: 0;}.markdown-body [type=number]::-webkit-inner-spin-button,.markdown-body [type=number]::-webkit-outer-spin-button { height: auto;}.markdown-body [type=search] { -webkit-appearance: textfield; outline-offset: -2px;}.markdown-body [type=search]::-webkit-search-cancel-button,.markdown-body [type=search]::-webkit-search-decoration { -webkit-appearance: none;}.markdown-body ::-webkit-input-placeholder { color: inherit; opacity: .54;}.markdown-body ::-webkit-file-upload-button { -webkit-appearance: button; font: inherit;}.markdown-body a:hover { text-decoration: underline;}.markdown-body hr::before { display: table; content: "";}.markdown-body hr::after { display: table; clear: both; content: "";}.markdown-body table { border-spacing: 0; border-collapse: collapse; display: block; width: max-content; max-width: 100%; overflow: auto;}.markdown-body td,.markdown-body th { padding: 0;}.markdown-body details summary { cursor: pointer;}.markdown-body details:not([open])>*:not(summary) { display: none !important;}.markdown-body kbd { display: inline-block; padding: 3px 5px; font: 11px ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace; line-height: 10px; color: #24292f; vertical-align: middle; background-color: #f6f8fa; border: solid 1px rgba(175,184,193,0.2); border-bottom-color: rgba(175,184,193,0.2); border-radius: 6px; box-shadow: inset 0 -1px 0 rgba(175,184,193,0.2);}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6 { margin-top: 24px; margin-bottom: 16px; font-weight: 600; line-height: 1.25;}.markdown-body h2 { font-weight: 600; padding-bottom: .3em; font-size: 1.5em; border-bottom: 1px solid hsla(210,18%,87%,1);}.markdown-body h3 { font-weight: 600; font-size: 1.25em;}.markdown-body h4 { font-weight: 600; font-size: 1em;}.markdown-body h5 { font-weight: 600; font-size: .875em;}.markdown-body h6 { font-weight: 600; font-size: .85em; color: #57606a;}.markdown-body p { margin-top: 0; margin-bottom: 10px;}.markdown-body blockquote { margin: 0; padding: 0 1em; color: #57606a; border-left: .25em solid #d0d7de;}.markdown-body ul,.markdown-body ol { margin-top: 0; margin-bottom: 0; padding-left: 2em;}.markdown-body ol ol,.markdown-body ul ol { list-style-type: lower-roman;}.markdown-body ul ul ol,.markdown-body ul ol ol,.markdown-body ol ul ol,.markdown-body ol ol ol { list-style-type: lower-alpha;}.markdown-body ul ul,.markdown-body ul ol,.markdown-body ol ol,.markdown-body ol ul { margin-top: 0; margin-bottom: 0;}.markdown-body dd { margin-left: 0;}.markdown-body tt,.markdown-body code { font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace; font-size: 12px;}.markdown-body pre { margin-top: 0; margin-bottom: 0; font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace; word-wrap: normal;}.markdown-body :-ms-input-placeholder { color: #6e7781; opacity: 1;}.markdown-body ::-ms-input-placeholder { color: #6e7781; opacity: 1;}.markdown-body ::placeholder { color: #6e7781; opacity: 1;}.markdown-body [data-catalyst] { display: block;}.markdown-body g-emoji { font-family: "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; font-size: 1em; font-style: normal !important; font-weight: 400; line-height: 1; vertical-align: -0.075em;}.markdown-body g-emoji img { width: 1em; height: 1em;}.markdown-body::before { display: table; content: "";}.markdown-body::after { display: table; clear: both; content: "";}.markdown-body>*:first-child { margin-top: 0 !important;}.markdown-body>*:last-child { margin-bottom: 0 !important;}.markdown-body a:not([href]) { color: inherit; text-decoration: none;}.markdown-body .absent { color: #cf222e;}.markdown-body p,.markdown-body blockquote,.markdown-body ul,.markdown-body ol,.markdown-body dl,.markdown-body table,.markdown-body pre,.markdown-body details { margin-top: 0; margin-bottom: 16px;}.markdown-body blockquote>:first-child { margin-top: 0;}.markdown-body blockquote>:last-child { margin-bottom: 0;}.markdown-body sup>a::before { content: "[";}.markdown-body sup>a::after { content: "]";}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link { color: #24292f; vertical-align: middle; visibility: hidden;}.markdown-body h1 tt,.markdown-body h1 code,.markdown-body h2 tt,.markdown-body h2 code,.markdown-body h3 tt,.markdown-body h3 code,.markdown-body h4 tt,.markdown-body h4 code,.markdown-body h5 tt,.markdown-body h5 code,.markdown-body h6 tt,.markdown-body h6 code { padding: 0 .2em; font-size: inherit;}.markdown-body ul.no-list,.markdown-body ol.no-list { padding: 0; list-style-type: none;}.markdown-body ol[type="1"] { list-style-type: decimal;}.markdown-body ol[type=a] { list-style-type: lower-alpha;}.markdown-body ol[type=i] { list-style-type: lower-roman;}.markdown-body div>ol:not([type]) { list-style-type: decimal;}.markdown-body ul ul,.markdown-body ul ol,.markdown-body ol ol,.markdown-body ol ul { margin-top: 0; margin-bottom: 0;}.markdown-body li>p { margin-top: 16px;}.markdown-body li+li { margin-top: .25em;}.markdown-body dl { padding: 0;}.markdown-body dl dt { padding: 0; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: 600;}.markdown-body dl dd { padding: 0 16px; margin-bottom: 16px;}.markdown-body table th { font-weight: 600;}.markdown-body table th,.markdown-body table td { padding: 6px 13px; border: 1px solid #d0d7de;}.markdown-body table tr { background-color: #ffffff; border-top: 1px solid hsla(210,18%,87%,1);}.markdown-body table tr:nth-child(2n) { background-color: #f6f8fa;}.markdown-body table img { background-color: transparent;}.markdown-body img[align=right] { padding-left: 20px;}.markdown-body img[align=left] { padding-right: 20px;}.markdown-body .emoji { max-width: none; vertical-align: text-top; background-color: transparent;}.markdown-body span.frame { display: block; overflow: hidden;}.markdown-body span.frame>span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0 0; overflow: hidden; border: 1px solid #d0d7de;}.markdown-body span.frame span img { display: block; float: left;}.markdown-body span.frame span span { display: block; padding: 5px 0 0; clear: both; color: #24292f;}.markdown-body span.align-center { display: block; overflow: hidden; clear: both;}.markdown-body span.align-center>span { display: block; margin: 13px auto 0; overflow: hidden; text-align: center;}.markdown-body span.align-center span img { margin: 0 auto; text-align: center;}.markdown-body span.align-right { display: block; overflow: hidden; clear: both;}.markdown-body span.align-right>span { display: block; margin: 13px 0 0; overflow: hidden; text-align: right;}.markdown-body span.align-right span img { margin: 0; text-align: right;}.markdown-body span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden;}.markdown-body span.float-left span { margin: 13px 0 0;}.markdown-body span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden;}.markdown-body span.float-right>span { display: block; margin: 13px auto 0; overflow: hidden; text-align: right;}.markdown-body code,.markdown-body tt { padding: .2em .4em; margin: 0; font-size: 85%; background-color: rgba(175,184,193,0.2); border-radius: 6px;}.markdown-body code br,.markdown-body tt br { display: none;}.markdown-body del code { text-decoration: inherit;}.markdown-body pre code { font-size: 100%;}.markdown-body pre>code { padding: 0; margin: 0; word-break: normal; white-space: pre; background: transparent; border: 0;}.markdown-body .highlight { margin-bottom: 16px;}.markdown-body .highlight pre { margin-bottom: 0; word-break: normal;}.markdown-body pre code { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: #f6f8fa; border-radius: 6px;}.markdown-body pre code,.markdown-body pre tt { display: block; margin: 0; word-wrap: normal; border: 0;}.markdown-body .csv-data td,.markdown-body .csv-data th { padding: 5px; overflow: hidden; font-size: 12px; line-height: 1; text-align: left; white-space: nowrap;}.markdown-body .csv-data .blob-num { padding: 10px 8px 9px; text-align: right; background: #ffffff; border: 0;}.markdown-body .csv-data tr { border-top: 0;}.markdown-body .csv-data th { font-weight: 600; background: #f6f8fa; border-top: 0;}.markdown-body .footnotes { font-size: 12px; color: #57606a; border-top: 1px solid #d0d7de;}.markdown-body .footnotes ol { padding-left: 16px;}.markdown-body .footnotes li { position: relative;}.markdown-body .footnotes li:target::before { position: absolute; top: -8px; right: -8px; bottom: -8px; left: -24px; pointer-events: none; content: ""; border: 2px solid #0969da; border-radius: 6px;}.markdown-body .footnotes li:target { color: #24292f;}.markdown-body .footnotes .data-footnote-backref g-emoji { font-family: monospace;}.markdown-body [hidden] { display: none !important;}.markdown-body ::-webkit-calendar-picker-indicator { filter: invert(50%);}/** language color **/.markdown-body .token.tag .attr-value { color: #032f62;}.markdown-body .token.property,.markdown-body .token.tag,.markdown-body .token.boolean,.markdown-body .token.number,.markdown-body .token.function-name,.markdown-body .token.constant,.markdown-body .token.symbol,.markdown-body .token.deleted { color: #0060c9;}.markdown-body .token.punctuation { color: #a0a0a0;}.markdown-body code[class*="language-"] { color: black;}.markdown-body code[class*="language-"] .token.selector,.markdown-body code[class*="language-"] .token.string,.markdown-body code[class*="language-"] .token.attr-name,.markdown-body code[class*="language-"] .token.content,.markdown-body code[class*="language-"] .token.char,.markdown-body code[class*="language-"] .token.class-name,.markdown-body code[class*="language-"] .token.function,.markdown-body code[class*="language-"] .token.builtin { color: #6f42c1;}.markdown-body code[class*="language-"] .token.inserted { color: #22863a; background-color: #f0fff4;}.markdown-body code[class*="language-"] .token.deleted { color: #b31d28; background-color: #ffeef0;}.markdown-body code[class*="language-"] .code-block { color: #032f62;}.markdown-body code[class*="language-"] .token.comment,.markdown-body code[class*="language-"] .token.block-comment,.markdown-body code[class*="language-"] .token.prolog,.markdown-body code[class*="language-"] .token.doctype,.markdown-body code[class*="language-"] .token.cdata { color: #7D8B99;}.markdown-body code[class*="language-"] .token.punctuation { color: #a0a0a0;}.markdown-body code[class*="language-"] .token.operator,.markdown-body code[class*="language-"] .token.entity,.markdown-body code[class*="language-"] .token.variable { color: #d73a49; background: rgba(255, 255, 255, 0.5);}.markdown-body code[class*="language-"] .token.url { color: #0027ff;}.markdown-body code[class*="language-"] .token.atrule,.markdown-body code[class*="language-"] .token.attr-value { color: #004698;}.markdown-body code[class*="language-"] .token.keyword { color: #d63200;}.markdown-body code[class*="language-"] .token.regex,.markdown-body code[class*="language-"] .token.important { color: #e90;}.markdown-body code[class*="language-"] .token.string { color: #0a53c1;}</style>
+    <style>.header {
+position: fixed;
+width: 100%;
+background: #fff;
+backdrop-filter: saturate(180%) blur(0.4rem);
+background-color: rgba(255,255,255,0.55);
+border-bottom: 1px solid #00000014;
+z-index: 99;
+top: 0;
+}
+.header .inner {
+max-width: 960px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+padding: 5px 0;
+}
+.header .logo {
+margin-right: 10px;
+}
+.header .title {
+display: flex;
+align-items: center;
+font-size: 16px;
+font-weight: bold;
+color: #333;
+}
+.header .logo img {
+height: 26px;
+display: block;
+}
+.markdown-body {
+margin-top: 78px;
+}
+.footer {
+max-width: 960px;
+margin: 0 auto;
+text-align: center;
+padding: 0 0 110px 0;
+border-top: 1px solid hsla(210,18%,87%,1);
+padding-top: 18px;
+}
+.footer a {
+font-size: 14px;
+text-decoration: initial;
+color: #3f51b5;
+}
+.footer a:hover {
+color:#009688;
+text-decoration: underline;
+}
+.footer a + a {
+margin-left: 10px;
+}
+.footer .copyright {
+color: #596068;
+font-size: 14px;
+padding-top: 5px;
+}</style>
+  </head>
+  <body id="totop">
+    <header class="header">
+      <article class="inner"><a class="logo" href="../index.html"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAAXNSR0IArs4c6QAAEIlJREFUeF7tnXtwVNUdx3/n7kIe8sgTNEjLTMeAUrVUKB0U0f6D1ZkKCqhBJKDSdjplHEnW6B8l0hZIQKBaq+KMQDvTOhYfnY5jpU7rg9pp0Y5aSysKA4SEAJJNIJjdkN3TOWuigcnuub97727u2fu9MzuJ7ve8vt/72XPP2XCvIBxwAA6kdUDAGzgAB9I7AEBwdsCBDA4AEJwecACA4ByAA84cwAzizDeUCogDACQgQWOYzhwAIM58Q6mAOABAAhI0hunMAQDizDeUCogDACQgQWOYzhwAIM58Q6mAOABAAhI0hunMAQDizDeUCogDACQgQWOYzhwAIM58Q6mAOABAAhI0hunMAQDizDeUCogDACQgQWOYzhwAIM58Q6mAOABAAhI0hunMgawC0tTU9DgRLRRCVDrrHqtUBxFFiSj1U0rZYVlWRzKZVP+v3bKsViJqi8fjbX19fa2NjY1JVu0BFG/atKlMSlmRSCQqhRAVRFQhpVRZqt9TP6WUJUR0wcBLCDHweyhHlm1PJBI7Hnzwwdez0V7WAGlubpbZ6LCHdbYLIVqllB8JIfZIKfcUFha+s3LlyriHbfi6qrVr16oTf6plWZcR0VQhxGUKAAWDekkpc3WSu/bJsqypdXV1e11XdF4FWQFkw4YNm6WU93nd2RzV94GCxbIsBc0/IpHIezlqN6vNrFu3blIoFLpOSjmjHwQFRC5m9qyOa1DleyKRyLe8biwrgDQ3N6vLmSqvOztM9Z0moreklLuFEO/29fW9+9BDD50cpr7YbnYACCKaLYS4RkpZbbuwoUIhxJX19fUfeNn9bAHi98srxx4KIRJSyn9KKV+TUu5qaGjY7bgyjwtu3LhxbjKZnNsPxAyPqzehuusikcgbXnYUgLh3U31i7VKwPPDAA392Xx2vhqampuuFEDcS0U1EdCmvdN6pAYifI5VSfqJgIaJXe3p6djU2Nsay0d/169fPCoVCN0opFRTfyEYbJtZpWdacurq6N73sO2YQL908ty61Q5aaWWKxmIJFbT+7Opqbm+8honuJyPPFqKuO+aRw3gBSX1/vuaXxeJx6e3tJ/Tz/d/XfPT09FI1Gv3glEgnP+5ChwhNEtFMIsbO+vv4v3IabmpqWWJb1AynlLG5Zrr6goICKioqouLj4nJ+D/9/g35U+V8ezzz5LLS0taZtLJpNzGhoazJ9BsgEIN6Surq5zgFHwHD16NAVSNg8hxG4p5c5wOLzz/vvvV7t9aY/169cvUmAQ0fXZ6FNZWRmNHz8+9brwwgtTP0eOHJmNpjypUwcIEV0biUTe8qSx/kqG5RLLD4CkM/HkyZPU2tpKR44cSf3s7Oz00u/BdXUR0fPJZHJnQ0PDK4Pf2LBhw81SSgXGDV41rk78iRMnpl4mwDDUuAGIV2eDh/UoYNra2lIvNb2rmSYLxx4i+lgIsU9K+V0imum2DQVEVVVV6jVp0iSaMGGC2yqHvbwOEMuyZtfV1Xm67Y4ZhBn74cOH6dChQ3Tw4EFqb29nls6uvKKigqqrq1MwXHzxxRQOh7PbYI5r1wGSTCZne/29FABxEfKxY8dSsAwA46IqV0UnT55MAy9XFfm8sA4QIromEon8zcthABCP3FSXXvv370+91CyT7WNgtpgyZQqVl5dnuzlf1A9AfBGD+04cP36cDhw4kIJFrV28PNR64oorrkjNGEE7dICEQqGrV61a9baXvrieQQp2nKq2pLxKyuQXia058fTqTJ308y6Wl+aquhQgChQFjALH6aFmjOnTp9Pll1/utArjy+kAeX70nGfeL6xOfVEiRfLt8MiC98/UjDrmZuCuACnY3rlREK06vwNrjm/N2KcgATLYCHXpNXAZZnc3LBQK0cyZM2nGjBm+/o7CzUlot6wOkKdLb6aWEePPr25rrLbk+3bbOF/nGJDC7Z1p/2IXgOjj2Lt3L3344YepBX66Q31jvWDBgtT3FjiIHAKSsi5WW+LoXHdUqHBH53MkaWG60ACIvdP57NmztGXLlrRitV1bU1Njr7IAqNwAIokeideW1HFtYgNSsL3za4JI/dVq2gOA2IsBgNjzaUClB2QetYwYl7ZSKazJ8aVj9nFaZQNStCM6X0rxAgDh2Dy0FoDwPNQBsrV0Hh3JAIggUdNTO/Z3nFbZgBRuizaSEBl3qTCD2IsAgNjzye4MogOEpHw4tqy0kdMqAOG45bEWgPAMdTuDABCe38OuBiC8CAAIzy/j1QCEF6EOkKdK51PriAx3MsIlFs/w4VYDEF4CAITnl/FqAMKLEIDw/DJeDUB4EWoBKZtPrWFcYvFc9bEagPDC0QHyZNl8agMgPFP9rAYgvHQACM8v49UAhBehHpBbqC2snsyQ5sAuFs/w4VYDEF4CAITnl/FqAMKLUAfIE2W30FHMIDxT/awGILx0AAjPL+PVAIQXIQDp92vfvn3U3d3Nc8+HanWPqlGjRqXtmReAqNulqpfpx0UXXUTqlenQA3IrHQ1nuMNLvizSAcjnp4mdf1EIQL5E6okyAGLUByVmEPtxeTGD/KrsVmrHDGLf9OFWAhD7CQCQQV7pbvuDSyxcYg2Flm4NghnE/geSL5SYQezH4M0MsoDaw2XpG8Ui3X4guVACEPsuewHI42UL6FhQALFvrX+V6tkcudjmPX1aPcrd7GP06NGut3kDA4jZUdvvvRffg9hvzXylbg0CQMzP+JwRABBeoACE55fxagDCi1AHyC/LFtLxcGn+L9J5tpmrBiC87AAIzy/j1QCEFyEA4fllvBqA8CIEIDy/jFcDEF6EOkAeK1tIJ7AG4ZnqZzUA4aUDQHh+Ga8GILwI9YAsohPhEuxi8Wz1rxqA8LLRAlK+iE6EAAjPVR+rAQgvHADC88t4NQDhRagD5NHyRfQpZhCeqX5WAxBeOgCE55fxagDCixCA8PwyXg1AeBHqAbmNPg2NxS4Wz1b/qgEILxsdIL8ov41OAhCeqX5WAxBeOgCE55fxagDCixCA8PwyXg1AeBECEJ5fxqsBCC9CHSBbym+njtAYLNJ5tvpXDUB42QCQfr/y4WbMaijqTh25uKsJ7zTzr9rtzasDM4Pgzoqfn8S4efW5MGMG6fcDgACQoeY5HSCby2+naBDWIAAEgACQDJfCAASAOAPkDoqGRuf/LhYAASAABDMIebHNiydMfXkibS7HDOLfPcoheoa7u9uPy4u7u28qv4M6g3CJlQ8P8Bw4NbL9PUhQvFJ+6naxAgOI/c8ds5VeXGKZ7QCv93pAaqgzlP6pwpQvD9Dh2WauGoDwsgMgPL+MVwMQXoQ6QB4pr6EuzCA8U/2sBiC8dLSAVNRQl4VLLJ6rPlYDEF44WkAwg/AM9bsagPAS0gKCGYRnqN/VAISXkA6QjRWL6ZR1Qf7/qQnPNnPVAISXHQDh+WW8GoDwIgQgPL+MVwMQXoQAhOeX8WoAwotQB8iGisV0GmsQnql+VgMQXjp6QO6k01YxFuk8W/2rBiC8bAAIzy/j1QCEFyEA4fllvBqA8CIEIDy/jFcDEF6EOkCaK+6kbqxBeKb6WQ1AeOnoAVlC3VYRFuk8W/2rBiC8bAAIzy/j1QCEFyEA4fllvBqA8CLUAdJUsYTO4BKLZ6qf1QCElw4A4fllvBqA8CIEIDy/jFcDEF6EekDuojNWIXaxeLb6Vw1AeNnoAFlfcRd9FgRA8ACdz08cu88H4Z1m/lW7fYBOYADBzat5gOTDB4oXtx4FIP798BuyZ7g3r/3AAMggr+rr6zM6hxkEM8hQJ4huDbKuYin1WAX5v0gHIAAEgGSYQwAIAHEESOVS6hGYQexf2A6zEmsQ+wF4sQZZB0DsG+4HJQCxnwIAYSzSg/JQGC++KAyKV+r00S3S11YupVgQLrHsf+6YrfQCELMd4PVeD0gtxcTI/N/F4tlmrhqA8LIDIDy/jFcDEF6EAITnl/FqAMKLUAfIzytrKY5LLJ6pflYDEF46AITnl/FqAMKLUA/IMoqLEVik82z1rxqA8LIBIDy/jFcDEF6EOkB+VrmMejGD8Ez1sxqA8NIBIDy/jFcDEF6EAITnl/FqAMKLUA/IcuoVYSzSebb6Vw1AeNnoAPlp5XI6C0B4pvpZDUB46QAQnl/GqwEIL0IAwvPLeDUA4UUIQHh+Ga8GILwI9YDcTWdFCIt0nq3+VQMQXjY6QNZU3k19AIRnqp/VAISXDgDh+WW8GoDwIgQgPL+MVwMQXoQAhOeX8WoAwotQB8jDlXdTAmsQnql+VgMQXjp6QO6hhLCwi8Wz1b9qAMLLBoDw/DJeDUB4EQIQnl/GqwEIL0IdII3j7qEk4RKL56qP1QCEFw4A4fllvBqA8CIEIDy/jFcDEF6EekDupSQJ7GLxbPWvGoDwstEBsnrcvSQBCM9UP6sBCC+dwAAya9YsnjN5qi4tLaWXX3457eiqqqpo2rRpFI1G89QB3rBaWlpIvdIdeTOD8GwJrrqgoIDi8XhwDWCOHIAwDYM8WA6sHreCZKYhS/lwbFlpI8eVDEv+oasp3BZtJCFWZ2pkzfGtnD5ACwc8ceAn41ZkrgeAeOIzKjHUAWMAWdz1Kk2OHzLUZnTbRAc6QmNoS/ntZswg03v+S987/ZaJPqPPhjqwu/hK2jVqphmAqF5OjR+g27peM9RudNskB2zBoQbklzXIgLlFMk7lfV0UpoRJfmetr8qLS+MHqbr3sKM2Ph45kfaPnEBtIyodlc+3QupRB9HQaOrJ9OjnwYP2GyD5FohX4/lm7COad+oNVnUvjZlD/yqczCoD8XkOABBzTolZn/2bbuj+u60O/2H0tfRu0RRbWogyOJALQAq2Re8TQmxGEO4dUBsZakMj06EWnuoaG4d7B6SkH8aXlTzJqYn9RWHRts6FUtBznEagTe/Aks5X6JLeof++yPbiEwbbckAkrat7lo9525a4X8QGpHh751VJonc4jUCb3gG1kbGi4yUqT3SdI1LrDbXuwOGZA/tiZ3qvoh+N6+bUyAZEVV60LfqoFOLHnIagTe9AVd+ntKLjRbL6/5LofwVfpd+OnQvLvHRAyutjy0pf51bpCBDViJ2/yeJ2Jsj6ge+NWkaMp+0lN2V+UlKQjXIwdinEyvjSsY85KJrpn1/pqyt65tQsaSWXE4lvE8mp+hJQZHJg9mfv0fuFl9Ap6wIY5d6B16VaCoTEU/ElYz9xWp3jGcRpg/lSrnBH559IkinXQaditSVj88X7XI4DgDh0u/A3p2ZTIvmmw+K5LeZg/z+3HfRvawDERTYF26MvChLzXFSRg6LiP7HasV/PQUN52QQAcRFr8Y7otKQULxHRV1xUk9WiQtKinmUlv89qI3lcOQBxGW7hM53fIYv+SETFLqvyvDjgcG8pAHHvIRX9OnpLUorFQtK1RFThQZXOq5B0jAT9VUh6ATOHcxsHSgIQ9x6eU0PqsitJw7JjlLRGdPQuHfWBx0MKdHUAJNDxY/A6BwCIziG8H2gHAEig48fgdQ4AEJ1DeD/QDgCQQMePwescACA6h/B+oB0AIIGOH4PXOQBAdA7h/UA7AEACHT8Gr3MAgOgcwvuBdgCABDp+DF7nAADROYT3A+0AAAl0/Bi8zgEAonMI7wfaAQAS6PgxeJ0DAETnEN4PtAMAJNDxY/A6BwCIziG8H2gH/g8LPRyq8vuk8QAAAABJRU5ErkJggg==" alt="mysql-tutorial logo"></a>
+        <div class="title">mysql-tutorial</div>
+        <nav class="nav"></nav>
+      </article>
+    </header><a aria-label="View source on GitHub" target="__blank" class="github-corner" href="https://github.com/jaywcjlove/handbook.git"><svg width="54" height="54" viewBox="0 0 250 250" aria-hidden="true" style="fill: rgb(32, 34, 37); color: rgb(255, 255, 255); position: fixed; z-index: 99999; border: 0px; top: 0px; right: 0px;">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path style="transform-origin: 130px 106px;" class="octo-arm" fill="currentColor" d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"></path>
+        <path class="octo-body" fill="currentColor" d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"></path>
+      </svg></a>
+    <div class="markdown-body">
+      <h1 id="mysql-配置修改"><a class="anchor" aria-hidden="true" tabindex="-1" href="#mysql-配置修改"><span class="octicon octicon-link"></span></a>MySQL 配置修改</h1>
+      <p>安装完了之后更改配置的需求比较少，所以你需要根据实际使用过程中来修改 MySQL 配置参数，MySQL提供了两个更改配置的方式。</p>
+      <ul>
+        <li>通过配置想来修改，听说在windows上面有个配置工具(MySQL server instance config) 提供了自动配置服务，真嗨皮。</li>
+        <li>另一种是手工修改配置文件来修改。</li>
+      </ul>
+      <p>对于初学者刚接触MySQL来说，使用工具来修改配置是非常好的，但是在 Mac 系统下面没有找到这样的工具，如果你部署到Linux下面好像没有这种工具，所以在真正的生产环境还是得修改配置来更改 MySQL 配置。接下来只讲解配置文件来修改，为你将来在 Mac 或者 Linux ，包括windows平台系统下容易配置做点准备吧，通过配置文件来配置，让你做跨平台玩儿 MySQL ，让你逼格更高一点，哈哈。</p>
+      <h2 id="mysql安装目录说明"><a class="anchor" aria-hidden="true" tabindex="-1" href="#mysql安装目录说明"><span class="octicon octicon-link"></span></a>MySQL安装目录说明</h2>
+      <p>MySQL 不同的版本安装目录会有一点不一致，但是大致会差不多，会有一点差异，我这个是 Mac OS X 系统中的安装目录，在这里<code>/usr/local/mysql</code></p>
+      <table>
+        <thead>
+          <tr>
+            <th>目录</th>
+            <th>目录内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>bin/</td>
+            <td>客户端程序和mysqld服务器，相关命令</td>
+          </tr>
+          <tr>
+            <td>data/</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>docs/</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>include/</td>
+            <td>包含头文件</td>
+          </tr>
+          <tr>
+            <td>lib/</td>
+            <td>库</td>
+          </tr>
+          <tr>
+            <td>man/</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>share/</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>support-files/</td>
+            <td>存在一些默认配置文件，如<code>my-default.cnf</code></td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 id="配置文件的位置"><a class="anchor" aria-hidden="true" tabindex="-1" href="#配置文件的位置"><span class="octicon octicon-link"></span></a>配置文件的位置</h2>
+      <p>从命令行终端运行此命令，将在寻找Linux/BSD / OS X系统中的MySQL配置文件 my.cnf 文件：</p>
+      <pre class="language-bash"><code class="language-bash">mysql --help <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">'Default options'</span> -A <span class="token number">1</span>
+</code><div onclick="copied(this)" data-code="mysql --help | grep &#x27;Default options&#x27; -A 1
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+      <p>上面命令执行后，会有这样的输出：</p>
+      <pre class="language-bash"><code class="language-bash">Default options are <span class="token builtin class-name">read</span> from the following files <span class="token keyword">in</span> the given order:
+/etc/my.cnf /etc/mysql/my.cnf /usr/local/etc/my.cnf ~/.my.cnf
+</code><div onclick="copied(this)" data-code="Default options are read from the following files in the given order:
+/etc/my.cnf /etc/mysql/my.cnf /usr/local/etc/my.cnf ~/.my.cnf
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+      <p>现在，可以检查你正在使用的 my.cnf 文件是否存在。在 Mac OS X 中默认式没有 my.cnf 文件的。你可以从这个地方复制一份过去 <code>/usr/local/mysql/support-files/my-default.cnf</code> 每个版本都不一样，你只需要找到一个 <code>.cnf</code> 后缀结尾的文件即可。复制到<code>/etc/</code>目录下并重新命名为 <code>my.cnf</code></p>
+      <h2 id="windows系统配置文件读取"><a class="anchor" aria-hidden="true" tabindex="-1" href="#windows系统配置文件读取"><span class="octicon octicon-link"></span></a>Windows系统配置文件读取</h2>
+      <p>在Windows上，MySQL的程序读取从下表中显示的文件，按照指定的顺序启动配置选项（顶部文件首先被读取，文件读取后优先）。</p>
+      <table>
+        <thead>
+          <tr>
+            <th>文件名字</th>
+            <th>作用</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>%PROGRAMDATA%</strong>\MySQL\MySQL Server 5.6\my.ini, <strong>%PROGRAMDATA%</strong>\MySQL\MySQL Server 5.6\my.cnf</td>
+            <td>全局配置</td>
+          </tr>
+          <tr>
+            <td>%WINDIR%\my.ini, %WINDIR%\my.cnf</td>
+            <td>全局配置</td>
+          </tr>
+          <tr>
+            <td>C:\my.ini, C:\my.cnf</td>
+            <td>全局配置</td>
+          </tr>
+          <tr>
+            <td><strong>BASEDIR</strong>\my.ini, <strong>BASEDIR</strong>\my.cnf</td>
+            <td>全局配置</td>
+          </tr>
+          <tr>
+            <td>defaults-extra-file</td>
+            <td>如果有的话指定该文件<code>--defaults-extra-file=文件名字</code></td>
+          </tr>
+          <tr>
+            <td>%APPDATA%\MySQL.mylogin.cnf</td>
+            <td>登录路径选项（仅适用于客户端）</td>
+          </tr>
+        </tbody>
+      </table>
+      <ul>
+        <li><strong>%PROGRAMDATA%</strong> 这个路径默认为 <code>C:\ProgramData</code> 老版本的Windows系统， 默认在 <code>C:\Documents and Settings\All Users\Application Data\MySQL</code></li>
+        <li><strong>%WINDIR%</strong> 表示Windows的目录位置。使用下面的命令从windir环境变量的值确定其精确位置 <code>C:\> echo %WINDIR%</code></li>
+        <li><strong>BASEDIR</strong> 表示MySQL的安装目录。</li>
+        <li><strong>%APPDATA%</strong> 表示Windows的目录位置。使用下面的命令从windir环境变量的值确定其精确位置 <code>C:\> echo %WINDIR%</code></li>
+      </ul>
+      <p>MySQL 提供的二进制安装代码所创建的默认目录，在Windows中，默认安装路径是<code>C:\Program Files\MySQL\MySQL Server 5.7</code></p>
+      <h2 id="linux系统配置文件读取"><a class="anchor" aria-hidden="true" tabindex="-1" href="#linux系统配置文件读取"><span class="octicon octicon-link"></span></a>Linux系统配置文件读取</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>文件名字</th>
+            <th>作用</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>/etc/my.cnf</td>
+            <td>全局配置</td>
+          </tr>
+          <tr>
+            <td>/etc/mysql/my.cnf</td>
+            <td>全局配置</td>
+          </tr>
+          <tr>
+            <td>SYSCONFDIR/my.cnf</td>
+            <td>全局配置</td>
+          </tr>
+          <tr>
+            <td>$MYSQL_HOME/my.cnf</td>
+            <td>Server-specific 服务器特定的选项 (仅适用于服务端)</td>
+          </tr>
+          <tr>
+            <td>defaults-extra-file</td>
+            <td>如果有的话指定该文件<code>--defaults-extra-file=文件名字</code></td>
+          </tr>
+          <tr>
+            <td>~/.my.cnf</td>
+            <td>Server-specific 服务器特定的选项</td>
+          </tr>
+          <tr>
+            <td>~/.mylogin.cnf</td>
+            <td>User-specific 登录路径选择 （仅适用于客户端）</td>
+          </tr>
+        </tbody>
+      </table>
+      <ul>
+        <li><strong>$HOME</strong> 上表中表示用户的主目录，即用户的根目录。</li>
+        <li><strong>SYSCONFDIR</strong> 代表指定的目录与SYSCONFDIR配置文件的安装路径，默认情况这个是位于安装目录里面的目录。</li>
+        <li><strong>$MYSQL_HOME</strong> 是包含在该服务器的具体my.cnf文件所在的目录的路径环境变量。如果 $MYSQL_HOME 没有设置，你启动服务器使用mysqld_safe程序，mysqld_safe试图设置 $MYSQL_HOME</li>
+      </ul>
+      <p>工具 <strong>mysqld_safe</strong> 使用注意：</p>
+      <ul>
+        <li>让BASEDIR和DATADIR分别代表MySQL的基本目录和数据目录的路径名。</li>
+        <li>如果my.cnf文件在DATADIR但不是在BASEDIR中，mysqld_safe设置MYSQL_HOME到DATADIR。</li>
+        <li>否则，如果MYSQL_HOME未设置并且在DATADIR没有my.cnf文件，mysqld_safe设置MYSQL_HOME到BASEDIR。</li>
+      </ul>
+      <h2 id="配置文件内容"><a class="anchor" aria-hidden="true" tabindex="-1" href="#配置文件内容"><span class="octicon octicon-link"></span></a>配置文件内容</h2>
+      <pre class="language-bash"><code class="language-bash">
+<span class="token comment"># 以下选项会被MySQL客户端应用读取。</span>
+<span class="token comment"># 注意只有MySQL附带的客户端应用程序保证可以读取这段内容。</span>
+<span class="token comment"># 如果你想你自己的MySQL应用程序获取这些值。</span>
+<span class="token comment"># 需要在MySQL客户端库初始化的时候指定这些选项。</span>
+
+<span class="token comment"># For advice on how to change settings please see</span>
+<span class="token comment"># http://dev.mysql.com/doc/refman/5.7/en/server-configuration-defaults.html</span>
+<span class="token comment"># *** DO NOT EDIT THIS FILE. It's a template which will be copied to the</span>
+<span class="token comment"># *** default location during install, and will be replaced if you</span>
+<span class="token comment"># *** upgrade to a newer version of MySQL.</span>
+
+<span class="token comment"># mysqld程序</span>
+
+<span class="token punctuation">[</span>mysqld<span class="token punctuation">]</span>
+
+<span class="token comment"># Remove leading # and set to the amount of RAM for the most important data</span>
+<span class="token comment"># cache in MySQL. Start at 70% of total RAM for dedicated server, else 10%.</span>
+<span class="token comment"># innodb_buffer_pool_size = 128M</span>
+
+<span class="token comment"># ★★★这里很重要️能让MySQL登陆链接变快速</span>
+skip-name-resolve
+
+<span class="token comment"># Remove leading # to turn on a very important data integrity option: logging</span>
+<span class="token comment"># changes to the binary log between backups.</span>
+<span class="token comment"># log_bin</span>
+
+<span class="token comment"># These are commonly set, remove the # and set as required.</span>
+<span class="token comment"># 使用给定目录作为根目录(安装目录)。</span>
+<span class="token comment"># basedir = .....</span>
+<span class="token comment"># 从给定目录读取数据库文件。</span>
+<span class="token comment"># datadir = .....</span>
+<span class="token comment"># 为mysqld程序指定一个存放进程ID的文件(仅适用于UNIX/Linux系统);</span>
+<span class="token comment"># pid-file = .....</span>
+<span class="token comment"># 指定MsSQL侦听的端口</span>
+<span class="token comment"># port = .....</span>
+<span class="token comment"># server_id = .....</span>
+<span class="token comment"># 为MySQL客户程序与服务器之间的本地通信指定一个套接字文件(Linux下默认是/var/lib/mysql/mysql.sock文件)</span>
+<span class="token comment"># socket = .....</span>
+
+
+<span class="token assign-left variable">sql_mode</span><span class="token operator">=</span>NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
+
+<span class="token comment"># 一般配置选项</span>
+basedir <span class="token operator">=</span> /data/apps/mysql
+datadir <span class="token operator">=</span> /data/appData/mysql
+port <span class="token operator">=</span> <span class="token number">3306</span>
+socket <span class="token operator">=</span> /var/run/mysqld/mysqld.sock
+<span class="token comment"># 设置</span>
+character-set-server<span class="token operator">=</span>utf8
+
+
+<span class="token comment"># 指定MySQL可能的连接数量。</span>
+<span class="token comment"># 当MySQL主线程在很短时间内接收到非常多的连接请求，该参数生效，主线程花费很短时间检查连接并且启动一个新线程。</span>
+<span class="token comment"># back_log参数的值指出在MySQL暂时停止响应新请求之前的短时间内多少个请求可以被存在堆栈中。</span>
+<span class="token comment"># 如果系统在一个短时间内有很多连接，则需要增大该参数的值，该参数值指定到来的TCP/IP连接的侦听队列的大小。</span>
+<span class="token comment"># 试图设定back_log高于你的操作系统的限制将是无效的。默认值为50。对于Linux系统推荐设置为小于512的整数。</span>
+
+<span class="token comment"># back_log 是操作系统在监听队列中所能保持的连接数,</span>
+<span class="token comment"># 队列保存了在 MySQL 连接管理器线程处理之前的连接.</span>
+<span class="token comment"># 如果你有非常高的连接率并且出现 “connection refused” 报错,</span>
+<span class="token comment"># 你就应该增加此处的值.</span>
+<span class="token comment"># 检查你的操作系统文档来获取这个变量的最大值.</span>
+<span class="token comment"># 如果将back_log设定到比你操作系统限制更高的值，将会没有效果</span>
+back_log <span class="token operator">=</span> <span class="token number">300</span>
+
+<span class="token comment"># 不在 TCP/IP 端口上进行监听.</span>
+<span class="token comment"># 如果所有的进程都是在同一台服务器连接到本地的 mysqld,</span>
+<span class="token comment"># 这样设置将是增强安全的方法</span>
+<span class="token comment"># 所有 mysqld 的连接都是通过 Unix Sockets 或者命名管道进行的.</span>
+<span class="token comment"># 注意在 Windows下如果没有打开命名管道选项而只是用此项</span>
+<span class="token comment"># (通过 “enable-named-pipe” 选项) 将会导致 MySQL 服务没有任何作用!</span>
+<span class="token comment">#skip-networking</span>
+
+<span class="token comment"># MySQL 服务所允许的同时会话数的上限</span>
+<span class="token comment"># 其中一个连接将被 SUPER 权限保留作为管理员登录.</span>
+<span class="token comment"># 即便已经达到了连接数的上限.</span>
+max_connections <span class="token operator">=</span> <span class="token number">3000</span>
+
+<span class="token comment"># 每个客户端连接最大的错误允许数量,如果达到了此限制.</span>
+<span class="token comment"># 这个客户端将会被 MySQL 服务阻止直到执行了 “FLUSH HOSTS” 或者服务重启</span>
+<span class="token comment"># 非法的密码以及其他在链接时的错误会增加此值.</span>
+<span class="token comment"># 查看 “Aborted_connects” 状态来获取全局计数器.</span>
+max_connect_errors <span class="token operator">=</span> <span class="token number">50</span>
+
+<span class="token comment"># 所有线程所打开表的数量.</span>
+<span class="token comment"># 增加此值就增加了 mysqld 所需要的文件描述符的数量</span>
+<span class="token comment"># 这样你需要确认在 [mysqld_safe] 中 “open-files-limit” 变量设置打开文件数量允许至少等于 table_cache 的值</span>
+table_open_cache <span class="token operator">=</span> <span class="token number">4096</span>
+
+<span class="token comment"># 允许外部文件级别的锁. 打开文件锁会对性能造成负面影响</span>
+<span class="token comment"># 所以只有在你在同样的文件上运行多个数据库实例时才使用此选项(注意仍会有其他约束!)</span>
+<span class="token comment"># 或者你在文件层面上使用了其他一些软件依赖来锁定 MyISAM 表</span>
+<span class="token comment">#external-locking</span>
+
+<span class="token comment"># 服务所能处理的请求包的最大大小以及服务所能处理的最大的请求大小(当与大的 BLOB 字段一起工作时相当必要)</span>
+<span class="token comment"># 每个连接独立的大小，大小动态增加</span>
+max_allowed_packet <span class="token operator">=</span> 32M
+
+<span class="token comment"># 在一个事务中 binlog 为了记录 SQL 状态所持有的 cache 大小</span>
+<span class="token comment"># 如果你经常使用大的,多声明的事务,你可以增加此值来获取更大的性能.</span>
+<span class="token comment"># 所有从事务来的状态都将被缓冲在 binlog 缓冲中然后在提交后一次性写入到 binlog 中</span>
+<span class="token comment"># 如果事务比此值大, 会使用磁盘上的临时文件来替代.</span>
+<span class="token comment"># 此缓冲在每个连接的事务第一次更新状态时被创建</span>
+binlog_cache_size <span class="token operator">=</span> 4M
+
+<span class="token comment"># 独立的内存表所允许的最大容量。</span>
+<span class="token comment"># 此选项为了防止意外创建一个超大的内存表导致永尽所有的内存资源。</span>
+max_heap_table_size <span class="token operator">=</span> 128M
+
+<span class="token comment"># 随机读取数据缓冲区使用内存(read_rnd_buffer_size)：和顺序读取相对应，</span>
+<span class="token comment"># 当 MySQL 进行非顺序读取（随机读取）数据块的时候，会利用>这个缓冲区暂存读取的数据</span>
+<span class="token comment"># 如根据索引信息读取表数据，根据排序后的结果集与表进行 Join 等等</span>
+<span class="token comment"># 总的来说，就是当数据块的读取需要满足>一定的顺序的情况下，MySQL 就需要产生随机读取，进而使用到 read_rnd_buffer_size 参数所设置的内存缓冲区</span>
+read_rnd_buffer_size <span class="token operator">=</span> 16M
+
+<span class="token comment"># 排序缓冲被用来处理类似 ORDER BY 以及 GROUP BY 队列所引起的排序</span>
+<span class="token comment"># 如果排序后的数据无法放入排序缓冲,一个用来替代的基于磁盘的合并分类会被使用</span>
+<span class="token comment"># 查看 “Sort_merge_passes” 状态变量。</span>
+<span class="token comment"># 在排序发生时由每个线程分配</span>
+<span class="token comment"># 每个需要进行排序的线程分配该大小的一个缓冲区。增加这值加速ORDER BY或GROUP BY操作。</span>
+<span class="token comment"># 注意：该参数对应的分配内存是每连接独占！如果有100个连接，那么实际分配的总共排序缓冲区大小为100×6=600MB</span>
+sort_buffer_size <span class="token operator">=</span> 16M
+
+<span class="token comment"># 此缓冲被使用来优化全联合(FULL JOINS 不带索引的联合)。</span>
+<span class="token comment"># 类似的联合在极大多数情况下有非常糟糕的性能表现,但是将此值设大能够减轻性能影响。</span>
+<span class="token comment"># 通过 “Select_full_join” 状态变量查看全联合的数量</span>
+<span class="token comment"># 当全联合发生时,在每个线程中分配</span>
+join_buffer_size <span class="token operator">=</span> 16M
+
+<span class="token comment"># 缓存可重用的线程数</span>
+<span class="token comment"># thread_cache = 8</span>
+
+<span class="token comment"># 避免MySQL的外部锁定，减少出错几率增强稳定性。</span>
+<span class="token comment"># skip-locking                 </span>
+
+<span class="token comment"># 我们在 cache 中保留多少线程用于重用</span>
+<span class="token comment"># 当一个客户端断开连接后,如果 cache 中的线程还少于 thread_cache_size,则客户端线程被放入cache 中。</span>
+<span class="token comment"># 这可以在你需要大量新连接的时候极大的减少线程创建的开销</span>
+<span class="token comment"># (一般来说如果你有好的线程模型的话,这不会有明显的性能提升。)</span>
+thread_cache_size <span class="token operator">=</span> <span class="token number">16</span>
+
+<span class="token comment"># 此允许应用程序给予线程系统一个提示在同一时间给予渴望被运行的线程的数量。</span>
+<span class="token comment"># 此值只对于支持 thread_concurrency() 函数的系统有意义( 例如Sun Solaris)。</span>
+<span class="token comment"># 你可可以尝试使用 [CPU数量]*(2..4) 来作为 thread_concurrency 的值</span>
+<span class="token comment">#****(此属性对当前环境无效)****</span>
+<span class="token comment"># thread_concurrency = 8</span>
+
+<span class="token comment"># 查询缓冲常被用来缓冲 SELECT 的结果并且在下一次同样查询的时候不再执行直接返回结果。</span>
+<span class="token comment"># 打开查询缓冲可以极大的提高服务器速度, 如果你有大量的相同的查询并且很少修改表。</span>
+<span class="token comment"># 查看 “Qcache_lowmem_prunes” 状态变量来检查是否当前值对于你的负载来说是否足够高。</span>
+<span class="token comment"># 注意: 在你表经常变化的情况下或者如果你的查询原文每次都不同,</span>
+<span class="token comment"># 查询缓冲也许引起性能下降而不是性能提升。</span>
+query_cache_size <span class="token operator">=</span> 128M
+
+<span class="token comment"># 只有小于此设定值的结果才会被缓冲</span>
+<span class="token comment"># 此设置用来保护查询缓冲,防止一个极大的结果集将其他所有的查询结果都覆盖。</span>
+query_cache_limit <span class="token operator">=</span> 4M
+
+<span class="token comment"># 被全文检索索引的最小的字长。</span>
+<span class="token comment"># 你也许希望减少它，如果你需要搜索更短字的时候。</span>
+<span class="token comment"># 注意在你修改此值之后，你需要重建你的 FULLTEXT 索引</span>
+ft_min_word_len <span class="token operator">=</span> <span class="token number">8</span>
+
+<span class="token comment"># 如果你的系统支持 memlock() 函数，你也许希望打开此选项用以让运行中的 mysql 在在内存高度紧张的时候，数据在内存中保持锁定并且防止可能被 swapping out</span>
+<span class="token comment"># 此选项对于性能有益</span>
+<span class="token comment">#memlock</span>
+
+<span class="token comment"># 当创建新表时作为默认使用的表类型，</span>
+<span class="token comment"># 如果在创建表示没有特别执行表类型，将会使用此值</span>
+<span class="token comment">#****(此属性对当前环境无效)****</span>
+<span class="token comment">#default_table_type = InnoDB</span>
+
+<span class="token comment"># 线程使用的堆大小. 此容量的内存在每次连接时被预留.</span>
+<span class="token comment"># MySQL 本身常不会需要超过 64K 的内存</span>
+<span class="token comment"># 如果你使用你自己的需要大量堆的 UDF 函数或者你的操作系统对于某些操作需要更多的堆，你也许需要将其设置的更高一点.</span>
+thread_stack <span class="token operator">=</span> 512K
+
+<span class="token comment"># 设定默认的事务隔离级别.可用的级别如下:</span>
+<span class="token comment"># READ-UNCOMMITTED， READ-COMMITTED， REPEATABLE-READ， SERIALIZABLE</span>
+transaction_isolation <span class="token operator">=</span> REPEATABLE-READ
+
+<span class="token comment"># 内部(内存中)临时表的最大大小</span>
+<span class="token comment"># 如果一个表增长到比此值更大，将会自动转换为基于磁盘的表。</span>
+<span class="token comment"># 此限制是针对单个表的，而不是总和。</span>
+tmp_table_size <span class="token operator">=</span> 128M
+
+<span class="token comment"># 打开二进制日志功能。</span>
+<span class="token comment"># 在复制(replication)配置中，作为 MASTER 主服务器必须打开此项</span>
+<span class="token comment"># 如果你需要从你最后的备份中做基于时间点的恢复，你也同样需要二进制日志。</span>
+log-bin<span class="token operator">=</span>mysql-bin
+
+<span class="token comment"># 如果你在使用链式从服务器结构的复制模式 (A->B->C)，</span>
+<span class="token comment"># 你需要在服务器B上打开此项。</span>
+<span class="token comment"># 此选项打开在从线程上重做过的更新的日志， 并将其写入从服务器的二进制日志。</span>
+<span class="token comment">#log_slave_updates</span>
+
+<span class="token comment"># 打开全查询日志。 所有的由服务器接收到的查询 (甚至对于一个错误语法的查询)</span>
+<span class="token comment"># 都会被记录下来。 这对于调试非常有用， 在生产环境中常常关闭此项。</span>
+<span class="token comment">#log</span>
+
+<span class="token comment"># 将警告打印输出到错误 log 文件。 如果你对于 MySQL 有任何问题</span>
+<span class="token comment"># 你应该打开警告 log 并且仔细审查错误日志，查出可能的原因。</span>
+<span class="token comment">#log_warnings</span>
+
+<span class="token comment"># 记录慢速查询。 慢速查询是指消耗了比 “long_query_time” 定义的更多时间的查询。</span>
+<span class="token comment"># 如果 log_long_format 被打开，那些没有使用索引的查询也会被记录。</span>
+<span class="token comment"># 如果你经常增加新查询到已有的系统内的话。 一般来说这是一个好主意，</span>
+<span class="token comment">#log_slow_queries</span>
+
+<span class="token comment"># 有的使用了比这个时间(以秒为单位)更多的查询会被认为是慢速查询。</span>
+<span class="token comment"># 不要在这里使用“1″, 否则会导致所有的查询,甚至非常快的查询页被记录下来(由于 MySQL 目前时间的精确度只能达到秒的级别)。</span>
+long_query_time <span class="token operator">=</span> <span class="token number">6</span>
+
+<span class="token comment"># 在慢速日志中记录更多的信息。</span>
+<span class="token comment"># 一般此项最好打开。</span>
+<span class="token comment"># 打开此项会记录使得那些没有使用索引的查询也被作为到慢速查询附加到慢速日志里</span>
+<span class="token comment">#log_long_format</span>
+
+<span class="token comment"># 此目录被MySQL用来保存临时文件。例如,</span>
+<span class="token comment"># 它被用来处理基于磁盘的大型排序,和内部排序一样。</span>
+<span class="token comment"># 以及简单的临时表。</span>
+<span class="token comment"># 如果你不创建非常大的临时文件,将其放置到 swapfs/tmpfs 文件系统上也许比较好</span>
+<span class="token comment"># 另一种选择是你也可以将其放置在独立的磁盘上。</span>
+<span class="token comment"># 你可以使用”;”来放置多个路径</span>
+<span class="token comment"># 他们会按照 roud-robin 方法被轮询使用。</span>
+<span class="token comment">#tmpdir = /tmp</span>
+
+<span class="token comment"># *** 主从复制相关的设置</span>
+
+<span class="token comment"># 唯一的服务辨识号,数值位于 1 到 2^32-1之间。</span>
+<span class="token comment"># 此值在master和slave上都需要设置。</span>
+<span class="token comment"># 如果 “master-host” 没有被设置,则默认为1, 但是如果忽略此选项,MySQL不会作为master生效。</span>
+server-id <span class="token operator">=</span> <span class="token number">1</span>
+
+<span class="token comment"># 复制的Slave (去掉master段的注释来使其生效)</span>
+<span class="token comment">#</span>
+<span class="token comment"># 为了配置此主机作为复制的slave服务器,你可以选择两种方法:</span>
+<span class="token comment">#</span>
+<span class="token comment"># 1) 使用 CHANGE MASTER TO 命令 (在我们的手册中有完整描述) -</span>
+<span class="token comment"># 语法如下:</span>
+<span class="token comment">#</span>
+<span class="token comment"># CHANGE MASTER TO MASTER_HOST=, MASTER_PORT=,</span>
+<span class="token comment"># MASTER_USER=, MASTER_PASSWORD= ;</span>
+<span class="token comment">#</span>
+<span class="token comment"># 你需要替换掉，等被尖括号包围的字段以及使用master的端口号替换 (默认3306)。</span>
+<span class="token comment">#</span>
+<span class="token comment"># 例子:</span>
+<span class="token comment">#</span>
+<span class="token comment"># CHANGE MASTER TO MASTER_HOST=’125.564.12.1′, MASTER_PORT=3306,</span>
+<span class="token comment"># MASTER_USER=’joe’, MASTER_PASSWORD=’secret’;</span>
+<span class="token comment">#</span>
+<span class="token comment"># 或者</span>
+<span class="token comment">#</span>
+<span class="token comment"># 2) 设置以下的变量. 不论如何, 在你选择这种方法的情况下， 然后第一次启动复制(甚至不成功的情况下，</span>
+<span class="token comment"># 例如如果你输入错密码在master-password字段并且slave无法连接)，</span>
+<span class="token comment"># slave会创建一个 master.info 文件，并且之后任何对于包含在此文件内的参数的变化都会被忽略</span>
+<span class="token comment"># 并且由 master.info 文件内的内容覆盖， 除非你关闭slave服务， 删除 master.info 并且重启slave 服务。</span>
+<span class="token comment"># 由于这个原因，你也许不想碰一下的配置(注释掉的) 并且使用 CHANGE MASTER TO (查看上面) 来代替</span>
+<span class="token comment">#</span>
+<span class="token comment"># 所需要的唯一id号位于 2 和 2^32 – 1之间</span>
+<span class="token comment"># (并且和master不同)</span>
+<span class="token comment"># 如果master-host被设置了.则默认值是2</span>
+<span class="token comment"># 但是如果省略,则不会生效</span>
+<span class="token comment">#server-id = 2</span>
+<span class="token comment">#</span>
+<span class="token comment"># 复制结构中的master – 必须</span>
+<span class="token comment">#master-host =</span>
+<span class="token comment">#</span>
+<span class="token comment"># 当连接到master上时slave所用来认证的用户名 – 必须</span>
+<span class="token comment">#master-user =</span>
+<span class="token comment">#</span>
+<span class="token comment"># 当连接到master上时slave所用来认证的密码 – 必须</span>
+<span class="token comment">#master-password =</span>
+<span class="token comment">#</span>
+<span class="token comment"># master监听的端口.</span>
+<span class="token comment"># 可选 – 默认是3306</span>
+<span class="token comment">#master-port =</span>
+
+<span class="token comment"># 使得slave只读。只有用户拥有SUPER权限和在上面的slave线程能够修改数据。</span>
+<span class="token comment"># 你可以使用此项去保证没有应用程序会意外的修改slave而不是master上的数据</span>
+<span class="token comment">#read_only</span>
+
+<span class="token comment">#*** MyISAM 相关选项</span>
+
+<span class="token comment"># 关键词缓冲的大小， 一般用来缓冲 MyISAM 表的索引块。</span>
+<span class="token comment"># 不要将其设置大于你可用内存的30%，</span>
+<span class="token comment"># 因为一部分内存同样被OS用来缓冲行数据</span>
+<span class="token comment"># 甚至在你并不使用 MyISAM 表的情况下， 你也需要仍旧设置起 8-64M 内存由于它同样会被内部临时磁盘表使用。</span>
+<span class="token comment"># key_buffer_size = 128M</span>
+
+<span class="token comment"># 用来做 MyISAM 表全表扫描的缓冲大小.</span>
+<span class="token comment"># 当全表扫描需要时,在对应线程中分配.</span>
+<span class="token comment"># read_buffer_size = 8M</span>
+
+<span class="token comment"># 当在排序之后,从一个已经排序好的序列中读取行时,行数据将从这个缓冲中读取来防止磁盘寻道.</span>
+<span class="token comment"># 如果你增高此值,可以提高很多 ORDER BY 的性能.</span>
+<span class="token comment"># 当需要时由每个线程分配</span>
+<span class="token comment"># read_rnd_buffer_size = 64M</span>
+
+<span class="token comment"># MyISAM 使用特殊的类似树的 cache 来使得突发插入</span>
+<span class="token comment"># (这些插入是,INSERT … SELECT, INSERT … VALUES (…), (…), …, 以及 LOAD DATA INFILE) 更快.</span>
+<span class="token comment"># 此变量限制每个进程中缓冲树的字节数.</span>
+<span class="token comment"># 设置为 0 会关闭此优化.</span>
+<span class="token comment"># 为了最优化不要将此值设置大于 “key_buffer_size”.</span>
+<span class="token comment"># 当突发插入被检测到时此缓冲将被分配.</span>
+<span class="token comment"># bulk_insert_buffer_size = 256M</span>
+
+<span class="token comment"># 此缓冲当 MySQL 需要在 REPAIR, OPTIMIZE, ALTER 以及 LOAD DATA INFILE 到一个空表中引起重建索引时被分配.</span>
+<span class="token comment"># 这在每个线程中被分配.所以在设置大值时需要小心.</span>
+<span class="token comment"># myisam_sort_buffer_size = 256M</span>
+
+<span class="token comment"># MySQL 重建索引时所允许的最大临时文件的大小 (当 REPAIR, ALTER TABLE 或者 LOAD DATA INFILE).</span>
+<span class="token comment"># 如果文件大小比此值更大,索引会通过键值缓冲创建(更慢)</span>
+<span class="token comment"># myisam_max_sort_file_size = 10G</span>
+
+<span class="token comment"># 如果被用来更快的索引创建索引所使用临时文件大于制定的值,那就使用键值缓冲方法.</span>
+<span class="token comment"># 这主要用来强制在大表中长字串键去使用慢速的键值缓冲方法来创建索引.</span>
+<span class="token comment"># myisam_max_extra_sort_file_size = 10G</span>
+
+<span class="token comment"># 如果一个表拥有超过一个索引, MyISAM 可以通过并行排序使用超过一个线程去修复他们.</span>
+<span class="token comment"># 这对于拥有多个 CPU 以及大量内存情况的用户,是一个很好的选择.</span>
+<span class="token comment"># myisam_repair_threads = 1</span>
+
+<span class="token comment"># 自动检查和修复没有适当关闭的 MyISAM 表.</span>
+<span class="token comment"># myisam_recover</span>
+
+<span class="token comment"># 默认关闭 Federated</span>
+<span class="token comment"># skip-federated</span>
+
+<span class="token comment"># *** BDB 相关选项 ***</span>
+
+<span class="token comment"># 如果你运行的MySQL服务有BDB支持但是你不准备使用的时候使用此选项. 这会节省内存并且可能加速一些事.</span>
+<span class="token comment">#****(此属性对当前环境无效)****</span>
+<span class="token comment">#skip-bdb</span>
+
+<span class="token comment"># *** INNODB 相关选项 ***</span>
+
+<span class="token comment"># 如果你的 MySQL 服务包含 InnoDB 支持但是并不打算使用的话,</span>
+<span class="token comment"># 使用此选项会节省内存以及磁盘空间,并且加速某些部分</span>
+<span class="token comment">#skip-innodb</span>
+
+<span class="token comment"># 附加的内存池被 InnoDB 用来保存 metadata 信息(5.6中不再推荐使用)</span>
+<span class="token comment"># 如果 InnoDB 为此目的需要更多的内存,它会开始从 OS 这里申请内存.</span>
+<span class="token comment"># 由于这个操作在大多数现代操作系统上已经足够快, 你一般不需要修改此值.</span>
+<span class="token comment"># SHOW INNODB STATUS 命令会显示当先使用的数量.</span>
+<span class="token comment">#****(此属性对当前环境无效)****</span>
+<span class="token comment">#innodb_additional_mem_pool_size = 64M</span>
+
+<span class="token comment"># InnoDB使用一个缓冲池来保存索引和原始数据, 不像 MyISAM.</span>
+<span class="token comment"># 这里你设置越大,这能保证你在大多数的读取操作时使用的是内存而不是硬盘,在存取表里面数据时所需要的磁盘 I/O 越少.</span>
+<span class="token comment"># 在一个独立使用的数据库服务器上,你可以设置这个变量到服务器物理内存大小的80%</span>
+<span class="token comment"># 不要设置过大,否则,由于物理内存的竞争可能导致操作系统的换页颠簸.</span>
+<span class="token comment"># 注意在32位系统上你每个进程可能被限制在 2-3.5G 用户层面内存限制,</span>
+<span class="token comment"># 所以不要设置的太高.</span>
+innodb_buffer_pool_size <span class="token operator">=</span> 6G
+
+<span class="token comment"># InnoDB 将数据保存在一个或者多个数据文件中成为表空间.</span>
+<span class="token comment"># 如果你只有单个逻辑驱动保存你的数据,一个单个的自增文件就足够好了.</span>
+<span class="token comment"># 其他情况下.每个设备一个文件一般都是个好的选择.</span>
+<span class="token comment"># 你也可以配置 InnoDB 来使用裸盘分区 – 请参考手册来获取更多相关内容</span>
+innodb_data_file_path <span class="token operator">=</span> ibdata1:10M:autoextend
+
+<span class="token comment"># 设置此选项如果你希望InnoDB表空间文件被保存在其他分区.</span>
+<span class="token comment"># 默认保存在MySQL的datadir中.</span>
+<span class="token comment">#innodb_data_home_dir =</span>
+
+<span class="token comment"># 用来同步IO操作的IO线程的数量.</span>
+<span class="token comment"># 此值在Unix下被硬编码为8,但是在Windows磁盘I/O可能在一个大数值下表现的更好.</span>
+<span class="token comment">#innodb_file_io_threads = 8</span>
+
+<span class="token comment"># 如果你发现 InnoDB 表空间损坏, 设置此值为一个非零值可能帮助你导出你的表.</span>
+<span class="token comment"># 从1开始并且增加此值知道你能够成功的导出表.</span>
+<span class="token comment">#innodb_force_recovery=1</span>
+
+<span class="token comment"># 在 InnoDb 核心内的允许线程数量.</span>
+<span class="token comment"># 最优值依赖于应用程序,硬件以及操作系统的调度方式.</span>
+<span class="token comment"># 过高的值可能导致线程的互斥颠簸.</span>
+innodb_thread_concurrency <span class="token operator">=</span> <span class="token number">16</span>
+
+<span class="token comment"># 如果设置为1 ,InnoDB 会在每次提交后刷新(fsync)事务日志到磁盘上,</span>
+<span class="token comment"># 这提供了完整的 ACID 行为.</span>
+<span class="token comment"># 如果你愿意对事务安全折衷, 并且你正在运行一个小的事物, 你可以设置此值到0或者2来减少由事务日志引起的磁盘I/O</span>
+<span class="token comment"># 0代表日志只大约每秒写入日志文件并且日志文件刷新到磁盘.</span>
+<span class="token comment"># 2代表日志写入日志文件在每次提交后,但是日志文件只有大约每秒才会刷新到磁盘上.</span>
+innodb_flush_log_at_trx_commit <span class="token operator">=</span> <span class="token number">2</span>
+<span class="token comment">#（说明：如果是游戏服务器，建议此值设置为2；如果是对数据安全要求极高的应用，建议设置为1；</span>
+<span class="token comment">#设置为0性能最高，但如果发生故障，数据可能会有丢失的危险！</span>
+<span class="token comment">#默认值1的意思是每一次事务提交或事务外的指令都需要把日志写入（flush）硬盘，这是很费时的。</span>
+<span class="token comment">#特别是使用电池供电缓存（Battery backed up cache）时。</span>
+<span class="token comment">#设成2对于很多运用，特别是从MyISAM表转过来的是可以的，它的意思是不写入硬盘而是写入系统缓存。</span>
+<span class="token comment">#日志仍然会每秒flush到硬盘，所以你一般不会丢失超过1-2秒的更新。</span>
+<span class="token comment">#设成0会更快一点，但安全方面比较差，即使MySQL挂了也可能会丢失事务的数据。而值2只会在整个操作系统挂了时才可能丢数据。）</span>
+
+<span class="token comment"># 加速 InnoDB 的关闭. 这会阻止 InnoDB 在关闭时做全清除以及插入缓冲合并.</span>
+<span class="token comment"># 这可能极大增加关机时间, 但是取而代之的是 InnoDB 可能在下次启动时做这些操作.</span>
+<span class="token comment">#innodb_fast_shutdown</span>
+
+<span class="token comment"># 用来缓冲日志数据的缓冲区的大小.</span>
+<span class="token comment"># 当此值快满时, InnoDB 将必须刷新数据到磁盘上.</span>
+<span class="token comment"># 由于基本上每秒都会刷新一次,所以没有必要将此值设置的太大(甚至对于长事务而言)</span>
+innodb_log_buffer_size <span class="token operator">=</span> 16M
+
+<span class="token comment"># 在日志组中每个日志文件的大小.</span>
+<span class="token comment"># 你应该设置日志文件总合大小到你缓冲池大小的25%~100%</span>
+<span class="token comment"># 来避免在日志文件覆写上不必要的缓冲池刷新行为.</span>
+<span class="token comment"># 不论如何, 请注意一个大的日志文件大小会增加恢复进程所需要的时间.</span>
+innodb_log_file_size <span class="token operator">=</span> 512M
+
+<span class="token comment"># 在日志组中的文件总数.</span>
+<span class="token comment"># 通常来说2~3是比较好的.</span>
+innodb_log_files_in_group <span class="token operator">=</span> <span class="token number">3</span>
+
+<span class="token comment"># InnoDB 的日志文件所在位置. 默认是 MySQL 的 datadir.</span>
+<span class="token comment"># 你可以将其指定到一个独立的硬盘上或者一个RAID1卷上来提高其性能</span>
+<span class="token comment">#innodb_log_group_home_dir</span>
+
+<span class="token comment"># 在 InnoDB 缓冲池中最大允许的脏页面的比例.</span>
+<span class="token comment"># 如果达到限额, InnoDB 会开始刷新他们防止他们妨碍到干净数据页面.</span>
+<span class="token comment"># 这是一个软限制,不被保证绝对执行.</span>
+innodb_max_dirty_pages_pct <span class="token operator">=</span> <span class="token number">90</span>
+
+<span class="token comment"># InnoDB 用来刷新日志的方法.</span>
+<span class="token comment"># 表空间总是使用双重写入刷新方法</span>
+<span class="token comment"># 默认值是 “fdatasync”, 另一个是 “O_DSYNC”.</span>
+<span class="token comment"># 一般来说，如果你有硬件 RAID 控制器，并且其独立缓存采用 write-back 机制，并有着电池断电保护，那么应该设置配置为 O_DIRECT</span>
+<span class="token comment"># 否则，大多数情况下应将其设为 fdatasync</span>
+<span class="token comment">#innodb_flush_method=fdatasync</span>
+
+<span class="token comment"># 在被回滚前,一个 InnoDB 的事务应该等待一个锁被批准多久.</span>
+<span class="token comment"># InnoDB 在其拥有的锁表中自动检测事务死锁并且回滚事务.</span>
+<span class="token comment"># 如果你使用 LOCK TABLES 指令, 或者在同样事务中使用除了 InnoDB 以外的其他事务安全的存储引擎</span>
+<span class="token comment"># 那么一个死锁可能发生而 InnoDB 无法注意到.</span>
+<span class="token comment"># 这种情况下这个 timeout 值对于解决这种问题就非常有帮助.</span>
+innodb_lock_wait_timeout <span class="token operator">=</span> <span class="token number">120</span>
+
+<span class="token comment"># 这项设置告知InnoDB是否需要将所有表的数据和索引存放在共享表空间里（innodb_file_per_table = OFF） 或者为每张表的数据单独放在一个.ibd文件（innodb_file_per_table = ON）</span>
+<span class="token comment"># 每张表一个文件允许你在drop、truncate或者rebuild表时回收磁盘空间</span>
+<span class="token comment"># 这对于一些高级特性也是有必要的，比如数据压缩,但是它不会带来任何性能收益</span>
+innodb_file_per_table <span class="token operator">=</span> on
+
+<span class="token punctuation">[</span>mysqldump<span class="token punctuation">]</span>
+<span class="token comment"># 不要在将内存中的整个结果写入磁盘之前缓存. 在导出非常巨大的表时需要此项</span>
+quick
+
+max_allowed_packet <span class="token operator">=</span> 32M
+
+<span class="token punctuation">[</span>mysql<span class="token punctuation">]</span>
+no-auto-rehash
+default-character-set<span class="token operator">=</span>utf8
+<span class="token comment"># 仅仅允许使用键值的 UPDATEs 和 DELETEs .</span>
+safe-updates
+
+<span class="token punctuation">[</span>myisamchk<span class="token punctuation">]</span>
+key_buffer <span class="token operator">=</span> 16M
+sort_buffer_size <span class="token operator">=</span> 16M
+read_buffer <span class="token operator">=</span> 8M
+write_buffer <span class="token operator">=</span> 8M
+
+<span class="token punctuation">[</span>mysqlhotcopy<span class="token punctuation">]</span>
+interactive-timeout
+
+<span class="token punctuation">[</span>mysqld_safe<span class="token punctuation">]</span>
+<span class="token comment"># 增加每个进程的可打开文件数量.</span>
+<span class="token comment"># 警告: 确认你已经将全系统限制设定的足够高!</span>
+<span class="token comment"># 打开大量表需要将此值设大</span>
+open-files-limit <span class="token operator">=</span> <span class="token number">8192</span>
+
+<span class="token comment">#</span>
+<span class="token comment"># MySQL 服务端</span>
+<span class="token comment">#</span>
+<span class="token punctuation">[</span>client<span class="token punctuation">]</span>
+default-character-set<span class="token operator">=</span>utf8
+</code><div onclick="copied(this)" data-code="
+# 以下选项会被MySQL客户端应用读取。
+# 注意只有MySQL附带的客户端应用程序保证可以读取这段内容。
+# 如果你想你自己的MySQL应用程序获取这些值。
+# 需要在MySQL客户端库初始化的时候指定这些选项。
+
+# For advice on how to change settings please see
+# http://dev.mysql.com/doc/refman/5.7/en/server-configuration-defaults.html
+# *** DO NOT EDIT THIS FILE. It&#x27;s a template which will be copied to the
+# *** default location during install, and will be replaced if you
+# *** upgrade to a newer version of MySQL.
+
+# mysqld程序
+
+[mysqld]
+
+# Remove leading # and set to the amount of RAM for the most important data
+# cache in MySQL. Start at 70% of total RAM for dedicated server, else 10%.
+# innodb_buffer_pool_size = 128M
+
+# ★★★这里很重要️能让MySQL登陆链接变快速
+skip-name-resolve
+
+# Remove leading # to turn on a very important data integrity option: logging
+# changes to the binary log between backups.
+# log_bin
+
+# These are commonly set, remove the # and set as required.
+# 使用给定目录作为根目录(安装目录)。
+# basedir = .....
+# 从给定目录读取数据库文件。
+# datadir = .....
+# 为mysqld程序指定一个存放进程ID的文件(仅适用于UNIX/Linux系统);
+# pid-file = .....
+# 指定MsSQL侦听的端口
+# port = .....
+# server_id = .....
+# 为MySQL客户程序与服务器之间的本地通信指定一个套接字文件(Linux下默认是/var/lib/mysql/mysql.sock文件)
+# socket = .....
+
+
+sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
+
+# 一般配置选项
+basedir = /data/apps/mysql
+datadir = /data/appData/mysql
+port = 3306
+socket = /var/run/mysqld/mysqld.sock
+# 设置
+character-set-server=utf8
+
+
+# 指定MySQL可能的连接数量。
+# 当MySQL主线程在很短时间内接收到非常多的连接请求，该参数生效，主线程花费很短时间检查连接并且启动一个新线程。
+# back_log参数的值指出在MySQL暂时停止响应新请求之前的短时间内多少个请求可以被存在堆栈中。
+# 如果系统在一个短时间内有很多连接，则需要增大该参数的值，该参数值指定到来的TCP/IP连接的侦听队列的大小。
+# 试图设定back_log高于你的操作系统的限制将是无效的。默认值为50。对于Linux系统推荐设置为小于512的整数。
+
+# back_log 是操作系统在监听队列中所能保持的连接数,
+# 队列保存了在 MySQL 连接管理器线程处理之前的连接.
+# 如果你有非常高的连接率并且出现 “connection refused” 报错,
+# 你就应该增加此处的值.
+# 检查你的操作系统文档来获取这个变量的最大值.
+# 如果将back_log设定到比你操作系统限制更高的值，将会没有效果
+back_log = 300
+
+# 不在 TCP/IP 端口上进行监听.
+# 如果所有的进程都是在同一台服务器连接到本地的 mysqld,
+# 这样设置将是增强安全的方法
+# 所有 mysqld 的连接都是通过 Unix Sockets 或者命名管道进行的.
+# 注意在 Windows下如果没有打开命名管道选项而只是用此项
+# (通过 “enable-named-pipe” 选项) 将会导致 MySQL 服务没有任何作用!
+#skip-networking
+
+# MySQL 服务所允许的同时会话数的上限
+# 其中一个连接将被 SUPER 权限保留作为管理员登录.
+# 即便已经达到了连接数的上限.
+max_connections = 3000
+
+# 每个客户端连接最大的错误允许数量,如果达到了此限制.
+# 这个客户端将会被 MySQL 服务阻止直到执行了 “FLUSH HOSTS” 或者服务重启
+# 非法的密码以及其他在链接时的错误会增加此值.
+# 查看 “Aborted_connects” 状态来获取全局计数器.
+max_connect_errors = 50
+
+# 所有线程所打开表的数量.
+# 增加此值就增加了 mysqld 所需要的文件描述符的数量
+# 这样你需要确认在 [mysqld_safe] 中 “open-files-limit” 变量设置打开文件数量允许至少等于 table_cache 的值
+table_open_cache = 4096
+
+# 允许外部文件级别的锁. 打开文件锁会对性能造成负面影响
+# 所以只有在你在同样的文件上运行多个数据库实例时才使用此选项(注意仍会有其他约束!)
+# 或者你在文件层面上使用了其他一些软件依赖来锁定 MyISAM 表
+#external-locking
+
+# 服务所能处理的请求包的最大大小以及服务所能处理的最大的请求大小(当与大的 BLOB 字段一起工作时相当必要)
+# 每个连接独立的大小，大小动态增加
+max_allowed_packet = 32M
+
+# 在一个事务中 binlog 为了记录 SQL 状态所持有的 cache 大小
+# 如果你经常使用大的,多声明的事务,你可以增加此值来获取更大的性能.
+# 所有从事务来的状态都将被缓冲在 binlog 缓冲中然后在提交后一次性写入到 binlog 中
+# 如果事务比此值大, 会使用磁盘上的临时文件来替代.
+# 此缓冲在每个连接的事务第一次更新状态时被创建
+binlog_cache_size = 4M
+
+# 独立的内存表所允许的最大容量。
+# 此选项为了防止意外创建一个超大的内存表导致永尽所有的内存资源。
+max_heap_table_size = 128M
+
+# 随机读取数据缓冲区使用内存(read_rnd_buffer_size)：和顺序读取相对应，
+# 当 MySQL 进行非顺序读取（随机读取）数据块的时候，会利用>这个缓冲区暂存读取的数据
+# 如根据索引信息读取表数据，根据排序后的结果集与表进行 Join 等等
+# 总的来说，就是当数据块的读取需要满足>一定的顺序的情况下，MySQL 就需要产生随机读取，进而使用到 read_rnd_buffer_size 参数所设置的内存缓冲区
+read_rnd_buffer_size = 16M
+
+# 排序缓冲被用来处理类似 ORDER BY 以及 GROUP BY 队列所引起的排序
+# 如果排序后的数据无法放入排序缓冲,一个用来替代的基于磁盘的合并分类会被使用
+# 查看 “Sort_merge_passes” 状态变量。
+# 在排序发生时由每个线程分配
+# 每个需要进行排序的线程分配该大小的一个缓冲区。增加这值加速ORDER BY或GROUP BY操作。
+# 注意：该参数对应的分配内存是每连接独占！如果有100个连接，那么实际分配的总共排序缓冲区大小为100×6=600MB
+sort_buffer_size = 16M
+
+# 此缓冲被使用来优化全联合(FULL JOINS 不带索引的联合)。
+# 类似的联合在极大多数情况下有非常糟糕的性能表现,但是将此值设大能够减轻性能影响。
+# 通过 “Select_full_join” 状态变量查看全联合的数量
+# 当全联合发生时,在每个线程中分配
+join_buffer_size = 16M
+
+# 缓存可重用的线程数
+# thread_cache = 8
+
+# 避免MySQL的外部锁定，减少出错几率增强稳定性。
+# skip-locking                 
+
+# 我们在 cache 中保留多少线程用于重用
+# 当一个客户端断开连接后,如果 cache 中的线程还少于 thread_cache_size,则客户端线程被放入cache 中。
+# 这可以在你需要大量新连接的时候极大的减少线程创建的开销
+# (一般来说如果你有好的线程模型的话,这不会有明显的性能提升。)
+thread_cache_size = 16
+
+# 此允许应用程序给予线程系统一个提示在同一时间给予渴望被运行的线程的数量。
+# 此值只对于支持 thread_concurrency() 函数的系统有意义( 例如Sun Solaris)。
+# 你可可以尝试使用 [CPU数量]*(2..4) 来作为 thread_concurrency 的值
+#****(此属性对当前环境无效)****
+# thread_concurrency = 8
+
+# 查询缓冲常被用来缓冲 SELECT 的结果并且在下一次同样查询的时候不再执行直接返回结果。
+# 打开查询缓冲可以极大的提高服务器速度, 如果你有大量的相同的查询并且很少修改表。
+# 查看 “Qcache_lowmem_prunes” 状态变量来检查是否当前值对于你的负载来说是否足够高。
+# 注意: 在你表经常变化的情况下或者如果你的查询原文每次都不同,
+# 查询缓冲也许引起性能下降而不是性能提升。
+query_cache_size = 128M
+
+# 只有小于此设定值的结果才会被缓冲
+# 此设置用来保护查询缓冲,防止一个极大的结果集将其他所有的查询结果都覆盖。
+query_cache_limit = 4M
+
+# 被全文检索索引的最小的字长。
+# 你也许希望减少它，如果你需要搜索更短字的时候。
+# 注意在你修改此值之后，你需要重建你的 FULLTEXT 索引
+ft_min_word_len = 8
+
+# 如果你的系统支持 memlock() 函数，你也许希望打开此选项用以让运行中的 mysql 在在内存高度紧张的时候，数据在内存中保持锁定并且防止可能被 swapping out
+# 此选项对于性能有益
+#memlock
+
+# 当创建新表时作为默认使用的表类型，
+# 如果在创建表示没有特别执行表类型，将会使用此值
+#****(此属性对当前环境无效)****
+#default_table_type = InnoDB
+
+# 线程使用的堆大小. 此容量的内存在每次连接时被预留.
+# MySQL 本身常不会需要超过 64K 的内存
+# 如果你使用你自己的需要大量堆的 UDF 函数或者你的操作系统对于某些操作需要更多的堆，你也许需要将其设置的更高一点.
+thread_stack = 512K
+
+# 设定默认的事务隔离级别.可用的级别如下:
+# READ-UNCOMMITTED， READ-COMMITTED， REPEATABLE-READ， SERIALIZABLE
+transaction_isolation = REPEATABLE-READ
+
+# 内部(内存中)临时表的最大大小
+# 如果一个表增长到比此值更大，将会自动转换为基于磁盘的表。
+# 此限制是针对单个表的，而不是总和。
+tmp_table_size = 128M
+
+# 打开二进制日志功能。
+# 在复制(replication)配置中，作为 MASTER 主服务器必须打开此项
+# 如果你需要从你最后的备份中做基于时间点的恢复，你也同样需要二进制日志。
+log-bin=mysql-bin
+
+# 如果你在使用链式从服务器结构的复制模式 (A->B->C)，
+# 你需要在服务器B上打开此项。
+# 此选项打开在从线程上重做过的更新的日志， 并将其写入从服务器的二进制日志。
+#log_slave_updates
+
+# 打开全查询日志。 所有的由服务器接收到的查询 (甚至对于一个错误语法的查询)
+# 都会被记录下来。 这对于调试非常有用， 在生产环境中常常关闭此项。
+#log
+
+# 将警告打印输出到错误 log 文件。 如果你对于 MySQL 有任何问题
+# 你应该打开警告 log 并且仔细审查错误日志，查出可能的原因。
+#log_warnings
+
+# 记录慢速查询。 慢速查询是指消耗了比 “long_query_time” 定义的更多时间的查询。
+# 如果 log_long_format 被打开，那些没有使用索引的查询也会被记录。
+# 如果你经常增加新查询到已有的系统内的话。 一般来说这是一个好主意，
+#log_slow_queries
+
+# 有的使用了比这个时间(以秒为单位)更多的查询会被认为是慢速查询。
+# 不要在这里使用“1″, 否则会导致所有的查询,甚至非常快的查询页被记录下来(由于 MySQL 目前时间的精确度只能达到秒的级别)。
+long_query_time = 6
+
+# 在慢速日志中记录更多的信息。
+# 一般此项最好打开。
+# 打开此项会记录使得那些没有使用索引的查询也被作为到慢速查询附加到慢速日志里
+#log_long_format
+
+# 此目录被MySQL用来保存临时文件。例如,
+# 它被用来处理基于磁盘的大型排序,和内部排序一样。
+# 以及简单的临时表。
+# 如果你不创建非常大的临时文件,将其放置到 swapfs/tmpfs 文件系统上也许比较好
+# 另一种选择是你也可以将其放置在独立的磁盘上。
+# 你可以使用”;”来放置多个路径
+# 他们会按照 roud-robin 方法被轮询使用。
+#tmpdir = /tmp
+
+# *** 主从复制相关的设置
+
+# 唯一的服务辨识号,数值位于 1 到 2^32-1之间。
+# 此值在master和slave上都需要设置。
+# 如果 “master-host” 没有被设置,则默认为1, 但是如果忽略此选项,MySQL不会作为master生效。
+server-id = 1
+
+# 复制的Slave (去掉master段的注释来使其生效)
+#
+# 为了配置此主机作为复制的slave服务器,你可以选择两种方法:
+#
+# 1) 使用 CHANGE MASTER TO 命令 (在我们的手册中有完整描述) -
+# 语法如下:
+#
+# CHANGE MASTER TO MASTER_HOST=, MASTER_PORT=,
+# MASTER_USER=, MASTER_PASSWORD= ;
+#
+# 你需要替换掉，等被尖括号包围的字段以及使用master的端口号替换 (默认3306)。
+#
+# 例子:
+#
+# CHANGE MASTER TO MASTER_HOST=’125.564.12.1′, MASTER_PORT=3306,
+# MASTER_USER=’joe’, MASTER_PASSWORD=’secret’;
+#
+# 或者
+#
+# 2) 设置以下的变量. 不论如何, 在你选择这种方法的情况下， 然后第一次启动复制(甚至不成功的情况下，
+# 例如如果你输入错密码在master-password字段并且slave无法连接)，
+# slave会创建一个 master.info 文件，并且之后任何对于包含在此文件内的参数的变化都会被忽略
+# 并且由 master.info 文件内的内容覆盖， 除非你关闭slave服务， 删除 master.info 并且重启slave 服务。
+# 由于这个原因，你也许不想碰一下的配置(注释掉的) 并且使用 CHANGE MASTER TO (查看上面) 来代替
+#
+# 所需要的唯一id号位于 2 和 2^32 – 1之间
+# (并且和master不同)
+# 如果master-host被设置了.则默认值是2
+# 但是如果省略,则不会生效
+#server-id = 2
+#
+# 复制结构中的master – 必须
+#master-host =
+#
+# 当连接到master上时slave所用来认证的用户名 – 必须
+#master-user =
+#
+# 当连接到master上时slave所用来认证的密码 – 必须
+#master-password =
+#
+# master监听的端口.
+# 可选 – 默认是3306
+#master-port =
+
+# 使得slave只读。只有用户拥有SUPER权限和在上面的slave线程能够修改数据。
+# 你可以使用此项去保证没有应用程序会意外的修改slave而不是master上的数据
+#read_only
+
+#*** MyISAM 相关选项
+
+# 关键词缓冲的大小， 一般用来缓冲 MyISAM 表的索引块。
+# 不要将其设置大于你可用内存的30%，
+# 因为一部分内存同样被OS用来缓冲行数据
+# 甚至在你并不使用 MyISAM 表的情况下， 你也需要仍旧设置起 8-64M 内存由于它同样会被内部临时磁盘表使用。
+# key_buffer_size = 128M
+
+# 用来做 MyISAM 表全表扫描的缓冲大小.
+# 当全表扫描需要时,在对应线程中分配.
+# read_buffer_size = 8M
+
+# 当在排序之后,从一个已经排序好的序列中读取行时,行数据将从这个缓冲中读取来防止磁盘寻道.
+# 如果你增高此值,可以提高很多 ORDER BY 的性能.
+# 当需要时由每个线程分配
+# read_rnd_buffer_size = 64M
+
+# MyISAM 使用特殊的类似树的 cache 来使得突发插入
+# (这些插入是,INSERT … SELECT, INSERT … VALUES (…), (…), …, 以及 LOAD DATA INFILE) 更快.
+# 此变量限制每个进程中缓冲树的字节数.
+# 设置为 0 会关闭此优化.
+# 为了最优化不要将此值设置大于 “key_buffer_size”.
+# 当突发插入被检测到时此缓冲将被分配.
+# bulk_insert_buffer_size = 256M
+
+# 此缓冲当 MySQL 需要在 REPAIR, OPTIMIZE, ALTER 以及 LOAD DATA INFILE 到一个空表中引起重建索引时被分配.
+# 这在每个线程中被分配.所以在设置大值时需要小心.
+# myisam_sort_buffer_size = 256M
+
+# MySQL 重建索引时所允许的最大临时文件的大小 (当 REPAIR, ALTER TABLE 或者 LOAD DATA INFILE).
+# 如果文件大小比此值更大,索引会通过键值缓冲创建(更慢)
+# myisam_max_sort_file_size = 10G
+
+# 如果被用来更快的索引创建索引所使用临时文件大于制定的值,那就使用键值缓冲方法.
+# 这主要用来强制在大表中长字串键去使用慢速的键值缓冲方法来创建索引.
+# myisam_max_extra_sort_file_size = 10G
+
+# 如果一个表拥有超过一个索引, MyISAM 可以通过并行排序使用超过一个线程去修复他们.
+# 这对于拥有多个 CPU 以及大量内存情况的用户,是一个很好的选择.
+# myisam_repair_threads = 1
+
+# 自动检查和修复没有适当关闭的 MyISAM 表.
+# myisam_recover
+
+# 默认关闭 Federated
+# skip-federated
+
+# *** BDB 相关选项 ***
+
+# 如果你运行的MySQL服务有BDB支持但是你不准备使用的时候使用此选项. 这会节省内存并且可能加速一些事.
+#****(此属性对当前环境无效)****
+#skip-bdb
+
+# *** INNODB 相关选项 ***
+
+# 如果你的 MySQL 服务包含 InnoDB 支持但是并不打算使用的话,
+# 使用此选项会节省内存以及磁盘空间,并且加速某些部分
+#skip-innodb
+
+# 附加的内存池被 InnoDB 用来保存 metadata 信息(5.6中不再推荐使用)
+# 如果 InnoDB 为此目的需要更多的内存,它会开始从 OS 这里申请内存.
+# 由于这个操作在大多数现代操作系统上已经足够快, 你一般不需要修改此值.
+# SHOW INNODB STATUS 命令会显示当先使用的数量.
+#****(此属性对当前环境无效)****
+#innodb_additional_mem_pool_size = 64M
+
+# InnoDB使用一个缓冲池来保存索引和原始数据, 不像 MyISAM.
+# 这里你设置越大,这能保证你在大多数的读取操作时使用的是内存而不是硬盘,在存取表里面数据时所需要的磁盘 I/O 越少.
+# 在一个独立使用的数据库服务器上,你可以设置这个变量到服务器物理内存大小的80%
+# 不要设置过大,否则,由于物理内存的竞争可能导致操作系统的换页颠簸.
+# 注意在32位系统上你每个进程可能被限制在 2-3.5G 用户层面内存限制,
+# 所以不要设置的太高.
+innodb_buffer_pool_size = 6G
+
+# InnoDB 将数据保存在一个或者多个数据文件中成为表空间.
+# 如果你只有单个逻辑驱动保存你的数据,一个单个的自增文件就足够好了.
+# 其他情况下.每个设备一个文件一般都是个好的选择.
+# 你也可以配置 InnoDB 来使用裸盘分区 – 请参考手册来获取更多相关内容
+innodb_data_file_path = ibdata1:10M:autoextend
+
+# 设置此选项如果你希望InnoDB表空间文件被保存在其他分区.
+# 默认保存在MySQL的datadir中.
+#innodb_data_home_dir =
+
+# 用来同步IO操作的IO线程的数量.
+# 此值在Unix下被硬编码为8,但是在Windows磁盘I/O可能在一个大数值下表现的更好.
+#innodb_file_io_threads = 8
+
+# 如果你发现 InnoDB 表空间损坏, 设置此值为一个非零值可能帮助你导出你的表.
+# 从1开始并且增加此值知道你能够成功的导出表.
+#innodb_force_recovery=1
+
+# 在 InnoDb 核心内的允许线程数量.
+# 最优值依赖于应用程序,硬件以及操作系统的调度方式.
+# 过高的值可能导致线程的互斥颠簸.
+innodb_thread_concurrency = 16
+
+# 如果设置为1 ,InnoDB 会在每次提交后刷新(fsync)事务日志到磁盘上,
+# 这提供了完整的 ACID 行为.
+# 如果你愿意对事务安全折衷, 并且你正在运行一个小的事物, 你可以设置此值到0或者2来减少由事务日志引起的磁盘I/O
+# 0代表日志只大约每秒写入日志文件并且日志文件刷新到磁盘.
+# 2代表日志写入日志文件在每次提交后,但是日志文件只有大约每秒才会刷新到磁盘上.
+innodb_flush_log_at_trx_commit = 2
+#（说明：如果是游戏服务器，建议此值设置为2；如果是对数据安全要求极高的应用，建议设置为1；
+#设置为0性能最高，但如果发生故障，数据可能会有丢失的危险！
+#默认值1的意思是每一次事务提交或事务外的指令都需要把日志写入（flush）硬盘，这是很费时的。
+#特别是使用电池供电缓存（Battery backed up cache）时。
+#设成2对于很多运用，特别是从MyISAM表转过来的是可以的，它的意思是不写入硬盘而是写入系统缓存。
+#日志仍然会每秒flush到硬盘，所以你一般不会丢失超过1-2秒的更新。
+#设成0会更快一点，但安全方面比较差，即使MySQL挂了也可能会丢失事务的数据。而值2只会在整个操作系统挂了时才可能丢数据。）
+
+# 加速 InnoDB 的关闭. 这会阻止 InnoDB 在关闭时做全清除以及插入缓冲合并.
+# 这可能极大增加关机时间, 但是取而代之的是 InnoDB 可能在下次启动时做这些操作.
+#innodb_fast_shutdown
+
+# 用来缓冲日志数据的缓冲区的大小.
+# 当此值快满时, InnoDB 将必须刷新数据到磁盘上.
+# 由于基本上每秒都会刷新一次,所以没有必要将此值设置的太大(甚至对于长事务而言)
+innodb_log_buffer_size = 16M
+
+# 在日志组中每个日志文件的大小.
+# 你应该设置日志文件总合大小到你缓冲池大小的25%~100%
+# 来避免在日志文件覆写上不必要的缓冲池刷新行为.
+# 不论如何, 请注意一个大的日志文件大小会增加恢复进程所需要的时间.
+innodb_log_file_size = 512M
+
+# 在日志组中的文件总数.
+# 通常来说2~3是比较好的.
+innodb_log_files_in_group = 3
+
+# InnoDB 的日志文件所在位置. 默认是 MySQL 的 datadir.
+# 你可以将其指定到一个独立的硬盘上或者一个RAID1卷上来提高其性能
+#innodb_log_group_home_dir
+
+# 在 InnoDB 缓冲池中最大允许的脏页面的比例.
+# 如果达到限额, InnoDB 会开始刷新他们防止他们妨碍到干净数据页面.
+# 这是一个软限制,不被保证绝对执行.
+innodb_max_dirty_pages_pct = 90
+
+# InnoDB 用来刷新日志的方法.
+# 表空间总是使用双重写入刷新方法
+# 默认值是 “fdatasync”, 另一个是 “O_DSYNC”.
+# 一般来说，如果你有硬件 RAID 控制器，并且其独立缓存采用 write-back 机制，并有着电池断电保护，那么应该设置配置为 O_DIRECT
+# 否则，大多数情况下应将其设为 fdatasync
+#innodb_flush_method=fdatasync
+
+# 在被回滚前,一个 InnoDB 的事务应该等待一个锁被批准多久.
+# InnoDB 在其拥有的锁表中自动检测事务死锁并且回滚事务.
+# 如果你使用 LOCK TABLES 指令, 或者在同样事务中使用除了 InnoDB 以外的其他事务安全的存储引擎
+# 那么一个死锁可能发生而 InnoDB 无法注意到.
+# 这种情况下这个 timeout 值对于解决这种问题就非常有帮助.
+innodb_lock_wait_timeout = 120
+
+# 这项设置告知InnoDB是否需要将所有表的数据和索引存放在共享表空间里（innodb_file_per_table = OFF） 或者为每张表的数据单独放在一个.ibd文件（innodb_file_per_table = ON）
+# 每张表一个文件允许你在drop、truncate或者rebuild表时回收磁盘空间
+# 这对于一些高级特性也是有必要的，比如数据压缩,但是它不会带来任何性能收益
+innodb_file_per_table = on
+
+[mysqldump]
+# 不要在将内存中的整个结果写入磁盘之前缓存. 在导出非常巨大的表时需要此项
+quick
+
+max_allowed_packet = 32M
+
+[mysql]
+no-auto-rehash
+default-character-set=utf8
+# 仅仅允许使用键值的 UPDATEs 和 DELETEs .
+safe-updates
+
+[myisamchk]
+key_buffer = 16M
+sort_buffer_size = 16M
+read_buffer = 8M
+write_buffer = 8M
+
+[mysqlhotcopy]
+interactive-timeout
+
+[mysqld_safe]
+# 增加每个进程的可打开文件数量.
+# 警告: 确认你已经将全系统限制设定的足够高!
+# 打开大量表需要将此值设大
+open-files-limit = 8192
+
+#
+# MySQL 服务端
+#
+[client]
+default-character-set=utf8
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+      <p>配置好定制配置文件 my.cnf 之后需要初始化一下</p>
+      <pre class="language-bash"><code class="language-bash">mysqld --initialize
+</code><div onclick="copied(this)" data-code="mysqld --initialize
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+      <p>初始化之后需要重启服务</p>
+      <pre class="language-bash"><code class="language-bash"><span class="token comment"># 重启服务</span>
+mysql.server restart
+
+<span class="token comment"># Linux 这么运行，启动服务</span>
+<span class="token function">service</span> mysqld start
+<span class="token comment"># Mac 运行去掉 service</span>
+mysqld start
+
+<span class="token comment"># Linux 查看服务运行的状态</span>
+<span class="token function">service</span> mysqld status
+</code><div onclick="copied(this)" data-code="# 重启服务
+mysql.server restart
+
+# Linux 这么运行，启动服务
+service mysqld start
+# Mac 运行去掉 service
+mysqld start
+
+# Linux 查看服务运行的状态
+service mysqld status
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+      <script>function copied(target, str) {
+target.classList.add('active');
+copyTextToClipboard(target.dataset.code, function() {
+setTimeout(() => {
+target.classList.remove('active');
+}, 2000);
+});
+}</script>
+      <script src="https://unpkg.com/@uiw/copy-to-clipboard/dist/copy-to-clipboard.umd.js"></script>
+    </div>
+    <div class="footer"><a data-edit target="__blank" title="https://github.com/jaywcjlove/handbook/edit/master/chapter2/2.6.md" href="https://github.com/jaywcjlove/handbook/edit/master/chapter2/2.6.md">编辑当前页面</a><a target="__blank" href="https://jaywcjlove.gitee.io/handbook/">国内镜像站点 🇨🇳</a><a target="__blank" href="https://github.com/jaywcjlove/handbook">Github</a><a target="__blank" href="https://gitee.com/jaywcjlove/handbook">Gitee</a>
+      <div class="copyright">Copyright © 2021. All rights reserved.</div>
+    </div>
+  </body>
+</html>

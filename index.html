@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>mysql-tutorial</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta description="从零开始学习MySQL，主要是面向MySQL数据库管理系统初学者。- mysql-tutorial">
+    <meta keywords="example,mysql-tutorial,mysql,tutorial">
+    <link rel="icon" href="data:image/png;base64,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" type="image/x-icon">
+    <style>body { margin: 0; }.markdown-body { -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; max-width: 960px; margin: 28px auto 60px auto; padding: 8px; color: #24292f; background-color: #ffffff; font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"; font-size: 16px; line-height: 1.5; word-wrap: break-word;}.markdown-body .octicon { display: inline-block; fill: currentColor; vertical-align: text-bottom;}.markdown-body pre[class*="language-"] { position: relative;}.markdown-body pre[class*="language-"] .copied { visibility: hidden; display: flex; position: absolute; cursor: pointer; color: #a5afbb; top: 6px; right: 6px; border-radius: 5px; background: #e3e3e3; padding: 6px; font-size: 12px; transition: all .3s;}.markdown-body pre[class*="language-"]:hover .copied { visibility: visible;}.markdown-body pre[class*="language-"]:hover .copied:hover { background: #4caf50; color: #fff;}.markdown-body pre[class*="language-"]:hover .copied:active,.markdown-body pre[class*="language-"] .active { background: #2e9b33; color: #fff;}.markdown-body pre[class*="language-"] .copied .octicon-copy { display: block;}.markdown-body pre[class*="language-"] .copied .octicon-check { display: none;}.markdown-body pre[class*="language-"] .active .octicon-copy { display: none;}.markdown-body pre[class*="language-"] .active .octicon-check { display: block;}.markdown-body .octicon-video { border: 1px solid #d0d7de !important; border-radius: 6px !important; display: block;}.markdown-body .octicon-video summary { border-bottom: 1px solid #d0d7de !important; padding: 8px 16px !important; cursor: pointer;}.markdown-body .octicon-video > video { display: block !important; max-width: 100% !important; padding: 2px; box-sizing: border-box; border-bottom-right-radius: 6px !important; border-bottom-left-radius: 6px !important;}.markdown-body details.octicon-video:not([open])>*:not(summary) { display: none !important;}.markdown-body details.octicon-video:not([open]) > summary { border-bottom: 0 !important;}.markdown-body .octicon-video summary > svg + span { margin: 4px !important;}.markdown-body h1:hover a.anchor .octicon-link:before,.markdown-body h2:hover a.anchor .octicon-link:before,.markdown-body h3:hover a.anchor .octicon-link:before,.markdown-body h4:hover a.anchor .octicon-link:before,.markdown-body h5:hover a.anchor .octicon-link:before,.markdown-body h6:hover a.anchor .octicon-link:before { width: 16px; height: 16px; content: ' '; display: inline-block; background-color: currentColor; -webkit-mask-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' aria-hidden='true'><path fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z'></path></svg>"); mask-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' aria-hidden='true'><path fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z'></path></svg>");}.markdown-body a.anchor { float: left; padding-right: 4px; margin-left: -20px; line-height: 1; min-width: 16px;}.markdown-body a.anchor:focus { outline: none;}.markdown-body h1:hover a.anchor,.markdown-body h2:hover a.anchor,.markdown-body h3:hover a.anchor,.markdown-body h4:hover a.anchor,.markdown-body h5:hover a.anchor,.markdown-body h6:hover a.anchor { text-decoration: none;}.markdown-body h1:hover a.anchor .octicon-link,.markdown-body h2:hover a.anchor .octicon-link,.markdown-body h3:hover a.anchor .octicon-link,.markdown-body h4:hover a.anchor .octicon-link,.markdown-body h5:hover a.anchor .octicon-link,.markdown-body h6:hover a.anchor .octicon-link { visibility: visible;}.markdown-body details,.markdown-body figcaption,.markdown-body figure { display: block;}.markdown-body summary { display: list-item;}.markdown-body a { background-color: transparent; color: #0969da; text-decoration: none;}.markdown-body a:active,.markdown-body a:hover { outline-width: 0;}.markdown-body abbr[title] { border-bottom: none; -webkit-text-decoration: underline dotted; text-decoration: underline dotted;}.markdown-body b,.markdown-body strong { font-weight: 600;}.markdown-body dfn { font-style: italic;}.markdown-body h1 { margin: .67em 0; font-weight: 600; padding-bottom: .3em; font-size: 2em; border-bottom: 1px solid hsla(210,18%,87%,1);}.markdown-body mark { background-color: #ff0; color: #24292f;}.markdown-body small { font-size: 90%;}.markdown-body sub,.markdown-body sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline;}.markdown-body sub { bottom: -0.25em;}.markdown-body sup { top: -0.5em;}.markdown-body img { border-style: none; max-width: 100%; box-sizing: content-box; background-color: #ffffff;}.markdown-body code,.markdown-body kbd,.markdown-body pre,.markdown-body samp { font-family: monospace,monospace; font-size: 1em;}.markdown-body figure { margin: 1em 40px;}.markdown-body hr { box-sizing: content-box; overflow: hidden; background: transparent; border-bottom: 1px solid hsla(210,18%,87%,1); height: .25em; padding: 0; margin: 24px 0; background-color: #d0d7de; border: 0;}.markdown-body html [type=button],.markdown-body [type=reset],.markdown-body [type=submit] { -webkit-appearance: button;}.markdown-body [type=button]::-moz-focus-inner,.markdown-body [type=reset]::-moz-focus-inner,.markdown-body [type=submit]::-moz-focus-inner { border-style: none; padding: 0;}.markdown-body [type=button]:-moz-focusring,.markdown-body [type=reset]:-moz-focusring,.markdown-body [type=submit]:-moz-focusring { outline: 1px dotted ButtonText;}.markdown-body [type=checkbox],.markdown-body [type=radio] { box-sizing: border-box; padding: 0;}.markdown-body [type=number]::-webkit-inner-spin-button,.markdown-body [type=number]::-webkit-outer-spin-button { height: auto;}.markdown-body [type=search] { -webkit-appearance: textfield; outline-offset: -2px;}.markdown-body [type=search]::-webkit-search-cancel-button,.markdown-body [type=search]::-webkit-search-decoration { -webkit-appearance: none;}.markdown-body ::-webkit-input-placeholder { color: inherit; opacity: .54;}.markdown-body ::-webkit-file-upload-button { -webkit-appearance: button; font: inherit;}.markdown-body a:hover { text-decoration: underline;}.markdown-body hr::before { display: table; content: "";}.markdown-body hr::after { display: table; clear: both; content: "";}.markdown-body table { border-spacing: 0; border-collapse: collapse; display: block; width: max-content; max-width: 100%; overflow: auto;}.markdown-body td,.markdown-body th { padding: 0;}.markdown-body details summary { cursor: pointer;}.markdown-body details:not([open])>*:not(summary) { display: none !important;}.markdown-body kbd { display: inline-block; padding: 3px 5px; font: 11px ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace; line-height: 10px; color: #24292f; vertical-align: middle; background-color: #f6f8fa; border: solid 1px rgba(175,184,193,0.2); border-bottom-color: rgba(175,184,193,0.2); border-radius: 6px; box-shadow: inset 0 -1px 0 rgba(175,184,193,0.2);}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6 { margin-top: 24px; margin-bottom: 16px; font-weight: 600; line-height: 1.25;}.markdown-body h2 { font-weight: 600; padding-bottom: .3em; font-size: 1.5em; border-bottom: 1px solid hsla(210,18%,87%,1);}.markdown-body h3 { font-weight: 600; font-size: 1.25em;}.markdown-body h4 { font-weight: 600; font-size: 1em;}.markdown-body h5 { font-weight: 600; font-size: .875em;}.markdown-body h6 { font-weight: 600; font-size: .85em; color: #57606a;}.markdown-body p { margin-top: 0; margin-bottom: 10px;}.markdown-body blockquote { margin: 0; padding: 0 1em; color: #57606a; border-left: .25em solid #d0d7de;}.markdown-body ul,.markdown-body ol { margin-top: 0; margin-bottom: 0; padding-left: 2em;}.markdown-body ol ol,.markdown-body ul ol { list-style-type: lower-roman;}.markdown-body ul ul ol,.markdown-body ul ol ol,.markdown-body ol ul ol,.markdown-body ol ol ol { list-style-type: lower-alpha;}.markdown-body ul ul,.markdown-body ul ol,.markdown-body ol ol,.markdown-body ol ul { margin-top: 0; margin-bottom: 0;}.markdown-body dd { margin-left: 0;}.markdown-body tt,.markdown-body code { font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace; font-size: 12px;}.markdown-body pre { margin-top: 0; margin-bottom: 0; font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace; word-wrap: normal;}.markdown-body :-ms-input-placeholder { color: #6e7781; opacity: 1;}.markdown-body ::-ms-input-placeholder { color: #6e7781; opacity: 1;}.markdown-body ::placeholder { color: #6e7781; opacity: 1;}.markdown-body [data-catalyst] { display: block;}.markdown-body g-emoji { font-family: "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; font-size: 1em; font-style: normal !important; font-weight: 400; line-height: 1; vertical-align: -0.075em;}.markdown-body g-emoji img { width: 1em; height: 1em;}.markdown-body::before { display: table; content: "";}.markdown-body::after { display: table; clear: both; content: "";}.markdown-body>*:first-child { margin-top: 0 !important;}.markdown-body>*:last-child { margin-bottom: 0 !important;}.markdown-body a:not([href]) { color: inherit; text-decoration: none;}.markdown-body .absent { color: #cf222e;}.markdown-body p,.markdown-body blockquote,.markdown-body ul,.markdown-body ol,.markdown-body dl,.markdown-body table,.markdown-body pre,.markdown-body details { margin-top: 0; margin-bottom: 16px;}.markdown-body blockquote>:first-child { margin-top: 0;}.markdown-body blockquote>:last-child { margin-bottom: 0;}.markdown-body sup>a::before { content: "[";}.markdown-body sup>a::after { content: "]";}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link { color: #24292f; vertical-align: middle; visibility: hidden;}.markdown-body h1 tt,.markdown-body h1 code,.markdown-body h2 tt,.markdown-body h2 code,.markdown-body h3 tt,.markdown-body h3 code,.markdown-body h4 tt,.markdown-body h4 code,.markdown-body h5 tt,.markdown-body h5 code,.markdown-body h6 tt,.markdown-body h6 code { padding: 0 .2em; font-size: inherit;}.markdown-body ul.no-list,.markdown-body ol.no-list { padding: 0; list-style-type: none;}.markdown-body ol[type="1"] { list-style-type: decimal;}.markdown-body ol[type=a] { list-style-type: lower-alpha;}.markdown-body ol[type=i] { list-style-type: lower-roman;}.markdown-body div>ol:not([type]) { list-style-type: decimal;}.markdown-body ul ul,.markdown-body ul ol,.markdown-body ol ol,.markdown-body ol ul { margin-top: 0; margin-bottom: 0;}.markdown-body li>p { margin-top: 16px;}.markdown-body li+li { margin-top: .25em;}.markdown-body dl { padding: 0;}.markdown-body dl dt { padding: 0; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: 600;}.markdown-body dl dd { padding: 0 16px; margin-bottom: 16px;}.markdown-body table th { font-weight: 600;}.markdown-body table th,.markdown-body table td { padding: 6px 13px; border: 1px solid #d0d7de;}.markdown-body table tr { background-color: #ffffff; border-top: 1px solid hsla(210,18%,87%,1);}.markdown-body table tr:nth-child(2n) { background-color: #f6f8fa;}.markdown-body table img { background-color: transparent;}.markdown-body img[align=right] { padding-left: 20px;}.markdown-body img[align=left] { padding-right: 20px;}.markdown-body .emoji { max-width: none; vertical-align: text-top; background-color: transparent;}.markdown-body span.frame { display: block; overflow: hidden;}.markdown-body span.frame>span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0 0; overflow: hidden; border: 1px solid #d0d7de;}.markdown-body span.frame span img { display: block; float: left;}.markdown-body span.frame span span { display: block; padding: 5px 0 0; clear: both; color: #24292f;}.markdown-body span.align-center { display: block; overflow: hidden; clear: both;}.markdown-body span.align-center>span { display: block; margin: 13px auto 0; overflow: hidden; text-align: center;}.markdown-body span.align-center span img { margin: 0 auto; text-align: center;}.markdown-body span.align-right { display: block; overflow: hidden; clear: both;}.markdown-body span.align-right>span { display: block; margin: 13px 0 0; overflow: hidden; text-align: right;}.markdown-body span.align-right span img { margin: 0; text-align: right;}.markdown-body span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden;}.markdown-body span.float-left span { margin: 13px 0 0;}.markdown-body span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden;}.markdown-body span.float-right>span { display: block; margin: 13px auto 0; overflow: hidden; text-align: right;}.markdown-body code,.markdown-body tt { padding: .2em .4em; margin: 0; font-size: 85%; background-color: rgba(175,184,193,0.2); border-radius: 6px;}.markdown-body code br,.markdown-body tt br { display: none;}.markdown-body del code { text-decoration: inherit;}.markdown-body pre code { font-size: 100%;}.markdown-body pre>code { padding: 0; margin: 0; word-break: normal; white-space: pre; background: transparent; border: 0;}.markdown-body .highlight { margin-bottom: 16px;}.markdown-body .highlight pre { margin-bottom: 0; word-break: normal;}.markdown-body pre code { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: #f6f8fa; border-radius: 6px;}.markdown-body pre code,.markdown-body pre tt { display: block; margin: 0; word-wrap: normal; border: 0;}.markdown-body .csv-data td,.markdown-body .csv-data th { padding: 5px; overflow: hidden; font-size: 12px; line-height: 1; text-align: left; white-space: nowrap;}.markdown-body .csv-data .blob-num { padding: 10px 8px 9px; text-align: right; background: #ffffff; border: 0;}.markdown-body .csv-data tr { border-top: 0;}.markdown-body .csv-data th { font-weight: 600; background: #f6f8fa; border-top: 0;}.markdown-body .footnotes { font-size: 12px; color: #57606a; border-top: 1px solid #d0d7de;}.markdown-body .footnotes ol { padding-left: 16px;}.markdown-body .footnotes li { position: relative;}.markdown-body .footnotes li:target::before { position: absolute; top: -8px; right: -8px; bottom: -8px; left: -24px; pointer-events: none; content: ""; border: 2px solid #0969da; border-radius: 6px;}.markdown-body .footnotes li:target { color: #24292f;}.markdown-body .footnotes .data-footnote-backref g-emoji { font-family: monospace;}.markdown-body [hidden] { display: none !important;}.markdown-body ::-webkit-calendar-picker-indicator { filter: invert(50%);}/** language color **/.markdown-body .token.tag .attr-value { color: #032f62;}.markdown-body .token.property,.markdown-body .token.tag,.markdown-body .token.boolean,.markdown-body .token.number,.markdown-body .token.function-name,.markdown-body .token.constant,.markdown-body .token.symbol,.markdown-body .token.deleted { color: #0060c9;}.markdown-body .token.punctuation { color: #a0a0a0;}.markdown-body code[class*="language-"] { color: black;}.markdown-body code[class*="language-"] .token.selector,.markdown-body code[class*="language-"] .token.string,.markdown-body code[class*="language-"] .token.attr-name,.markdown-body code[class*="language-"] .token.content,.markdown-body code[class*="language-"] .token.char,.markdown-body code[class*="language-"] .token.class-name,.markdown-body code[class*="language-"] .token.function,.markdown-body code[class*="language-"] .token.builtin { color: #6f42c1;}.markdown-body code[class*="language-"] .token.inserted { color: #22863a; background-color: #f0fff4;}.markdown-body code[class*="language-"] .token.deleted { color: #b31d28; background-color: #ffeef0;}.markdown-body code[class*="language-"] .code-block { color: #032f62;}.markdown-body code[class*="language-"] .token.comment,.markdown-body code[class*="language-"] .token.block-comment,.markdown-body code[class*="language-"] .token.prolog,.markdown-body code[class*="language-"] .token.doctype,.markdown-body code[class*="language-"] .token.cdata { color: #7D8B99;}.markdown-body code[class*="language-"] .token.punctuation { color: #a0a0a0;}.markdown-body code[class*="language-"] .token.operator,.markdown-body code[class*="language-"] .token.entity,.markdown-body code[class*="language-"] .token.variable { color: #d73a49; background: rgba(255, 255, 255, 0.5);}.markdown-body code[class*="language-"] .token.url { color: #0027ff;}.markdown-body code[class*="language-"] .token.atrule,.markdown-body code[class*="language-"] .token.attr-value { color: #004698;}.markdown-body code[class*="language-"] .token.keyword { color: #d63200;}.markdown-body code[class*="language-"] .token.regex,.markdown-body code[class*="language-"] .token.important { color: #e90;}.markdown-body code[class*="language-"] .token.string { color: #0a53c1;}</style>
+    <style>.header {
+position: fixed;
+width: 100%;
+background: #fff;
+backdrop-filter: saturate(180%) blur(0.4rem);
+background-color: rgba(255,255,255,0.55);
+border-bottom: 1px solid #00000014;
+z-index: 99;
+top: 0;
+}
+.header .inner {
+max-width: 960px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+padding: 5px 0;
+}
+.header .logo {
+margin-right: 10px;
+}
+.header .title {
+display: flex;
+align-items: center;
+font-size: 16px;
+font-weight: bold;
+color: #333;
+}
+.header .logo img {
+height: 26px;
+display: block;
+}
+.markdown-body {
+margin-top: 78px;
+}
+.footer {
+max-width: 960px;
+margin: 0 auto;
+text-align: center;
+padding: 0 0 110px 0;
+border-top: 1px solid hsla(210,18%,87%,1);
+padding-top: 18px;
+}
+.footer a {
+font-size: 14px;
+text-decoration: initial;
+color: #3f51b5;
+}
+.footer a:hover {
+color:#009688;
+text-decoration: underline;
+}
+.footer a + a {
+margin-left: 10px;
+}
+.footer .copyright {
+color: #596068;
+font-size: 14px;
+padding-top: 5px;
+}</style>
+  </head>
+  <body id="totop">
+    <header class="header">
+      <article class="inner"><a class="logo" href="index.html"><img src="data:image/png;base64,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" alt="mysql-tutorial logo"></a>
+        <div class="title">mysql-tutorial</div>
+        <nav class="nav"></nav>
+      </article>
+    </header><a aria-label="View source on GitHub" target="__blank" class="github-corner" href="https://github.com/jaywcjlove/handbook.git"><svg width="54" height="54" viewBox="0 0 250 250" aria-hidden="true" style="fill: rgb(32, 34, 37); color: rgb(255, 255, 255); position: fixed; z-index: 99999; border: 0px; top: 0px; right: 0px;">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path style="transform-origin: 130px 106px;" class="octo-arm" fill="currentColor" d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"></path>
+        <path class="octo-body" fill="currentColor" d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"></path>
+      </svg></a>
+    <div class="markdown-body">
+      <img align="right" height="150" src="./img/mysql-logo.png">
+      <h2 id="mysql入门教程"><a class="anchor" aria-hidden="true" tabindex="-1" href="#mysql入门教程"><span class="octicon octicon-link"></span></a>MySQL入门教程</h2>
+      <p><a href="http://www.mysql.com/"><img src="https://jaywcjlove.github.io/sb/ico/mysql.svg" alt=""></a> <a href="awesome-mysql.html"><img src="https://jaywcjlove.github.io/sb/ico/awesome.svg" alt=""></a> <a href="#"><img src="https://jaywcjlove.github.io/sb/license/mit.svg" alt=""></a></p>
+      <p>从零开始学习MySQL，主要是面向MySQL数据库管理系统初学者。前端开发工程师为什么写这个入门教程呢？最近项目强迫我这个前端老司机使用MySQL，虽然我在项目中已经使用过一段时间，为了写出高质量的SQL语句，能快速定位解决数据库引发的问题，系统的过一遍基础，你也可以当做是我的笔记。有幸也认识一些 MySQL 的 DBA，这让我学习起来比较快，能快速入门，进入实战开发阶段。</p>
+      <p>原本我是使用 MongoDB 这类型的 NoSQL 数据库，MongoDB在 Nodejs 在 Mongoose 包的帮助下 JSON 的数据格式直接插入 MongoDB 中，对于一个前端开发工程师，使用起来非常舒服。但是没有办法，我是被逼的，从此入了一个新坑，我就决心系统的好好学习一下。如果你对本小电子书阅读非常没有耐心，你可以看看我做的一篇笔记 <strong>《<a href="21-minutes-MySQL-basic-entry.html">21分钟MySQL基础入门</a>》</strong> ，这个笔记还可以在 <a href="https://segmentfault.com/a/1190000006876419">SegmentFault</a> 里面阅读，有导航阅读非常方便，为什么只需要21分钟呢？因为在我们大天朝有句话叫做“不管三七二十一”，你可以不管三七二十一开始使用 MySQL 及快速入门，里面系统的整理了，一些常用的SQL语句。</p>
+      <p>在本书中所搜集到得各种资源，我把它将放到这里 <strong><a href="awesome-mysql.html">Awesome MySQL</a></strong>。所有SQL语句例子，是基于 MySQL 5.7.14 或者 MySQL 5.7.16 运行的。这里面的一些理论知识都是从<a href="https://zh.wikipedia.org/">维基百科</a>等各种百科、各种官网搬运过来的，偶尔会有一些基础理论知识总结，如果有错误或者误差，可以给我来个疯狂的<a href="https://github.com/jaywcjlove/mysql-tutorial/pulls">Pull requesets</a>或<a href="https://github.com/jaywcjlove/mysql-tutorial/issues">Issue</a>。如果实在看不下去你可以🔫。</p>
+      <p>MariaDB，是 MySQL server 的一个由社区开发的分支，MariaDB大部分跟 MySQL 5.5 以前版本使用差不多。自己电脑上是 MySQL 5.7.14，公司服务器上面是 MariaDB 最新版本，生产上 MySQL 5.7.16，所以很尴尬，偶尔提及MariaDB也是很正常的吧。</p>
+      <h2 id="目录"><a class="anchor" aria-hidden="true" tabindex="-1" href="#目录"><span class="octicon octicon-link"></span></a>目录</h2>
+      <h4 id="awesome-mysql"><a class="anchor" aria-hidden="true" tabindex="-1" href="#awesome-mysql"><span class="octicon octicon-link"></span></a>Awesome MySQL</h4>
+      <ul>
+        <li><a href="21-minutes-MySQL-basic-entry.html">21分钟MySQL基础入门</a></li>
+        <li><a href="awesome-mysql.html#%E6%89%8B%E5%86%8C%E6%96%87%E6%A1%A3">手册文档</a> - 一些非官方的手册文档搜集</li>
+        <li><a href="awesome-mysql.html#%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7">分析工具</a> - 性能，结构和数据分析工具</li>
+        <li><a href="awesome-mysql.html#gui">GUI</a> - 搜集的一些 MySQL 的客户端，也有命令行客户端</li>
+        <li><a href="awesome-mysql.html#%E6%9C%8D%E5%8A%A1%E5%99%A8">服务器</a> - MySQL服务器的衍生品</li>
+        <li><a href="awesome-mysql.html#%E5%A4%87%E4%BB%BD">备份</a> - 备份/存储/恢复 工具</li>
+        <li><a href="awesome-mysql.html#%E5%AE%98%E6%96%B9%E8%B5%84%E6%96%99">官方资料</a> - 官方的一些网站和文章</li>
+        <li><a href="awesome-mysql.html#%E4%BC%98%E7%A7%80%E6%96%87%E7%AB%A0">优秀文章</a> - 一些优秀的文章</li>
+      </ul>
+      <h4 id="第1章-初识mysql"><a class="anchor" aria-hidden="true" tabindex="-1" href="#第1章-初识mysql"><span class="octicon octicon-link"></span></a>第1章 初识MySQL</h4>
+      <ul>
+        <li>1.1 <a href="chapter1/1.1.html">数据库基础</a>
+          <ul>
+            <li><a href="chapter1/1.1.html#%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E5%BA%93">什么是数据库</a></li>
+            <li><a href="chapter1/1.1.html#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%86%E7%B1%BB">数据库分类</a></li>
+            <li><a href="chapter1/1.1.html#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%A1%E5%9E%8B">数据库模型</a></li>
+            <li><a href="chapter1/1.1.html#%E6%95%B0%E6%8D%AE%E8%A1%A8">数据表</a></li>
+            <li><a href="chapter1/1.1.html#%E5%85%B3%E7%B3%BB%E9%94%AE">关系键</a></li>
+          </ul>
+        </li>
+        <li>1.2 <a href="chapter1/1.2.html">数据库技术构成</a>
+          <ul>
+            <li><a href="chapter1/1.2.html#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F">数据库系统</a></li>
+            <li><a href="chapter1/1.2.html#%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5">关系数据库基本概念</a></li>
+            <li><a href="chapter1/1.2.html#sql%E8%AF%AD%E8%A8%80">SQL语言</a></li>
+            <li><a href="chapter1/1.2.html#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BF%E9%97%AE%E6%8A%80%E6%9C%AF">数据库访问技术</a></li>
+          </ul>
+        </li>
+        <li>1.3 <a href="chapter1/1.3.html">什么是MySQL</a>
+          <ul>
+            <li><a href="chapter1/1.3.html#mysql-%E4%BB%8B%E7%BB%8D">MySQL介绍</a></li>
+            <li><a href="chapter1/1.3.html#mysql-%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2">MySQL发展历史</a></li>
+            <li><a href="chapter1/1.3.html#mysql-%E7%89%88%E6%9C%AC">MySQL版本</a></li>
+            <li><a href="chapter1/1.3.html#mysql-%E7%9A%84%E4%BC%98%E5%8A%BF">MySQL的优势</a></li>
+          </ul>
+        </li>
+        <li>1.4 <a href="chapter1/1.4.html">如何学习MySQL</a></li>
+      </ul>
+      <h4 id="第2章-mysql的安装与配置"><a class="anchor" aria-hidden="true" tabindex="-1" href="#第2章-mysql的安装与配置"><span class="octicon octicon-link"></span></a>第2章 MySQL的安装与配置</h4>
+      <ul>
+        <li>2.1 <a href="chapter2/2.1.html">Mac平台下安装与配置MySQL</a>
+          <ul>
+            <li><a href="chapter2/2.1.html#mac-%E5%AE%89%E8%A3%85mysql">Mac上安装MySQL</a></li>
+            <li><a href="chapter2/2.1.html#mac-%E5%8D%B8%E8%BD%BDmysql">Mac上卸载MySQL</a></li>
+          </ul>
+        </li>
+        <li>2.2 <a href="chapter2/2.2.html">Centos 平台安装与卸载MySQL</a>
+          <ul>
+            <li><a href="chapter2/2.2.html#%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E5%B7%B2%E5%AE%89%E8%A3%85">检查是否已安装</a></li>
+            <li><a href="chapter2/2.2.html#%E6%9B%B4%E6%96%B0%E5%AE%89%E8%A3%85%E6%BA%90">更新安装源</a></li>
+            <li><a href="chapter2/2.2.html#%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E4%B8%8B%E8%BD%BD%E6%88%90%E5%8A%9F">检查是否下载成功</a></li>
+            <li><a href="chapter2/2.2.html#%E6%9F%A5%E7%9C%8B%E7%89%88%E6%9C%AC">查看版本</a></li>
+            <li><a href="chapter2/2.2.html#%E5%90%AF%E5%8A%A8%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC">启动指定版本</a></li>
+            <li><a href="chapter2/2.2.html#%E5%AE%89%E8%A3%85mysql">安装MySQL</a></li>
+            <li><a href="chapter2/2.2.html#%E6%9F%A5%E7%9C%8B%E5%AE%89%E8%A3%85%E7%9B%AE%E5%BD%95">查看安装目录</a></li>
+            <li><a href="chapter2/2.2.html#mariadb%E5%88%87%E6%8D%A2mysql">MariaDB切换MySQL</a></li>
+            <li><a href="chapter2/2.2.html#%E5%8D%B8%E8%BD%BD-mysql-%E8%BD%AF%E4%BB%B6">卸载 MySQL 软件</a></li>
+          </ul>
+        </li>
+        <li>2.3 <a href="chapter2/2.3.html">Docker 安装 MySQL</a>
+          <ul>
+            <li><a href="chapter2/2.3.html#%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8%E4%B8%80%E4%B8%AA-mysql-%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%9E%E4%BE%8B">快速启动一个 MySQL 服务器实例</a></li>
+            <li><a href="#%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%AE%BF%E9%97%AE-mysql-%E5%AE%B9%E5%99%A8">通过命令行访问 MySQL 容器</a></li>
+            <li><a href="#%E4%BD%BF%E7%94%A8-mysql-%E8%87%AA%E5%AE%9A%E4%B9%89%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">使用 MySQL 自定义配置文件</a></li>
+            <li><a href="#%E4%BD%BF%E7%94%A8-stack-%E9%83%A8%E7%BD%B2-mysql">使用 stack 部署 MySQL</a></li>
+          </ul>
+        </li>
+        <li>2.4 <a href="chapter2/2.4.html">启动数据库设置初始密码</a>
+          <ul>
+            <li><a href="chapter2/2.4.html#%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%90%AF%E5%8A%A8%E5%85%B3%E9%97%AD%E9%87%8D%E5%90%AFmysql%E6%9C%8D%E5%8A%A1">命令行启动关闭重启MySQL服务</a></li>
+            <li><a href="chapter2/2.4.html#%E5%9B%BE%E5%83%8F%E7%95%8C%E9%9D%A2%E5%90%AF%E5%8A%A8%E5%85%B3%E9%97%AD%E9%87%8D%E5%90%AFmysql%E6%9C%8D%E5%8A%A1">图像界面启动关闭重启MySQL服务</a></li>
+            <li><a href="chapter2/2.4.html#%E6%9F%A5%E7%9C%8B%E5%88%9D%E5%A7%8B%E5%AF%86%E7%A0%81">查看初始密码</a></li>
+            <li><a href="chapter2/2.4.html#%E8%AE%BE%E7%BD%AE%E5%88%9D%E5%A7%8B%E5%8C%96%E5%AF%86%E7%A0%81">设置初始化密码</a></li>
+            <li><a href="chapter2/2.4.html#%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99%E5%A4%84%E7%90%86">启动报错处理</a></li>
+          </ul>
+        </li>
+        <li>2.5 <a href="chapter2/2.5.html">MySQL工具</a>
+          <ul>
+            <li><a href="chapter2/2.5.html#%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BD%BF%E7%94%A8%E7%A8%8B%E5%BA%8F">命令行使用程序</a></li>
+            <li><a href="chapter2/2.5.html#mysql-workbench%E5%AE%A2%E6%88%B7%E7%AB%AF">MySQL Workbench客户端</a></li>
+            <li><a href="chapter2/2.5.html#%E5%B8%B8%E7%94%A8%E5%9B%BE%E5%BD%A2%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7">常用图形管理工具</a></li>
+            <li><a href="chapter2/2.5.html#mycli%E6%9B%BF%E4%BB%A3mysql%E7%9A%84mysql%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7">MyCli替代MySQL的mysql命令行工具</a></li>
+          </ul>
+        </li>
+        <li>2.6 <a href="chapter2/2.6.html">MySQL配置修改</a>
+          <ul>
+            <li><a href="chapter2/2.6.html#mysql%E5%AE%89%E8%A3%85%E7%9B%AE%E5%BD%95%E8%AF%B4%E6%98%8E">MySQL安装目录说明</a></li>
+            <li><a href="chapter2/2.6.html#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E4%BD%8D%E7%BD%AE">配置文件的位置</a></li>
+            <li><a href="chapter2/2.6.html#windows%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96">Windows系统配置文件读取</a></li>
+            <li><a href="chapter2/2.6.html#linux%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96">Linux系统配置文件读取</a></li>
+            <li><a href="chapter2/2.6.html#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9">配置文件内容</a></li>
+          </ul>
+        </li>
+      </ul>
+      <h4 id="第3章-数据库的基本操作"><a class="anchor" aria-hidden="true" tabindex="-1" href="#第3章-数据库的基本操作"><span class="octicon octicon-link"></span></a>第3章 数据库的基本操作</h4>
+      <ul>
+        <li>3.1 <a href="chapter3/3.1.html">连接数据库</a>
+          <ul>
+            <li><a href="chapter3/3.1.html#mysql%E5%91%BD%E4%BB%A4%E8%AF%AD%E6%B3%95">MySQL命令语法</a></li>
+            <li><a href="chapter3/3.1.html#mysql%E5%91%BD%E4%BB%A4%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93">MySQL命令连接数据库</a></li>
+            <li><a href="chapter3/3.1.html#%E5%BC%80%E5%90%AFmysql%E7%9A%84%E8%BF%9C%E7%A8%8B%E5%B8%90%E5%8F%B7">开启MySQL的远程帐号</a></li>
+            <li><a href="chapter3/3.1.html#mysql%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81">MySQL修改密码</a></li>
+          </ul>
+        </li>
+        <li>3.2 <a href="chapter3/3.2.html">查看选择数据库</a>
+          <ul>
+            <li><a href="chapter3/3.2.html#%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E5%BA%93">查看数据库</a></li>
+            <li><a href="chapter3/3.2.html#%E9%80%89%E6%8B%A9%E6%95%B0%E6%8D%AE%E5%BA%93">选择数据库</a></li>
+          </ul>
+        </li>
+        <li>3.3 <a href="chapter3/3.3.html">创建数据库</a>
+          <ul>
+            <li><a href="chapter3/3.4.html#sql%E8%AF%AD%E5%8F%A5%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93">SQL语句创建数据库</a></li>
+            <li><a href="chapter3/3.4.html#%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93">管理工具创建数据库</a></li>
+          </ul>
+        </li>
+        <li>3.4 <a href="chapter3/3.4.html">删除数据库</a>
+          <ul>
+            <li><a href="chapter3/3.4.html#sql%E8%AF%AD%E5%8F%A5%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E5%BA%93">SQL语句删除数据库</a></li>
+            <li><a href="chapter3/3.4.html#%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E5%BA%93">管理工具删除数据库</a></li>
+          </ul>
+        </li>
+        <li>3.5 <a href="chapter3/3.5.html#">数据库存储引擎</a>
+          <ul>
+            <li><a href="chapter3/3.5.html#%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E7%AE%80%E4%BB%8B">存储引擎简介</a></li>
+            <li><a href="chapter3/3.5.html#%E5%B8%B8%E7%94%A8%E5%BC%95%E6%93%8E%E5%AF%B9%E6%AF%94">常用引擎对比</a></li>
+            <li><a href="chapter3/3.5.html#%E6%9F%A5%E7%9C%8B%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E">查看存储引擎</a></li>
+            <li><a href="chapter3/3.5.html#%E8%AE%BE%E7%BD%AE%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E">设置存储引擎</a></li>
+            <li><a href="chapter3/3.5.html#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%90%88%E9%80%82%E7%9A%84%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E">如何选择合适的存储引擎</a></li>
+          </ul>
+        </li>
+      </ul>
+      <h4 id="第4章-数据表的基本操作"><a class="anchor" aria-hidden="true" tabindex="-1" href="#第4章-数据表的基本操作"><span class="octicon octicon-link"></span></a>第4章 数据表的基本操作</h4>
+      <ul>
+        <li>4.1 创建数据表</li>
+      </ul>
+      <h4 id="第5章-数据类型和运算符"><a class="anchor" aria-hidden="true" tabindex="-1" href="#第5章-数据类型和运算符"><span class="octicon octicon-link"></span></a>第5章 数据类型和运算符</h4>
+      <h4 id="第6章-mysql函数"><a class="anchor" aria-hidden="true" tabindex="-1" href="#第6章-mysql函数"><span class="octicon octicon-link"></span></a>第6章 MySQL函数</h4>
+      <h4 id="第7章-查询数据"><a class="anchor" aria-hidden="true" tabindex="-1" href="#第7章-查询数据"><span class="octicon octicon-link"></span></a>第7章 查询数据</h4>
+      <h4 id="第8章-插入更新与删除数据"><a class="anchor" aria-hidden="true" tabindex="-1" href="#第8章-插入更新与删除数据"><span class="octicon octicon-link"></span></a>第8章 插入、更新与删除数据</h4>
+      <h4 id="第9章-索引"><a class="anchor" aria-hidden="true" tabindex="-1" href="#第9章-索引"><span class="octicon octicon-link"></span></a>第9章 索引</h4>
+      <h4 id="第10章-存储过程和函数"><a class="anchor" aria-hidden="true" tabindex="-1" href="#第10章-存储过程和函数"><span class="octicon octicon-link"></span></a>第10章 存储过程和函数</h4>
+      <h4 id="第11章-视图"><a class="anchor" aria-hidden="true" tabindex="-1" href="#第11章-视图"><span class="octicon octicon-link"></span></a>第11章 视图</h4>
+      <h4 id="第12章-mysql函数"><a class="anchor" aria-hidden="true" tabindex="-1" href="#第12章-mysql函数"><span class="octicon octicon-link"></span></a>第12章 MySQL函数</h4>
+      <h4 id="第13章-mysql用户管理"><a class="anchor" aria-hidden="true" tabindex="-1" href="#第13章-mysql用户管理"><span class="octicon octicon-link"></span></a>第13章 MySQL用户管理</h4>
+      <h4 id="第14章-数据备份与还原"><a class="anchor" aria-hidden="true" tabindex="-1" href="#第14章-数据备份与还原"><span class="octicon octicon-link"></span></a>第14章 数据备份与还原</h4>
+      <h4 id="第15章-mysql日志"><a class="anchor" aria-hidden="true" tabindex="-1" href="#第15章-mysql日志"><span class="octicon octicon-link"></span></a>第15章 MySQL日志</h4>
+      <h4 id="第16章-性能优化"><a class="anchor" aria-hidden="true" tabindex="-1" href="#第16章-性能优化"><span class="octicon octicon-link"></span></a>第16章 性能优化</h4>
+      <h4 id="第17章-各种问题解决"><a class="anchor" aria-hidden="true" tabindex="-1" href="#第17章-各种问题解决"><span class="octicon octicon-link"></span></a>第17章 各种问题解决</h4>
+      <ul>
+        <li><a href="chapter17/17.1.html">让MySQL支持emoji图标存储</a></li>
+        <li><a href="chapter17/17.2.html">Centos6下升级MySQL数据库</a></li>
+        <li><a href="chapter17/17.3.html">MySQL修改密码</a>
+          <ul>
+            <li><a href="chapter17/17.3.html#mysqld_safe%E4%B8%8D%E5%AD%98%E5%9C%A8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81">mysqld_safe不存在修改密码</a></li>
+            <li><a href="chapter17/17.3.html#%E5%90%AF%E5%8A%A8%E4%BF%AE%E6%94%B9%E4%B8%A2%E5%A4%B1%E7%9A%84mysql%E5%8D%95%E5%AE%9E%E4%BE%8Broot%E5%AF%86%E7%A0%81%E6%96%B9%E6%B3%95">启动修改丢失的mysql单实例root密码方法</a></li>
+            <li><a href="chapter17/17.3.html#Mac%E4%B8%8B%E9%87%8D%E7%BD%AEMySQL%E7%9A%84root%E5%AF%86%E7%A0%81">Mac下重置MySQL的root密码</a></li>
+            <li><a href="chapter17/17.3.html#%E4%B8%8D%E9%87%8D%E5%90%AFmysqld%E7%9A%84%E6%96%B9%E6%B3%95">不重启mysqld修改密码的方法</a></li>
+          </ul>
+        </li>
+        <li><a href="chapter2/2.2.html#centos7%E5%AE%89%E8%A3%85mysql">Centos7 默认为MariaDB导致mysql安装不上</a></li>
+        <li><a href="chapter2/2.1.html#mysql%E5%91%BD%E4%BB%A4%E4%B8%8D%E5%AD%98%E5%9C%A8">mysql命令不存在</a></li>
+        <li><a href="chapter2/2.3.html#linux-%E4%B8%8B%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C">MySQL服务启动失败解决方案</a></li>
+        <li><a href="chapter3/3.1.html#%E5%BC%80%E5%90%AFmysql%E7%9A%84%E8%BF%9C%E7%A8%8B%E5%B8%90%E5%8F%B7">密码不满足当前的策略要求导致无法开启远程帐号</a></li>
+      </ul>
+      <h2 id="读者对象"><a class="anchor" aria-hidden="true" tabindex="-1" href="#读者对象"><span class="octicon octicon-link"></span></a>读者对象</h2>
+      <p>整本书目录规划参考了其它几本 MySQL 书籍目录规划的，在我边学习边整理的过程可能有修改，这个过程有点慢，希望能完成，所以教程适合以下读者学习阅读使用：</p>
+      <ul>
+        <li>MySQL 数据库初学者。</li>
+        <li>对数据库开发感兴趣，希望快速、全面掌握 MySQL 的人员。</li>
+        <li>对其他数据库有一定的了解，想转到 MySQL 平台使用它的开发者。</li>
+        <li>像我一样被逼无奈使用 MySQL 数据库的人。</li>
+      </ul>
+      <p>从目录来看，看上去内容丰富，比较完整的介绍了 MySQL 数据库技术的教程，我不是<code>DBA</code>，我不是，正在看这篇文章的你，很可能也不是，不想误人子弟，在项目中应用了一段时间 MySQL，如果你是<code>DBA</code>请多多指教，文采不佳还望高抬贵手，不甚感激，小弟在这里给您鞠躬，欢迎给我纠错。</p>
+      <p>我想念一个女孩儿，实属无奈我得继续努力，好好读书做个有趣的人，完成我的“著作”，待我著作完成可否跟我约个会？</p>
+      <script>function copied(target, str) {
+target.classList.add('active');
+copyTextToClipboard(target.dataset.code, function() {
+setTimeout(() => {
+target.classList.remove('active');
+}, 2000);
+});
+}</script>
+      <script src="https://unpkg.com/@uiw/copy-to-clipboard/dist/copy-to-clipboard.umd.js"></script>
+    </div>
+    <div class="footer"><a data-edit target="__blank" title="https://github.com/jaywcjlove/handbook/edit/master/README.md" href="https://github.com/jaywcjlove/handbook/edit/master/README.md">编辑当前页面</a><a target="__blank" href="https://jaywcjlove.gitee.io/handbook/">国内镜像站点 🇨🇳</a><a target="__blank" href="https://github.com/jaywcjlove/handbook">Github</a><a target="__blank" href="https://gitee.com/jaywcjlove/handbook">Gitee</a>
+      <div class="copyright">Copyright © 2021. All rights reserved.</div>
+    </div>
+  </body>
+</html>
