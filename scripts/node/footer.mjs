@@ -13,8 +13,8 @@ export const footer = (editPath) => {
         properties: {
           'data-edit': true,
           target: '__blank',
-          title: `https://github.com/jaywcjlove/handbook/edit/master/${editPath}`, 
-          href: `https://github.com/jaywcjlove/handbook/edit/master/${editPath}`,
+          title: `https://github.com/jaywcjlove/mysql-tutorial/edit/master/${editPath}`, 
+          href: `https://github.com/jaywcjlove/mysql-tutorial/edit/master/${editPath}`,
         },
         children: [ { type: 'text', value: '编辑当前页面' } ]
       },
@@ -23,7 +23,7 @@ export const footer = (editPath) => {
         tagName: 'a',
         properties: {
           target: '__blank',
-          href: 'https://jaywcjlove.gitee.io/handbook/',
+          href: 'https://jaywcjlove.gitee.io/mysql-tutorial/',
         },
         children: [ { type: 'text', value: '国内镜像站点 🇨🇳' } ]
       },
@@ -32,7 +32,7 @@ export const footer = (editPath) => {
         tagName: 'a',
         properties: {
           target: '__blank',
-          href: 'https://github.com/jaywcjlove/handbook',
+          href: 'https://github.com/jaywcjlove/mysql-tutorial',
         },
         children: [ { type: 'text', value: 'Github' } ]
       },
@@ -41,7 +41,7 @@ export const footer = (editPath) => {
         tagName: 'a',
         properties: {
           target: '__blank',
-          href: 'https://gitee.com/jaywcjlove/handbook',
+          href: 'https://gitee.com/jaywcjlove/mysql-tutorial',
         },
         children: [ { type: 'text', value: 'Gitee' } ]
       },
