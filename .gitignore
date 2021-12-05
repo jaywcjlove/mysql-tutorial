@@ -2,7 +2,26 @@
 #
 .DS_Store
 
-# node.js
-#
-node_modules/
+build
+node_modules
 npm-debug.log
+package-lock.json
+
+.DS_Store
+.cache
+.vscode
+.idea
+.snap
+.env
+
+*.bak
+*.tem
+*.temp
+#.swp
+*.*~
+~*.*
+
+# IDEA
+*.iml
+*.ipr
+*.iws
