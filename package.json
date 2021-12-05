@@ -1,0 +1,21 @@
+{
+  "name": "mysql-tutorial",
+  "version": "1.0.0",
+  "description": "从零开始学习MySQL，主要是面向MySQL数据库管理系统初学者。",
+  "homepage": "https://jaywcjlove.github.io/mysql-tutorial",
+  "author": "jaywcjlove",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node scripts/build.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaywcjlove/mysql-tutorial.git"
+  },
+  "devDependencies": {
+    "fs-extra": "^10.0.0",
+    "markdown-to-html-cli": "^3.2.4",
+    "recursive-readdir-files": "^2.0.7"
+  }
+}
