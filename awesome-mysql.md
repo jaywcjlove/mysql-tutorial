@@ -1,5 +1,5 @@
 Awesome MySQL
----
+===
 
 这是一个MySQL软件库和资源列表清单。部分资源搜集来源于[shlomi-noach/awesome-mysql](https://github.com/shlomi-noach/awesome-mysql)，它的[中文翻译](https://github.com/jobbole/awesome-mysql-cn)在这里，没有完全fork过来，没有完全拷贝，是因为部分排版比较丑陋，部分工具慢慢搜集理解。
 
