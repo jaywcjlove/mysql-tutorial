@@ -159,13 +159,13 @@ padding-top: 5px;
         <li><code>键(key)</code>: 表中用来识别某个特定的人\物的方法, 键的值在当前列中具有唯一性。</li>
       </ul>
       <h3 id="登录mysql"><a class="anchor" aria-hidden="true" tabindex="-1" href="#登录mysql"><span class="octicon octicon-link"></span></a>登录MySQL</h3>
-      <pre class="language-shell"><code class="language-shell">mysql -h <span class="token number">127.0</span>.0.1 -u 用户名 -p
+      <pre class="language-shell"><code class="language-shell">mysql -h <span class="token number">127.0</span>.0.1 -u <span class="token operator">&#x3C;</span>用户名<span class="token operator">></span> -p<span class="token operator">&#x3C;</span>密码<span class="token operator">></span>.   <span class="token comment"># 默认用户名&#x3C;root>，-p 是密码，⚠️参数后面不需要空格</span>
 mysql -D 所选择的数据库名 -h 主机名 -u 用户名 -p
 mysql<span class="token operator">></span> <span class="token builtin class-name">exit</span> <span class="token comment"># 退出 使用 “quit;” 或 “\q;” 一样的效果</span>
 mysql<span class="token operator">></span> status<span class="token punctuation">;</span>  <span class="token comment"># 显示当前mysql的version的各种信息</span>
 mysql<span class="token operator">></span> <span class="token keyword">select</span> version<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment"># 显示当前mysql的version信息</span>
 mysql<span class="token operator">></span> show global variables like <span class="token string">'port'</span><span class="token punctuation">;</span> <span class="token comment"># 查看MySQL端口号</span>
-</code><div onclick="copied(this)" data-code="mysql -h 127.0.0.1 -u 用户名 -p
+</code><div onclick="copied(this)" data-code="mysql -h 127.0.0.1 -u <用户名> -p<密码>.   # 默认用户名<root>，-p 是密码，⚠️参数后面不需要空格
 mysql -D 所选择的数据库名 -h 主机名 -u 用户名 -p
 mysql> exit # 退出 使用 “quit;” 或 “\q;” 一样的效果
 mysql> status;  # 显示当前mysql的version的各种信息
