@@ -1,8 +1,10 @@
 
 <img align="right" height="150" src="./img/mysql-logo.png">
 
+<!--idoc:ignore:start-->
 MySQL入门教程
 ===
+<!--idoc:ignore:end-->
 
 [![](https://jaywcjlove.github.io/sb/ico/mysql.svg)](http://www.mysql.com/) [![](https://jaywcjlove.github.io/sb/ico/awesome.svg)](awesome-mysql.md) [![](https://jaywcjlove.github.io/sb/license/mit.svg)](#)
 
@@ -162,9 +164,7 @@ MariaDB，是 MySQL server 的一个由社区开发的分支，MariaDB大部分�
 
 从目录来看，看上去内容丰富，比较完整的介绍了 MySQL 数据库技术的教程，我不是`DBA`，我不是，正在看这篇文章的你，很可能也不是，不想误人子弟，在项目中应用了一段时间 MySQL，如果你是`DBA`请多多指教，文采不佳还望高抬贵手，不甚感激，小弟在这里给您鞠躬，欢迎给我纠错。
 
-~~我想念一个女孩儿，实属无奈我得继续努力，好好读书做个有趣的人，完成我的“著作”，待我著作完成可否跟我约个会？~~
-
-还没有写完就结婚了，欢迎大家 PR 补充完善 :)。
+~~我想念一个女孩儿，实属无奈我得继续努力，好好读书做个有趣的人，完成我的“著作”，待我著作完成可否跟我约个会？~~ 还没有写完就结婚了，欢迎大家 PR 补充完善 :)。
 
 ## License
 

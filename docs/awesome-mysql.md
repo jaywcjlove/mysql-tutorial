@@ -12,6 +12,8 @@ Awesome MySQL
 ![必备][bibei Icon] 表示**必备**资源标示；  
 ![1 star][red Icon] 表示强烈推荐的，星星的数量来表达强烈的程度；
 
+<!--idoc:ignore:start-->
+
 ## 目录
 
 - [手册文档](#手册文档)
@@ -22,6 +24,7 @@ Awesome MySQL
 - [官方资料](#官方资料)
 - [优秀文章](#优秀文章)
 
+<!--idoc:ignore:end-->
 
 ## 手册文档
 
@@ -102,7 +105,7 @@ _一些优秀的文章_
 * [一个不可思议的MySQL慢查分析与解决](http://fordba.com/optimize-an-amazing-mysql-slowlog.html)
 
 
-**[⬆ 返回顶部](#目录)**
+**[⬆ 返回顶部](#awesome-mysql)**
 
 
 [OSS Icon]: https://jaywcjlove.github.io/sb/ico/min-oss.svg

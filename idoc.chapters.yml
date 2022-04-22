@@ -1,0 +1,29 @@
+
+#### 第1章 初识 MySQL
+
+- chapter1/: 第1章 初识 MySQL
+- chapter1/1.1.md: 数据库基础
+- chapter1/1.2.md: 数据库技术构成
+- chapter1/1.3.md: 什么是MySQL
+- chapter1/1.4.md: 如何学习MySQL
+
+
+#### 第2章 MySQL的安装与配置
+
+- chapter2/: 第2章 MySQL 的安装与配置
+- chapter2/2.1.md: Mac平台下安装与配置MySQL
+- chapter2/2.2.md: Centos 平台安装与卸载MySQL
+- chapter2/2.3.md: Docker 安装 MySQL
+- chapter2/2.4.md: 启动数据库设置初始密码
+- chapter2/2.5.md: MySQL工具
+- chapter2/2.6.md: MySQL配置修改
+
+
+#### 第3章 数据库的基本操作
+
+- chapter3/: 第3章 数据库的基本操作
+- chapter3/3.1.md: 连接数据库
+- chapter3/3.2.md: 查看选择数据库
+- chapter3/3.3.md: 创建数据库
+- chapter3/3.4.md: 删除数据库
+- chapter3/3.5.md: 数据库存储引擎
