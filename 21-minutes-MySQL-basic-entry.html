@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>21分钟MySQL基础入门 MySQL 入门教程 </title>
+  
+  <meta name="description" content="为什么只需要21分钟呢？因为在我们大天朝有句话叫做三七二十一，你可以不管三七二十一开始使用 MySQL 及快速的方式入门 MySQL。其实21分钟把下面语句执行一遍是没有问题的，要理解的话估计不止21分钟，对于初学者来说只需满足自己需求可以">
+  
+  
+  <link rel="stylesheet" type="text/css" href="css/main.css?v=1650650225757">
+  <link rel="stylesheet" type="text/css" href="css/tocbot.css?v=1650650225757">
+  <link rel="stylesheet" type="text/css" href="css/media.css?v=1650650225757">
+  <link rel="stylesheet" type="text/css" href="css/sidebar.css?v=1650650225757">
+  <link rel="stylesheet" type="text/css" href="css/copy.css?v=1650650225757">
+  
+    <link rel="icon" href="mysql.svg" type="image/x-icon">
+  
+  <script src="js/copy.js"></script>
+  <script src="js/dark-mode.js"></script>
+  <script src="js/markdown-style.js"></script>
+</head>
+<body id="idoctotop">
+  <a href="#idoctotop" class="gototop">top</a>
+<header class="header">
+  <article class="inner warpper">
+    <a class="logo" href="index.html">
+      
+        <svg viewBox="0 0 1117 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0m177.009507 0l531.028522 0q177.009507 0 177.009508 177.009507l0 531.028522q0 177.009507-177.009508 177.009508l-531.028522 0q-177.009507 0-177.009507-177.009508l0-531.028522q0-177.009507 177.009507-177.009507Z" fill="#91bfcc"></path>
+<path d="M572.448747 1023.955748l-81.73414-94.965601c-10.532066-22.789974-22.126188-44.650648-33.32204-67.440622v-1.504581c-4.867761 6.416595-3.274676 12.788937-5.664304 22.612964-10.532066 40.712187-2.478133 87.044425-38.986344 101.780467-41.15471 17.12567-72.042869-27.524978-85.008816-47.881072a359.108038 359.108038 0 0 1-23.365255-272.992912 230.422126 230.422126 0 0 1 18.630251-61.024028c-2.478133-14.51478-13.762489-18.674503-20.311841-27.524978a384.995678 384.995678 0 0 1-29.95886-50.713224 960.011063 960.011063 0 0 1-42.039758-108.9051c-5.664304-14.51478-7.345895-29.206569-13.010198-42.969058a383.358341 383.358341 0 0 0-41.243216-61.024027c-18.718755-26.772688-73.149179-78.724978-51.288504-131.518064 34.07433-83.814002 153.201729-20.356093 199.135695 8.850475a308.350562 308.350562 0 0 0 37.260502 28.454279c20.400346 0.75229 40.535177 2.433881 60.89127 3.186171a390.704235 390.704235 0 0 1 103.683319 33.366292 817.252895 817.252895 0 0 1 313.793604 303.925324 892.92446 892.92446 0 0 1 41.420225 92.708729c20.179084 47.084529 42.924806 96.647191 66.378565 141.29784 10.310804 21.285393 18.630251 42.570787 18.630251 42.570786v85.141573a933.061366 933.061366 0 0 1-81.91115-142.227139c-16.94866-38.986344-38.057044-79.654278-55.138461-119.481417-8.850475-19.382541-12.965946-36.552463-22.789974-55.182714a719.41089 719.41089 0 0 0-252.769577-278.081936 515.805704 515.805704 0 0 0-116.472255-55.979257c-24.515817-7.345895-53.633881-3.407433-79.654279-8.850475h-16.904408c-14.470527-3.938462-26.551426-19.382541-38.012791-27.480726a400.307001 400.307001 0 0 0-80.22956-40.844944c-10.576318-4.956266-40.446672-16.240622-51.02299-7.390147a12.700432 12.700432 0 0 0-11.240104 10.532065c-6.593604 9.824028-0.973552 24.515817 3.141919 33.366293a387.208297 387.208297 0 0 0 44.252377 63.325151 419.910804 419.910804 0 0 1 40.800691 62.705618c20.931374 45.447191 30.71115 95.894901 50.314953 141.297839a322.776837 322.776837 0 0 0 29.029559 51.996543c8.850475 12.257908 25.179602 21.108384 30.047364 36.552463 9.86828 16.19637-14.647537 69.918755-20.311841 87.044425a352.647191 352.647191 0 0 0 7.345894 216.836647c9.824028 22.612965 18.630251 49.3414 44.606396 55.935004 1.548833-1.68159 0-0.75229 3.274676-1.68159a458.852895 458.852895 0 0 1 22.568712-122.623336 298.216768 298.216768 0 0 1 38.897839-55.226967c8.142437 4.735004 8.142437 19.426793 13.010199 29.206569 10.532066 25.046845 21.904927 52.748833 34.826621 78.01694 26.551426 51.996543 93.416768 152.582195 93.416767 152.582196zM385.084183 378.092308a283.74624 283.74624 0 0 1-25.799135-33.543302h-1.637338v-1.504581a128.022126 128.022126 0 0 1 33.322039-4.159723c6.372342 6.593604 17.169922 10.576318 21.77217 18.674503a177.717545 177.717545 0 0 0 9.86828 17.12567 45.624201 45.624201 0 0 1-17.169922 40.712186 18.80726 18.80726 0 0 1-1.548834 1.681591c-6.593604-12.965946-12.213656-25.976145-18.80726-38.986344z" fill="currentColor"></path>
+</svg>
+      
+      <span class="title">MySQL 入门教程</span>
+    </a>
+    <div class="content">
+      <ul class="menu">
+        
+        <li>
+          <a href="index.html" target="" class=""> Home </a>
+        </li>
+        
+        <li>
+          <a href="21-minutes-MySQL-basic-entry.html" target="" class="active"> Cheat Sheet </a>
+        </li>
+        
+        <li>
+          <a href="awesome-mysql.html" target="" class=""> Awesome </a>
+        </li>
+        
+      </ul>
+      
+        <a href="https://github.com/jaywcjlove/mysql-tutorial.git" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </a>
+      
+      <dark-mode permanent></dark-mode>
+    </div>
+  </article>
+</header>
+
+<div class="warpper-content warpper sidebar ">
+  
+<div class="sidebar-border">
+  <aside class="sidebar" role="navigation">
+    <div>
+    
+      
+        <label>第1章 初识 MySQL</label>
+      
+    
+      
+        <a href="chapter1/1.1.html" class="">数据库基础</a>
+      
+    
+      
+        <a href="chapter1/1.2.html" class="">数据库技术构成</a>
+      
+    
+      
+        <a href="chapter1/1.3.html" class="">什么是MySQL</a>
+      
+    
+      
+        <a href="chapter1/1.4.html" class="">如何学习MySQL</a>
+      
+    
+      
+        <label>第2章 MySQL 的安装与配置</label>
+      
+    
+      
+        <a href="chapter2/2.1.html" class="">Mac平台下安装与配置MySQL</a>
+      
+    
+      
+        <a href="chapter2/2.2.html" class="">Centos 平台安装与卸载MySQL</a>
+      
+    
+      
+        <a href="chapter2/2.3.html" class="">Docker 安装 MySQL</a>
+      
+    
+      
+        <a href="chapter2/2.4.html" class="">启动数据库设置初始密码</a>
+      
+    
+      
+        <a href="chapter2/2.5.html" class="">MySQL工具</a>
+      
+    
+      
+        <a href="chapter2/2.6.html" class="">MySQL配置修改</a>
+      
+    
+      
+        <label>第3章 数据库的基本操作</label>
+      
+    
+      
+        <a href="chapter3/3.1.html" class="">连接数据库</a>
+      
+    
+      
+        <a href="chapter3/3.2.html" class="">查看选择数据库</a>
+      
+    
+      
+        <a href="chapter3/3.3.html" class="">创建数据库</a>
+      
+    
+      
+        <a href="chapter3/3.4.html" class="">删除数据库</a>
+      
+    
+      
+        <a href="chapter3/3.5.html" class="">数据库存储引擎</a>
+      
+    
+    </div>
+  </aside>
+</div>
+
+  <markdown-style>
+    <h1 id="21分钟mysql基础入门"><a aria-hidden="true" tabindex="-1" href="#21分钟mysql基础入门" class="anchor"><span class="icon icon-link"></span></a>21分钟MySQL基础入门</h1>
+<p>为什么只需要21分钟呢？因为在我们大天朝有句话叫做三七二十一，你可以不管三七二十一开始使用 <code>MySQL</code> 及快速的方式入门 <code>MySQL</code>。其实21分钟把下面语句执行一遍是没有问题的，要理解的话估计不止21分钟，对于初学者来说只需满足自己需求可以增删改查等简易的维护即可。</p>
+
+<h2 id="开始使用"><a aria-hidden="true" tabindex="-1" href="#开始使用" class="anchor"><span class="icon icon-link"></span></a>开始使用</h2>
+<p>我下面所有的SQL语句是基于MySQL 5.6+运行。</p>
+<p>MySQL 为关系型数据库(Relational Database Management System)，一个关系型数据库由一个或数个表格组成, 如图所示的一个表格：</p>
+<img alt="21分钟MySQL基础入门" height="221" src="img/data.jpg">
+<ul>
+<li><code>表头(header)</code>: 每一列的名称;</li>
+<li><code>列(col)</code>: 具有相同数据类型的数据的集合;</li>
+<li><code>行(row)</code>: 每一行用来描述某个人/物的具体信息;</li>
+<li><code>值(value)</code>: 行的具体信息, 每个值必须与该列的数据类型相同;</li>
+<li><code>键(key)</code>: 表中用来识别某个特定的人\物的方法, 键的值在当前列中具有唯一性。</li>
+</ul>
+<h3 id="登录mysql"><a aria-hidden="true" tabindex="-1" href="#登录mysql" class="anchor"><span class="icon icon-link"></span></a>登录MySQL</h3>
+<pre class="language-shell"><code class="language-shell code-highlight"><span class="code-line">mysql -h <span class="token number">127.0</span>.0.1 -u <span class="token operator">&#x3C;</span>用户名<span class="token operator">></span> -p<span class="token operator">&#x3C;</span>密码<span class="token operator">></span>.   <span class="token comment"># 默认用户名&#x3C;root>，-p 是密码，⚠️参数后面不需要空格</span>
+</span><span class="code-line">mysql -D 所选择的数据库名 -h 主机名 -u 用户名 -p
+</span><span class="code-line">mysql<span class="token operator">></span> <span class="token builtin class-name">exit</span> <span class="token comment"># 退出 使用 “quit;” 或 “\q;” 一样的效果</span>
+</span><span class="code-line">mysql<span class="token operator">></span> status<span class="token punctuation">;</span>  <span class="token comment"># 显示当前mysql的version的各种信息</span>
+</span><span class="code-line">mysql<span class="token operator">></span> <span class="token keyword">select</span> version<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment"># 显示当前mysql的version信息</span>
+</span><span class="code-line">mysql<span class="token operator">></span> show global variables like <span class="token string">'port'</span><span class="token punctuation">;</span> <span class="token comment"># 查看MySQL端口号</span>
+</span></code><div onclick="copied(this)" data-code="mysql -h 127.0.0.1 -u <用户名> -p<密码>.   # 默认用户名<root>，-p 是密码，⚠️参数后面不需要空格
+mysql -D 所选择的数据库名 -h 主机名 -u 用户名 -p
+mysql> exit # 退出 使用 “quit;” 或 “\q;” 一样的效果
+mysql> status;  # 显示当前mysql的version的各种信息
+mysql> select version(); # 显示当前mysql的version信息
+mysql> show global variables like &#x27;port&#x27;; # 查看MySQL端口号
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h3 id="创建数据库"><a aria-hidden="true" tabindex="-1" href="#创建数据库" class="anchor"><span class="icon icon-link"></span></a>创建数据库</h3>
+<p>对于表的操作需要先进入库<code>use 库名;</code></p>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- 创建一个名为 samp_db 的数据库，数据库字符编码指定为 gbk</span>
+</span><span class="code-line"><span class="token keyword">create</span> <span class="token keyword">database</span> samp_db <span class="token keyword">character</span> <span class="token keyword">set</span> gbk<span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token keyword">drop</span> <span class="token keyword">database</span> samp_db<span class="token punctuation">;</span> <span class="token comment">-- 删除 库名为samp_db的库</span>
+</span><span class="code-line"><span class="token keyword">show</span> <span class="token keyword">databases</span><span class="token punctuation">;</span>        <span class="token comment">-- 显示数据库列表。</span>
+</span><span class="code-line"><span class="token keyword">use</span> samp_db<span class="token punctuation">;</span>     <span class="token comment">-- 选择创建的数据库samp_db</span>
+</span><span class="code-line"><span class="token keyword">show</span> <span class="token keyword">tables</span><span class="token punctuation">;</span>     <span class="token comment">-- 显示samp_db下面所有的表名字</span>
+</span><span class="code-line"><span class="token keyword">describe</span> 表名<span class="token punctuation">;</span>    <span class="token comment">-- 显示数据表的结构</span>
+</span><span class="code-line"><span class="token keyword">delete</span> <span class="token keyword">from</span> 表名<span class="token punctuation">;</span> <span class="token comment">-- 清空表中记录</span>
+</span></code><div onclick="copied(this)" data-code="-- 创建一个名为 samp_db 的数据库，数据库字符编码指定为 gbk
+create database samp_db character set gbk;
+drop database samp_db; -- 删除 库名为samp_db的库
+show databases;        -- 显示数据库列表。
+use samp_db;     -- 选择创建的数据库samp_db
+show tables;     -- 显示samp_db下面所有的表名字
+describe 表名;    -- 显示数据表的结构
+delete from 表名; -- 清空表中记录
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h3 id="创建数据库表"><a aria-hidden="true" tabindex="-1" href="#创建数据库表" class="anchor"><span class="icon icon-link"></span></a>创建数据库表</h3>
+<blockquote>
+<p>使用 create table 语句可完成对表的创建, create table 的常见形式:
+语法：create table 表名称(列声明);</p>
+</blockquote>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- 如果数据库中存在user_accounts表，就把它从数据库中drop掉</span>
+</span><span class="code-line"><span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token identifier"><span class="token punctuation">`</span>user_accounts<span class="token punctuation">`</span></span><span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token identifier"><span class="token punctuation">`</span>user_accounts<span class="token punctuation">`</span></span> <span class="token punctuation">(</span>
+</span><span class="code-line">  <span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span>             <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token keyword">unsigned</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">AUTO_INCREMENT</span> <span class="token keyword">primary</span> <span class="token keyword">key</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token identifier"><span class="token punctuation">`</span>password<span class="token punctuation">`</span></span>       <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span>       <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">DEFAULT</span> <span class="token string">''</span> <span class="token keyword">COMMENT</span> <span class="token string">'用户密码'</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token identifier"><span class="token punctuation">`</span>reset_password<span class="token punctuation">`</span></span> <span class="token keyword">tinyint</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span>       <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">DEFAULT</span> <span class="token number">0</span> <span class="token keyword">COMMENT</span> <span class="token string">'用户类型：0－不需要重置密码；1-需要重置密码'</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token identifier"><span class="token punctuation">`</span>mobile<span class="token punctuation">`</span></span>         <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span>       <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">DEFAULT</span> <span class="token string">''</span> <span class="token keyword">COMMENT</span> <span class="token string">'手机'</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token identifier"><span class="token punctuation">`</span>create_at<span class="token punctuation">`</span></span>      <span class="token keyword">timestamp</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span>      <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">DEFAULT</span> <span class="token keyword">CURRENT_TIMESTAMP</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token identifier"><span class="token punctuation">`</span>update_at<span class="token punctuation">`</span></span>      <span class="token keyword">timestamp</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span>      <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">DEFAULT</span> <span class="token keyword">CURRENT_TIMESTAMP</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token keyword">ON</span> <span class="token keyword">UPDATE</span> <span class="token keyword">CURRENT_TIMESTAMP</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token comment">-- 创建唯一索引，不允许重复</span>
+</span><span class="code-line">  <span class="token keyword">UNIQUE</span> <span class="token keyword">INDEX</span> idx_user_mobile<span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>mobile<span class="token punctuation">`</span></span><span class="token punctuation">)</span>
+</span><span class="code-line"><span class="token punctuation">)</span>
+</span><span class="code-line"><span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">InnoDB</span> <span class="token keyword">DEFAULT</span> <span class="token keyword">CHARSET</span><span class="token operator">=</span>utf8
+</span><span class="code-line"><span class="token keyword">COMMENT</span><span class="token operator">=</span><span class="token string">'用户表信息'</span><span class="token punctuation">;</span>
+</span></code><div onclick="copied(this)" data-code="-- 如果数据库中存在user_accounts表，就把它从数据库中drop掉
+DROP TABLE IF EXISTS &#x60;user_accounts&#x60;;
+CREATE TABLE &#x60;user_accounts&#x60; (
+  &#x60;id&#x60;             int(100) unsigned NOT NULL AUTO_INCREMENT primary key,
+  &#x60;password&#x60;       varchar(32)       NOT NULL DEFAULT &#x27;&#x27; COMMENT &#x27;用户密码&#x27;,
+  &#x60;reset_password&#x60; tinyint(32)       NOT NULL DEFAULT 0 COMMENT &#x27;用户类型：0－不需要重置密码；1-需要重置密码&#x27;,
+  &#x60;mobile&#x60;         varchar(20)       NOT NULL DEFAULT &#x27;&#x27; COMMENT &#x27;手机&#x27;,
+  &#x60;create_at&#x60;      timestamp(6)      NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+  &#x60;update_at&#x60;      timestamp(6)      NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+  -- 创建唯一索引，不允许重复
+  UNIQUE INDEX idx_user_mobile(&#x60;mobile&#x60;)
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8
+COMMENT=&#x27;用户表信息&#x27;;
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>数据类型的属性解释</p>
+<ul>
+<li><code>NULL</code>：数据列可包含NULL值；</li>
+<li><code>NOT NULL</code>：数据列不允许包含NULL值；</li>
+<li><code>DEFAULT</code>：默认值；</li>
+<li><code>PRIMARY KEY</code>：主键；</li>
+<li><code>AUTO_INCREMENT</code>：自动递增，适用于整数类型；</li>
+<li><code>UNSIGNED</code>：是指数值类型只能为正数；</li>
+<li><code>CHARACTER SET name</code>：指定一个字符集；</li>
+<li><code>COMMENT</code>：对表或者字段说明；</li>
+</ul>
+<h2 id="增删改查"><a aria-hidden="true" tabindex="-1" href="#增删改查" class="anchor"><span class="icon icon-link"></span></a>增删改查</h2>
+<h3 id="select"><a aria-hidden="true" tabindex="-1" href="#select" class="anchor"><span class="icon icon-link"></span></a>SELECT</h3>
+<blockquote>
+<p>SELECT 语句用于从表中选取数据。<br>
+语法：<code>SELECT 列名称 FROM 表名称</code><br>
+语法：<code>SELECT * FROM 表名称</code></p>
+</blockquote>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- 表station取个别名叫s，表station中不包含 字段id=13或者14 的，并且id不等于4的 查询出来，只显示id</span>
+</span><span class="code-line"><span class="token keyword">SELECT</span> s<span class="token punctuation">.</span>id <span class="token keyword">from</span> station s <span class="token keyword">WHERE</span> id <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">,</span><span class="token number">14</span><span class="token punctuation">)</span> <span class="token operator">and</span> id <span class="token operator">not</span> <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="token comment">-- 从表 Persons 选取 LastName 列的数据</span>
+</span><span class="code-line"><span class="token keyword">SELECT</span> LastName <span class="token keyword">FROM</span> Persons
+</span><span class="code-line">
+</span><span class="code-line"><span class="token comment">-- 从表 users 选取 id=3 的数据，并只拉一条数据(据说能优化性能)</span>
+</span><span class="code-line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> users <span class="token keyword">where</span> id<span class="token operator">=</span><span class="token number">3</span> <span class="token keyword">limit</span> <span class="token number">1</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="token comment">-- 结果集中会自动去重复数据</span>
+</span><span class="code-line"><span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> Company <span class="token keyword">FROM</span> Orders 
+</span><span class="code-line"><span class="token comment">-- 表 Persons 字段 Id_P 等于 Orders 字段 Id_P 的值，</span>
+</span><span class="code-line"><span class="token comment">-- 结果集显示 Persons表的 LastName、FirstName字段，Orders表的OrderNo字段</span>
+</span><span class="code-line"><span class="token keyword">SELECT</span> p<span class="token punctuation">.</span>LastName<span class="token punctuation">,</span> p<span class="token punctuation">.</span>FirstName<span class="token punctuation">,</span> o<span class="token punctuation">.</span>OrderNo <span class="token keyword">FROM</span> Persons p<span class="token punctuation">,</span> Orders o <span class="token keyword">WHERE</span> p<span class="token punctuation">.</span>Id_P <span class="token operator">=</span> o<span class="token punctuation">.</span>Id_P 
+</span><span class="code-line">
+</span><span class="code-line"><span class="token comment">-- gbk 和 utf8 中英文混合排序最简单的办法 </span>
+</span><span class="code-line"><span class="token comment">-- ci是 case insensitive, 即 “大小写不敏感”</span>
+</span><span class="code-line"><span class="token keyword">SELECT</span> tag<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>tag<span class="token punctuation">)</span> <span class="token keyword">from</span> news <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> tag <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token keyword">convert</span><span class="token punctuation">(</span>tag <span class="token keyword">using</span> gbk<span class="token punctuation">)</span> <span class="token keyword">collate</span> gbk_chinese_ci<span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token keyword">SELECT</span> tag<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>tag<span class="token punctuation">)</span> <span class="token keyword">from</span> news <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> tag <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token keyword">convert</span><span class="token punctuation">(</span>tag <span class="token keyword">using</span> utf8<span class="token punctuation">)</span> <span class="token keyword">collate</span> utf8_unicode_ci<span class="token punctuation">;</span>
+</span></code><div onclick="copied(this)" data-code="-- 表station取个别名叫s，表station中不包含 字段id=13或者14 的，并且id不等于4的 查询出来，只显示id
+SELECT s.id from station s WHERE id in (13,14) and id not in (4);
+
+-- 从表 Persons 选取 LastName 列的数据
+SELECT LastName FROM Persons
+
+-- 从表 users 选取 id=3 的数据，并只拉一条数据(据说能优化性能)
+SELECT * FROM users where id=3 limit 1
+
+-- 结果集中会自动去重复数据
+SELECT DISTINCT Company FROM Orders 
+-- 表 Persons 字段 Id_P 等于 Orders 字段 Id_P 的值，
+-- 结果集显示 Persons表的 LastName、FirstName字段，Orders表的OrderNo字段
+SELECT p.LastName, p.FirstName, o.OrderNo FROM Persons p, Orders o WHERE p.Id_P = o.Id_P 
+
+-- gbk 和 utf8 中英文混合排序最简单的办法 
+-- ci是 case insensitive, 即 “大小写不敏感”
+SELECT tag, COUNT(tag) from news GROUP BY tag order by convert(tag using gbk) collate gbk_chinese_ci;
+SELECT tag, COUNT(tag) from news GROUP BY tag order by convert(tag using utf8) collate utf8_unicode_ci;
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h3 id="update"><a aria-hidden="true" tabindex="-1" href="#update" class="anchor"><span class="icon icon-link"></span></a>UPDATE</h3>
+<blockquote>
+<p>Update 语句用于修改表中的数据。<br>
+语法：<code>UPDATE 表名称 SET 列名称 = 新值 WHERE 列名称 = 某值</code></p>
+</blockquote>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- update语句设置字段值为另一个结果取出来的字段</span>
+</span><span class="code-line"><span class="token keyword">update</span> <span class="token keyword">user</span> <span class="token keyword">set</span> name <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">select</span> name <span class="token keyword">from</span> user1 <span class="token keyword">where</span> user1 <span class="token punctuation">.</span>id <span class="token operator">=</span> <span class="token number">1</span> <span class="token punctuation">)</span>
+</span><span class="code-line"><span class="token keyword">where</span> id <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">select</span> id <span class="token keyword">from</span> user2 <span class="token keyword">where</span> user2 <span class="token punctuation">.</span>name<span class="token operator">=</span><span class="token string">'小苏'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token comment">-- 更新表 orders 中 id=1 的那一行数据更新它的 title 字段</span>
+</span><span class="code-line"><span class="token keyword">UPDATE</span> <span class="token identifier"><span class="token punctuation">`</span>orders<span class="token punctuation">`</span></span> <span class="token keyword">set</span> title<span class="token operator">=</span><span class="token string">'这里是标题'</span> <span class="token keyword">WHERE</span> id<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+</span></code><div onclick="copied(this)" data-code="-- update语句设置字段值为另一个结果取出来的字段
+update user set name = (select name from user1 where user1 .id = 1 )
+where id = (select id from user2 where user2 .name=&#x27;小苏&#x27;);
+-- 更新表 orders 中 id=1 的那一行数据更新它的 title 字段
+UPDATE &#x60;orders&#x60; set title=&#x27;这里是标题&#x27; WHERE id=1;
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h3 id="insert"><a aria-hidden="true" tabindex="-1" href="#insert" class="anchor"><span class="icon icon-link"></span></a>INSERT</h3>
+<blockquote>
+<p>INSERT INTO 语句用于向表格中插入新的行。<br>
+语法：<code>INSERT INTO 表名称 VALUES (值1, 值2,....)</code><br>
+语法：<code>INSERT INTO 表名称 (列1, 列2,...) VALUES (值1, 值2,....)</code></p>
+</blockquote>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- 向表 Persons 插入一条字段 LastName = JSLite 字段 Address = shanghai</span>
+</span><span class="code-line"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Persons <span class="token punctuation">(</span>LastName<span class="token punctuation">,</span> Address<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'JSLite'</span><span class="token punctuation">,</span> <span class="token string">'shanghai'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token comment">-- 向表 meeting 插入 字段 a=1 和字段 b=2</span>
+</span><span class="code-line"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> meeting <span class="token keyword">SET</span> a<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>b<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token comment">-- </span>
+</span><span class="code-line"><span class="token comment">-- SQL实现将一个表的数据插入到另外一个表的代码</span>
+</span><span class="code-line"><span class="token comment">-- 如果只希望导入指定字段，可以用这种方法：</span>
+</span><span class="code-line"><span class="token comment">-- INSERT INTO 目标表 (字段1, 字段2, ...) SELECT 字段1, 字段2, ... FROM 来源表;</span>
+</span><span class="code-line"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> orders <span class="token punctuation">(</span>user_account_id<span class="token punctuation">,</span> title<span class="token punctuation">)</span> <span class="token keyword">SELECT</span> m<span class="token punctuation">.</span>user_id<span class="token punctuation">,</span> m<span class="token punctuation">.</span>title <span class="token keyword">FROM</span> meeting m <span class="token keyword">where</span> m<span class="token punctuation">.</span>id<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="token comment">-- 向表 charger 插入一条数据，已存在就对表 charger 更新 `type`,`update_at` 字段；</span>
+</span><span class="code-line"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token identifier"><span class="token punctuation">`</span>charger<span class="token punctuation">`</span></span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span><span class="token punctuation">,</span><span class="token identifier"><span class="token punctuation">`</span>type<span class="token punctuation">`</span></span><span class="token punctuation">,</span><span class="token identifier"><span class="token punctuation">`</span>create_at<span class="token punctuation">`</span></span><span class="token punctuation">,</span><span class="token identifier"><span class="token punctuation">`</span>update_at<span class="token punctuation">`</span></span><span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'2017-05-18 11:06:17'</span><span class="token punctuation">,</span><span class="token string">'2017-05-18 11:06:17'</span><span class="token punctuation">)</span> <span class="token keyword">ON</span> <span class="token keyword">DUPLICATE</span> <span class="token keyword">KEY</span> <span class="token keyword">UPDATE</span> <span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span><span class="token operator">=</span><span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token identifier"><span class="token punctuation">`</span>type<span class="token punctuation">`</span></span><span class="token operator">=</span><span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>type<span class="token punctuation">`</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token identifier"><span class="token punctuation">`</span>update_at<span class="token punctuation">`</span></span><span class="token operator">=</span><span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>update_at<span class="token punctuation">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></code><div onclick="copied(this)" data-code="-- 向表 Persons 插入一条字段 LastName = JSLite 字段 Address = shanghai
+INSERT INTO Persons (LastName, Address) VALUES (&#x27;JSLite&#x27;, &#x27;shanghai&#x27;);
+-- 向表 meeting 插入 字段 a=1 和字段 b=2
+INSERT INTO meeting SET a=1,b=2;
+-- 
+-- SQL实现将一个表的数据插入到另外一个表的代码
+-- 如果只希望导入指定字段，可以用这种方法：
+-- INSERT INTO 目标表 (字段1, 字段2, ...) SELECT 字段1, 字段2, ... FROM 来源表;
+INSERT INTO orders (user_account_id, title) SELECT m.user_id, m.title FROM meeting m where m.id=1;
+
+-- 向表 charger 插入一条数据，已存在就对表 charger 更新 &#x60;type&#x60;,&#x60;update_at&#x60; 字段；
+INSERT INTO &#x60;charger&#x60; (&#x60;id&#x60;,&#x60;type&#x60;,&#x60;create_at&#x60;,&#x60;update_at&#x60;) VALUES (3,2,&#x27;2017-05-18 11:06:17&#x27;,&#x27;2017-05-18 11:06:17&#x27;) ON DUPLICATE KEY UPDATE &#x60;id&#x60;=VALUES(&#x60;id&#x60;), &#x60;type&#x60;=VALUES(&#x60;type&#x60;), &#x60;update_at&#x60;=VALUES(&#x60;update_at&#x60;);
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h3 id="delete"><a aria-hidden="true" tabindex="-1" href="#delete" class="anchor"><span class="icon icon-link"></span></a>DELETE</h3>
+<blockquote>
+<p>DELETE 语句用于删除表中的行。<br>
+语法：<code>DELETE FROM 表名称 WHERE 列名称 = 值</code></p>
+</blockquote>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- 在不删除table_name表的情况下删除所有的行，清空表。</span>
+</span><span class="code-line"><span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> table_name
+</span><span class="code-line"><span class="token comment">-- 或者</span>
+</span><span class="code-line"><span class="token keyword">DELETE</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> table_name
+</span><span class="code-line"><span class="token comment">-- 删除 Person表字段 LastName = 'JSLite' </span>
+</span><span class="code-line"><span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> Person <span class="token keyword">WHERE</span> LastName <span class="token operator">=</span> <span class="token string">'JSLite'</span> 
+</span><span class="code-line"><span class="token comment">-- 删除 表meeting id 为2和3的两条数据</span>
+</span><span class="code-line"><span class="token keyword">DELETE</span> <span class="token keyword">from</span> meeting <span class="token keyword">where</span> id <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></code><div onclick="copied(this)" data-code="-- 在不删除table_name表的情况下删除所有的行，清空表。
+DELETE FROM table_name
+-- 或者
+DELETE * FROM table_name
+-- 删除 Person表字段 LastName = &#x27;JSLite&#x27; 
+DELETE FROM Person WHERE LastName = &#x27;JSLite&#x27; 
+-- 删除 表meeting id 为2和3的两条数据
+DELETE from meeting where id in (2,3);
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="where"><a aria-hidden="true" tabindex="-1" href="#where" class="anchor"><span class="icon icon-link"></span></a>WHERE</h2>
+<blockquote>
+<p>WHERE 子句用于规定选择的标准。<br>
+语法：<code>SELECT 列名称 FROM 表名称 WHERE 列 运算符 值</code></p>
+</blockquote>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- 从表 Persons 中选出 Year 字段大于 1965 的数据</span>
+</span><span class="code-line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> Persons <span class="token keyword">WHERE</span> <span class="token keyword">Year</span><span class="token operator">></span><span class="token number">1965</span>
+</span></code><div onclick="copied(this)" data-code="-- 从表 Persons 中选出 Year 字段大于 1965 的数据
+SELECT * FROM Persons WHERE Year>1965
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="and-和-or"><a aria-hidden="true" tabindex="-1" href="#and-和-or" class="anchor"><span class="icon icon-link"></span></a>AND 和 OR</h2>
+<blockquote>
+<p>AND - 如果第一个条件和第二个条件都成立；<br>
+OR - 如果第一个条件和第二个条件中只要有一个成立；</p>
+</blockquote>
+<h3 id="and"><a aria-hidden="true" tabindex="-1" href="#and" class="anchor"><span class="icon icon-link"></span></a>AND</h3>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- 删除 meeting 表字段 </span>
+</span><span class="code-line"><span class="token comment">-- id=2 并且 user_id=5 的数据  和</span>
+</span><span class="code-line"><span class="token comment">-- id=3 并且 user_id=6 的数据 </span>
+</span><span class="code-line"><span class="token keyword">DELETE</span> <span class="token keyword">from</span> meeting <span class="token keyword">where</span> id <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">and</span> user_id <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="token comment">-- 使用 AND 来显示所有姓为 "Carter" 并且名为 "Thomas" 的人：</span>
+</span><span class="code-line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> Persons <span class="token keyword">WHERE</span> FirstName<span class="token operator">=</span><span class="token string">'Thomas'</span> <span class="token operator">AND</span> LastName<span class="token operator">=</span><span class="token string">'Carter'</span><span class="token punctuation">;</span>
+</span></code><div onclick="copied(this)" data-code="-- 删除 meeting 表字段 
+-- id=2 并且 user_id=5 的数据  和
+-- id=3 并且 user_id=6 的数据 
+DELETE from meeting where id in (2,3) and user_id in (5,6);
+
+-- 使用 AND 来显示所有姓为 &#x22;Carter&#x22; 并且名为 &#x22;Thomas&#x22; 的人：
+SELECT * FROM Persons WHERE FirstName=&#x27;Thomas&#x27; AND LastName=&#x27;Carter&#x27;;
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h3 id="or"><a aria-hidden="true" tabindex="-1" href="#or" class="anchor"><span class="icon icon-link"></span></a>OR</h3>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- 使用 OR 来显示所有姓为 "Carter" 或者名为 "Thomas" 的人：</span>
+</span><span class="code-line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> Persons <span class="token keyword">WHERE</span> firstname<span class="token operator">=</span><span class="token string">'Thomas'</span> <span class="token operator">OR</span> lastname<span class="token operator">=</span><span class="token string">'Carter'</span>
+</span></code><div onclick="copied(this)" data-code="-- 使用 OR 来显示所有姓为 &#x22;Carter&#x22; 或者名为 &#x22;Thomas&#x22; 的人：
+SELECT * FROM Persons WHERE firstname=&#x27;Thomas&#x27; OR lastname=&#x27;Carter&#x27;
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="order-by"><a aria-hidden="true" tabindex="-1" href="#order-by" class="anchor"><span class="icon icon-link"></span></a>ORDER BY</h2>
+<blockquote>
+<p>语句默认按照升序对记录进行排序。<br>
+<code>ORDER BY</code> - 语句用于根据指定的列对结果集进行排序。<br>
+<code>DESC</code> - 按照降序对记录进行排序。<br>
+<code>ASC</code> - 按照顺序对记录进行排序。</p>
+</blockquote>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- Company在表Orders中为字母，则会以字母顺序显示公司名称</span>
+</span><span class="code-line"><span class="token keyword">SELECT</span> Company<span class="token punctuation">,</span> OrderNumber <span class="token keyword">FROM</span> Orders <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> Company
+</span><span class="code-line">
+</span><span class="code-line"><span class="token comment">-- 后面跟上 DESC 则为降序显示</span>
+</span><span class="code-line"><span class="token keyword">SELECT</span> Company<span class="token punctuation">,</span> OrderNumber <span class="token keyword">FROM</span> Orders <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> Company <span class="token keyword">DESC</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="token comment">-- Company以降序显示公司名称，并OrderNumber以顺序显示</span>
+</span><span class="code-line"><span class="token keyword">SELECT</span> Company<span class="token punctuation">,</span> OrderNumber <span class="token keyword">FROM</span> Orders <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> Company <span class="token keyword">DESC</span><span class="token punctuation">,</span> OrderNumber <span class="token keyword">ASC</span>
+</span></code><div onclick="copied(this)" data-code="-- Company在表Orders中为字母，则会以字母顺序显示公司名称
+SELECT Company, OrderNumber FROM Orders ORDER BY Company
+
+-- 后面跟上 DESC 则为降序显示
+SELECT Company, OrderNumber FROM Orders ORDER BY Company DESC
+
+-- Company以降序显示公司名称，并OrderNumber以顺序显示
+SELECT Company, OrderNumber FROM Orders ORDER BY Company DESC, OrderNumber ASC
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="in"><a aria-hidden="true" tabindex="-1" href="#in" class="anchor"><span class="icon icon-link"></span></a>IN</h2>
+<blockquote>
+<p>IN - 操作符允许我们在 WHERE 子句中规定多个值。<br>
+IN - 操作符用来指定范围，范围中的每一条，都进行匹配。IN取值规律，由逗号分割，全部放置括号中。
+语法：<code>SELECT "字段名"FROM "表格名"WHERE "字段名" IN ('值一', '值二', ...);</code></p>
+</blockquote>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- 从表 Persons 选取 字段 LastName 等于 Adams、Carter</span>
+</span><span class="code-line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> Persons <span class="token keyword">WHERE</span> LastName <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'Adams'</span><span class="token punctuation">,</span><span class="token string">'Carter'</span><span class="token punctuation">)</span>
+</span></code><div onclick="copied(this)" data-code="-- 从表 Persons 选取 字段 LastName 等于 Adams、Carter
+SELECT * FROM Persons WHERE LastName IN (&#x27;Adams&#x27;,&#x27;Carter&#x27;)
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="not"><a aria-hidden="true" tabindex="-1" href="#not" class="anchor"><span class="icon icon-link"></span></a>NOT</h2>
+<blockquote>
+<p>NOT - 操作符总是与其他操作符一起使用，用在要过滤的前面。</p>
+</blockquote>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token keyword">SELECT</span> vend_id<span class="token punctuation">,</span> prod_name <span class="token keyword">FROM</span> Products <span class="token keyword">WHERE</span> <span class="token operator">NOT</span> vend_id <span class="token operator">=</span> <span class="token string">'DLL01'</span> <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> prod_name<span class="token punctuation">;</span>
+</span></code><div onclick="copied(this)" data-code="SELECT vend_id, prod_name FROM Products WHERE NOT vend_id = &#x27;DLL01&#x27; ORDER BY prod_name;
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="union"><a aria-hidden="true" tabindex="-1" href="#union" class="anchor"><span class="icon icon-link"></span></a>UNION</h2>
+<blockquote>
+<p>UNION - 操作符用于合并两个或多个 SELECT 语句的结果集。</p>
+</blockquote>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- 列出所有在中国表（Employees_China）和美国（Employees_USA）的不同的雇员名</span>
+</span><span class="code-line"><span class="token keyword">SELECT</span> E_Name <span class="token keyword">FROM</span> Employees_China <span class="token keyword">UNION</span> <span class="token keyword">SELECT</span> E_Name <span class="token keyword">FROM</span> Employees_USA
+</span><span class="code-line">
+</span><span class="code-line"><span class="token comment">-- 列出 meeting 表中的 pic_url，</span>
+</span><span class="code-line"><span class="token comment">-- station 表中的 number_station 别名设置成 pic_url 避免字段不一样报错</span>
+</span><span class="code-line"><span class="token comment">-- 按更新时间排序</span>
+</span><span class="code-line"><span class="token keyword">SELECT</span> id<span class="token punctuation">,</span>pic_url <span class="token keyword">FROM</span> meeting <span class="token keyword">UNION</span> <span class="token keyword">ALL</span> <span class="token keyword">SELECT</span> id<span class="token punctuation">,</span>number_station <span class="token keyword">AS</span> pic_url <span class="token keyword">FROM</span> station  <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> update_at<span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token comment">-- 通过 UNION 语法同时查询了 products 表 和 comments 表的总记录数，并且按照 count 排序</span>
+</span><span class="code-line"><span class="token keyword">SELECT</span> <span class="token string">'product'</span> <span class="token keyword">AS</span> <span class="token keyword">type</span><span class="token punctuation">,</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">as</span> count <span class="token keyword">FROM</span> <span class="token identifier"><span class="token punctuation">`</span>products<span class="token punctuation">`</span></span> <span class="token keyword">union</span> <span class="token keyword">select</span> <span class="token string">'comment'</span> <span class="token keyword">as</span> <span class="token keyword">type</span><span class="token punctuation">,</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">as</span> count <span class="token keyword">FROM</span> <span class="token identifier"><span class="token punctuation">`</span>comments<span class="token punctuation">`</span></span> <span class="token keyword">order</span> <span class="token keyword">by</span> count<span class="token punctuation">;</span>
+</span></code><div onclick="copied(this)" data-code="-- 列出所有在中国表（Employees_China）和美国（Employees_USA）的不同的雇员名
+SELECT E_Name FROM Employees_China UNION SELECT E_Name FROM Employees_USA
+
+-- 列出 meeting 表中的 pic_url，
+-- station 表中的 number_station 别名设置成 pic_url 避免字段不一样报错
+-- 按更新时间排序
+SELECT id,pic_url FROM meeting UNION ALL SELECT id,number_station AS pic_url FROM station  ORDER BY update_at;
+-- 通过 UNION 语法同时查询了 products 表 和 comments 表的总记录数，并且按照 count 排序
+SELECT &#x27;product&#x27; AS type, count(*) as count FROM &#x60;products&#x60; union select &#x27;comment&#x27; as type, count(*) as count FROM &#x60;comments&#x60; order by count;
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="as"><a aria-hidden="true" tabindex="-1" href="#as" class="anchor"><span class="icon icon-link"></span></a>AS</h2>
+<blockquote>
+<p>as - 可理解为：用作、当成，作为；别名<br>
+一般是重命名列名或者表名。<br>
+语法：<code>select column_1 as 列1,column_2 as 列2 from table as 表</code></p>
+</blockquote>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> Employee <span class="token keyword">AS</span> emp
+</span><span class="code-line"><span class="token comment">-- 这句意思是查找所有Employee 表里面的数据，并把Employee表格命名为 emp。</span>
+</span><span class="code-line"><span class="token comment">-- 当你命名一个表之后，你可以在下面用 emp 代替 Employee.</span>
+</span><span class="code-line"><span class="token comment">-- 例如 SELECT * FROM emp.</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="token keyword">SELECT</span> <span class="token function">MAX</span><span class="token punctuation">(</span>OrderPrice<span class="token punctuation">)</span> <span class="token keyword">AS</span> LargestOrderPrice <span class="token keyword">FROM</span> Orders
+</span><span class="code-line"><span class="token comment">-- 列出表 Orders 字段 OrderPrice 列最大值，</span>
+</span><span class="code-line"><span class="token comment">-- 结果集列不显示 OrderPrice 显示 LargestOrderPrice</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="token comment">-- 显示表 users_profile 中的 name 列</span>
+</span><span class="code-line"><span class="token keyword">SELECT</span> t<span class="token punctuation">.</span>name <span class="token keyword">from</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">from</span> users_profile a<span class="token punctuation">)</span> <span class="token keyword">AS</span> t<span class="token punctuation">;</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="token comment">-- 表 user_accounts 命名别名 ua，表 users_profile 命名别名 up</span>
+</span><span class="code-line"><span class="token comment">-- 满足条件 表 user_accounts 字段 id 等于 表 users_profile 字段 user_id</span>
+</span><span class="code-line"><span class="token comment">-- 结果集只显示mobile、name两列</span>
+</span><span class="code-line"><span class="token keyword">SELECT</span> ua<span class="token punctuation">.</span>mobile<span class="token punctuation">,</span>up<span class="token punctuation">.</span>name <span class="token keyword">FROM</span> user_accounts <span class="token keyword">as</span> ua <span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> users_profile <span class="token keyword">as</span> up <span class="token keyword">ON</span> ua<span class="token punctuation">.</span>id <span class="token operator">=</span> up<span class="token punctuation">.</span>user_id<span class="token punctuation">;</span>
+</span></code><div onclick="copied(this)" data-code="SELECT * FROM Employee AS emp
+-- 这句意思是查找所有Employee 表里面的数据，并把Employee表格命名为 emp。
+-- 当你命名一个表之后，你可以在下面用 emp 代替 Employee.
+-- 例如 SELECT * FROM emp.
+
+SELECT MAX(OrderPrice) AS LargestOrderPrice FROM Orders
+-- 列出表 Orders 字段 OrderPrice 列最大值，
+-- 结果集列不显示 OrderPrice 显示 LargestOrderPrice
+
+-- 显示表 users_profile 中的 name 列
+SELECT t.name from (SELECT * from users_profile a) AS t;
+
+-- 表 user_accounts 命名别名 ua，表 users_profile 命名别名 up
+-- 满足条件 表 user_accounts 字段 id 等于 表 users_profile 字段 user_id
+-- 结果集只显示mobile、name两列
+SELECT ua.mobile,up.name FROM user_accounts as ua INNER JOIN users_profile as up ON ua.id = up.user_id;
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="join"><a aria-hidden="true" tabindex="-1" href="#join" class="anchor"><span class="icon icon-link"></span></a>JOIN</h2>
+<blockquote>
+<p>用于根据两个或多个表中的列之间的关系，从这些表中查询数据。</p>
+</blockquote>
+<ul>
+<li><code>JOIN</code>: 如果表中有至少一个匹配，则返回行</li>
+<li><code>INNER JOIN</code>:在表中存在至少一个匹配时，INNER JOIN 关键字返回行。</li>
+<li><code>LEFT JOIN</code>: 即使右表中没有匹配，也从左表返回所有的行</li>
+<li><code>RIGHT JOIN</code>: 即使左表中没有匹配，也从右表返回所有的行</li>
+<li><code>FULL JOIN</code>: 只要其中一个表中存在匹配，就返回行(MySQL 是不支持的，通过  <code>LEFT JOIN + UNION + RIGHT JOIN</code> 的方式 来实现)</li>
+</ul>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token keyword">SELECT</span> Persons<span class="token punctuation">.</span>LastName<span class="token punctuation">,</span> Persons<span class="token punctuation">.</span>FirstName<span class="token punctuation">,</span> Orders<span class="token punctuation">.</span>OrderNo
+</span><span class="code-line"><span class="token keyword">FROM</span> Persons
+</span><span class="code-line"><span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> Orders
+</span><span class="code-line"><span class="token keyword">ON</span> Persons<span class="token punctuation">.</span>Id_P <span class="token operator">=</span> Orders<span class="token punctuation">.</span>Id_P
+</span><span class="code-line"><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> Persons<span class="token punctuation">.</span>LastName<span class="token punctuation">;</span>
+</span></code><div onclick="copied(this)" data-code="SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo
+FROM Persons
+INNER JOIN Orders
+ON Persons.Id_P = Orders.Id_P
+ORDER BY Persons.LastName;
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="sql-函数"><a aria-hidden="true" tabindex="-1" href="#sql-函数" class="anchor"><span class="icon icon-link"></span></a>SQL 函数</h2>
+<h3 id="count"><a aria-hidden="true" tabindex="-1" href="#count" class="anchor"><span class="icon icon-link"></span></a>COUNT</h3>
+<blockquote>
+<p>COUNT 让我们能够数出在表格中有多少笔资料被选出来。<br>
+语法：<code>SELECT COUNT("字段名") FROM "表格名";</code></p>
+</blockquote>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- 表 Store_Information 有几笔 store_name 栏不是空白的资料。</span>
+</span><span class="code-line"><span class="token comment">-- "IS NOT NULL" 是 "这个栏位不是空白" 的意思。</span>
+</span><span class="code-line"><span class="token keyword">SELECT</span> <span class="token function">COUNT</span> <span class="token punctuation">(</span>Store_Name<span class="token punctuation">)</span> <span class="token keyword">FROM</span> Store_Information <span class="token keyword">WHERE</span> Store_Name <span class="token operator">IS</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">;</span> 
+</span><span class="code-line"><span class="token comment">-- 获取 Persons 表的总数</span>
+</span><span class="code-line"><span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> totals <span class="token keyword">FROM</span> Persons<span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token comment">-- 获取表 station 字段 user_id 相同的总数</span>
+</span><span class="code-line"><span class="token keyword">select</span> user_id<span class="token punctuation">,</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">as</span> totals <span class="token keyword">from</span> station <span class="token keyword">group</span> <span class="token keyword">by</span> user_id<span class="token punctuation">;</span>
+</span></code><div onclick="copied(this)" data-code="-- 表 Store_Information 有几笔 store_name 栏不是空白的资料。
+-- &#x22;IS NOT NULL&#x22; 是 &#x22;这个栏位不是空白&#x22; 的意思。
+SELECT COUNT (Store_Name) FROM Store_Information WHERE Store_Name IS NOT NULL; 
+-- 获取 Persons 表的总数
+SELECT COUNT(1) AS totals FROM Persons;
+-- 获取表 station 字段 user_id 相同的总数
+select user_id, count(*) as totals from station group by user_id;
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h3 id="max"><a aria-hidden="true" tabindex="-1" href="#max" class="anchor"><span class="icon icon-link"></span></a>MAX</h3>
+<blockquote>
+<p>MAX 函数返回一列中的最大值。NULL 值不包括在计算中。<br>
+语法：<code>SELECT MAX("字段名") FROM "表格名"</code></p>
+</blockquote>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- 列出表 Orders 字段 OrderPrice 列最大值，</span>
+</span><span class="code-line"><span class="token comment">-- 结果集列不显示 OrderPrice 显示 LargestOrderPrice</span>
+</span><span class="code-line"><span class="token keyword">SELECT</span> <span class="token function">MAX</span><span class="token punctuation">(</span>OrderPrice<span class="token punctuation">)</span> <span class="token keyword">AS</span> LargestOrderPrice <span class="token keyword">FROM</span> Orders
+</span></code><div onclick="copied(this)" data-code="-- 列出表 Orders 字段 OrderPrice 列最大值，
+-- 结果集列不显示 OrderPrice 显示 LargestOrderPrice
+SELECT MAX(OrderPrice) AS LargestOrderPrice FROM Orders
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="触发器"><a aria-hidden="true" tabindex="-1" href="#触发器" class="anchor"><span class="icon icon-link"></span></a>触发器</h2>
+<blockquote>
+<p>语法：</p>
+<pre><code class="code-highlight"><span class="code-line">create trigger &#x3C;触发器名称>  
+</span><span class="code-line">{ before | after}          # 之前或者之后出发  
+</span><span class="code-line">insert | update | delete   # 指明了激活触发程序的语句的类型  
+</span><span class="code-line">on &#x3C;表名>                   # 操作哪张表  
+</span><span class="code-line">for each row               # 触发器的执行间隔，for each row 通知触发器每隔一行执行一次动作，而不是对整个表执行一次。  
+</span><span class="code-line">&#x3C;触发器SQL语句>
+</span></code><div onclick="copied(this)" data-code="create trigger <触发器名称>  
+{ before | after}          # 之前或者之后出发  
+insert | update | delete   # 指明了激活触发程序的语句的类型  
+on <表名>                   # 操作哪张表  
+for each row               # 触发器的执行间隔，for each row 通知触发器每隔一行执行一次动作，而不是对整个表执行一次。  
+<触发器SQL语句>
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+</blockquote>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token keyword">delimiter</span> $
+</span><span class="code-line"><span class="token keyword">CREATE</span> <span class="token keyword">TRIGGER</span> set_userdate BEFORE <span class="token keyword">INSERT</span> 
+</span><span class="code-line"><span class="token keyword">on</span> <span class="token identifier"><span class="token punctuation">`</span>message<span class="token punctuation">`</span></span>
+</span><span class="code-line"><span class="token keyword">for EACH ROW</span>
+</span><span class="code-line"><span class="token keyword">BEGIN</span>
+</span><span class="code-line">  <span class="token keyword">set</span> <span class="token variable">@statu</span> <span class="token operator">=</span> new<span class="token punctuation">.</span><span class="token keyword">status</span><span class="token punctuation">;</span> <span class="token comment">-- 声明复制变量 statu</span>
+</span><span class="code-line">  <span class="token keyword">if</span> <span class="token variable">@statu</span> <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">then</span>       <span class="token comment">-- 判断 statu 是否等于 0</span>
+</span><span class="code-line">    <span class="token keyword">UPDATE</span> <span class="token identifier"><span class="token punctuation">`</span>user_accounts<span class="token punctuation">`</span></span> <span class="token keyword">SET</span> <span class="token keyword">status</span><span class="token operator">=</span><span class="token number">1</span> <span class="token keyword">WHERE</span> openid<span class="token operator">=</span>NEW<span class="token punctuation">.</span>openid<span class="token punctuation">;</span>
+</span><span class="code-line">  <span class="token keyword">end</span> <span class="token keyword">if</span><span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token keyword">END</span>
+</span><span class="code-line">$
+</span><span class="code-line"><span class="token keyword">DELIMITER</span> <span class="token punctuation">;</span> <span class="token comment">-- 恢复结束符号</span>
+</span></code><div onclick="copied(this)" data-code="delimiter $
+CREATE TRIGGER set_userdate BEFORE INSERT 
+on &#x60;message&#x60;
+for EACH ROW
+BEGIN
+  set @statu = new.status; -- 声明复制变量 statu
+  if @statu = 0 then       -- 判断 statu 是否等于 0
+    UPDATE &#x60;user_accounts&#x60; SET status=1 WHERE openid=NEW.openid;
+  end if;
+END
+$
+DELIMITER ; -- 恢复结束符号
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>OLD和NEW不区分大小写</p>
+<ul>
+<li>NEW 用NEW.col_name，没有旧行。在DELETE触发程序中，仅能使用OLD.col_name，没有新行。</li>
+<li>OLD 用OLD.col_name来引用更新前的某一行的列</li>
+</ul>
+<h2 id="添加索引"><a aria-hidden="true" tabindex="-1" href="#添加索引" class="anchor"><span class="icon icon-link"></span></a>添加索引</h2>
+<h3 id="普通索引index"><a aria-hidden="true" tabindex="-1" href="#普通索引index" class="anchor"><span class="icon icon-link"></span></a>普通索引(INDEX)</h3>
+<blockquote>
+<p>语法：ALTER TABLE <code>表名字</code> ADD INDEX 索引名字 ( <code>字段名字</code> )</p>
+</blockquote>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- –直接创建索引</span>
+</span><span class="code-line"><span class="token keyword">CREATE</span> <span class="token keyword">INDEX</span> index_user <span class="token keyword">ON</span> <span class="token keyword">user</span><span class="token punctuation">(</span>title<span class="token punctuation">)</span>
+</span><span class="code-line"><span class="token comment">-- –修改表结构的方式添加索引</span>
+</span><span class="code-line"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> table_name <span class="token keyword">ADD</span> <span class="token keyword">INDEX</span> index_name <span class="token keyword">ON</span> <span class="token punctuation">(</span><span class="token keyword">column</span><span class="token punctuation">(</span>length<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</span><span class="code-line"><span class="token comment">-- 给 user 表中的 name 字段 添加普通索引(INDEX)</span>
+</span><span class="code-line"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token identifier"><span class="token punctuation">`</span>user<span class="token punctuation">`</span></span> <span class="token keyword">ADD</span> <span class="token keyword">INDEX</span> index_name <span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+</span><span class="code-line"><span class="token comment">-- –创建表的时候同时创建索引</span>
+</span><span class="code-line"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token identifier"><span class="token punctuation">`</span>user<span class="token punctuation">`</span></span> <span class="token punctuation">(</span>
+</span><span class="code-line">    <span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span> <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">AUTO_INCREMENT</span> <span class="token punctuation">,</span>
+</span><span class="code-line">    <span class="token identifier"><span class="token punctuation">`</span>title<span class="token punctuation">`</span></span> <span class="token keyword">char</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token keyword">CHARACTER</span> <span class="token keyword">SET</span> utf8 <span class="token keyword">COLLATE</span> utf8_general_ci <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token punctuation">,</span>
+</span><span class="code-line">    <span class="token identifier"><span class="token punctuation">`</span>content<span class="token punctuation">`</span></span> <span class="token keyword">text</span> <span class="token keyword">CHARACTER</span> <span class="token keyword">SET</span> utf8 <span class="token keyword">COLLATE</span> utf8_general_ci <span class="token boolean">NULL</span> <span class="token punctuation">,</span>
+</span><span class="code-line">    <span class="token identifier"><span class="token punctuation">`</span>time<span class="token punctuation">`</span></span> <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span> <span class="token punctuation">,</span>
+</span><span class="code-line">    <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+</span><span class="code-line">    <span class="token keyword">INDEX</span> index_name <span class="token punctuation">(</span>title<span class="token punctuation">(</span>length<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</span><span class="code-line"><span class="token punctuation">)</span>
+</span><span class="code-line"><span class="token comment">-- –删除索引</span>
+</span><span class="code-line"><span class="token keyword">DROP</span> <span class="token keyword">INDEX</span> index_name <span class="token keyword">ON</span> <span class="token keyword">table</span>
+</span></code><div onclick="copied(this)" data-code="-- –直接创建索引
+CREATE INDEX index_user ON user(title)
+-- –修改表结构的方式添加索引
+ALTER TABLE table_name ADD INDEX index_name ON (column(length))
+-- 给 user 表中的 name 字段 添加普通索引(INDEX)
+ALTER TABLE &#x60;user&#x60; ADD INDEX index_name (name)
+-- –创建表的时候同时创建索引
+CREATE TABLE &#x60;user&#x60; (
+    &#x60;id&#x60; int(11) NOT NULL AUTO_INCREMENT ,
+    &#x60;title&#x60; char(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+    &#x60;content&#x60; text CHARACTER SET utf8 COLLATE utf8_general_ci NULL ,
+    &#x60;time&#x60; int(10) NULL DEFAULT NULL ,
+    PRIMARY KEY (&#x60;id&#x60;),
+    INDEX index_name (title(length))
+)
+-- –删除索引
+DROP INDEX index_name ON table
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h3 id="主键索引primary-key"><a aria-hidden="true" tabindex="-1" href="#主键索引primary-key" class="anchor"><span class="icon icon-link"></span></a>主键索引(PRIMARY key)</h3>
+<blockquote>
+<p>语法：ALTER TABLE <code>表名字</code> ADD PRIMARY KEY ( <code>字段名字</code> )</p>
+</blockquote>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- 给 user 表中的 id字段 添加主键索引(PRIMARY key)</span>
+</span><span class="code-line"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token identifier"><span class="token punctuation">`</span>user<span class="token punctuation">`</span></span> <span class="token keyword">ADD</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">key</span> <span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></code><div onclick="copied(this)" data-code="-- 给 user 表中的 id字段 添加主键索引(PRIMARY key)
+ALTER TABLE &#x60;user&#x60; ADD PRIMARY key (id);
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h3 id="唯一索引unique"><a aria-hidden="true" tabindex="-1" href="#唯一索引unique" class="anchor"><span class="icon icon-link"></span></a>唯一索引(UNIQUE)</h3>
+<blockquote>
+<p>语法：ALTER TABLE <code>表名字</code> ADD UNIQUE (<code>字段名字</code>)</p>
+</blockquote>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- 给 user 表中的 creattime 字段添加唯一索引(UNIQUE)</span>
+</span><span class="code-line"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token identifier"><span class="token punctuation">`</span>user<span class="token punctuation">`</span></span> <span class="token keyword">ADD</span> <span class="token keyword">UNIQUE</span> <span class="token punctuation">(</span>creattime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></code><div onclick="copied(this)" data-code="-- 给 user 表中的 creattime 字段添加唯一索引(UNIQUE)
+ALTER TABLE &#x60;user&#x60; ADD UNIQUE (creattime);
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h3 id="全文索引fulltext"><a aria-hidden="true" tabindex="-1" href="#全文索引fulltext" class="anchor"><span class="icon icon-link"></span></a>全文索引(FULLTEXT)</h3>
+<blockquote>
+<p>语法：ALTER TABLE <code>表名字</code> ADD FULLTEXT (<code>字段名字</code>)</p>
+</blockquote>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- 给 user 表中的 description 字段添加全文索引(FULLTEXT)</span>
+</span><span class="code-line"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token identifier"><span class="token punctuation">`</span>user<span class="token punctuation">`</span></span> <span class="token keyword">ADD</span> FULLTEXT <span class="token punctuation">(</span>description<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></code><div onclick="copied(this)" data-code="-- 给 user 表中的 description 字段添加全文索引(FULLTEXT)
+ALTER TABLE &#x60;user&#x60; ADD FULLTEXT (description);
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h3 id="添加多列索引"><a aria-hidden="true" tabindex="-1" href="#添加多列索引" class="anchor"><span class="icon icon-link"></span></a>添加多列索引</h3>
+<blockquote>
+<p>语法：
+ALTER TABLE <code>table_name</code> ADD INDEX index_name ( <code>column1</code>, <code>column2</code>, <code>column3</code>)</p>
+</blockquote>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- 给 user 表中的 name、city、age 字段添加名字为name_city_age的普通索引(INDEX)</span>
+</span><span class="code-line"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token keyword">user</span> <span class="token keyword">ADD</span> <span class="token keyword">INDEX</span> name_city_age <span class="token punctuation">(</span>name<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>city<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+</span></code><div onclick="copied(this)" data-code="-- 给 user 表中的 name、city、age 字段添加名字为name_city_age的普通索引(INDEX)
+ALTER TABLE user ADD INDEX name_city_age (name(10),city,age); 
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h3 id="建立索引的时机"><a aria-hidden="true" tabindex="-1" href="#建立索引的时机" class="anchor"><span class="icon icon-link"></span></a>建立索引的时机</h3>
+<p>在<code>WHERE</code>和<code>JOIN</code>中出现的列需要建立索引，但也不完全如此：</p>
+<ul>
+<li>MySQL只对<code>&#x3C;</code>，<code>&#x3C;=</code>，<code>=</code>，<code>></code>，<code>>=</code>，<code>BETWEEN</code>，<code>IN</code>使用索引</li>
+<li>某些时候的<code>LIKE</code>也会使用索引。</li>
+<li>在<code>LIKE</code>以通配符%和_开头作查询时，MySQL不会使用索引。</li>
+</ul>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- 此时就需要对city和age建立索引，</span>
+</span><span class="code-line"><span class="token comment">-- 由于mytable表的userame也出现在了JOIN子句中，也有对它建立索引的必要。</span>
+</span><span class="code-line"><span class="token keyword">SELECT</span> t<span class="token punctuation">.</span>Name  
+</span><span class="code-line"><span class="token keyword">FROM</span> mytable t <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> mytable m <span class="token keyword">ON</span> t<span class="token punctuation">.</span>Name<span class="token operator">=</span>m<span class="token punctuation">.</span>username 
+</span><span class="code-line"><span class="token keyword">WHERE</span> m<span class="token punctuation">.</span>age<span class="token operator">=</span><span class="token number">20</span> <span class="token operator">AND</span> m<span class="token punctuation">.</span>city<span class="token operator">=</span><span class="token string">'上海'</span><span class="token punctuation">;</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> mytable <span class="token keyword">WHERE</span> username <span class="token operator">like</span><span class="token string">'admin%'</span><span class="token punctuation">;</span> <span class="token comment">-- 而下句就不会使用：</span>
+</span><span class="code-line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> mytable <span class="token keyword">WHERE</span> Name <span class="token operator">like</span><span class="token string">'%admin'</span><span class="token punctuation">;</span> <span class="token comment">-- 因此，在使用LIKE时应注意以上的区别。</span>
+</span></code><div onclick="copied(this)" data-code="-- 此时就需要对city和age建立索引，
+-- 由于mytable表的userame也出现在了JOIN子句中，也有对它建立索引的必要。
+SELECT t.Name  
+FROM mytable t LEFT JOIN mytable m ON t.Name=m.username 
+WHERE m.age=20 AND m.city=&#x27;上海&#x27;;
+
+SELECT * FROM mytable WHERE username like&#x27;admin%&#x27;; -- 而下句就不会使用：
+SELECT * FROM mytable WHERE Name like&#x27;%admin&#x27;; -- 因此，在使用LIKE时应注意以上的区别。
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>索引的注意事项</p>
+<ul>
+<li>索引不会包含有NULL值的列</li>
+<li>使用短索引</li>
+<li>不要在列上进行运算 索引会失效</li>
+</ul>
+<h2 id="创建后表的修改"><a aria-hidden="true" tabindex="-1" href="#创建后表的修改" class="anchor"><span class="icon icon-link"></span></a>创建后表的修改</h2>
+<h3 id="添加列"><a aria-hidden="true" tabindex="-1" href="#添加列" class="anchor"><span class="icon icon-link"></span></a>添加列</h3>
+<blockquote>
+<p>语法：<code>alter table 表名 add 列名 列数据类型 [after 插入位置];</code></p>
+</blockquote>
+<p>示例:</p>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- 在表students的最后追加列 address: </span>
+</span><span class="code-line"><span class="token keyword">alter</span> <span class="token keyword">table</span> students <span class="token keyword">add</span> address <span class="token keyword">char</span><span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token comment">-- 在名为 age 的列后插入列 birthday: </span>
+</span><span class="code-line"><span class="token keyword">alter</span> <span class="token keyword">table</span> students <span class="token keyword">add</span> birthday <span class="token keyword">date</span> <span class="token keyword">after</span> age<span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token comment">-- 在名为 number_people 的列后插入列 weeks: </span>
+</span><span class="code-line"><span class="token keyword">alter</span> <span class="token keyword">table</span> students <span class="token keyword">add</span> <span class="token keyword">column</span> <span class="token identifier"><span class="token punctuation">`</span>weeks<span class="token punctuation">`</span></span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">not</span> <span class="token boolean">null</span> <span class="token keyword">default</span> <span class="token string">""</span> <span class="token keyword">after</span> <span class="token identifier"><span class="token punctuation">`</span>number_people<span class="token punctuation">`</span></span><span class="token punctuation">;</span>
+</span></code><div onclick="copied(this)" data-code="-- 在表students的最后追加列 address: 
+alter table students add address char(60);
+-- 在名为 age 的列后插入列 birthday: 
+alter table students add birthday date after age;
+-- 在名为 number_people 的列后插入列 weeks: 
+alter table students add column &#x60;weeks&#x60; varchar(5) not null default &#x22;&#x22; after &#x60;number_people&#x60;;
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h3 id="修改列"><a aria-hidden="true" tabindex="-1" href="#修改列" class="anchor"><span class="icon icon-link"></span></a>修改列</h3>
+<blockquote>
+<p>语法：<code>alter table 表名 change 列名称 列新名称 新数据类型;</code></p>
+</blockquote>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- 将表 tel 列改名为 telphone: </span>
+</span><span class="code-line"><span class="token keyword">alter</span> <span class="token keyword">table</span> students change tel telphone <span class="token keyword">char</span><span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token string">"-"</span><span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token comment">-- 将 name 列的数据类型改为 char(16): </span>
+</span><span class="code-line"><span class="token keyword">alter</span> <span class="token keyword">table</span> students change name name <span class="token keyword">char</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span> <span class="token operator">not</span> <span class="token boolean">null</span><span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token comment">-- 修改 COMMENT 前面必须得有类型属性</span>
+</span><span class="code-line"><span class="token keyword">alter</span> <span class="token keyword">table</span> students change name name <span class="token keyword">char</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span> <span class="token keyword">COMMENT</span> <span class="token string">'这里是名字'</span><span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token comment">-- 修改列属性的时候 建议使用modify,不需要重建表</span>
+</span><span class="code-line"><span class="token comment">-- change用于修改列名字，这个需要重建表</span>
+</span><span class="code-line"><span class="token keyword">alter</span> <span class="token keyword">table</span> meeting <span class="token keyword">modify</span> <span class="token identifier"><span class="token punctuation">`</span>weeks<span class="token punctuation">`</span></span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">DEFAULT</span> <span class="token string">''</span> <span class="token keyword">COMMENT</span> <span class="token string">'开放日期 周一到周日：0~6，间隔用英文逗号隔开'</span><span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token comment">-- `user`表的`id`列，修改成字符串类型长度50，不能为空，`FIRST`放在第一列的位置</span>
+</span><span class="code-line"><span class="token keyword">alter</span> <span class="token keyword">table</span> <span class="token identifier"><span class="token punctuation">`</span>user<span class="token punctuation">`</span></span> <span class="token keyword">modify</span> <span class="token keyword">COLUMN</span> <span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">FIRST</span> <span class="token punctuation">;</span>
+</span></code><div onclick="copied(this)" data-code="-- 将表 tel 列改名为 telphone: 
+alter table students change tel telphone char(13) default &#x22;-&#x22;;
+-- 将 name 列的数据类型改为 char(16): 
+alter table students change name name char(16) not null;
+-- 修改 COMMENT 前面必须得有类型属性
+alter table students change name name char(16) COMMENT &#x27;这里是名字&#x27;;
+-- 修改列属性的时候 建议使用modify,不需要重建表
+-- change用于修改列名字，这个需要重建表
+alter table meeting modify &#x60;weeks&#x60; varchar(20) NOT NULL DEFAULT &#x27;&#x27; COMMENT &#x27;开放日期 周一到周日：0~6，间隔用英文逗号隔开&#x27;;
+-- &#x60;user&#x60;表的&#x60;id&#x60;列，修改成字符串类型长度50，不能为空，&#x60;FIRST&#x60;放在第一列的位置
+alter table &#x60;user&#x60; modify COLUMN &#x60;id&#x60; varchar(50) NOT NULL FIRST ;
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h3 id="删除列"><a aria-hidden="true" tabindex="-1" href="#删除列" class="anchor"><span class="icon icon-link"></span></a>删除列</h3>
+<blockquote>
+<p>语法：<code>alter table 表名 drop 列名称;</code></p>
+</blockquote>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- 删除表students中的 birthday 列: </span>
+</span><span class="code-line"><span class="token keyword">alter</span> <span class="token keyword">table</span> students <span class="token keyword">drop</span> birthday<span class="token punctuation">;</span>
+</span></code><div onclick="copied(this)" data-code="-- 删除表students中的 birthday 列: 
+alter table students drop birthday;
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h3 id="重命名表"><a aria-hidden="true" tabindex="-1" href="#重命名表" class="anchor"><span class="icon icon-link"></span></a>重命名表</h3>
+<blockquote>
+<p>语法：<code>alter table 表名 rename 新表名;</code></p>
+</blockquote>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- 重命名 students 表为 workmates: </span>
+</span><span class="code-line"><span class="token keyword">alter</span> <span class="token keyword">table</span> students <span class="token keyword">rename</span> workmates<span class="token punctuation">;</span>
+</span></code><div onclick="copied(this)" data-code="-- 重命名 students 表为 workmates: 
+alter table students rename workmates;
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h3 id="清空表数据"><a aria-hidden="true" tabindex="-1" href="#清空表数据" class="anchor"><span class="icon icon-link"></span></a>清空表数据</h3>
+<blockquote>
+<p>方法一：<code>delete from 表名;</code>
+方法二：<code>truncate table "表名";</code></p>
+</blockquote>
+<ul>
+<li><code>DELETE:</code>1. DML语言;2. 可以回退;3. 可以有条件的删除;</li>
+<li><code>TRUNCATE:</code>1. DDL语言;2. 无法回退;3. 默认所有的表内容都删除;4. 删除速度比delete快。</li>
+</ul>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- 清空表为 workmates 里面的数据，不删除表。 </span>
+</span><span class="code-line"><span class="token keyword">delete</span> <span class="token keyword">from</span> workmates<span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token comment">-- 删除workmates表中的所有数据，且无法恢复</span>
+</span><span class="code-line"><span class="token keyword">truncate</span> <span class="token keyword">table</span> workmates<span class="token punctuation">;</span>
+</span></code><div onclick="copied(this)" data-code="-- 清空表为 workmates 里面的数据，不删除表。 
+delete from workmates;
+-- 删除workmates表中的所有数据，且无法恢复
+truncate table workmates;
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h3 id="删除整张表"><a aria-hidden="true" tabindex="-1" href="#删除整张表" class="anchor"><span class="icon icon-link"></span></a>删除整张表</h3>
+<blockquote>
+<p>语法：<code>drop table 表名;</code></p>
+</blockquote>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- 删除 workmates 表: </span>
+</span><span class="code-line"><span class="token keyword">drop</span> <span class="token keyword">table</span> workmates<span class="token punctuation">;</span>
+</span></code><div onclick="copied(this)" data-code="-- 删除 workmates 表: 
+drop table workmates;
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h3 id="删除整个数据库"><a aria-hidden="true" tabindex="-1" href="#删除整个数据库" class="anchor"><span class="icon icon-link"></span></a>删除整个数据库</h3>
+<blockquote>
+<p>语法：<code>drop database 数据库名;</code></p>
+</blockquote>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- 删除 samp_db 数据库: </span>
+</span><span class="code-line"><span class="token keyword">drop</span> <span class="token keyword">database</span> samp_db<span class="token punctuation">;</span>
+</span></code><div onclick="copied(this)" data-code="-- 删除 samp_db 数据库: 
+drop database samp_db;
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="其它实例"><a aria-hidden="true" tabindex="-1" href="#其它实例" class="anchor"><span class="icon icon-link"></span></a>其它实例</h2>
+<h3 id="sql删除重复记录"><a aria-hidden="true" tabindex="-1" href="#sql删除重复记录" class="anchor"><span class="icon icon-link"></span></a>SQL删除重复记录</h3>
+<p><a href="http://www.xiangguo.li/sql_and_nosql/2015/01/01/sql">转载</a></p>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token comment">-- 查找表中多余的重复记录，重复记录是根据单个字段（peopleId）来判断</span>
+</span><span class="code-line"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> people <span class="token keyword">where</span> peopleId <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token keyword">select</span> peopleId <span class="token keyword">from</span> people <span class="token keyword">group</span> <span class="token keyword">by</span> peopleId <span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span>peopleId<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span>
+</span><span class="code-line"><span class="token comment">-- 删除表中多余的重复记录，重复记录是根据单个字段（peopleId）来判断，只留有rowid最小的记录</span>
+</span><span class="code-line"><span class="token keyword">delete</span> <span class="token keyword">from</span> people 
+</span><span class="code-line"><span class="token keyword">where</span> peopleId <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token keyword">select</span> peopleId <span class="token keyword">from</span> people <span class="token keyword">group</span> <span class="token keyword">by</span> peopleId <span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span>peopleId<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span>
+</span><span class="code-line"><span class="token operator">and</span> rowid <span class="token operator">not</span> <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token function">min</span><span class="token punctuation">(</span>rowid<span class="token punctuation">)</span> <span class="token keyword">from</span> people <span class="token keyword">group</span> <span class="token keyword">by</span> peopleId <span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span>peopleId <span class="token punctuation">)</span><span class="token operator">></span><span class="token number">1</span><span class="token punctuation">)</span>
+</span><span class="code-line"><span class="token comment">-- 查找表中多余的重复记录（多个字段）</span>
+</span><span class="code-line"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> vitae a
+</span><span class="code-line"><span class="token keyword">where</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>peopleId<span class="token punctuation">,</span>a<span class="token punctuation">.</span>seq<span class="token punctuation">)</span> <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token keyword">select</span> peopleId<span class="token punctuation">,</span>seq <span class="token keyword">from</span> vitae <span class="token keyword">group</span> <span class="token keyword">by</span> peopleId<span class="token punctuation">,</span>seq <span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span>
+</span><span class="code-line"><span class="token comment">-- 删除表中多余的重复记录（多个字段），只留有rowid最小的记录</span>
+</span><span class="code-line"><span class="token keyword">delete</span> <span class="token keyword">from</span> vitae a
+</span><span class="code-line"><span class="token keyword">where</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>peopleId<span class="token punctuation">,</span>a<span class="token punctuation">.</span>seq<span class="token punctuation">)</span> <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token keyword">select</span> peopleId<span class="token punctuation">,</span>seq <span class="token keyword">from</span> vitae <span class="token keyword">group</span> <span class="token keyword">by</span> peopleId<span class="token punctuation">,</span>seq <span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">and</span> rowid <span class="token operator">not</span> <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token function">min</span><span class="token punctuation">(</span>rowid<span class="token punctuation">)</span> <span class="token keyword">from</span> vitae <span class="token keyword">group</span> <span class="token keyword">by</span> peopleId<span class="token punctuation">,</span>seq <span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token number">1</span><span class="token punctuation">)</span>
+</span><span class="code-line"><span class="token comment">-- 查找表中多余的重复记录（多个字段），不包含rowid最小的记录</span>
+</span><span class="code-line"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> vitae a
+</span><span class="code-line"><span class="token keyword">where</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>peopleId<span class="token punctuation">,</span>a<span class="token punctuation">.</span>seq<span class="token punctuation">)</span> <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token keyword">select</span> peopleId<span class="token punctuation">,</span>seq <span class="token keyword">from</span> vitae <span class="token keyword">group</span> <span class="token keyword">by</span> peopleId<span class="token punctuation">,</span>seq <span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">and</span> rowid <span class="token operator">not</span> <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token function">min</span><span class="token punctuation">(</span>rowid<span class="token punctuation">)</span> <span class="token keyword">from</span> vitae <span class="token keyword">group</span> <span class="token keyword">by</span> peopleId<span class="token punctuation">,</span>seq <span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token number">1</span><span class="token punctuation">)</span>
+</span></code><div onclick="copied(this)" data-code="-- 查找表中多余的重复记录，重复记录是根据单个字段（peopleId）来判断
+select * from people where peopleId in (select peopleId from people group by peopleId having count(peopleId) > 1)
+-- 删除表中多余的重复记录，重复记录是根据单个字段（peopleId）来判断，只留有rowid最小的记录
+delete from people 
+where peopleId in (select peopleId from people group by peopleId having count(peopleId) > 1)
+and rowid not in (select min(rowid) from people group by peopleId having count(peopleId )>1)
+-- 查找表中多余的重复记录（多个字段）
+select * from vitae a
+where (a.peopleId,a.seq) in (select peopleId,seq from vitae group by peopleId,seq having count(*) > 1)
+-- 删除表中多余的重复记录（多个字段），只留有rowid最小的记录
+delete from vitae a
+where (a.peopleId,a.seq) in (select peopleId,seq from vitae group by peopleId,seq having count(*) > 1) and rowid not in (select min(rowid) from vitae group by peopleId,seq having count(*)>1)
+-- 查找表中多余的重复记录（多个字段），不包含rowid最小的记录
+select * from vitae a
+where (a.peopleId,a.seq) in (select peopleId,seq from vitae group by peopleId,seq having count(*) > 1) and rowid not in (select min(rowid) from vitae group by peopleId,seq having count(*)>1)
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="参考手册"><a aria-hidden="true" tabindex="-1" href="#参考手册" class="anchor"><span class="icon icon-link"></span></a>参考手册</h2>
+<ul>
+<li><a href="http://www.w3school.com.cn/sql/index.asp">http://www.w3school.com.cn/sql/index.asp</a></li>
+<li><a href="http://www.1keydata.com/cn/sql/sql-count.php">http://www.1keydata.com/cn/sql/sql-count.php</a></li>
+</ul>
+    
+
+<div class="previous">
+  
+    <span></span>
+  
+  
+  <a class="next" href="chapter1/1.1.html">
+    <span>
+      数据库基础
+    </span>
+    <svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
+      <path d="M544 522.666667c0-8.533333-4.266667-17.066667-10.666667-23.466667L192 189.866667c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733334 285.866667L149.333333 808.533333c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666z"></path>
+      <path d="M864 499.2l-341.333333-309.333333c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733333 285.866667-315.733333 285.866666c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466666 10.666667 8.533333 0 14.933333-2.133333 21.333334-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666 0-8.533333-4.266667-17.066667-10.666667-23.466667z"></path>
+    </svg>
+  </a>
+  
+</div>
+
+
+
+<section class="article-footer">
+  <a href="https://github.com/jaywcjlove/mysql-tutorial/blob/master/docs/21-minutes-MySQL-basic-entry.md" class="edit-button" target="_blank" rel="noopener noreferrer">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+    </svg>
+    <span>Edit this page on GitHub</span>
+  </a>
+  
+  <span class="atime">2022/04/22</span>
+  
+</section>
+
+  </markdown-style>
+  
+<nav class="tocs">
+  <aside class="inner toc"></aside>
+</nav>
+
+
+<script src="js/tocbot.min.js?v=4.18.2"></script>
+<script>
+tocbot.init({
+  tocSelector: 'aside.inner',
+  contentSelector: 'markdown-style',
+  positionFixedSelector: 'aside.inner',
+  headingSelector: 'h1, h2, h3, h4',
+  collapseDepth: 2,
+
+  includeHtml: true,
+  includeTitleTags: false,
+  hasInnerContainers: true,
+  onClick: (e) => { console.log('you clicked a link', e) },
+  headingsOffset: 40,
+  scrollSmoothOffset: -40,
+});
+</script>
+
+</div>
+
+
+<div class="footer warpper">
+  Released under the MIT License. Copyright © 2022 Kenny Wong<br />
+Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.13.4
+
+</div>
+
+</body>
+</html>

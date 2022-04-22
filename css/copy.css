@@ -1,0 +1,40 @@
+markdown-style pre .copied {
+  display: flex;
+  position: absolute;
+  cursor: pointer;
+  color: #a5afbb;
+  top: 6px;
+  right: 6px;
+  border-radius: 5px;
+  background: #82828226;
+  padding: 6px;
+  font-size: 12px;
+  transition: all 0.3s;
+}
+markdown-style pre .copied:not(.active) {
+  visibility: hidden;
+}
+markdown-style pre:hover .copied {
+  visibility: visible;
+}
+markdown-style pre:hover .copied:hover {
+  background: #4caf50;
+  color: #fff;
+}
+markdown-style pre:hover .copied:active,
+markdown-style pre .copied.active {
+  background: #2e9b33;
+  color: #fff;
+}
+markdown-style pre .copied .octicon-copy {
+  display: block;
+}
+markdown-style pre .copied .octicon-check {
+  display: none;
+}
+markdown-style pre .active .octicon-copy {
+  display: none;
+}
+markdown-style pre .active .octicon-check {
+  display: block;
+}

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>连接数据库 MySQL 入门教程 </title>
+  
+  <meta name="description" content="登录MySQL数据库有多种方式，GUI登录最方便，有特别多的App可以提供图形化工具登录MySQL，并且方便的查看数据信息，这里推荐一些APP，你可以尝试下载，有些APP还提供命令执行功能。图形化界面就不一样讲解了，就介绍一下命令行下面登录">
+  
+  
+  <link rel="stylesheet" type="text/css" href="../css/main.css?v=1650650226888">
+  <link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1650650226888">
+  <link rel="stylesheet" type="text/css" href="../css/media.css?v=1650650226888">
+  <link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1650650226888">
+  <link rel="stylesheet" type="text/css" href="../css/copy.css?v=1650650226888">
+  
+    <link rel="icon" href="../mysql.svg" type="image/x-icon">
+  
+  <script src="../js/copy.js"></script>
+  <script src="../js/dark-mode.js"></script>
+  <script src="../js/markdown-style.js"></script>
+</head>
+<body id="idoctotop">
+  <a href="#idoctotop" class="gototop">top</a>
+<header class="header">
+  <article class="inner warpper">
+    <a class="logo" href="../index.html">
+      
+        <svg viewBox="0 0 1117 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0m177.009507 0l531.028522 0q177.009507 0 177.009508 177.009507l0 531.028522q0 177.009507-177.009508 177.009508l-531.028522 0q-177.009507 0-177.009507-177.009508l0-531.028522q0-177.009507 177.009507-177.009507Z" fill="#91bfcc"></path>
+<path d="M572.448747 1023.955748l-81.73414-94.965601c-10.532066-22.789974-22.126188-44.650648-33.32204-67.440622v-1.504581c-4.867761 6.416595-3.274676 12.788937-5.664304 22.612964-10.532066 40.712187-2.478133 87.044425-38.986344 101.780467-41.15471 17.12567-72.042869-27.524978-85.008816-47.881072a359.108038 359.108038 0 0 1-23.365255-272.992912 230.422126 230.422126 0 0 1 18.630251-61.024028c-2.478133-14.51478-13.762489-18.674503-20.311841-27.524978a384.995678 384.995678 0 0 1-29.95886-50.713224 960.011063 960.011063 0 0 1-42.039758-108.9051c-5.664304-14.51478-7.345895-29.206569-13.010198-42.969058a383.358341 383.358341 0 0 0-41.243216-61.024027c-18.718755-26.772688-73.149179-78.724978-51.288504-131.518064 34.07433-83.814002 153.201729-20.356093 199.135695 8.850475a308.350562 308.350562 0 0 0 37.260502 28.454279c20.400346 0.75229 40.535177 2.433881 60.89127 3.186171a390.704235 390.704235 0 0 1 103.683319 33.366292 817.252895 817.252895 0 0 1 313.793604 303.925324 892.92446 892.92446 0 0 1 41.420225 92.708729c20.179084 47.084529 42.924806 96.647191 66.378565 141.29784 10.310804 21.285393 18.630251 42.570787 18.630251 42.570786v85.141573a933.061366 933.061366 0 0 1-81.91115-142.227139c-16.94866-38.986344-38.057044-79.654278-55.138461-119.481417-8.850475-19.382541-12.965946-36.552463-22.789974-55.182714a719.41089 719.41089 0 0 0-252.769577-278.081936 515.805704 515.805704 0 0 0-116.472255-55.979257c-24.515817-7.345895-53.633881-3.407433-79.654279-8.850475h-16.904408c-14.470527-3.938462-26.551426-19.382541-38.012791-27.480726a400.307001 400.307001 0 0 0-80.22956-40.844944c-10.576318-4.956266-40.446672-16.240622-51.02299-7.390147a12.700432 12.700432 0 0 0-11.240104 10.532065c-6.593604 9.824028-0.973552 24.515817 3.141919 33.366293a387.208297 387.208297 0 0 0 44.252377 63.325151 419.910804 419.910804 0 0 1 40.800691 62.705618c20.931374 45.447191 30.71115 95.894901 50.314953 141.297839a322.776837 322.776837 0 0 0 29.029559 51.996543c8.850475 12.257908 25.179602 21.108384 30.047364 36.552463 9.86828 16.19637-14.647537 69.918755-20.311841 87.044425a352.647191 352.647191 0 0 0 7.345894 216.836647c9.824028 22.612965 18.630251 49.3414 44.606396 55.935004 1.548833-1.68159 0-0.75229 3.274676-1.68159a458.852895 458.852895 0 0 1 22.568712-122.623336 298.216768 298.216768 0 0 1 38.897839-55.226967c8.142437 4.735004 8.142437 19.426793 13.010199 29.206569 10.532066 25.046845 21.904927 52.748833 34.826621 78.01694 26.551426 51.996543 93.416768 152.582195 93.416767 152.582196zM385.084183 378.092308a283.74624 283.74624 0 0 1-25.799135-33.543302h-1.637338v-1.504581a128.022126 128.022126 0 0 1 33.322039-4.159723c6.372342 6.593604 17.169922 10.576318 21.77217 18.674503a177.717545 177.717545 0 0 0 9.86828 17.12567 45.624201 45.624201 0 0 1-17.169922 40.712186 18.80726 18.80726 0 0 1-1.548834 1.681591c-6.593604-12.965946-12.213656-25.976145-18.80726-38.986344z" fill="currentColor"></path>
+</svg>
+      
+      <span class="title">MySQL 入门教程</span>
+    </a>
+    <div class="content">
+      <ul class="menu">
+        
+        <li>
+          <a href="../index.html" target="" class=""> Home </a>
+        </li>
+        
+        <li>
+          <a href="../21-minutes-MySQL-basic-entry.html" target="" class=""> Cheat Sheet </a>
+        </li>
+        
+        <li>
+          <a href="../awesome-mysql.html" target="" class=""> Awesome </a>
+        </li>
+        
+      </ul>
+      
+        <a href="https://github.com/jaywcjlove/mysql-tutorial.git" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </a>
+      
+      <dark-mode permanent></dark-mode>
+    </div>
+  </article>
+</header>
+
+<div class="warpper-content warpper sidebar ">
+  
+<div class="sidebar-border">
+  <aside class="sidebar" role="navigation">
+    <div>
+    
+      
+        <label>第1章 初识 MySQL</label>
+      
+    
+      
+        <a href="../chapter1/1.1.html" class="">数据库基础</a>
+      
+    
+      
+        <a href="../chapter1/1.2.html" class="">数据库技术构成</a>
+      
+    
+      
+        <a href="../chapter1/1.3.html" class="">什么是MySQL</a>
+      
+    
+      
+        <a href="../chapter1/1.4.html" class="">如何学习MySQL</a>
+      
+    
+      
+        <label>第2章 MySQL 的安装与配置</label>
+      
+    
+      
+        <a href="../chapter2/2.1.html" class="">Mac平台下安装与配置MySQL</a>
+      
+    
+      
+        <a href="../chapter2/2.2.html" class="">Centos 平台安装与卸载MySQL</a>
+      
+    
+      
+        <a href="../chapter2/2.3.html" class="">Docker 安装 MySQL</a>
+      
+    
+      
+        <a href="../chapter2/2.4.html" class="">启动数据库设置初始密码</a>
+      
+    
+      
+        <a href="../chapter2/2.5.html" class="">MySQL工具</a>
+      
+    
+      
+        <a href="../chapter2/2.6.html" class="">MySQL配置修改</a>
+      
+    
+      
+        <label>第3章 数据库的基本操作</label>
+      
+    
+      
+        <a href="3.1.html" class="active">连接数据库</a>
+      
+    
+      
+        <a href="3.2.html" class="">查看选择数据库</a>
+      
+    
+      
+        <a href="3.3.html" class="">创建数据库</a>
+      
+    
+      
+        <a href="3.4.html" class="">删除数据库</a>
+      
+    
+      
+        <a href="3.5.html" class="">数据库存储引擎</a>
+      
+    
+    </div>
+  </aside>
+</div>
+
+  <markdown-style>
+    <h1 id="连接数据库"><a aria-hidden="true" tabindex="-1" href="#连接数据库" class="anchor"><span class="icon icon-link"></span></a>连接数据库</h1>
+<p>登录MySQL数据库有多种方式，GUI登录最方便，有特别多的App可以提供图形化工具登录MySQL，并且方便的查看数据信息，<a href="/awesome-mysql.html#gui">这里推荐一些APP</a>，你可以尝试下载，有些APP还提供命令执行功能。图形化界面就不一样讲解了，就介绍一下命令行下面登录MySQL数据库，这样你可以配合App来学习SQL语言，更快掌握这门语言。</p>
+<h2 id="mysql命令语法"><a aria-hidden="true" tabindex="-1" href="#mysql命令语法" class="anchor"><span class="icon icon-link"></span></a>MySQL命令语法</h2>
+<p>用户名是你登录的用户，主机名或者IP地址为可选项，如果是本地连接则不需要，远程连接需要填写，密码是对应用户的密码。</p>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">mysql –u用户名 <span class="token punctuation">[</span>–h主机名或者IP地址,-P端口号<span class="token punctuation">]</span> –p密码
+</span></code><div onclick="copied(this)" data-code="mysql –u用户名 [–h主机名或者IP地址,-P端口号] –p密码
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<ol>
+<li>该命令是在命令行窗口下执行，而不是MySQL的命令行；</li>
+<li>输入-p后可以直接跟上密码，也可以按回车，会提示你输入密码，二者都是相同的效果；</li>
+<li>–p密码选项不一定是要在最后；</li>
+<li>–u、-h、-p后无空格。</li>
+</ol>
+<h2 id="mysql命令连接数据库"><a aria-hidden="true" tabindex="-1" href="#mysql命令连接数据库" class="anchor"><span class="icon icon-link"></span></a>MySQL命令连接数据库</h2>
+<p>首先将这个使用率高达80%以上的“mysql”命令工具简单的做一个讲解，在操作系统命令终端提示符下输入 <code>mysql -h 127.0.0.1 -u用户名 -p密码</code>，将出现一个如下的简单提示:</p>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">→ mysql -h127.0.0.1 -P3306 -uroot -prootpassword
+</span><span class="code-line">
+</span><span class="code-line">Welcome to the MySQL monitor.  Commands end with <span class="token punctuation">;</span> or <span class="token punctuation">\</span>g.
+</span><span class="code-line">Your MySQL connection <span class="token function">id</span> is <span class="token number">99</span>
+</span><span class="code-line">Server version: <span class="token number">5.7</span>.14 MySQL Community Server <span class="token punctuation">(</span>GPL<span class="token punctuation">)</span>
+</span><span class="code-line">
+</span><span class="code-line">Copyright <span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token number">2000</span>, <span class="token number">2015</span>, Oracle and/or its affiliates. All rights reserved.
+</span><span class="code-line">
+</span><span class="code-line">Oracle is a registered trademark of Oracle Corporation and/or its
+</span><span class="code-line">affiliates. Other names may be trademarks of their respective
+</span><span class="code-line">owners.
+</span><span class="code-line">
+</span><span class="code-line">Type <span class="token string">'help;'</span> or <span class="token string">'\h'</span> <span class="token keyword">for</span> help. Type <span class="token string">'\c'</span> to <span class="token function">clear</span> the current input statement.
+</span><span class="code-line">
+</span><span class="code-line">mysql<span class="token operator">></span>
+</span></code><div onclick="copied(this)" data-code="→ mysql -h127.0.0.1 -P3306 -uroot -prootpassword
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 99
+Server version: 5.7.14 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2015, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type &#x27;help;&#x27; or &#x27;\h&#x27; for help. Type &#x27;\c&#x27; to clear the current input statement.
+
+mysql>
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<ul>
+<li><code>-h127.0.0.1</code> 其中“-p”是参数，“rootpassword”，默认本地参数可忽略</li>
+<li><code>-P3306</code> 其中“-P”是参数(注意大写)，“3306”，默认本地参数可忽略</li>
+<li><code>-uroot</code> 其中“-u”是参数，“root” 是用户名。</li>
+<li><code>-prootpassword</code> 其中“-p”是参数，“rootpassword” 是用户名。</li>
+<li><code>Commands end with ; or \g.</code> 命令的结束符，用“;”或者“\g”符号结束，但是冒号结束退出是不行的。</li>
+<li><code>Your MySQL connection id is 99</code> 其中 id 表示客户端的连接 ID，该数据记录了 MySQL 服务到目前为止的连接次数，每次新连接都会自动加 1。由于数据库服务是我安装了好久的，所以当前 ID 值为 99。</li>
+<li><code>Server version: 5.7.14 MySQL</code> MySQL的版本。</li>
+<li><code>Community Server (GPL)</code> 表示 MySQL 软件是社区版。</li>
+<li><code>Type 'help;' or '\h' for help.</code> 表示输入 “help;” 或者 “\h” 命令可以查看帮助信息。</li>
+<li><code>Type '\c' to clear the current input statement.</code> 表示输入“\c” 命令可以清除前面的命令。</li>
+</ul>
+<p>你只需要在<code>mysql></code>命令中输入 SQL 语句，同时并以分号“;”结束。最后摁<code>Enter</code>键即可操作 MySQL软件。</p>
+<p>当然，具体的版本和连接信息可能不同，但都可以使用这个实用程序。请注意:</p>
+<ul>
+<li>命令输入在<code>mysql></code> 之后；</li>
+<li>用<code>q\</code>、<code>quit</code>、<code>exit</code>三种命令可以退出命令行实用程序；</li>
+<li>帮助命令，输入<code>help</code>或<code>\h</code>获得帮助，可以获得其它特定的命令的帮助(如，输入help select获得使用SELECT语句的帮助)；</li>
+</ul>
+<h2 id="开启mysql的远程帐号"><a aria-hidden="true" tabindex="-1" href="#开启mysql的远程帐号" class="anchor"><span class="icon icon-link"></span></a>开启MySQL的远程帐号</h2>
+<p>用GUI连接数据库如果报下面错误，是你的 MySQL远程连接账号没有开启。</p>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">Unable to connect to <span class="token function">host</span> <span class="token number">192.168</span>.188.114, or the request timed out.
+</span><span class="code-line">Be sure that the address is correct and that you have the necessary privileges, or try increasing the connection <span class="token function">timeout</span> <span class="token punctuation">(</span>currently <span class="token number">10</span> seconds<span class="token punctuation">)</span>.
+</span><span class="code-line">MySQL said: Host <span class="token string">'192.168.188.106'</span> is not allowed to connect to this MariaDB server
+</span></code><div onclick="copied(this)" data-code="Unable to connect to host 192.168.188.114, or the request timed out.
+Be sure that the address is correct and that you have the necessary privileges, or try increasing the connection timeout (currently 10 seconds).
+MySQL said: Host &#x27;192.168.188.106&#x27; is not allowed to connect to this MariaDB server
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>通过下面的命令，解决不能连接的错误，进入 MySQL 执行下面语句。</p>
+<pre class="language-shell"><code class="language-shell code-highlight"><span class="code-line"><span class="token comment"># 你想root使用123456从'192.168.188.106'主机连接到mysql服务器 wabg库下面所有表的话。</span>
+</span><span class="code-line">MySQL<span class="token operator">></span> grant all PRIVILEGES on wabg.* to  root@<span class="token string">'192.168.188.106'</span>  identified by <span class="token string">'123456'</span> WITH GRANT OPTION<span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token comment"># 你想myuser使用mypassword从任何主机连接到mysql服务器的话</span>
+</span><span class="code-line">MySQL<span class="token operator">></span> grant all PRIVILEGES on *.* to  <span class="token string">'myuser'</span>@<span class="token string">'%'</span>  identified by <span class="token string">'mypassword'</span> WITH GRANT OPTION<span class="token punctuation">;</span>
+</span></code><div onclick="copied(this)" data-code="# 你想root使用123456从&#x27;192.168.188.106&#x27;主机连接到mysql服务器 wabg库下面所有表的话。
+MySQL> grant all PRIVILEGES on wabg.* to  root@&#x27;192.168.188.106&#x27;  identified by &#x27;123456&#x27; WITH GRANT OPTION;
+# 你想myuser使用mypassword从任何主机连接到mysql服务器的话
+MySQL> grant all PRIVILEGES on *.* to  &#x27;myuser&#x27;@&#x27;%&#x27;  identified by &#x27;mypassword&#x27; WITH GRANT OPTION;
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>上面的语句表示将 wabg 数据库的所有权限授权给 root 这个用户，允许 root 用户在 192.168.1.106 这个 IP 进行远程登陆，并设置 root 用户的密码为 123456 。</p>
+<ul>
+<li>all PRIVILEGES 表示赋予所有的权限给指定用户，这里也可以替换为赋予某一具体的权限</li>
+<li>wabg.* 表示上面的权限是针对于哪个表的，wabg指的是数据库，后面的 * 表示对于所有的表，由此可以推理出：
+<ul>
+<li>对于全部数据库的全部表授权为“ <em>.</em> ”</li>
+<li>对于某一数据库的全部表授权为“ 数据库名.* ”</li>
+<li>对于某一数据库的某一表授权为“数据库名.表名”</li>
+</ul>
+</li>
+<li>root 表示你要给哪个用户授权，这个用户可以是存在的用户，也可以是不存在的用户。</li>
+<li>192.168.188.106 表示允许远程连接的 IP 地址，如果想不限制链接的 IP 则设置为“%”即可。</li>
+<li>123456 为用户的密码。</li>
+</ul>
+<p>如何开启MySQL的远程帐号？执行了上面的语句后，再执行下面的语句，方可立即生效。</p>
+<pre class="language-shell"><code class="language-shell code-highlight"><span class="code-line">MySQL<span class="token operator">></span> flush privileges<span class="token punctuation">;</span>
+</span></code><div onclick="copied(this)" data-code="MySQL> flush privileges;
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>当你报下面错误，提示您的密码不满足当前的策略要求。错误如下：</p>
+<pre class="language-shell"><code class="language-shell code-highlight"><span class="code-line">ERROR <span class="token number">1819</span> <span class="token punctuation">(</span>HY000<span class="token punctuation">)</span>: Your password does not satisfy the current policy requirements
+</span><span class="code-line"><span class="token comment"># 或者</span>
+</span><span class="code-line">mysqladmin: unable to change password<span class="token punctuation">;</span> error: <span class="token string">'Your password does not satisfy the current policy requirements'</span>
+</span></code><div onclick="copied(this)" data-code="ERROR 1819 (HY000): Your password does not satisfy the current policy requirements
+# 或者
+mysqladmin: unable to change password; error: &#x27;Your password does not satisfy the current policy requirements&#x27;
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>解决方法：可以按照现有策略设置密码，也可以更改密码策略。</p>
+<pre class="language-shell"><code class="language-shell code-highlight"><span class="code-line"><span class="token comment"># 更改密码策略为LOW</span>
+</span><span class="code-line">MySQL<span class="token operator">></span> <span class="token builtin class-name">set</span> global <span class="token assign-left variable">validate_password_policy</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token comment"># 更改密码长度 密码最小长度为4</span>
+</span><span class="code-line">MySQL<span class="token operator">></span> <span class="token builtin class-name">set</span> global <span class="token assign-left variable">validate_password_length</span><span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">;</span>  
+</span></code><div onclick="copied(this)" data-code="# 更改密码策略为LOW
+MySQL> set global validate_password_policy=0;
+# 更改密码长度 密码最小长度为4
+MySQL> set global validate_password_length=4;  
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>进入 MySQL 查看你的密码验证策略</p>
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line">mysql<span class="token operator">></span> <span class="token keyword">SHOW</span> VARIABLES <span class="token operator">LIKE</span> <span class="token string">'validate_password%'</span><span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token operator">+</span><span class="token comment">--------------------------------------+-------+</span>
+</span><span class="code-line"><span class="token operator">|</span> Variable_name                        <span class="token operator">|</span> <span class="token keyword">Value</span> <span class="token operator">|</span>
+</span><span class="code-line"><span class="token operator">+</span><span class="token comment">--------------------------------------+-------+</span>
+</span><span class="code-line"><span class="token operator">|</span> validate_password_check_user_name    <span class="token operator">|</span> <span class="token keyword">OFF</span>   <span class="token operator">|</span> 
+</span><span class="code-line"><span class="token operator">|</span> validate_password_dictionary_file    <span class="token operator">|</span>       <span class="token operator">|</span> 
+</span><span class="code-line"><span class="token operator">|</span> validate_password_length             <span class="token operator">|</span> <span class="token number">4</span>     <span class="token operator">|</span> 
+</span><span class="code-line"><span class="token operator">|</span> validate_password_mixed_case_count   <span class="token operator">|</span> <span class="token number">1</span>     <span class="token operator">|</span> 
+</span><span class="code-line"><span class="token operator">|</span> validate_password_number_count       <span class="token operator">|</span> <span class="token number">1</span>     <span class="token operator">|</span> 
+</span><span class="code-line"><span class="token operator">|</span> validate_password_policy             <span class="token operator">|</span> LOW   <span class="token operator">|</span> 
+</span><span class="code-line"><span class="token operator">|</span> validate_password_special_char_count <span class="token operator">|</span> <span class="token number">1</span>     <span class="token operator">|</span> 
+</span><span class="code-line"><span class="token operator">+</span><span class="token comment">--------------------------------------+-------+</span>
+</span><span class="code-line"><span class="token number">7</span> <span class="token keyword">rows</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
+</span></code><div onclick="copied(this)" data-code="mysql> SHOW VARIABLES LIKE &#x27;validate_password%&#x27;;
++--------------------------------------+-------+
+| Variable_name                        | Value |
++--------------------------------------+-------+
+| validate_password_check_user_name    | OFF   | 
+| validate_password_dictionary_file    |       | 
+| validate_password_length             | 4     | 
+| validate_password_mixed_case_count   | 1     | 
+| validate_password_number_count       | 1     | 
+| validate_password_policy             | LOW   | 
+| validate_password_special_char_count | 1     | 
++--------------------------------------+-------+
+7 rows in set (0.00 sec)
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<ul>
+<li>validate_password_check_user_name 不得使用当前会话用户名作为密码的一部分</li>
+<li>validate_password_dictionary_file 验证密码强度的字典文件路径</li>
+<li>validate_password_length 密码最小长度</li>
+<li>validate_password_mixed_case_count 密码至少要包含的小写字母个数和大写字母个数</li>
+<li>validate_password_number_count 密码至少要包含的数字个数</li>
+<li>validate_password_policy 密码强度检查等级，0/LOW、1/MEDIUM、2/STRONG
+<ul>
+<li>0/LOW：只检查长度。</li>
+<li>1/MEDIUM：检查长度、数字、大小写、特殊字符。</li>
+<li>2/STRONG：检查长度、数字、大小写、特殊字符字典文件。</li>
+</ul>
+</li>
+<li>validate_password_special_char_count 密码至少要包含的特殊字符数</li>
+</ul>
+<h2 id="mysql修改密码"><a aria-hidden="true" tabindex="-1" href="#mysql修改密码" class="anchor"><span class="icon icon-link"></span></a>MySQL修改密码</h2>
+<pre class="language-shell"><code class="language-shell code-highlight"><span class="code-line">mysqladmin -uroot -p password
+</span></code><div onclick="copied(this)" data-code="mysqladmin -uroot -p password
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+    
+
+<div class="previous">
+  
+  <a class="prev" href="../chapter2/2.6.html">
+    <svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
+      <path d="M842.666667 864c-8.533333 0-14.933333-2.133333-21.333334-8.533333l-341.333333-309.333334c-6.4-6.4-10.666667-14.933333-10.666667-23.466666 0-8.533333 4.266667-17.066667 10.666667-23.466667l341.333333-309.333333c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133333 44.8L548.266667 522.666667l315.733333 285.866666c12.8 10.666667 14.933333 32 2.133333 44.8-6.4 6.4-14.933333 10.666667-23.466666 10.666667z"></path>
+      <path d="M512 864c-8.533333 0-14.933333-2.133333-21.333333-8.533333L149.333333 546.133333c-6.4-6.4-10.666667-14.933333-10.666666-23.466666 0-8.533333 4.266667-17.066667 10.666666-23.466667L490.666667 189.866667c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133334 44.8L217.6 522.666667 533.333333 808.533333c12.8 12.8 14.933333 32 2.133334 44.8-6.4 6.4-14.933333 10.666667-23.466667 10.666667z"></path>
+    </svg>
+    <span>
+      MySQL配置修改
+    </span>
+  </a>
+  
+  
+  <a class="next" href="3.2.html">
+    <span>
+      查看选择数据库
+    </span>
+    <svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
+      <path d="M544 522.666667c0-8.533333-4.266667-17.066667-10.666667-23.466667L192 189.866667c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733334 285.866667L149.333333 808.533333c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666z"></path>
+      <path d="M864 499.2l-341.333333-309.333333c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733333 285.866667-315.733333 285.866666c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466666 10.666667 8.533333 0 14.933333-2.133333 21.333334-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666 0-8.533333-4.266667-17.066667-10.666667-23.466667z"></path>
+    </svg>
+  </a>
+  
+</div>
+
+
+
+<section class="article-footer">
+  <a href="https://github.com/jaywcjlove/mysql-tutorial/blob/master/docs/chapter3/3.1.md" class="edit-button" target="_blank" rel="noopener noreferrer">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+    </svg>
+    <span>Edit this page on GitHub</span>
+  </a>
+  
+  <span class="atime">2022/04/22</span>
+  
+</section>
+
+  </markdown-style>
+  
+<nav class="tocs">
+  <aside class="inner toc"></aside>
+</nav>
+
+
+<script src="../js/tocbot.min.js?v=4.18.2"></script>
+<script>
+tocbot.init({
+  tocSelector: 'aside.inner',
+  contentSelector: 'markdown-style',
+  positionFixedSelector: 'aside.inner',
+  headingSelector: 'h1, h2, h3, h4',
+  collapseDepth: 2,
+
+  includeHtml: true,
+  includeTitleTags: false,
+  hasInnerContainers: true,
+  onClick: (e) => { console.log('you clicked a link', e) },
+  headingsOffset: 40,
+  scrollSmoothOffset: -40,
+});
+</script>
+
+</div>
+
+
+<div class="footer warpper">
+  Released under the MIT License. Copyright © 2022 Kenny Wong<br />
+Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.13.4
+
+</div>
+
+</body>
+</html>

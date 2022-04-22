@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数据库的基本操作 MySQL 入门教程 </title>
+  
+  <meta name="description" content="从零开始学习MySQL，主要是面向MySQL数据库管理系统初学者。前端开发工程师为什么写这个入门教程呢？最近项目强迫我这个前端老司机使用MySQL，虽然我在项目中已经使用过一段时间，为了写出高质量的SQL语句，能快速定位解决数据库引发的问题">
+  
+  
+  <link rel="stylesheet" type="text/css" href="css/main.css?v=1650650227174">
+  <link rel="stylesheet" type="text/css" href="css/tocbot.css?v=1650650227174">
+  <link rel="stylesheet" type="text/css" href="css/media.css?v=1650650227174">
+  <link rel="stylesheet" type="text/css" href="css/sidebar.css?v=1650650227174">
+  <link rel="stylesheet" type="text/css" href="css/copy.css?v=1650650227174">
+  
+    <link rel="icon" href="mysql.svg" type="image/x-icon">
+  
+  <script src="js/copy.js"></script>
+  <script src="js/dark-mode.js"></script>
+  <script src="js/markdown-style.js"></script>
+</head>
+<body id="idoctotop">
+  <a href="#idoctotop" class="gototop">top</a>
+<header class="header">
+  <article class="inner warpper">
+    <a class="logo" href="index.html">
+      
+        <svg viewBox="0 0 1117 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0m177.009507 0l531.028522 0q177.009507 0 177.009508 177.009507l0 531.028522q0 177.009507-177.009508 177.009508l-531.028522 0q-177.009507 0-177.009507-177.009508l0-531.028522q0-177.009507 177.009507-177.009507Z" fill="#91bfcc"></path>
+<path d="M572.448747 1023.955748l-81.73414-94.965601c-10.532066-22.789974-22.126188-44.650648-33.32204-67.440622v-1.504581c-4.867761 6.416595-3.274676 12.788937-5.664304 22.612964-10.532066 40.712187-2.478133 87.044425-38.986344 101.780467-41.15471 17.12567-72.042869-27.524978-85.008816-47.881072a359.108038 359.108038 0 0 1-23.365255-272.992912 230.422126 230.422126 0 0 1 18.630251-61.024028c-2.478133-14.51478-13.762489-18.674503-20.311841-27.524978a384.995678 384.995678 0 0 1-29.95886-50.713224 960.011063 960.011063 0 0 1-42.039758-108.9051c-5.664304-14.51478-7.345895-29.206569-13.010198-42.969058a383.358341 383.358341 0 0 0-41.243216-61.024027c-18.718755-26.772688-73.149179-78.724978-51.288504-131.518064 34.07433-83.814002 153.201729-20.356093 199.135695 8.850475a308.350562 308.350562 0 0 0 37.260502 28.454279c20.400346 0.75229 40.535177 2.433881 60.89127 3.186171a390.704235 390.704235 0 0 1 103.683319 33.366292 817.252895 817.252895 0 0 1 313.793604 303.925324 892.92446 892.92446 0 0 1 41.420225 92.708729c20.179084 47.084529 42.924806 96.647191 66.378565 141.29784 10.310804 21.285393 18.630251 42.570787 18.630251 42.570786v85.141573a933.061366 933.061366 0 0 1-81.91115-142.227139c-16.94866-38.986344-38.057044-79.654278-55.138461-119.481417-8.850475-19.382541-12.965946-36.552463-22.789974-55.182714a719.41089 719.41089 0 0 0-252.769577-278.081936 515.805704 515.805704 0 0 0-116.472255-55.979257c-24.515817-7.345895-53.633881-3.407433-79.654279-8.850475h-16.904408c-14.470527-3.938462-26.551426-19.382541-38.012791-27.480726a400.307001 400.307001 0 0 0-80.22956-40.844944c-10.576318-4.956266-40.446672-16.240622-51.02299-7.390147a12.700432 12.700432 0 0 0-11.240104 10.532065c-6.593604 9.824028-0.973552 24.515817 3.141919 33.366293a387.208297 387.208297 0 0 0 44.252377 63.325151 419.910804 419.910804 0 0 1 40.800691 62.705618c20.931374 45.447191 30.71115 95.894901 50.314953 141.297839a322.776837 322.776837 0 0 0 29.029559 51.996543c8.850475 12.257908 25.179602 21.108384 30.047364 36.552463 9.86828 16.19637-14.647537 69.918755-20.311841 87.044425a352.647191 352.647191 0 0 0 7.345894 216.836647c9.824028 22.612965 18.630251 49.3414 44.606396 55.935004 1.548833-1.68159 0-0.75229 3.274676-1.68159a458.852895 458.852895 0 0 1 22.568712-122.623336 298.216768 298.216768 0 0 1 38.897839-55.226967c8.142437 4.735004 8.142437 19.426793 13.010199 29.206569 10.532066 25.046845 21.904927 52.748833 34.826621 78.01694 26.551426 51.996543 93.416768 152.582195 93.416767 152.582196zM385.084183 378.092308a283.74624 283.74624 0 0 1-25.799135-33.543302h-1.637338v-1.504581a128.022126 128.022126 0 0 1 33.322039-4.159723c6.372342 6.593604 17.169922 10.576318 21.77217 18.674503a177.717545 177.717545 0 0 0 9.86828 17.12567 45.624201 45.624201 0 0 1-17.169922 40.712186 18.80726 18.80726 0 0 1-1.548834 1.681591c-6.593604-12.965946-12.213656-25.976145-18.80726-38.986344z" fill="currentColor"></path>
+</svg>
+      
+      <span class="title">MySQL 入门教程</span>
+    </a>
+    <div class="content">
+      <ul class="menu">
+        
+        <li>
+          <a href="index.html" target="" class="active"> Home </a>
+        </li>
+        
+        <li>
+          <a href="21-minutes-MySQL-basic-entry.html" target="" class=""> Cheat Sheet </a>
+        </li>
+        
+        <li>
+          <a href="awesome-mysql.html" target="" class=""> Awesome </a>
+        </li>
+        
+      </ul>
+      
+        <a href="https://github.com/jaywcjlove/mysql-tutorial.git" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </a>
+      
+      <dark-mode permanent></dark-mode>
+    </div>
+  </article>
+</header>
+
+<div class="warpper-content warpper sidebar ">
+  
+<div class="sidebar-border">
+  <aside class="sidebar" role="navigation">
+    <div>
+    
+      
+        <label>第1章 初识 MySQL</label>
+      
+    
+      
+        <a href="chapter1/1.1.html" class="">数据库基础</a>
+      
+    
+      
+        <a href="chapter1/1.2.html" class="">数据库技术构成</a>
+      
+    
+      
+        <a href="chapter1/1.3.html" class="">什么是MySQL</a>
+      
+    
+      
+        <a href="chapter1/1.4.html" class="">如何学习MySQL</a>
+      
+    
+      
+        <label>第2章 MySQL 的安装与配置</label>
+      
+    
+      
+        <a href="chapter2/2.1.html" class="">Mac平台下安装与配置MySQL</a>
+      
+    
+      
+        <a href="chapter2/2.2.html" class="">Centos 平台安装与卸载MySQL</a>
+      
+    
+      
+        <a href="chapter2/2.3.html" class="">Docker 安装 MySQL</a>
+      
+    
+      
+        <a href="chapter2/2.4.html" class="">启动数据库设置初始密码</a>
+      
+    
+      
+        <a href="chapter2/2.5.html" class="">MySQL工具</a>
+      
+    
+      
+        <a href="chapter2/2.6.html" class="">MySQL配置修改</a>
+      
+    
+      
+        <label>第3章 数据库的基本操作</label>
+      
+    
+      
+        <a href="chapter3/3.1.html" class="">连接数据库</a>
+      
+    
+      
+        <a href="chapter3/3.2.html" class="">查看选择数据库</a>
+      
+    
+      
+        <a href="chapter3/3.3.html" class="">创建数据库</a>
+      
+    
+      
+        <a href="chapter3/3.4.html" class="">删除数据库</a>
+      
+    
+      
+        <a href="chapter3/3.5.html" class="">数据库存储引擎</a>
+      
+    
+    </div>
+  </aside>
+</div>
+
+  <markdown-style>
+    <img align="right" height="150" src="./img/mysql-logo.png">
+
+<p><a href="http://www.mysql.com/"><img src="https://jaywcjlove.github.io/sb/ico/mysql.svg" alt=""></a> <a href="../awesome-mysql.html"><img src="https://jaywcjlove.github.io/sb/ico/awesome.svg" alt=""></a> <a href="#"><img src="https://jaywcjlove.github.io/sb/license/mit.svg" alt=""></a></p>
+<p>从零开始学习MySQL，主要是面向MySQL数据库管理系统初学者。前端开发工程师为什么写这个入门教程呢？最近项目强迫我这个前端老司机使用MySQL，虽然我在项目中已经使用过一段时间，为了写出高质量的SQL语句，能快速定位解决数据库引发的问题，系统的过一遍基础，你也可以当做是我的笔记。有幸也认识一些 MySQL 的 DBA，这让我学习起来比较快，能快速入门，进入实战开发阶段。</p>
+<p>原本我是使用 MongoDB 这类型的 NoSQL 数据库，MongoDB在 Nodejs 在 Mongoose 包的帮助下 JSON 的数据格式直接插入 MongoDB 中，对于一个前端开发工程师，使用起来非常舒服。但是没有办法，我是被逼的，从此入了一个新坑，我就决心系统的好好学习一下。如果你对本小电子书阅读非常没有耐心，你可以看看我做的一篇笔记 <strong>《<a href="21-minutes-mysql-basic-entry.html">21分钟MySQL基础入门</a>》</strong> ，这个笔记还可以在 <a href="https://segmentfault.com/a/1190000006876419">SegmentFault</a> 里面阅读，有导航阅读非常方便，为什么只需要21分钟呢？因为在我们大天朝有句话叫做“不管三七二十一”，你可以不管三七二十一开始使用 MySQL 及快速入门，里面系统的整理了，一些常用的SQL语句。</p>
+<p>在本书中所搜集到得各种资源，我把它将放到这里 <strong><a href="awesome-mysql.html">Awesome MySQL</a></strong>。所有SQL语句例子，是基于 MySQL 5.7.14 或者 MySQL 5.7.16 运行的。这里面的一些理论知识都是从<a href="https://zh.wikipedia.org">维基百科</a>等各种百科、各种官网搬运过来的，偶尔会有一些基础理论知识总结，如果有错误或者误差，可以给我来个疯狂的<a href="https://github.com/jaywcjlove/mysql-tutorial/pulls">Pull requesets</a>或<a href="https://github.com/jaywcjlove/mysql-tutorial/issues">Issue</a>。如果实在看不下去你可以🔫。</p>
+<p>MariaDB，是 MySQL server 的一个由社区开发的分支，MariaDB大部分跟 MySQL 5.5 以前版本使用差不多。自己电脑上是 MySQL 5.7.14，公司服务器上面是 MariaDB 最新版本，生产上 MySQL 5.7.16，所以很尴尬，偶尔提及MariaDB也是很正常的吧。</p>
+<h2 id="目录"><a aria-hidden="true" tabindex="-1" href="#目录" class="anchor"><span class="icon icon-link"></span></a>目录</h2>
+<h4 id="awesome-mysql"><a aria-hidden="true" tabindex="-1" href="#awesome-mysql" class="anchor"><span class="icon icon-link"></span></a>Awesome MySQL</h4>
+<ul>
+<li><a href="21-minutes-mysql-basic-entry.html">21分钟MySQL基础入门</a></li>
+<li><a href="awesome-mysql.html#%e6%89%8b%e5%86%8c%e6%96%87%e6%a1%a3">手册文档</a> - 一些非官方的手册文档搜集</li>
+<li><a href="awesome-mysql.html#%e5%88%86%e6%9e%90%e5%b7%a5%e5%85%b7">分析工具</a> - 性能，结构和数据分析工具</li>
+<li><a href="awesome-mysql.html#gui">GUI</a> - 搜集的一些 MySQL 的客户端，也有命令行客户端</li>
+<li><a href="awesome-mysql.html#%e6%9c%8d%e5%8a%a1%e5%99%a8">服务器</a> - MySQL服务器的衍生品</li>
+<li><a href="awesome-mysql.html#%e5%a4%87%e4%bb%bd">备份</a> - 备份/存储/恢复 工具</li>
+<li><a href="awesome-mysql.html#%e5%ae%98%e6%96%b9%e8%b5%84%e6%96%99">官方资料</a> - 官方的一些网站和文章</li>
+<li><a href="awesome-mysql.html#%e4%bc%98%e7%a7%80%e6%96%87%e7%ab%a0">优秀文章</a> - 一些优秀的文章</li>
+</ul>
+<h4 id="第1章-初识mysql"><a aria-hidden="true" tabindex="-1" href="#第1章-初识mysql" class="anchor"><span class="icon icon-link"></span></a>第1章 初识MySQL</h4>
+<ul>
+<li>1.1 <a href="chapter1/1.1.html">数据库基础</a>
+<ul>
+<li><a href="chapter1/1.1.html#%e4%bb%80%e4%b9%88%e6%98%af%e6%95%b0%e6%8d%ae%e5%ba%93">什么是数据库</a></li>
+<li><a href="chapter1/1.1.html#%e6%95%b0%e6%8d%ae%e5%ba%93%e5%88%86%e7%b1%bb">数据库分类</a></li>
+<li><a href="chapter1/1.1.html#%e6%95%b0%e6%8d%ae%e5%ba%93%e6%a8%a1%e5%9e%8b">数据库模型</a></li>
+<li><a href="chapter1/1.1.html#%e6%95%b0%e6%8d%ae%e8%a1%a8">数据表</a></li>
+<li><a href="chapter1/1.1.html#%e5%85%b3%e7%b3%bb%e9%94%ae">关系键</a></li>
+</ul>
+</li>
+<li>1.2 <a href="chapter1/1.2.html">数据库技术构成</a>
+<ul>
+<li><a href="chapter1/1.2.html#%e6%95%b0%e6%8d%ae%e5%ba%93%e7%b3%bb%e7%bb%9f">数据库系统</a></li>
+<li><a href="chapter1/1.2.html#%e5%85%b3%e7%b3%bb%e6%95%b0%e6%8d%ae%e5%ba%93%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5">关系数据库基本概念</a></li>
+<li><a href="chapter1/1.2.html#sql%e8%af%ad%e8%a8%80">SQL语言</a></li>
+<li><a href="chapter1/1.2.html#%e6%95%b0%e6%8d%ae%e5%ba%93%e8%ae%bf%e9%97%ae%e6%8a%80%e6%9c%af">数据库访问技术</a></li>
+</ul>
+</li>
+<li>1.3 <a href="chapter1/1.3.html">什么是MySQL</a>
+<ul>
+<li><a href="chapter1/1.3.html#mysql-%e4%bb%8b%e7%bb%8d">MySQL介绍</a></li>
+<li><a href="chapter1/1.3.html#mysql-%e5%8f%91%e5%b1%95%e5%8e%86%e5%8f%b2">MySQL发展历史</a></li>
+<li><a href="chapter1/1.3.html#mysql-%e7%89%88%e6%9c%ac">MySQL版本</a></li>
+<li><a href="chapter1/1.3.html#mysql-%e7%9a%84%e4%bc%98%e5%8a%bf">MySQL的优势</a></li>
+</ul>
+</li>
+<li>1.4 <a href="chapter1/1.4.html">如何学习MySQL</a></li>
+</ul>
+<h4 id="第2章-mysql的安装与配置"><a aria-hidden="true" tabindex="-1" href="#第2章-mysql的安装与配置" class="anchor"><span class="icon icon-link"></span></a>第2章 MySQL的安装与配置</h4>
+<ul>
+<li>2.1 <a href="chapter2/2.1.html">Mac平台下安装与配置MySQL</a>
+<ul>
+<li><a href="chapter2/2.1.html#mac-%e5%ae%89%e8%a3%85mysql">Mac上安装MySQL</a></li>
+<li><a href="chapter2/2.1.html#mac-%e5%8d%b8%e8%bd%bdmysql">Mac上卸载MySQL</a></li>
+</ul>
+</li>
+<li>2.2 <a href="chapter2/2.2.html">Centos 平台安装与卸载MySQL</a>
+<ul>
+<li><a href="chapter2/2.2.html#%e6%a3%80%e6%9f%a5%e6%98%af%e5%90%a6%e5%b7%b2%e5%ae%89%e8%a3%85">检查是否已安装</a></li>
+<li><a href="chapter2/2.2.html#%e6%9b%b4%e6%96%b0%e5%ae%89%e8%a3%85%e6%ba%90">更新安装源</a></li>
+<li><a href="chapter2/2.2.html#%e6%a3%80%e6%9f%a5%e6%98%af%e5%90%a6%e4%b8%8b%e8%bd%bd%e6%88%90%e5%8a%9f">检查是否下载成功</a></li>
+<li><a href="chapter2/2.2.html#%e6%9f%a5%e7%9c%8b%e7%89%88%e6%9c%ac">查看版本</a></li>
+<li><a href="chapter2/2.2.html#%e5%90%af%e5%8a%a8%e6%8c%87%e5%ae%9a%e7%89%88%e6%9c%ac">启动指定版本</a></li>
+<li><a href="chapter2/2.2.html#%e5%ae%89%e8%a3%85mysql">安装MySQL</a></li>
+<li><a href="chapter2/2.2.html#%e6%9f%a5%e7%9c%8b%e5%ae%89%e8%a3%85%e7%9b%ae%e5%bd%95">查看安装目录</a></li>
+<li><a href="chapter2/2.2.html#mariadb%e5%88%87%e6%8d%a2mysql">MariaDB切换MySQL</a></li>
+<li><a href="chapter2/2.2.html#%e5%8d%b8%e8%bd%bd-mysql-%e8%bd%af%e4%bb%b6">卸载 MySQL 软件</a></li>
+</ul>
+</li>
+<li>2.3 <a href="chapter2/2.3.html">Docker 安装 MySQL</a>
+<ul>
+<li><a href="chapter2/2.3.html#%e5%bf%ab%e9%80%9f%e5%90%af%e5%8a%a8%e4%b8%80%e4%b8%aa-mysql-%e6%9c%8d%e5%8a%a1%e5%99%a8%e5%ae%9e%e4%be%8b">快速启动一个 MySQL 服务器实例</a></li>
+<li><a href="#%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%AE%BF%E9%97%AE-mysql-%E5%AE%B9%E5%99%A8">通过命令行访问 MySQL 容器</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8-mysql-%E8%87%AA%E5%AE%9A%E4%B9%89%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">使用 MySQL 自定义配置文件</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8-stack-%E9%83%A8%E7%BD%B2-mysql">使用 stack 部署 MySQL</a></li>
+</ul>
+</li>
+<li>2.4 <a href="chapter2/2.4.html">启动数据库设置初始密码</a>
+<ul>
+<li><a href="chapter2/2.4.html#%e5%91%bd%e4%bb%a4%e8%a1%8c%e5%90%af%e5%8a%a8%e5%85%b3%e9%97%ad%e9%87%8d%e5%90%afmysql%e6%9c%8d%e5%8a%a1">命令行启动关闭重启MySQL服务</a></li>
+<li><a href="chapter2/2.4.html#%e5%9b%be%e5%83%8f%e7%95%8c%e9%9d%a2%e5%90%af%e5%8a%a8%e5%85%b3%e9%97%ad%e9%87%8d%e5%90%afmysql%e6%9c%8d%e5%8a%a1">图像界面启动关闭重启MySQL服务</a></li>
+<li><a href="chapter2/2.4.html#%e6%9f%a5%e7%9c%8b%e5%88%9d%e5%a7%8b%e5%af%86%e7%a0%81">查看初始密码</a></li>
+<li><a href="chapter2/2.4.html#%e8%ae%be%e7%bd%ae%e5%88%9d%e5%a7%8b%e5%8c%96%e5%af%86%e7%a0%81">设置初始化密码</a></li>
+<li><a href="chapter2/2.4.html#%e5%90%af%e5%8a%a8%e6%8a%a5%e9%94%99%e5%a4%84%e7%90%86">启动报错处理</a></li>
+</ul>
+</li>
+<li>2.5 <a href="chapter2/2.5.html">MySQL工具</a>
+<ul>
+<li><a href="chapter2/2.5.html#%e5%91%bd%e4%bb%a4%e8%a1%8c%e4%bd%bf%e7%94%a8%e7%a8%8b%e5%ba%8f">命令行使用程序</a></li>
+<li><a href="chapter2/2.5.html#mysql-workbench%e5%ae%a2%e6%88%b7%e7%ab%af">MySQL Workbench客户端</a></li>
+<li><a href="chapter2/2.5.html#%e5%b8%b8%e7%94%a8%e5%9b%be%e5%bd%a2%e7%ae%a1%e7%90%86%e5%b7%a5%e5%85%b7">常用图形管理工具</a></li>
+<li><a href="chapter2/2.5.html#mycli%e6%9b%bf%e4%bb%a3mysql%e7%9a%84mysql%e5%91%bd%e4%bb%a4%e8%a1%8c%e5%b7%a5%e5%85%b7">MyCli替代MySQL的mysql命令行工具</a></li>
+</ul>
+</li>
+<li>2.6 <a href="chapter2/2.6.html">MySQL配置修改</a>
+<ul>
+<li><a href="chapter2/2.6.html#mysql%e5%ae%89%e8%a3%85%e7%9b%ae%e5%bd%95%e8%af%b4%e6%98%8e">MySQL安装目录说明</a></li>
+<li><a href="chapter2/2.6.html#%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6%e7%9a%84%e4%bd%8d%e7%bd%ae">配置文件的位置</a></li>
+<li><a href="chapter2/2.6.html#windows%e7%b3%bb%e7%bb%9f%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6%e8%af%bb%e5%8f%96">Windows系统配置文件读取</a></li>
+<li><a href="chapter2/2.6.html#linux%e7%b3%bb%e7%bb%9f%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6%e8%af%bb%e5%8f%96">Linux系统配置文件读取</a></li>
+<li><a href="chapter2/2.6.html#%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6%e5%86%85%e5%ae%b9">配置文件内容</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="第3章-数据库的基本操作"><a aria-hidden="true" tabindex="-1" href="#第3章-数据库的基本操作" class="anchor"><span class="icon icon-link"></span></a>第3章 数据库的基本操作</h4>
+<ul>
+<li>3.1 <a href="chapter3/3.1.html">连接数据库</a>
+<ul>
+<li><a href="chapter3/3.1.html#mysql%e5%91%bd%e4%bb%a4%e8%af%ad%e6%b3%95">MySQL命令语法</a></li>
+<li><a href="chapter3/3.1.html#mysql%e5%91%bd%e4%bb%a4%e8%bf%9e%e6%8e%a5%e6%95%b0%e6%8d%ae%e5%ba%93">MySQL命令连接数据库</a></li>
+<li><a href="chapter3/3.1.html#%e5%bc%80%e5%90%afmysql%e7%9a%84%e8%bf%9c%e7%a8%8b%e5%b8%90%e5%8f%b7">开启MySQL的远程帐号</a></li>
+<li><a href="chapter3/3.1.html#mysql%e4%bf%ae%e6%94%b9%e5%af%86%e7%a0%81">MySQL修改密码</a></li>
+</ul>
+</li>
+<li>3.2 <a href="chapter3/3.2.html">查看选择数据库</a>
+<ul>
+<li><a href="chapter3/3.2.html#%e6%9f%a5%e7%9c%8b%e6%95%b0%e6%8d%ae%e5%ba%93">查看数据库</a></li>
+<li><a href="chapter3/3.2.html#%e9%80%89%e6%8b%a9%e6%95%b0%e6%8d%ae%e5%ba%93">选择数据库</a></li>
+</ul>
+</li>
+<li>3.3 <a href="chapter3/3.3.html">创建数据库</a>
+<ul>
+<li><a href="chapter3/3.4.html#sql%e8%af%ad%e5%8f%a5%e5%88%9b%e5%bb%ba%e6%95%b0%e6%8d%ae%e5%ba%93">SQL语句创建数据库</a></li>
+<li><a href="chapter3/3.4.html#%e7%ae%a1%e7%90%86%e5%b7%a5%e5%85%b7%e5%88%9b%e5%bb%ba%e6%95%b0%e6%8d%ae%e5%ba%93">管理工具创建数据库</a></li>
+</ul>
+</li>
+<li>3.4 <a href="chapter3/3.4.html">删除数据库</a>
+<ul>
+<li><a href="chapter3/3.4.html#sql%e8%af%ad%e5%8f%a5%e5%88%a0%e9%99%a4%e6%95%b0%e6%8d%ae%e5%ba%93">SQL语句删除数据库</a></li>
+<li><a href="chapter3/3.4.html#%e7%ae%a1%e7%90%86%e5%b7%a5%e5%85%b7%e5%88%a0%e9%99%a4%e6%95%b0%e6%8d%ae%e5%ba%93">管理工具删除数据库</a></li>
+</ul>
+</li>
+<li>3.5 <a href="chapter3/3.5.html#">数据库存储引擎</a>
+<ul>
+<li><a href="chapter3/3.5.html#%e5%ad%98%e5%82%a8%e5%bc%95%e6%93%8e%e7%ae%80%e4%bb%8b">存储引擎简介</a></li>
+<li><a href="chapter3/3.5.html#%e5%b8%b8%e7%94%a8%e5%bc%95%e6%93%8e%e5%af%b9%e6%af%94">常用引擎对比</a></li>
+<li><a href="chapter3/3.5.html#%e6%9f%a5%e7%9c%8b%e5%ad%98%e5%82%a8%e5%bc%95%e6%93%8e">查看存储引擎</a></li>
+<li><a href="chapter3/3.5.html#%e8%ae%be%e7%bd%ae%e5%ad%98%e5%82%a8%e5%bc%95%e6%93%8e">设置存储引擎</a></li>
+<li><a href="chapter3/3.5.html#%e5%a6%82%e4%bd%95%e9%80%89%e6%8b%a9%e5%90%88%e9%80%82%e7%9a%84%e5%ad%98%e5%82%a8%e5%bc%95%e6%93%8e">如何选择合适的存储引擎</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="第4章-数据表的基本操作"><a aria-hidden="true" tabindex="-1" href="#第4章-数据表的基本操作" class="anchor"><span class="icon icon-link"></span></a>第4章 数据表的基本操作</h4>
+<ul>
+<li>4.1 创建数据表</li>
+</ul>
+<h4 id="第5章-数据类型和运算符"><a aria-hidden="true" tabindex="-1" href="#第5章-数据类型和运算符" class="anchor"><span class="icon icon-link"></span></a>第5章 数据类型和运算符</h4>
+<h4 id="第6章-mysql函数"><a aria-hidden="true" tabindex="-1" href="#第6章-mysql函数" class="anchor"><span class="icon icon-link"></span></a>第6章 MySQL函数</h4>
+<h4 id="第7章-查询数据"><a aria-hidden="true" tabindex="-1" href="#第7章-查询数据" class="anchor"><span class="icon icon-link"></span></a>第7章 查询数据</h4>
+<h4 id="第8章-插入更新与删除数据"><a aria-hidden="true" tabindex="-1" href="#第8章-插入更新与删除数据" class="anchor"><span class="icon icon-link"></span></a>第8章 插入、更新与删除数据</h4>
+<h4 id="第9章-索引"><a aria-hidden="true" tabindex="-1" href="#第9章-索引" class="anchor"><span class="icon icon-link"></span></a>第9章 索引</h4>
+<h4 id="第10章-存储过程和函数"><a aria-hidden="true" tabindex="-1" href="#第10章-存储过程和函数" class="anchor"><span class="icon icon-link"></span></a>第10章 存储过程和函数</h4>
+<h4 id="第11章-视图"><a aria-hidden="true" tabindex="-1" href="#第11章-视图" class="anchor"><span class="icon icon-link"></span></a>第11章 视图</h4>
+<h4 id="第12章-mysql函数"><a aria-hidden="true" tabindex="-1" href="#第12章-mysql函数" class="anchor"><span class="icon icon-link"></span></a>第12章 MySQL函数</h4>
+<h4 id="第13章-mysql用户管理"><a aria-hidden="true" tabindex="-1" href="#第13章-mysql用户管理" class="anchor"><span class="icon icon-link"></span></a>第13章 MySQL用户管理</h4>
+<h4 id="第14章-数据备份与还原"><a aria-hidden="true" tabindex="-1" href="#第14章-数据备份与还原" class="anchor"><span class="icon icon-link"></span></a>第14章 数据备份与还原</h4>
+<h4 id="第15章-mysql日志"><a aria-hidden="true" tabindex="-1" href="#第15章-mysql日志" class="anchor"><span class="icon icon-link"></span></a>第15章 MySQL日志</h4>
+<h4 id="第16章-性能优化"><a aria-hidden="true" tabindex="-1" href="#第16章-性能优化" class="anchor"><span class="icon icon-link"></span></a>第16章 性能优化</h4>
+<h4 id="第17章-各种问题解决"><a aria-hidden="true" tabindex="-1" href="#第17章-各种问题解决" class="anchor"><span class="icon icon-link"></span></a>第17章 各种问题解决</h4>
+<ul>
+<li><a href="chapter17/17.1.html">让MySQL支持emoji图标存储</a></li>
+<li><a href="chapter17/17.2.html">Centos6下升级MySQL数据库</a></li>
+<li><a href="chapter17/17.3.html">MySQL修改密码</a>
+<ul>
+<li><a href="chapter17/17.3.html#mysqld_safe%e4%b8%8d%e5%ad%98%e5%9c%a8%e4%bf%ae%e6%94%b9%e5%af%86%e7%a0%81">mysqld_safe不存在修改密码</a></li>
+<li><a href="chapter17/17.3.html#%e5%90%af%e5%8a%a8%e4%bf%ae%e6%94%b9%e4%b8%a2%e5%a4%b1%e7%9a%84mysql%e5%8d%95%e5%ae%9e%e4%be%8broot%e5%af%86%e7%a0%81%e6%96%b9%e6%b3%95">启动修改丢失的mysql单实例root密码方法</a></li>
+<li><a href="chapter17/17.3.html#mac%e4%b8%8b%e9%87%8d%e7%bd%aemysql%e7%9a%84root%e5%af%86%e7%a0%81">Mac下重置MySQL的root密码</a></li>
+<li><a href="chapter17/17.3.html#%e4%b8%8d%e9%87%8d%e5%90%afmysqld%e7%9a%84%e6%96%b9%e6%b3%95">不重启mysqld修改密码的方法</a></li>
+</ul>
+</li>
+<li><a href="chapter2/2.2.html#centos7%e5%ae%89%e8%a3%85mysql">Centos7 默认为MariaDB导致mysql安装不上</a></li>
+<li><a href="chapter2/2.1.html#mysql%e5%91%bd%e4%bb%a4%e4%b8%8d%e5%ad%98%e5%9c%a8">mysql命令不存在</a></li>
+<li><a href="chapter2/2.3.html#linux-%e4%b8%8b%e5%91%bd%e4%bb%a4%e6%93%8d%e4%bd%9c">MySQL服务启动失败解决方案</a></li>
+<li><a href="chapter3/3.1.html#%e5%bc%80%e5%90%afmysql%e7%9a%84%e8%bf%9c%e7%a8%8b%e5%b8%90%e5%8f%b7">密码不满足当前的策略要求导致无法开启远程帐号</a></li>
+</ul>
+<h2 id="读者对象"><a aria-hidden="true" tabindex="-1" href="#读者对象" class="anchor"><span class="icon icon-link"></span></a>读者对象</h2>
+<p>整本书目录规划参考了其它几本 MySQL 书籍目录规划的，在我边学习边整理的过程可能有修改，这个过程有点慢，希望能完成，所以教程适合以下读者学习阅读使用：</p>
+<ul>
+<li>MySQL 数据库初学者。</li>
+<li>对数据库开发感兴趣，希望快速、全面掌握 MySQL 的人员。</li>
+<li>对其他数据库有一定的了解，想转到 MySQL 平台使用它的开发者。</li>
+<li>像我一样被逼无奈使用 MySQL 数据库的人。</li>
+</ul>
+<p>从目录来看，看上去内容丰富，比较完整的介绍了 MySQL 数据库技术的教程，我不是<code>DBA</code>，我不是，正在看这篇文章的你，很可能也不是，不想误人子弟，在项目中应用了一段时间 MySQL，如果你是<code>DBA</code>请多多指教，文采不佳还望高抬贵手，不甚感激，小弟在这里给您鞠躬，欢迎给我纠错。</p>
+<p><del>我想念一个女孩儿，实属无奈我得继续努力，好好读书做个有趣的人，完成我的“著作”，待我著作完成可否跟我约个会？</del> 还没有写完就结婚了，欢迎大家 PR 补充完善 :)。</p>
+<h2 id="license"><a aria-hidden="true" tabindex="-1" href="#license" class="anchor"><span class="icon icon-link"></span></a>License</h2>
+<p>Licensed under the MIT License.</p>
+    
+
+<div class="previous">
+  
+    <span></span>
+  
+  
+  <a class="next" href="chapter1/1.1.html">
+    <span>
+      数据库基础
+    </span>
+    <svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
+      <path d="M544 522.666667c0-8.533333-4.266667-17.066667-10.666667-23.466667L192 189.866667c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733334 285.866667L149.333333 808.533333c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666z"></path>
+      <path d="M864 499.2l-341.333333-309.333333c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733333 285.866667-315.733333 285.866666c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466666 10.666667 8.533333 0 14.933333-2.133333 21.333334-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666 0-8.533333-4.266667-17.066667-10.666667-23.466667z"></path>
+    </svg>
+  </a>
+  
+</div>
+
+
+
+<section class="article-footer">
+  <a href="https://github.com/jaywcjlove/mysql-tutorial/blob/master/README.md" class="edit-button" target="_blank" rel="noopener noreferrer">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+    </svg>
+    <span>Edit this page on GitHub</span>
+  </a>
+  
+  <span class="atime">2022/04/22</span>
+  
+</section>
+
+  </markdown-style>
+  
+<nav class="tocs">
+  <aside class="inner toc"></aside>
+</nav>
+
+
+<script src="js/tocbot.min.js?v=4.18.2"></script>
+<script>
+tocbot.init({
+  tocSelector: 'aside.inner',
+  contentSelector: 'markdown-style',
+  positionFixedSelector: 'aside.inner',
+  headingSelector: 'h1, h2, h3, h4',
+  collapseDepth: 2,
+
+  includeHtml: true,
+  includeTitleTags: false,
+  hasInnerContainers: true,
+  onClick: (e) => { console.log('you clicked a link', e) },
+  headingsOffset: 40,
+  scrollSmoothOffset: -40,
+});
+</script>
+
+</div>
+
+
+<div class="footer warpper">
+  Released under the MIT License. Copyright © 2022 Kenny Wong<br />
+Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.13.4
+
+</div>
+
+</body>
+</html>
