@@ -20,18 +20,28 @@
   - [INSERT](#insert)
   - [DELETE](#delete)
 - [WHERE](#where)
-- [AND 和 OR](#and-和-or)
+- [AND, OR 和 NOT](#and-or-和-not)
   - [AND](#and)
   - [OR](#or)
+  - [NOT](#not)
+  - [AND & OR & NOT](#and--or--not)
 - [ORDER BY](#order-by)
+- [GROUP BY](#group-by)
 - [IN](#in)
-- [NOT](#not)
 - [UNION](#union)
+- [BETWEEN](#between)
 - [AS](#as)
 - [JOIN](#join)
+  - [INNER JOIN](#inner-join)
+  - [LEFT JOIN](#left-join)
+  - [RIGHT JOIN](#right-join)
+  - [FULL OUTER JOIN](#full-outer-join)
 - [SQL 函数](#sql-函数)
   - [COUNT](#count)
+  - [AVG](#avg)
+  - [SUM](#sum)
   - [MAX](#max)
+  - [MIN](#min)
 - [触发器](#触发器)
 - [添加索引](#添加索引)
   - [普通索引(INDEX)](#普通索引index)
@@ -87,18 +97,25 @@ mysql> show global variables like 'port'; # 查看MySQL端口号
 ```sql
 -- 创建一个名为 samp_db 的数据库，数据库字符编码指定为 gbk
 create database samp_db character set gbk;
-drop database samp_db; -- 删除 库名为samp_db的库
+drop database samp_db; -- 删除 库名为 samp_db 的库
 show databases;        -- 显示数据库列表。
-use samp_db;     -- 选择创建的数据库samp_db
-show tables;     -- 显示samp_db下面所有的表名字
-describe 表名;    -- 显示数据表的结构
-delete from 表名; -- 清空表中记录
+use samp_db;           -- 选择创建的数据库 samp_db 
+show tables;           -- 显示 samp_db 下面所有的表名字
+describe 表名;          -- 显示数据表的结构
+delete from 表名;       -- 清空表中记录
 ```
 
 ### 创建数据库表
 
-> 使用 create table 语句可完成对表的创建, create table 的常见形式:
-> 语法：create table 表名称(列声明);
+> `CREATE TABLE 语法` 语句用于从表中选取数据。 
+> ```sql
+> CREATE TABLE 表名称 (
+>   列名称1  数据类型,
+>   列名称2  数据类型,
+>   列名称3  数据类型,
+>   ....
+> );
+> ```
 
 ```sql
 -- 如果数据库中存在user_accounts表，就把它从数据库中drop掉
@@ -128,29 +145,45 @@ COMMENT='用户表信息';
 - `CHARACTER SET name`：指定一个字符集；
 - `COMMENT`：对表或者字段说明；
 
+### 删除数据库表
+
+> `DROP/TRUNCATE TABLE 语法` 语句用于删除数据库中的现有表。
+> ```sql
+> DROP TABLE 表名称;     -- 用于删除数据库中的现有表。
+> TRUNCATE TABLE 表名称; -- 用于删除表内的数据，但不删除表本身。
+> ```
+
+```sql
+-- 删除现有表 Shippers：
+DROP TABLE Shippers;
+-- 删除现有表 Shippers 表内的数据，不删除表：
+TRUNCATE TABLE Shippers;
+```
+
 ## 增删改查
 
 ### SELECT
-
-> SELECT 语句用于从表中选取数据。  
-> 语法：`SELECT 列名称 FROM 表名称`  
-> 语法：`SELECT * FROM 表名称`  
+ 
+> `SELECT 语法` 语句用于从表中选取数据。 
+> ```sql
+> SELECT 列名称1, 列名称2, ... FROM 表名称;
+> SELECT * FROM 表名称;
+> ```
 
 ```sql
--- 表station取个别名叫s，表station中不包含 字段id=13或者14 的，并且id不等于4的 查询出来，只显示id
+-- 从 Customers 表中选择 CustomerName 和 City 列：
+SELECT CustomerName, City FROM Customers;
+-- 从 Customers 表中选择所有列：
+SELECT * FROM Customers;
+-- 表 station 取个别名叫 s，表 station 中不包含 字段 id=13 或者 14 的，并且 id 不等于 4 的 查询出来，只显示 id
 SELECT s.id from station s WHERE id in (13,14) and id not in (4);
-
--- 从表 Persons 选取 LastName 列的数据
-SELECT LastName FROM Persons
-
 -- 从表 users 选取 id=3 的数据，并只拉一条数据(据说能优化性能)
 SELECT * FROM users where id=3 limit 1
-
 -- 结果集中会自动去重复数据
 SELECT DISTINCT Company FROM Orders 
 -- 表 Persons 字段 Id_P 等于 Orders 字段 Id_P 的值，
 -- 结果集显示 Persons表的 LastName、FirstName字段，Orders表的OrderNo字段
-SELECT p.LastName, p.FirstName, o.OrderNo FROM Persons p, Orders o WHERE p.Id_P = o.Id_P 
+SELECT p.LastName, p.FirstName, o.OrderNo FROM Persons p, Orders o WHERE p.Id_P = o.Id_P
 
 -- gbk 和 utf8 中英文混合排序最简单的办法 
 -- ci是 case insensitive, 即 “大小写不敏感”
@@ -159,24 +192,28 @@ SELECT tag, COUNT(tag) from news GROUP BY tag order by convert(tag using utf8) c
 ```
 
 ### UPDATE
-
-> Update 语句用于修改表中的数据。  
-> 语法：`UPDATE 表名称 SET 列名称 = 新值 WHERE 列名称 = 某值`  
+ 
+> `Update 语法` 语句用于修改表中的数据。
+> ```sql
+> UPDATE 表名称 SET 列名称1 = 值1, 列名称2 = 值2, ... WHERE 条件;
+> ```
 
 ```sql 
 -- update语句设置字段值为另一个结果取出来的字段
-update user set name = (select name from user1 where user1 .id = 1 )
-where id = (select id from user2 where user2 .name='小苏');
+UPDATE user set name = (SELECT name from user1 WHERE user1 .id = 1 )
+WHERE id = (SELECT id from user2 WHERE user2 .name='小苏');
 -- 更新表 orders 中 id=1 的那一行数据更新它的 title 字段
 UPDATE `orders` set title='这里是标题' WHERE id=1;
 ```
 
 
 ### INSERT
-
-> INSERT INTO 语句用于向表格中插入新的行。  
-> 语法：`INSERT INTO 表名称 VALUES (值1, 值2,....)`  
-> 语法：`INSERT INTO 表名称 (列1, 列2,...) VALUES (值1, 值2,....)`  
+ 
+> `INSERT 语法` 用于向表格中插入新的行。 
+> ```sql
+> INSERT INTO 表名称 (列名称1, 列名称2, 列名称3, ...) VALUES (值1, 值2, 值3, ...);
+> INSERT INTO 表名称 VALUES (值1, 值2, 值3, ...);
+> ```
 
 ```sql
 -- 向表 Persons 插入一条字段 LastName = JSLite 字段 Address = shanghai
@@ -194,16 +231,19 @@ INSERT INTO `charger` (`id`,`type`,`create_at`,`update_at`) VALUES (3,2,'2017-05
 ```
 
 ### DELETE
-
-> DELETE 语句用于删除表中的行。  
-> 语法：`DELETE FROM 表名称 WHERE 列名称 = 值`  
+ 
+> `DELETE 语法` 语句用于删除表中的现有记录。
+> ```sql
+> DELETE FROM 表名称 WHERE 条件;
+> ```
+ 
 
 ```sql
 -- 在不删除table_name表的情况下删除所有的行，清空表。
 DELETE FROM table_name
 -- 或者
 DELETE * FROM table_name
--- 删除 Person表字段 LastName = 'JSLite' 
+-- 删除 Person 表字段 LastName = 'JSLite' 
 DELETE FROM Person WHERE LastName = 'JSLite' 
 -- 删除 表meeting id 为2和3的两条数据
 DELETE from meeting where id in (2,3);
@@ -211,20 +251,37 @@ DELETE from meeting where id in (2,3);
 
 ## WHERE
 
-> WHERE 子句用于规定选择的标准。  
-> 语法：`SELECT 列名称 FROM 表名称 WHERE 列 运算符 值`  
+> `WHERE 语法` 用于仅提取满足指定条件的记录
+> ```sql
+> SELECT 列名称, 列名称, ... FROM 表名称 WHERE 条件1;
+> ```
 
 ```sql 
 -- 从表 Persons 中选出 Year 字段大于 1965 的数据
 SELECT * FROM Persons WHERE Year>1965
+-- 从 Customers 表中选择 Country = Mexico 的所有数据：
+SELECT * FROM Customers WHERE Country='Mexico';
+-- 从 Customers 表中选择 CustomerID = 1 的所有数据：
+SELECT * FROM Customers WHERE CustomerID=1;
 ```
 
-## AND 和 OR
+## AND, OR 和 NOT
 
-> AND - 如果第一个条件和第二个条件都成立；  
-> OR - 如果第一个条件和第二个条件中只要有一个成立；  
+`WHERE` 子句可以与 `AND`、`OR` 和 `NOT` 运算符组合使用。
+
+`AND` 和 `OR` 运算符用于根据多个条件过滤记录：
+
+- 如果由 `AND` 分隔的所有条件都为 `TRUE`，则 `AND` 运算符将显示一条记录。
+- 如果由 `OR` 分隔的任何条件为 `TRUE`，则 `OR` 运算符将显示一条记录。
+
+如果条件不为真，`NOT` 运算符将显示一条记录。 
 
 ### AND
+
+> `AND 语法`
+> ```sql
+> SELECT 列名称, 列名称, ... FROM 表名称 WHERE 条件1 AND 条件2 AND 条件3 ...;
+> ```
 
 ```sql 
 -- 删除 meeting 表字段 
@@ -238,53 +295,101 @@ SELECT * FROM Persons WHERE FirstName='Thomas' AND LastName='Carter';
 
 ### OR
 
+> `OR 语法`
+> ```sql
+> SELECT 列名称1, 列名称2, ... FROM 表名称 WHERE 条件1 OR 条件2 OR 条件3 ...;
+> ```
+
 ```sql 
 -- 使用 OR 来显示所有姓为 "Carter" 或者名为 "Thomas" 的人：
 SELECT * FROM Persons WHERE firstname='Thomas' OR lastname='Carter'
 ```
 
-## ORDER BY
+### NOT
 
-> 语句默认按照升序对记录进行排序。  
-> `ORDER BY` - 语句用于根据指定的列对结果集进行排序。  
-> `DESC` - 按照降序对记录进行排序。  
-> `ASC` - 按照顺序对记录进行排序。  
+> `NOT 语法`
+> ```sql
+> SELECT 列名称1, 列名称2, ... FROM 表名称 WHERE NOT 条件2;
+> ```
 
 ```sql
--- Company在表Orders中为字母，则会以字母顺序显示公司名称
+-- 从 Customers 表中选择 Country 不是 Germany 的所有字段：
+SELECT * FROM Customers WHERE NOT Country='Germany';
+```
+
+### AND & OR & NOT
+
+```sql
+-- 从 Customers 表中选择所有字段，其中 Country 为 Germany 且城市必须为 Berlin 或 München（使用括号构成复杂表达式）：
+SELECT * FROM Customers WHERE Country='Germany' AND (City='Berlin' OR City='München');
+-- 从 Customers 表中选择 Country 不是 Germany 和 NOT "USA" 的所有字段：
+SELECT * FROM Customers WHERE NOT Country='Germany' AND NOT Country='USA';
+```
+
+## ORDER BY
+
+> `ORDER BY 语法` 用于按升序或降序对结果集进行排序。
+> ```sql
+> SELECT 列名称1, 列名称2, ... FROM 表名称 ORDER BY 列名称1, 列名称2, ... ASC|DESC;
+> ```
+> 默认按 `ASC` 升序对记录进行排序。要按降序对记录进行排序，请使用 `DESC` 关键字。
+
+```sql
+-- 从 Customers 表中选择所有字段，按 Country 列排序：
+SELECT * FROM Customers ORDER BY Country;
+-- 从 Orders 表中选择 Company, OrderNumber 字段，按 Company 列排序：
 SELECT Company, OrderNumber FROM Orders ORDER BY Company
-
--- 后面跟上 DESC 则为降序显示
+-- 从 Orders 表中选择 Company, OrderNumber 字段，按 Company 列降序排序：
 SELECT Company, OrderNumber FROM Orders ORDER BY Company DESC
-
--- Company以降序显示公司名称，并OrderNumber以顺序显示
+-- 从 Orders 表中选择 Company, OrderNumber 字段，按 Company 列降序排序，并 OrderNumber 以顺序显示：
 SELECT Company, OrderNumber FROM Orders ORDER BY Company DESC, OrderNumber ASC
+```
+
+## GROUP BY
+
+> `GROUP BY 语法` 将具有相同值的行分组到汇总行中
+> ```sql
+> SELECT 列名称(s)
+> FROM 表名称
+> WHERE 条件
+> GROUP BY 列名称(s)
+> ORDER BY 列名称(s);
+> ```
+
+```sql
+-- 列出了 Orders 每个发货人 Shippers 发送的订单 Orders 数量
+SELECT Shippers.ShipperName, COUNT(Orders.OrderID) AS NumberOfOrders FROM Orders
+LEFT JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID
+GROUP BY ShipperName;
 ```
 
 ## IN
 
-> IN - 操作符允许我们在 WHERE 子句中规定多个值。  
-> IN - 操作符用来指定范围，范围中的每一条，都进行匹配。IN取值规律，由逗号分割，全部放置括号中。
-> 语法：`SELECT "字段名"FROM "表格名"WHERE "字段名" IN ('值一', '值二', ...);`
+> `IN 语法` 运算符允许您在 WHERE 子句中指定多个值。运算符是多个 OR 条件的简写。
+> ```sql
+> SELECT 列名称(s) FROM 表名称 WHERE 列名称 IN (值1, 值2, ...);
+> SELECT 列名称(s) FROM 表名称 WHERE 列名称 IN (SELECT STATEMENT);
+> ```
 
 ```sql 
 -- 从表 Persons 选取 字段 LastName 等于 Adams、Carter
 SELECT * FROM Persons WHERE LastName IN ('Adams','Carter')
+-- 从表 Customers 选取 Country 值为 'Germany', 'France', 'UK' 的所有数据
+SELECT * FROM Customers WHERE Country IN ('Germany', 'France', 'UK');
+-- 从表 Customers 选取 Country 值不为 'Germany', 'France', 'UK' 的所有数据
+SELECT * FROM Customers WHERE Country NOT IN ('Germany', 'France', 'UK');
+-- 从表 Customers 选取与 Suppliers 表 Country 字段相同的所有数据：
+SELECT * FROM Customers WHERE Country IN (SELECT Country FROM Suppliers);
 ```
-
-## NOT
-
-> NOT - 操作符总是与其他操作符一起使用，用在要过滤的前面。
-
-```sql
-SELECT vend_id, prod_name FROM Products WHERE NOT vend_id = 'DLL01' ORDER BY prod_name;
-```
-
 
 ## UNION
 
-> UNION - 操作符用于合并两个或多个 SELECT 语句的结果集。
-
+> `UNION 语法` 操作符用于合并两个或多个 SELECT 语句的结果集
+> ```sql
+> SELECT 列名称(s) FROM 表名称1
+> UNION
+> SELECT 列名称(s) FROM 表名称2;
+> ```
 
 ```sql
 -- 列出所有在中国表（Employees_China）和美国（Employees_USA）的不同的雇员名
@@ -298,22 +403,38 @@ SELECT id,pic_url FROM meeting UNION ALL SELECT id,number_station AS pic_url FRO
 SELECT 'product' AS type, count(*) as count FROM `products` union select 'comment' as type, count(*) as count FROM `comments` order by count;
 ```
 
+## BETWEEN
 
-## AS 
+> `BETWEEN 语法` 运算符选择给定范围内的值
+> ```sql
+> SELECT 列名称(s) FROM 表名称 WHERE 列名称 BETWEEN 值1 AND 值2;
+> ```
 
-> as - 可理解为：用作、当成，作为；别名  
-> 一般是重命名列名或者表名。  
-> 语法：`select column_1 as 列1,column_2 as 列2 from table as 表`
+```sql
+-- 选择 Products 表中 Price 字段在 10 到 20 之间的所有：
+SELECT * FROM Products WHERE Price BETWEEN 10 AND 20;
+```
 
-```sql 
-SELECT * FROM Employee AS emp
--- 这句意思是查找所有Employee 表里面的数据，并把Employee表格命名为 emp。
+## AS
+
+> `AS 语法` 用于为表或表中的列(字段)提供临时名称(别名)。
+> ```sql
+> SELECT 列名称 AS 别名 FROM 表名称;
+> SELECT 列名称(s) FROM 表名称 AS 别名;
+> ```
+
+```sql
+-- 创建两个别名，一个用于 CustomerID 的 ID 别名列，一个用于 CustomerName  的 Customer 别名列：
+SELECT CustomerID AS ID, CustomerName AS Customer FROM Customers;
+
+-- 这句意思是查找所有 Employee 表里面的数据，并把 Employee 表格命名为 emp。
 -- 当你命名一个表之后，你可以在下面用 emp 代替 Employee.
 -- 例如 SELECT * FROM emp.
+SELECT * FROM Employee AS emp
 
-SELECT MAX(OrderPrice) AS LargestOrderPrice FROM Orders
 -- 列出表 Orders 字段 OrderPrice 列最大值，
 -- 结果集列不显示 OrderPrice 显示 LargestOrderPrice
+SELECT MAX(OrderPrice) AS LargestOrderPrice FROM Orders
 
 -- 显示表 users_profile 中的 name 列
 SELECT t.name from (SELECT * from users_profile a) AS t;
@@ -324,30 +445,83 @@ SELECT t.name from (SELECT * from users_profile a) AS t;
 SELECT ua.mobile,up.name FROM user_accounts as ua INNER JOIN users_profile as up ON ua.id = up.user_id;
 ```
 
-## JOIN 
+## JOIN
 
-> 用于根据两个或多个表中的列之间的关系，从这些表中查询数据。  
+JOIN 子句用于根据两个或多个表之间的相关列组合来自两个或多个表的行。
 
 - `JOIN`: 如果表中有至少一个匹配，则返回行
 - `INNER JOIN`:在表中存在至少一个匹配时，INNER JOIN 关键字返回行。
 - `LEFT JOIN`: 即使右表中没有匹配，也从左表返回所有的行
 - `RIGHT JOIN`: 即使左表中没有匹配，也从右表返回所有的行
 - `FULL JOIN`: 只要其中一个表中存在匹配，就返回行(MySQL 是不支持的，通过  `LEFT JOIN + UNION + RIGHT JOIN` 的方式 来实现)
+### INNER JOIN
+
+> `INNER JOIN 语法` 选择在两个表中具有匹配值的记录。
+> ```sql
+> SELECT 列名称(s)
+> FROM 表1
+> INNER JOIN 表2
+> ON 表1.列名称 = 表2.列名称;
+> ```
 
 ```sql
-SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo
-FROM Persons
-INNER JOIN Orders
-ON Persons.Id_P = Orders.Id_P
-ORDER BY Persons.LastName;
+-- 选择包含 Customers 的所有 Orders：
+SELECT Orders.OrderID, Customers.CustomerName FROM Orders INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+
+-- [JOIN 三张表] 选择包含 Customers 和 Shippers 的所有 Orders：
+SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName
+FROM ((Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)
+INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);
 ```
+
+### LEFT JOIN
+
+> `LEFT JOIN 语法` 返回左表 (表1) 中的所有记录，以及右表 (表2) 中的匹配记录
+> ```sql
+> SELECT 列名称(s)
+> FROM 表1
+> LEFT JOIN 表2
+> ON 表1.列名称 = 表2.列名称;
+> ```
+
+```sql
+-- 将选择所有 Customers 以及他们可能拥有的任何 Orders：
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+ORDER BY Customers.CustomerName;
+```
+
+### RIGHT JOIN
+
+> `RIGHT JOIN 语法` 返回右表 (表2) 中的所有记录，以及左表 (表1) 中的匹配记录
+> ```sql
+> SELECT 列名称(s)
+> FROM 表1
+> RIGHT JOIN 表2
+> ON 表1.列名称 = 表2.列名称;
+> ```
+
+### FULL OUTER JOIN
+
+> `FULL OUTER JOIN 语法` 当左（表1）或右（表2）表记录中存在匹配时，关键字返回所有记录
+> ```sql
+> SELECT 列名称(s)
+> FROM 表1
+> FULL OUTER JOIN 表2
+> ON 表1.列名称 = 表2.列名称
+> WHERE 条件;
+> ```
 
 ## SQL 函数
 
 ### COUNT
 
-> COUNT 让我们能够数出在表格中有多少笔资料被选出来。  
-> 语法：`SELECT COUNT("字段名") FROM "表格名";`
+> `COUNT 语法` 返回与指定条件匹配的行数
+> ```sql
+> SELECT COUNT(列名称) FROM 表名称 WHERE 条件;
+> ```
 
 ```sql 
 -- 表 Store_Information 有几笔 store_name 栏不是空白的资料。
@@ -359,10 +533,36 @@ SELECT COUNT(1) AS totals FROM Persons;
 select user_id, count(*) as totals from station group by user_id;
 ```
 
+### AVG
+
+> `AVG 语法` 返回数值列的平均值
+> ```sql
+> SELECT AVG(列名称) FROM 表名称 WHERE 条件;
+> ```
+
+```sql
+-- 查找 Products 表中所的 Price 平均值：
+SELECT AVG(Price) FROM Products;
+```
+
+### SUM
+
+> `SUM 语法` 返回数值列的总和
+> ```sql
+> SELECT SUM(列名称) FROM 表名称 WHERE 条件;
+> ```
+
+```sql
+-- 查找 OrderDetails 表中 Quantity 字段的总和：
+SELECT SUM(Quantity) FROM OrderDetails;
+```
+
 ### MAX
 
-> MAX 函数返回一列中的最大值。NULL 值不包括在计算中。  
-> 语法：`SELECT MAX("字段名") FROM "表格名"`  
+> `MAX 语法` 返回所选列的最大值
+> ```sql
+> SELECT MIN(列名称) FROM 表名称 WHERE 条件;
+> ```
 
 ```sql 
 -- 列出表 Orders 字段 OrderPrice 列最大值，
@@ -370,15 +570,27 @@ select user_id, count(*) as totals from station group by user_id;
 SELECT MAX(OrderPrice) AS LargestOrderPrice FROM Orders
 ```
 
+### MIN
+
+> `MIN 语法` 返回所选列的最小值
+> ```sql
+> SELECT MIN(列名称) FROM 表名称 WHERE 条件;
+> ```
+
+```sql
+-- 查找 Products 表中 Price 字段最小值，并命名 SmallestPrice 别名：
+SELECT MIN(Price) AS SmallestPrice FROM Products;
+```
+
 ## 触发器
 
 > 语法：
-> ```
+> ```sql
 > create trigger <触发器名称>  
-> { before | after}          # 之前或者之后出发  
-> insert | update | delete   # 指明了激活触发程序的语句的类型  
-> on <表名>                   # 操作哪张表  
-> for each row               # 触发器的执行间隔，for each row 通知触发器每隔一行执行一次动作，而不是对整个表执行一次。  
+> { before | after}         -- 之前或者之后出发  
+> insert | update | delete  -- 指明了激活触发程序的语句的类型  
+> on <表名>                  -- 操作哪张表  
+> for each row              -- 触发器的执行间隔，for each row 通知触发器每隔一行执行一次动作，而不是对整个表执行一次。  
 > <触发器SQL语句>
 > ```
 
