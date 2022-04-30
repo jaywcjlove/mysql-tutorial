@@ -9,17 +9,18 @@
   <meta name="description" content="在MySLQ中 UPDATA 和 INSERT 数据的时候，如果数据上面带有emoji图标，例如：💗、👽、💔很容易更新或者插入不成功，导致报错。">
   
   
-  <link rel="stylesheet" type="text/css" href="../css/main.css?v=1650650848889">
-  <link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1650650848889">
-  <link rel="stylesheet" type="text/css" href="../css/media.css?v=1650650848889">
-  <link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1650650848889">
-  <link rel="stylesheet" type="text/css" href="../css/copy.css?v=1650650848889">
+  <link rel="stylesheet" type="text/css" href="../css/main.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/media.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/copy.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/demo-preview.css?v=1.17.7">
   
     <link rel="icon" href="../mysql.svg" type="image/x-icon">
   
-  <script src="../js/copy.js"></script>
-  <script src="../js/dark-mode.js"></script>
-  <script src="../js/markdown-style.js"></script>
+  <script src="../js/copy.js?v=1.17.7"></script>
+  <script src="../js/dark-mode.js?v=1.17.7"></script>
+  <script src="../js/markdown-style.js?v=1.17.7"></script>
 </head>
 <body id="idoctotop">
   <a href="#idoctotop" class="gototop">top</a>
@@ -147,11 +148,11 @@
   <markdown-style>
     <h1 id="让mysql支持emoji图标存储"><a aria-hidden="true" tabindex="-1" href="#让mysql支持emoji图标存储" class="anchor"><span class="icon icon-link"></span></a>让MySQL支持emoji图标存储</h1>
 <p>在<code>MySLQ</code>中 UPDATA 和 INSERT 数据的时候，如果数据上面带有<code>emoji</code>图标，例如：<code>💗</code>、<code>👽</code>、<code>💔</code>很容易更新或者插入不成功，导致报错。</p>
-<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line">Error: ER_TRUNCATED_WRONG_VALUE_FOR_FIELD: 
-</span><span class="code-line">Incorrect string <span class="token keyword">value</span>: <span class="token string">'\xF0\x9F\x91\xBD\xF0\x9F...'</span> <span class="token keyword">for</span> <span class="token keyword">column</span> <span class="token string">'name'</span> at <span class="token keyword">row</span>
-</span></code><div onclick="copied(this)" data-code="Error: ER_TRUNCATED_WRONG_VALUE_FOR_FIELD: 
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line line-number" line="1">Error: ER_TRUNCATED_WRONG_VALUE_FOR_FIELD: 
+</span><span class="code-line line-number" line="2">Incorrect string <span class="token keyword">value</span>: <span class="token string">'\xF0\x9F\x91\xBD\xF0\x9F...'</span> <span class="token keyword">for</span> <span class="token keyword">column</span> <span class="token string">'name'</span> at <span class="token keyword">row</span>
+</span></code><input type="hidden" value="Error: ER_TRUNCATED_WRONG_VALUE_FOR_FIELD: 
 Incorrect string value: &#x27;\xF0\x9F\x91\xBD\xF0\x9F...&#x27; for column &#x27;name&#x27; at row
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>都快崩溃了，但是还好终于解决了这种鬼问题。资料显示原因是，MYSQL 5.5 之前， UTF8 编码只支持1-3个字节，只支持<a href="http://en.wikipedia.org/wiki/Mapping_of_Unicode_characters">BMP</a>这部分的unicode编码区，而 emoji 图标恰好是4个字节的编码进行存储。从MYSQL5.5开始，可支持4个字节UTF编码 utf8mb4 ，一个字符最多能有4字节，所以能支持更多的字符集。所以要解决问题，必需把数据库表字符编码全部改成 utf8mb4 。</p>
 <h3 id="常用字符集"><a aria-hidden="true" tabindex="-1" href="#常用字符集" class="anchor"><span class="icon icon-link"></span></a>常用字符集</h3>
 <ul>
@@ -170,9 +171,9 @@ Incorrect string value: &#x27;\xF0\x9F\x91\xBD\xF0\x9F...&#x27; for column &#x27
 </li>
 </ul>
 <h3 id="确认版本"><a aria-hidden="true" tabindex="-1" href="#确认版本" class="anchor"><span class="icon icon-link"></span></a>确认版本</h3>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">mysql --version
-</span></code><div onclick="copied(this)" data-code="mysql --version
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">mysql --version
+</span></code><input type="hidden" value="mysql --version
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h3 id="系统环境"><a aria-hidden="true" tabindex="-1" href="#系统环境" class="anchor"><span class="icon icon-link"></span></a>系统环境</h3>
 <ul>
 <li>MySQL 5.7.14</li>
@@ -183,15 +184,15 @@ Incorrect string value: &#x27;\xF0\x9F\x91\xBD\xF0\x9F...&#x27; for column &#x27
 <h3 id="升级您的mysql"><a aria-hidden="true" tabindex="-1" href="#升级您的mysql" class="anchor"><span class="icon icon-link"></span></a>升级您的MySQL</h3>
 <p>新的数据库可以在这里下载<a href="https://dev.mysql.com/downloads/mysql/">Upgrade the MySQL server to v5.5.3+</a>。</p>
 <h3 id="修改您的数据库表字段"><a aria-hidden="true" tabindex="-1" href="#修改您的数据库表字段" class="anchor"><span class="icon icon-link"></span></a>修改您的数据库、表、字段</h3>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token comment"># 对每一个数据库:</span>
-</span><span class="code-line">ALTER DATABASE 这里数据库名字 CHARACTER SET <span class="token operator">=</span> utf8mb4 COLLATE <span class="token operator">=</span> utf8mb4_unicode_ci<span class="token punctuation">;</span>
-</span><span class="code-line"><span class="token comment"># 对每一个表:</span>
-</span><span class="code-line">ALTER TABLE 这里是表名字 CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci<span class="token punctuation">;</span>
-</span><span class="code-line"><span class="token comment"># 对每一个字段:</span>
-</span><span class="code-line">ALTER TABLE 这里是表名字 CHANGE 字段名字 重复字段名字 VARCHAR<span class="token punctuation">(</span><span class="token number">191</span><span class="token punctuation">)</span> CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci<span class="token punctuation">;</span>
-</span><span class="code-line"><span class="token comment"># 上面一句或者使用modify来更改</span>
-</span><span class="code-line">ALTER TABLE 这里是表名字 modify 字段名字 VARCHAR<span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT <span class="token string">''</span><span class="token punctuation">;</span>
-</span></code><div onclick="copied(this)" data-code="# 对每一个数据库:
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token comment"># 对每一个数据库:</span>
+</span><span class="code-line line-number" line="2">ALTER DATABASE 这里数据库名字 CHARACTER SET <span class="token operator">=</span> utf8mb4 COLLATE <span class="token operator">=</span> utf8mb4_unicode_ci<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="3"><span class="token comment"># 对每一个表:</span>
+</span><span class="code-line line-number" line="4">ALTER TABLE 这里是表名字 CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="5"><span class="token comment"># 对每一个字段:</span>
+</span><span class="code-line line-number" line="6">ALTER TABLE 这里是表名字 CHANGE 字段名字 重复字段名字 VARCHAR<span class="token punctuation">(</span><span class="token number">191</span><span class="token punctuation">)</span> CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="7"><span class="token comment"># 上面一句或者使用modify来更改</span>
+</span><span class="code-line line-number" line="8">ALTER TABLE 这里是表名字 modify 字段名字 VARCHAR<span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT <span class="token string">''</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="# 对每一个数据库:
 ALTER DATABASE 这里数据库名字 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 # 对每一个表:
 ALTER TABLE 这里是表名字 CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -199,22 +200,22 @@ ALTER TABLE 这里是表名字 CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_
 ALTER TABLE 这里是表名字 CHANGE 字段名字 重复字段名字 VARCHAR(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 # 上面一句或者使用modify来更改
 ALTER TABLE 这里是表名字 modify 字段名字 VARCHAR(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT &#x27;&#x27;;
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>utf8mb4完全向后兼容utf8，无乱码或其他数据丢失的形式出现。理论上是可以放心修改，如果您不放心修改，您可以拿备份恢复数据，然后让程序员处理这种兼容<code>emoji</code>存储问题，存的时候过滤一遍转成<code>base64</code>，然后取的时候转回来？...  还是修改数据库比较方便。</p>
 <h3 id="检查你的字段和索引"><a aria-hidden="true" tabindex="-1" href="#检查你的字段和索引" class="anchor"><span class="icon icon-link"></span></a>检查你的字段和索引</h3>
 <p>不要将所有的都设置成<code>utf8mb4</code>，这个冒得必要。我只在我某些字段类型为<code>VARCHAR</code>的时候才设置成<code>utf8mb4</code>。</p>
 <h3 id="修改mysql配置文件"><a aria-hidden="true" tabindex="-1" href="#修改mysql配置文件" class="anchor"><span class="icon icon-link"></span></a>修改MySQL配置文件</h3>
 <p>这个地方最坑，我在我Mac osx 系统上找不到<code>/etc/my.cnf</code> 它根本不存在，所以我们需要创建这样一个文件并修改它。</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token comment"># 进入这个目录，</span>
-</span><span class="code-line"><span class="token comment"># 在这个目录下面有个后缀为`.cnf`的文件</span>
-</span><span class="code-line"><span class="token builtin class-name">cd</span> /usr/local/mysql/support-files/
-</span><span class="code-line">
-</span><span class="code-line"><span class="token comment"># 将这个文件复制到`etc`目录中并将名字命名为`my.cnf`</span>
-</span><span class="code-line"><span class="token function">sudo</span> <span class="token function">cp</span> my-default.cnf /etc/my.cnf
-</span><span class="code-line">
-</span><span class="code-line"><span class="token comment"># 然后编辑`my.cnf`文件，将下面内容复制到里面。</span>
-</span><span class="code-line"><span class="token function">sudo</span> <span class="token function">vim</span> /etc/my.cnf
-</span></code><div onclick="copied(this)" data-code="# 进入这个目录，
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token comment"># 进入这个目录，</span>
+</span><span class="code-line line-number" line="2"><span class="token comment"># 在这个目录下面有个后缀为`.cnf`的文件</span>
+</span><span class="code-line line-number" line="3"><span class="token builtin class-name">cd</span> /usr/local/mysql/support-files/
+</span><span class="code-line line-number" line="4">
+</span><span class="code-line line-number" line="5"><span class="token comment"># 将这个文件复制到`etc`目录中并将名字命名为`my.cnf`</span>
+</span><span class="code-line line-number" line="6"><span class="token function">sudo</span> <span class="token function">cp</span> my-default.cnf /etc/my.cnf
+</span><span class="code-line line-number" line="7">
+</span><span class="code-line line-number" line="8"><span class="token comment"># 然后编辑`my.cnf`文件，将下面内容复制到里面。</span>
+</span><span class="code-line line-number" line="9"><span class="token function">sudo</span> <span class="token function">vim</span> /etc/my.cnf
+</span></code><input type="hidden" value="# 进入这个目录，
 # 在这个目录下面有个后缀为&#x60;.cnf&#x60;的文件
 cd /usr/local/mysql/support-files/
 
@@ -223,19 +224,19 @@ sudo cp my-default.cnf /etc/my.cnf
 
 # 然后编辑&#x60;my.cnf&#x60;文件，将下面内容复制到里面。
 sudo vim /etc/my.cnf
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p><a href="https://dev.mysql.com/doc/refman/5.5/en/option-files.html">MySQL configuration file (/etc/my.cnf):</a></p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token punctuation">[</span>client<span class="token punctuation">]</span>
-</span><span class="code-line">default-character-set <span class="token operator">=</span> utf8mb4
-</span><span class="code-line">
-</span><span class="code-line"><span class="token punctuation">[</span>mysql<span class="token punctuation">]</span>
-</span><span class="code-line">default-character-set <span class="token operator">=</span> utf8mb4
-</span><span class="code-line">
-</span><span class="code-line"><span class="token punctuation">[</span>mysqld<span class="token punctuation">]</span>
-</span><span class="code-line">character-set-client-handshake <span class="token operator">=</span> FALSE
-</span><span class="code-line">character-set-server <span class="token operator">=</span> utf8mb4
-</span><span class="code-line">collation-server <span class="token operator">=</span> utf8mb4_unicode_ci
-</span></code><div onclick="copied(this)" data-code="[client]
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token punctuation">[</span>client<span class="token punctuation">]</span>
+</span><span class="code-line line-number" line="2">default-character-set <span class="token operator">=</span> utf8mb4
+</span><span class="code-line line-number" line="3">
+</span><span class="code-line line-number" line="4"><span class="token punctuation">[</span>mysql<span class="token punctuation">]</span>
+</span><span class="code-line line-number" line="5">default-character-set <span class="token operator">=</span> utf8mb4
+</span><span class="code-line line-number" line="6">
+</span><span class="code-line line-number" line="7"><span class="token punctuation">[</span>mysqld<span class="token punctuation">]</span>
+</span><span class="code-line line-number" line="8">character-set-client-handshake <span class="token operator">=</span> FALSE
+</span><span class="code-line line-number" line="9">character-set-server <span class="token operator">=</span> utf8mb4
+</span><span class="code-line line-number" line="10">collation-server <span class="token operator">=</span> utf8mb4_unicode_ci
+</span></code><input type="hidden" value="[client]
 default-character-set = utf8mb4
 
 [mysql]
@@ -245,7 +246,7 @@ default-character-set = utf8mb4
 character-set-client-handshake = FALSE
 character-set-server = utf8mb4
 collation-server = utf8mb4_unicode_ci
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h3 id="重启mysql"><a aria-hidden="true" tabindex="-1" href="#重启mysql" class="anchor"><span class="icon icon-link"></span></a>重启MySQL</h3>
 <p>重启步骤很重要，不然没有任何效果。下面是 Mac 系统下服务管理：</p>
 <ol>
@@ -255,37 +256,37 @@ collation-server = utf8mb4_unicode_ci
 </ol>
 <p>其实可以使用 <code>mysql.server start</code> 简单的方式启动服务。</p>
 <p><strong>Linux系统中可以以这种形式重启、停止或启动</strong></p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token function">service</span> mysqld stop
-</span><span class="code-line"><span class="token function">service</span> mysqld start
-</span><span class="code-line"><span class="token function">service</span> mysqld restart
-</span></code><div onclick="copied(this)" data-code="service mysqld stop
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token function">service</span> mysqld stop
+</span><span class="code-line line-number" line="2"><span class="token function">service</span> mysqld start
+</span><span class="code-line line-number" line="3"><span class="token function">service</span> mysqld restart
+</span></code><input type="hidden" value="service mysqld stop
 service mysqld start
 service mysqld restart
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h3 id="查看是否设置成功"><a aria-hidden="true" tabindex="-1" href="#查看是否设置成功" class="anchor"><span class="icon icon-link"></span></a>查看是否设置成功</h3>
 <p>通过下面命令查询是否设置成功！</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token comment"># 登陆MySQL进行查询</span>
-</span><span class="code-line">mysql<span class="token operator">></span> SHOW VARIABLES WHERE Variable_name LIKE <span class="token string">'character\_set\_%'</span> OR Variable_name LIKE <span class="token string">'collation%'</span><span class="token punctuation">;</span>
-</span><span class="code-line">
-</span><span class="code-line"><span class="token comment"># 运行上面代码显示下面结果</span>
-</span><span class="code-line"><span class="token comment"># +--------------------------+--------------------+</span>
-</span><span class="code-line"><span class="token comment"># | Variable_name            | Value              |</span>
-</span><span class="code-line"><span class="token comment"># +--------------------------+--------------------+</span>
-</span><span class="code-line"><span class="token comment"># | character_set_client     | utf8mb4            |</span>
-</span><span class="code-line"><span class="token comment"># | character_set_connection | utf8mb4            |</span>
-</span><span class="code-line"><span class="token comment"># | character_set_database   | utf8mb4            |</span>
-</span><span class="code-line"><span class="token comment"># | character_set_filesystem | binary             |</span>
-</span><span class="code-line"><span class="token comment"># | character_set_results    | utf8mb4            |</span>
-</span><span class="code-line"><span class="token comment"># | character_set_server     | utf8mb4            |</span>
-</span><span class="code-line"><span class="token comment"># | character_set_system     | utf8               |</span>
-</span><span class="code-line"><span class="token comment"># | collation_connection     | utf8mb4_unicode_ci |</span>
-</span><span class="code-line"><span class="token comment"># | collation_database       | utf8mb4_unicode_ci |</span>
-</span><span class="code-line"><span class="token comment"># | collation_server         | utf8mb4_unicode_ci |</span>
-</span><span class="code-line"><span class="token comment"># +--------------------------+--------------------+</span>
-</span><span class="code-line">
-</span><span class="code-line"><span class="token comment"># 查看表的情况</span>
-</span><span class="code-line">mysql<span class="token operator">></span>  SHOW FULL <span class="token environment constant">COLUMNS</span>  FROM  users_profile<span class="token punctuation">;</span>
-</span></code><div onclick="copied(this)" data-code="# 登陆MySQL进行查询
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token comment"># 登陆MySQL进行查询</span>
+</span><span class="code-line line-number" line="2">mysql<span class="token operator">></span> SHOW VARIABLES WHERE Variable_name LIKE <span class="token string">'character\_set\_%'</span> OR Variable_name LIKE <span class="token string">'collation%'</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="3">
+</span><span class="code-line line-number" line="4"><span class="token comment"># 运行上面代码显示下面结果</span>
+</span><span class="code-line line-number" line="5"><span class="token comment"># +--------------------------+--------------------+</span>
+</span><span class="code-line line-number" line="6"><span class="token comment"># | Variable_name            | Value              |</span>
+</span><span class="code-line line-number" line="7"><span class="token comment"># +--------------------------+--------------------+</span>
+</span><span class="code-line line-number" line="8"><span class="token comment"># | character_set_client     | utf8mb4            |</span>
+</span><span class="code-line line-number" line="9"><span class="token comment"># | character_set_connection | utf8mb4            |</span>
+</span><span class="code-line line-number" line="10"><span class="token comment"># | character_set_database   | utf8mb4            |</span>
+</span><span class="code-line line-number" line="11"><span class="token comment"># | character_set_filesystem | binary             |</span>
+</span><span class="code-line line-number" line="12"><span class="token comment"># | character_set_results    | utf8mb4            |</span>
+</span><span class="code-line line-number" line="13"><span class="token comment"># | character_set_server     | utf8mb4            |</span>
+</span><span class="code-line line-number" line="14"><span class="token comment"># | character_set_system     | utf8               |</span>
+</span><span class="code-line line-number" line="15"><span class="token comment"># | collation_connection     | utf8mb4_unicode_ci |</span>
+</span><span class="code-line line-number" line="16"><span class="token comment"># | collation_database       | utf8mb4_unicode_ci |</span>
+</span><span class="code-line line-number" line="17"><span class="token comment"># | collation_server         | utf8mb4_unicode_ci |</span>
+</span><span class="code-line line-number" line="18"><span class="token comment"># +--------------------------+--------------------+</span>
+</span><span class="code-line line-number" line="19">
+</span><span class="code-line line-number" line="20"><span class="token comment"># 查看表的情况</span>
+</span><span class="code-line line-number" line="21">mysql<span class="token operator">></span>  SHOW FULL <span class="token environment constant">COLUMNS</span>  FROM  users_profile<span class="token punctuation">;</span>
+</span></code><input type="hidden" value="# 登陆MySQL进行查询
 mysql> SHOW VARIABLES WHERE Variable_name LIKE &#x27;character\_set\_%&#x27; OR Variable_name LIKE &#x27;collation%&#x27;;
 
 # 运行上面代码显示下面结果
@@ -306,15 +307,15 @@ mysql> SHOW VARIABLES WHERE Variable_name LIKE &#x27;character\_set\_%&#x27; OR 
 
 # 查看表的情况
 mysql>  SHOW FULL COLUMNS  FROM  users_profile;
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>到这一步表示你成功了！恭喜你！~</p>
 <h3 id="修复和优化表"><a aria-hidden="true" tabindex="-1" href="#修复和优化表" class="anchor"><span class="icon icon-link"></span></a>修复和优化表</h3>
 <p>我跑到这一步其实没有任何必要修复和优化表，为了保险起见，我还是运行了这两条命令，虽然不知道它有什么卵用，放在这里做个笔记吧。</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">REPAIR TABLE 表名字<span class="token punctuation">;</span>
-</span><span class="code-line">OPTIMIZE TABLE 表名字<span class="token punctuation">;</span>
-</span></code><div onclick="copied(this)" data-code="REPAIR TABLE 表名字;
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">REPAIR TABLE 表名字<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2">OPTIMIZE TABLE 表名字<span class="token punctuation">;</span>
+</span></code><input type="hidden" value="REPAIR TABLE 表名字;
 OPTIMIZE TABLE 表名字;
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h2 id="参考资料"><a aria-hidden="true" tabindex="-1" href="#参考资料" class="anchor"><span class="icon icon-link"></span></a>参考资料</h2>
 <ul>
 <li><a href="https://mathiasbynens.be/notes/mysql-utf8mb4#character-sets">How to support full Unicode in MySQL databases</a></li>
@@ -349,43 +350,88 @@ OPTIMIZE TABLE 表名字;
     <span>Edit this page on GitHub</span>
   </a>
   
-  <span class="atime">2022/04/22</span>
+  <span class="atime">2022/04/30</span>
   
 </section>
 
   </markdown-style>
   
 <nav class="tocs">
-  <aside class="inner toc"></aside>
+  <aside class="inner toc">
+    <ol class="tocs-list">
+    
+      <li>
+        <a href="#常用字符集" class="tocs-link">常用字符集</a>
+        
+      </li>
+    
+      <li>
+        <a href="#确认版本" class="tocs-link">确认版本</a>
+        
+      </li>
+    
+      <li>
+        <a href="#系统环境" class="tocs-link">系统环境</a>
+        
+      </li>
+    
+      <li>
+        <a href="#首先备份" class="tocs-link">首先备份</a>
+        
+      </li>
+    
+      <li>
+        <a href="#升级您的mysql" class="tocs-link">升级您的MySQL</a>
+        
+      </li>
+    
+      <li>
+        <a href="#修改您的数据库表字段" class="tocs-link">修改您的数据库、表、字段</a>
+        
+      </li>
+    
+      <li>
+        <a href="#检查你的字段和索引" class="tocs-link">检查你的字段和索引</a>
+        
+      </li>
+    
+      <li>
+        <a href="#修改mysql配置文件" class="tocs-link">修改MySQL配置文件</a>
+        
+      </li>
+    
+      <li>
+        <a href="#重启mysql" class="tocs-link">重启MySQL</a>
+        
+      </li>
+    
+      <li>
+        <a href="#查看是否设置成功" class="tocs-link">查看是否设置成功</a>
+        
+      </li>
+    
+      <li>
+        <a href="#修复和优化表" class="tocs-link">修复和优化表</a>
+        
+      </li>
+    
+    </ol>
+  </aside>
 </nav>
 
-
-<script src="../js/tocbot.min.js?v=4.18.2"></script>
-<script>
-tocbot.init({
-  tocSelector: 'aside.inner',
-  contentSelector: 'markdown-style',
-  positionFixedSelector: 'aside.inner',
-  headingSelector: 'h1, h2, h3, h4',
-  collapseDepth: 2,
-
-  includeHtml: true,
-  includeTitleTags: false,
-  hasInnerContainers: true,
-  onClick: (e) => { console.log('you clicked a link', e) },
-  headingsOffset: 40,
-  scrollSmoothOffset: -40,
-});
-</script>
-
 </div>
+
+<script src="../js/demo-preview.js?v=1.17.7"></script>
 
 
 <div class="footer warpper">
   Released under the MIT License. Copyright © 2022 Kenny Wong<br />
-Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.13.4
+Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.17.7
 
 </div>
+
+
+<script src="../js/tocbot.js?v=1.17.7"></script>
 
 </body>
 </html>

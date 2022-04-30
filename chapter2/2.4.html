@@ -9,17 +9,18 @@
   <meta name="description" content="这一小节介绍在Mac OS、Linux、Windows上启动关闭重启MySQL服务，以及部分图形化界面对服务的操控。安装完成后，可以使用 service 命令启动 mysql 服务，在Mac上service命令不存在。">
   
   
-  <link rel="stylesheet" type="text/css" href="../css/main.css?v=1650650849140">
-  <link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1650650849140">
-  <link rel="stylesheet" type="text/css" href="../css/media.css?v=1650650849140">
-  <link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1650650849140">
-  <link rel="stylesheet" type="text/css" href="../css/copy.css?v=1650650849140">
+  <link rel="stylesheet" type="text/css" href="../css/main.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/media.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/copy.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/demo-preview.css?v=1.17.7">
   
     <link rel="icon" href="../mysql.svg" type="image/x-icon">
   
-  <script src="../js/copy.js"></script>
-  <script src="../js/dark-mode.js"></script>
-  <script src="../js/markdown-style.js"></script>
+  <script src="../js/copy.js?v=1.17.7"></script>
+  <script src="../js/dark-mode.js?v=1.17.7"></script>
+  <script src="../js/markdown-style.js?v=1.17.7"></script>
 </head>
 <body id="idoctotop">
   <a href="#idoctotop" class="gototop">top</a>
@@ -150,28 +151,28 @@
 <h2 id="命令行启动关闭重启mysql服务"><a aria-hidden="true" tabindex="-1" href="#命令行启动关闭重启mysql服务" class="anchor"><span class="icon icon-link"></span></a>命令行启动关闭重启MySQL服务</h2>
 <p>在命令行终端启动 MySQL 非常方便，下面大概介绍几个平台通过命令启动服务的方法。</p>
 <h3 id="查看服务是否启动"><a aria-hidden="true" tabindex="-1" href="#查看服务是否启动" class="anchor"><span class="icon icon-link"></span></a>查看服务是否启动</h3>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token comment"># 还可以这么查看，MySQL服务器是否启动</span>
-</span><span class="code-line"><span class="token function">ps</span> -ef <span class="token operator">|</span> <span class="token function">grep</span> mysqld
-</span><span class="code-line">
-</span><span class="code-line"><span class="token comment"># 查看服务运行的状态</span>
-</span><span class="code-line"><span class="token function">service</span> mysqld status
-</span></code><div onclick="copied(this)" data-code="# 还可以这么查看，MySQL服务器是否启动
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token comment"># 还可以这么查看，MySQL服务器是否启动</span>
+</span><span class="code-line line-number" line="2"><span class="token function">ps</span> -ef <span class="token operator">|</span> <span class="token function">grep</span> mysqld
+</span><span class="code-line line-number" line="3">
+</span><span class="code-line line-number" line="4"><span class="token comment"># 查看服务运行的状态</span>
+</span><span class="code-line line-number" line="5"><span class="token function">service</span> mysqld status
+</span></code><input type="hidden" value="# 还可以这么查看，MySQL服务器是否启动
 ps -ef | grep mysqld
 
 # 查看服务运行的状态
 service mysqld status
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h3 id="mac-os-x-下命令操作"><a aria-hidden="true" tabindex="-1" href="#mac-os-x-下命令操作" class="anchor"><span class="icon icon-link"></span></a>Mac OS X 下命令操作</h3>
 <p>在 Mac 系统下操作起来就非常方便了。安装完之后就可以在终端上运行全局命令 mysql.server 命令，假设这个命令没有，你在系统的MySQL安装目录中找到 mysql.server  命令，运行它是一样的效果。</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">mysqld start
-</span><span class="code-line">mysql.server start    <span class="token comment"># 1. 启动</span>
-</span><span class="code-line">mysql.server stop     <span class="token comment"># 2. 停止</span>
-</span><span class="code-line">mysql.server restart  <span class="token comment"># 3. 重启</span>
-</span></code><div onclick="copied(this)" data-code="mysqld start
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">mysqld start
+</span><span class="code-line line-number" line="2">mysql.server start    <span class="token comment"># 1. 启动</span>
+</span><span class="code-line line-number" line="3">mysql.server stop     <span class="token comment"># 2. 停止</span>
+</span><span class="code-line line-number" line="4">mysql.server restart  <span class="token comment"># 3. 重启</span>
+</span></code><input type="hidden" value="mysqld start
 mysql.server start    # 1. 启动
 mysql.server stop     # 2. 停止
 mysql.server restart  # 3. 重启
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>当你安装过 MySQL 并没有找到 mysql.server 命令，那这时你需要找到安装目录中的 mysql.server 命令工具了，如 <code>sudo /usr/local/mysql/support-files/mysql.server start</code></p>
 <h3 id="linux-下命令操作"><a aria-hidden="true" tabindex="-1" href="#linux-下命令操作" class="anchor"><span class="icon icon-link"></span></a>Linux 下命令操作</h3>
 <p>Linux生态系统中对服务的操作有点区别。其实在 Mac 系统下也可以直接 <code>mysqld start</code> 来启动服务。</p>
@@ -184,22 +185,22 @@ mysql.server restart  # 3. 重启
 </ol>
 <p>systemctl是一个systemd工具，主要负责控制systemd系统和服务管理器，在 Linux 系统中可以通过它来启动 mysql 服务。</p>
 <p>启动过程中有可能会报错，错误处理，通过 <strong>systemctl status mysqld.service</strong> 和 <strong>journalctl -xe</strong> 命令查看服务启动失败的原因。</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">systemctl status mysqld.service
-</span><span class="code-line">
-</span><span class="code-line">  ● mysqld.service - SYSV: MySQL database server.
-</span><span class="code-line">     Loaded: loaded <span class="token punctuation">(</span>/etc/rc.d/init.d/mysqld<span class="token punctuation">)</span>
-</span><span class="code-line">     Active: failed <span class="token punctuation">(</span>Result: exit-code<span class="token punctuation">)</span> since 三 <span class="token number">2016</span>-11-02 <span class="token number">22</span>:14:36 EDT<span class="token punctuation">;</span> 11s ago
-</span><span class="code-line">       Docs: man:systemd-sysv-generator<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span>
-</span><span class="code-line">    Process: <span class="token number">14940</span> <span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>/etc/rc.d/init.d/mysqld start <span class="token punctuation">(</span>code<span class="token operator">=</span>exited, <span class="token assign-left variable">status</span><span class="token operator">=</span><span class="token number">1</span>/FAILURE<span class="token punctuation">)</span>
-</span><span class="code-line">  
-</span><span class="code-line">  <span class="token number">11</span>月 02 <span class="token number">22</span>:14:34 localhost.localdomain systemd<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: Starting SYSV: MySQL database server<span class="token punctuation">..</span><span class="token punctuation">..</span>
-</span><span class="code-line">  <span class="token number">11</span>月 02 <span class="token number">22</span>:14:35 localhost.localdomain mysqld<span class="token punctuation">[</span><span class="token number">14940</span><span class="token punctuation">]</span>: MySQL Daemon failed to start.
-</span><span class="code-line">  <span class="token number">11</span>月 02 <span class="token number">22</span>:14:35 localhost.localdomain mysqld<span class="token punctuation">[</span><span class="token number">14940</span><span class="token punctuation">]</span>: Starting mysqld:  <span class="token punctuation">[</span>FAILED<span class="token punctuation">]</span>
-</span><span class="code-line">  <span class="token number">11</span>月 02 <span class="token number">22</span>:14:36 localhost.localdomain systemd<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: mysqld.service: control process exited, <span class="token assign-left variable">code</span><span class="token operator">=</span>exited <span class="token assign-left variable">status</span><span class="token operator">=</span><span class="token number">1</span>
-</span><span class="code-line">  <span class="token number">11</span>月 02 <span class="token number">22</span>:14:36 localhost.localdomain systemd<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: Failed to start SYSV: MySQL database server<span class="token punctuation">..</span>
-</span><span class="code-line">  <span class="token number">11</span>月 02 <span class="token number">22</span>:14:36 localhost.localdomain systemd<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: Unit mysqld.service entered failed state.
-</span><span class="code-line">  <span class="token number">11</span>月 02 <span class="token number">22</span>:14:36 localhost.localdomain systemd<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: mysqld.service failed.
-</span></code><div onclick="copied(this)" data-code="systemctl status mysqld.service
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">systemctl status mysqld.service
+</span><span class="code-line line-number" line="2">
+</span><span class="code-line line-number" line="3">  ● mysqld.service - SYSV: MySQL database server.
+</span><span class="code-line line-number" line="4">     Loaded: loaded <span class="token punctuation">(</span>/etc/rc.d/init.d/mysqld<span class="token punctuation">)</span>
+</span><span class="code-line line-number" line="5">     Active: failed <span class="token punctuation">(</span>Result: exit-code<span class="token punctuation">)</span> since 三 <span class="token number">2016</span>-11-02 <span class="token number">22</span>:14:36 EDT<span class="token punctuation">;</span> 11s ago
+</span><span class="code-line line-number" line="6">       Docs: man:systemd-sysv-generator<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span>
+</span><span class="code-line line-number" line="7">    Process: <span class="token number">14940</span> <span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>/etc/rc.d/init.d/mysqld start <span class="token punctuation">(</span>code<span class="token operator">=</span>exited, <span class="token assign-left variable">status</span><span class="token operator">=</span><span class="token number">1</span>/FAILURE<span class="token punctuation">)</span>
+</span><span class="code-line line-number" line="8">  
+</span><span class="code-line line-number" line="9">  <span class="token number">11</span>月 02 <span class="token number">22</span>:14:34 localhost.localdomain systemd<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: Starting SYSV: MySQL database server<span class="token punctuation">..</span><span class="token punctuation">..</span>
+</span><span class="code-line line-number" line="10">  <span class="token number">11</span>月 02 <span class="token number">22</span>:14:35 localhost.localdomain mysqld<span class="token punctuation">[</span><span class="token number">14940</span><span class="token punctuation">]</span>: MySQL Daemon failed to start.
+</span><span class="code-line line-number" line="11">  <span class="token number">11</span>月 02 <span class="token number">22</span>:14:35 localhost.localdomain mysqld<span class="token punctuation">[</span><span class="token number">14940</span><span class="token punctuation">]</span>: Starting mysqld:  <span class="token punctuation">[</span>FAILED<span class="token punctuation">]</span>
+</span><span class="code-line line-number" line="12">  <span class="token number">11</span>月 02 <span class="token number">22</span>:14:36 localhost.localdomain systemd<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: mysqld.service: control process exited, <span class="token assign-left variable">code</span><span class="token operator">=</span>exited <span class="token assign-left variable">status</span><span class="token operator">=</span><span class="token number">1</span>
+</span><span class="code-line line-number" line="13">  <span class="token number">11</span>月 02 <span class="token number">22</span>:14:36 localhost.localdomain systemd<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: Failed to start SYSV: MySQL database server<span class="token punctuation">..</span>
+</span><span class="code-line line-number" line="14">  <span class="token number">11</span>月 02 <span class="token number">22</span>:14:36 localhost.localdomain systemd<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: Unit mysqld.service entered failed state.
+</span><span class="code-line line-number" line="15">  <span class="token number">11</span>月 02 <span class="token number">22</span>:14:36 localhost.localdomain systemd<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: mysqld.service failed.
+</span></code><input type="hidden" value="systemctl status mysqld.service
 
   ● mysqld.service - SYSV: MySQL database server.
      Loaded: loaded (/etc/rc.d/init.d/mysqld)
@@ -214,39 +215,39 @@ mysql.server restart  # 3. 重启
   11月 02 22:14:36 localhost.localdomain systemd[1]: Failed to start SYSV: MySQL database server..
   11月 02 22:14:36 localhost.localdomain systemd[1]: Unit mysqld.service entered failed state.
   11月 02 22:14:36 localhost.localdomain systemd[1]: mysqld.service failed.
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token comment"># 查看配置文件 my.cnf 的位置</span>
-</span><span class="code-line"><span class="token function">whereis</span> my.cnf
-</span><span class="code-line"><span class="token comment"># 输出： my: /etc/my.cnf</span>
-</span><span class="code-line">
-</span><span class="code-line"><span class="token comment"># 编辑</span>
-</span><span class="code-line"><span class="token function">vi</span> /etc/my.cnf
-</span></code><div onclick="copied(this)" data-code="# 查看配置文件 my.cnf 的位置
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token comment"># 查看配置文件 my.cnf 的位置</span>
+</span><span class="code-line line-number" line="2"><span class="token function">whereis</span> my.cnf
+</span><span class="code-line line-number" line="3"><span class="token comment"># 输出： my: /etc/my.cnf</span>
+</span><span class="code-line line-number" line="4">
+</span><span class="code-line line-number" line="5"><span class="token comment"># 编辑</span>
+</span><span class="code-line line-number" line="6"><span class="token function">vi</span> /etc/my.cnf
+</span></code><input type="hidden" value="# 查看配置文件 my.cnf 的位置
 whereis my.cnf
 # 输出： my: /etc/my.cnf
 
 # 编辑
 vi /etc/my.cnf
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>里面有个 log_error=/var/log/mysqld.log 的配置，通过命令 <strong>tail -25 /var/log/mysqld.log</strong> 查看 MySQL 错误日志</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token number">2016</span>-01-20T10:00:19.935771Z <span class="token number">0</span> <span class="token punctuation">[</span>ERROR<span class="token punctuation">]</span> /usr/sbin/mysqld: Can<span class="token string">'t create/write to file '</span>/var/run/mysqld/mysqld.pid<span class="token string">' (Errcode: 2 - No such file or directory)
-</span></span><span class="code-line"><span class="token string">2016-01-20T10:00:19.935795Z 0 [ERROR] Can'</span>t start server: can't create PID file: No such <span class="token function">file</span> or directory
-</span><span class="code-line"><span class="token number">160120</span> <span class="token number">18</span>:00:20 mysqld_safe mysqld from pid <span class="token function">file</span> /var/run/mysqld/mysqld.pid ended
-</span></code><div onclick="copied(this)" data-code="2016-01-20T10:00:19.935771Z 0 [ERROR] /usr/sbin/mysqld: Can&#x27;t create/write to file &#x27;/var/run/mysqld/mysqld.pid&#x27; (Errcode: 2 - No such file or directory)
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token number">2016</span>-01-20T10:00:19.935771Z <span class="token number">0</span> <span class="token punctuation">[</span>ERROR<span class="token punctuation">]</span> /usr/sbin/mysqld: Can<span class="token string">'t create/write to file '</span>/var/run/mysqld/mysqld.pid<span class="token string">' (Errcode: 2 - No such file or directory)
+</span></span><span class="code-line line-number" line="2"><span class="token string">2016-01-20T10:00:19.935795Z 0 [ERROR] Can'</span>t start server: can't create PID file: No such <span class="token function">file</span> or directory
+</span><span class="code-line line-number" line="3"><span class="token number">160120</span> <span class="token number">18</span>:00:20 mysqld_safe mysqld from pid <span class="token function">file</span> /var/run/mysqld/mysqld.pid ended
+</span></code><input type="hidden" value="2016-01-20T10:00:19.935771Z 0 [ERROR] /usr/sbin/mysqld: Can&#x27;t create/write to file &#x27;/var/run/mysqld/mysqld.pid&#x27; (Errcode: 2 - No such file or directory)
 2016-01-20T10:00:19.935795Z 0 [ERROR] Can&#x27;t start server: can&#x27;t create PID file: No such file or directory
 160120 18:00:20 mysqld_safe mysqld from pid file /var/run/mysqld/mysqld.pid ended
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>上面日志错误说，MySQL服务在启动的时候，不能创建pid文件。前去看一下 mysqld 文件是否存在，不存在创建 mysqld 目录。</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token comment"># 创建 mysqld 目录</span>
-</span><span class="code-line"><span class="token function">mkdir</span> -p /var/run/mysqld/
-</span><span class="code-line">
-</span><span class="code-line"><span class="token comment"># 启动MySQL</span>
-</span><span class="code-line">/etc/init.d/mysqld start
-</span><span class="code-line">
-</span><span class="code-line"><span class="token comment"># 输出下面内容</span>
-</span><span class="code-line"><span class="token comment"># Starting mysqld (via systemctl):  Job for mysqld.service failed because the control process exited with error code. See "systemctl status mysqld.service" and "journalctl -xe" for details.</span>
-</span><span class="code-line"><span class="token comment"># [FAILED]</span>
-</span></code><div onclick="copied(this)" data-code="# 创建 mysqld 目录
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token comment"># 创建 mysqld 目录</span>
+</span><span class="code-line line-number" line="2"><span class="token function">mkdir</span> -p /var/run/mysqld/
+</span><span class="code-line line-number" line="3">
+</span><span class="code-line line-number" line="4"><span class="token comment"># 启动MySQL</span>
+</span><span class="code-line line-number" line="5">/etc/init.d/mysqld start
+</span><span class="code-line line-number" line="6">
+</span><span class="code-line line-number" line="7"><span class="token comment"># 输出下面内容</span>
+</span><span class="code-line line-number" line="8"><span class="token comment"># Starting mysqld (via systemctl):  Job for mysqld.service failed because the control process exited with error code. See "systemctl status mysqld.service" and "journalctl -xe" for details.</span>
+</span><span class="code-line line-number" line="9"><span class="token comment"># [FAILED]</span>
+</span></code><input type="hidden" value="# 创建 mysqld 目录
 mkdir -p /var/run/mysqld/
 
 # 启动MySQL
@@ -255,19 +256,19 @@ mkdir -p /var/run/mysqld/
 # 输出下面内容
 # Starting mysqld (via systemctl):  Job for mysqld.service failed because the control process exited with error code. See &#x22;systemctl status mysqld.service&#x22; and &#x22;journalctl -xe&#x22; for details.
 # [FAILED]
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>创建 mysqld 目录还是启动报错，按照下面命令尝试解决问题</p>
-<pre class="language-shell"><code class="language-shell code-highlight"><span class="code-line"><span class="token function">ls</span> -ld /var/run/mysqld/
-</span><span class="code-line">
-</span><span class="code-line"><span class="token comment"># mysqld 文件夹如果不存在通过命令创建</span>
-</span><span class="code-line">
-</span><span class="code-line"><span class="token function">mkdir</span> /var/run/mysqld
-</span><span class="code-line">
-</span><span class="code-line"><span class="token comment"># 会输出下面内容</span>
-</span><span class="code-line"><span class="token comment"># drwxr-xr-x. 2 mysql mysql 60 11月  2 22:15 /var/run/mysqld/</span>
-</span><span class="code-line"><span class="token function">chown</span> mysql.mysql /var/run/mysqld/
-</span><span class="code-line">/etc/init.d/mysqld start
-</span></code><div onclick="copied(this)" data-code="ls -ld /var/run/mysqld/
+<pre class="language-shell"><code class="language-shell code-highlight"><span class="code-line line-number" line="1"><span class="token function">ls</span> -ld /var/run/mysqld/
+</span><span class="code-line line-number" line="2">
+</span><span class="code-line line-number" line="3"><span class="token comment"># mysqld 文件夹如果不存在通过命令创建</span>
+</span><span class="code-line line-number" line="4">
+</span><span class="code-line line-number" line="5"><span class="token function">mkdir</span> /var/run/mysqld
+</span><span class="code-line line-number" line="6">
+</span><span class="code-line line-number" line="7"><span class="token comment"># 会输出下面内容</span>
+</span><span class="code-line line-number" line="8"><span class="token comment"># drwxr-xr-x. 2 mysql mysql 60 11月  2 22:15 /var/run/mysqld/</span>
+</span><span class="code-line line-number" line="9"><span class="token function">chown</span> mysql.mysql /var/run/mysqld/
+</span><span class="code-line line-number" line="10">/etc/init.d/mysqld start
+</span></code><input type="hidden" value="ls -ld /var/run/mysqld/
 
 # mysqld 文件夹如果不存在通过命令创建
 
@@ -277,39 +278,39 @@ mkdir /var/run/mysqld
 # drwxr-xr-x. 2 mysql mysql 60 11月  2 22:15 /var/run/mysqld/
 chown mysql.mysql /var/run/mysqld/
 /etc/init.d/mysqld start
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>通过查看目录 /var/run/mysqld/ 的属主和属组还是root，mysql并不能在其中创建文件，后修改该目录的属主和属组，启动OK。</p>
 <p>创建脚本<code>cat start-mysql.sh</code>，这个问题每次都会出现，因为Centos7上MySQL5.7.12系统不兼容启动失败， 每次开机后手动执行，或放在定时调度里。</p>
-<pre class="language-shell"><code class="language-shell code-highlight"><span class="code-line"><span class="token shebang important">#!/bin/bash  </span>
-</span><span class="code-line">  
-</span><span class="code-line"><span class="token function">mkdir</span> -p /var/run/mysqld/  
-</span><span class="code-line"><span class="token function">chown</span> mysql.mysql /var/run/mysqld/  
-</span><span class="code-line">  
-</span><span class="code-line">/etc/init.d/mysqld start  
-</span></code><div onclick="copied(this)" data-code="#!/bin/bash  
+<pre class="language-shell"><code class="language-shell code-highlight"><span class="code-line line-number" line="1"><span class="token shebang important">#!/bin/bash  </span>
+</span><span class="code-line line-number" line="2">  
+</span><span class="code-line line-number" line="3"><span class="token function">mkdir</span> -p /var/run/mysqld/  
+</span><span class="code-line line-number" line="4"><span class="token function">chown</span> mysql.mysql /var/run/mysqld/  
+</span><span class="code-line line-number" line="5">  
+</span><span class="code-line line-number" line="6">/etc/init.d/mysqld start  
+</span></code><input type="hidden" value="#!/bin/bash  
   
 mkdir -p /var/run/mysqld/  
 chown mysql.mysql /var/run/mysqld/  
   
 /etc/init.d/mysqld start  
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h3 id="windows-下命令操作"><a aria-hidden="true" tabindex="-1" href="#windows-下命令操作" class="anchor"><span class="icon icon-link"></span></a>Windows 下命令操作</h3>
 <p>Windows平台操作起来有点不顺手，个人感觉 Windows 的DOS太难用了，下面简单的介绍一下操作过程。先找到 MySQL 的安装位置，如我的电脑的安装位置是：C:\Program Files\MySQL\MySQL Server 5.7，我就执行这样的操作：开始->运行->输入“cmd”开启命令行，然后输入“C:”。通过命令进入到 MySQL Server 5.7 的 bin 目录下，输入 MySQL 命令行的服务启用命令，如下：</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token comment"># net start [mysql服务名]</span>
-</span><span class="code-line">
-</span><span class="code-line"><span class="token comment"># 启动 mysql 服务</span>
-</span><span class="code-line">net start mysql 
-</span><span class="code-line">
-</span><span class="code-line"><span class="token comment"># 停止 mysql 服务</span>
-</span><span class="code-line">net stop mysql 
-</span></code><div onclick="copied(this)" data-code="# net start [mysql服务名]
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token comment"># net start [mysql服务名]</span>
+</span><span class="code-line line-number" line="2">
+</span><span class="code-line line-number" line="3"><span class="token comment"># 启动 mysql 服务</span>
+</span><span class="code-line line-number" line="4">net start mysql 
+</span><span class="code-line line-number" line="5">
+</span><span class="code-line line-number" line="6"><span class="token comment"># 停止 mysql 服务</span>
+</span><span class="code-line line-number" line="7">net stop mysql 
+</span></code><input type="hidden" value="# net start [mysql服务名]
 
 # 启动 mysql 服务
 net start mysql 
 
 # 停止 mysql 服务
 net stop mysql 
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>有很多情况可能导致无法启动 MySQL，常见解决方法如下：</p>
 <ol>
 <li>在 CMD 命令中断运行这条命令 C:\Program Files\MySQL\MySQL Server 5.7\bin\mysqladmin-u root -p shutdown 来关闭MYSQL，如果有密码根据提示输入密码即可。</li>
@@ -324,36 +325,36 @@ net stop mysql
 <p>Windows 系统下启动关闭重启MySQL服务。</p>
 <h2 id="查看初始密码"><a aria-hidden="true" tabindex="-1" href="#查看初始密码" class="anchor"><span class="icon icon-link"></span></a>查看初始密码</h2>
 <p>默认情况下MySQL是有个初始密码，知道了初始密码才能改密码。</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token punctuation">[</span>root@localhost home<span class="token punctuation">]</span><span class="token comment"># grep 'temporary password' /var/log/mysqld.log</span>
-</span><span class="code-line">
-</span><span class="code-line"><span class="token number">2017</span>-07-17T13:40:11.842835Z <span class="token number">1</span> <span class="token punctuation">[</span>Note<span class="token punctuation">]</span> A temporary password is generated <span class="token keyword">for</span> root@localhost: b<span class="token operator">&#x26;</span>iu<span class="token punctuation">(</span>sf<span class="token punctuation">;</span><span class="token operator">></span>ws
-</span></code><div onclick="copied(this)" data-code="[root@localhost home]# grep &#x27;temporary password&#x27; /var/log/mysqld.log
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token punctuation">[</span>root@localhost home<span class="token punctuation">]</span><span class="token comment"># grep 'temporary password' /var/log/mysqld.log</span>
+</span><span class="code-line line-number" line="2">
+</span><span class="code-line line-number" line="3"><span class="token number">2017</span>-07-17T13:40:11.842835Z <span class="token number">1</span> <span class="token punctuation">[</span>Note<span class="token punctuation">]</span> A temporary password is generated <span class="token keyword">for</span> root@localhost: b<span class="token operator">&#x26;</span>iu<span class="token punctuation">(</span>sf<span class="token punctuation">;</span><span class="token operator">></span>ws
+</span></code><input type="hidden" value="[root@localhost home]# grep &#x27;temporary password&#x27; /var/log/mysqld.log
 
 2017-07-17T13:40:11.842835Z 1 [Note] A temporary password is generated for root@localhost: b&#x26;iu(sf;>ws
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h2 id="设置初始化密码"><a aria-hidden="true" tabindex="-1" href="#设置初始化密码" class="anchor"><span class="icon icon-link"></span></a>设置初始化密码</h2>
 <p>启动后我们需要简单配置一下 mysql ，默认安装以后 mysql 的 root 用户是没有密码的，对于生产环境来说，这肯定是不行的，另外还有一些安全相关的设置，可以使用下面这行命令去配置一下，它是一个向导，问你一些问题，你要给出答案，比如是否要设置 root 用户的密码， 密码是什么等等。</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">mysql_secure_installation
-</span><span class="code-line">
-</span><span class="code-line">Enter current password <span class="token keyword">for</span> root <span class="token punctuation">(</span>enter <span class="token keyword">for</span> none<span class="token punctuation">)</span>:
-</span><span class="code-line"><span class="token comment"># 解释：输入当前 root 用户密码，默认为空，直接回车。</span>
-</span><span class="code-line">
-</span><span class="code-line">Set root password? <span class="token punctuation">[</span>Y/n<span class="token punctuation">]</span>  y
-</span><span class="code-line"><span class="token comment"># 解释：要设置 root 密码吗？输入 y 表示愿意。</span>
-</span><span class="code-line">
-</span><span class="code-line">Remove anonymous users? <span class="token punctuation">[</span>Y/n<span class="token punctuation">]</span>  y
-</span><span class="code-line"><span class="token comment"># 解释：要移除掉匿名用户吗？输入 y 表示愿意。</span>
-</span><span class="code-line">
-</span><span class="code-line">Disallow root login remotely? <span class="token punctuation">[</span>Y/n<span class="token punctuation">]</span>  y
-</span><span class="code-line"><span class="token comment"># 解释：不想让 root 远程登陆吗？输入 y 表示愿意。</span>
-</span><span class="code-line">
-</span><span class="code-line">Remove <span class="token builtin class-name">test</span> database and access to it? <span class="token punctuation">[</span>Y/n<span class="token punctuation">]</span>  y
-</span><span class="code-line"><span class="token comment"># 解释：要去掉 test 数据库吗？输入 y 表示愿意。</span>
-</span><span class="code-line">
-</span><span class="code-line">Reload privilege tables now? <span class="token punctuation">[</span>Y/n<span class="token punctuation">]</span>  y
-</span><span class="code-line"><span class="token comment"># 解释：想要重新加载权限吗？输入 y 表示愿意。</span>
-</span><span class="code-line">
-</span></code><div onclick="copied(this)" data-code="mysql_secure_installation
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">mysql_secure_installation
+</span><span class="code-line line-number" line="2">
+</span><span class="code-line line-number" line="3">Enter current password <span class="token keyword">for</span> root <span class="token punctuation">(</span>enter <span class="token keyword">for</span> none<span class="token punctuation">)</span>:
+</span><span class="code-line line-number" line="4"><span class="token comment"># 解释：输入当前 root 用户密码，默认为空，直接回车。</span>
+</span><span class="code-line line-number" line="5">
+</span><span class="code-line line-number" line="6">Set root password? <span class="token punctuation">[</span>Y/n<span class="token punctuation">]</span>  y
+</span><span class="code-line line-number" line="7"><span class="token comment"># 解释：要设置 root 密码吗？输入 y 表示愿意。</span>
+</span><span class="code-line line-number" line="8">
+</span><span class="code-line line-number" line="9">Remove anonymous users? <span class="token punctuation">[</span>Y/n<span class="token punctuation">]</span>  y
+</span><span class="code-line line-number" line="10"><span class="token comment"># 解释：要移除掉匿名用户吗？输入 y 表示愿意。</span>
+</span><span class="code-line line-number" line="11">
+</span><span class="code-line line-number" line="12">Disallow root login remotely? <span class="token punctuation">[</span>Y/n<span class="token punctuation">]</span>  y
+</span><span class="code-line line-number" line="13"><span class="token comment"># 解释：不想让 root 远程登陆吗？输入 y 表示愿意。</span>
+</span><span class="code-line line-number" line="14">
+</span><span class="code-line line-number" line="15">Remove <span class="token builtin class-name">test</span> database and access to it? <span class="token punctuation">[</span>Y/n<span class="token punctuation">]</span>  y
+</span><span class="code-line line-number" line="16"><span class="token comment"># 解释：要去掉 test 数据库吗？输入 y 表示愿意。</span>
+</span><span class="code-line line-number" line="17">
+</span><span class="code-line line-number" line="18">Reload privilege tables now? <span class="token punctuation">[</span>Y/n<span class="token punctuation">]</span>  y
+</span><span class="code-line line-number" line="19"><span class="token comment"># 解释：想要重新加载权限吗？输入 y 表示愿意。</span>
+</span><span class="code-line line-number" line="20">
+</span></code><input type="hidden" value="mysql_secure_installation
 
 Enter current password for root (enter for none):
 # 解释：输入当前 root 用户密码，默认为空，直接回车。
@@ -373,59 +374,59 @@ Remove test database and access to it? [Y/n]  y
 Reload privilege tables now? [Y/n]  y
 # 解释：想要重新加载权限吗？输入 y 表示愿意。
 
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>你安装成功后，可以查看一下 MySQL 版本，<code>mysql --version</code>，如果版本并非你所使用的版本，你可以参考这里进行升级数据库操作<a href="../chapter17/1.2.html">Centos6下升级MySQL数据库</a>。</p>
 <h2 id="启动报错处理"><a aria-hidden="true" tabindex="-1" href="#启动报错处理" class="anchor"><span class="icon icon-link"></span></a>启动报错处理</h2>
 <p>下面是我尝试在Mac上启动MySQL报错</p>
 <p><strong>启动失败</strong></p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token function">sudo</span> /usr/local/mysql/support-files/mysql.server start
-</span><span class="code-line">Password:
-</span><span class="code-line">Starting MySQL
-</span><span class="code-line"><span class="token builtin class-name">.</span> ERROR<span class="token operator">!</span> The server quit without updating PID <span class="token function">file</span> <span class="token punctuation">(</span>/usr/local/mysql/data/localhost.pid
-</span></code><div onclick="copied(this)" data-code="sudo /usr/local/mysql/support-files/mysql.server start
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token function">sudo</span> /usr/local/mysql/support-files/mysql.server start
+</span><span class="code-line line-number" line="2">Password:
+</span><span class="code-line line-number" line="3">Starting MySQL
+</span><span class="code-line line-number" line="4"><span class="token builtin class-name">.</span> ERROR<span class="token operator">!</span> The server quit without updating PID <span class="token function">file</span> <span class="token punctuation">(</span>/usr/local/mysql/data/localhost.pid
+</span></code><input type="hidden" value="sudo /usr/local/mysql/support-files/mysql.server start
 Password:
 Starting MySQL
 . ERROR! The server quit without updating PID file (/usr/local/mysql/data/localhost.pid
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>通过日志查看报错信息</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token comment"># 编辑配置文件</span>
-</span><span class="code-line"><span class="token function">sudo</span> <span class="token function">vim</span> /etc/my.cnf
-</span><span class="code-line">
-</span><span class="code-line"><span class="token comment"># 在配置文件最后添加一行错误日志输入的配置</span>
-</span><span class="code-line">log_error <span class="token operator">=</span> /usr/local/mysql/data/error.log
-</span></code><div onclick="copied(this)" data-code="# 编辑配置文件
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token comment"># 编辑配置文件</span>
+</span><span class="code-line line-number" line="2"><span class="token function">sudo</span> <span class="token function">vim</span> /etc/my.cnf
+</span><span class="code-line line-number" line="3">
+</span><span class="code-line line-number" line="4"><span class="token comment"># 在配置文件最后添加一行错误日志输入的配置</span>
+</span><span class="code-line line-number" line="5">log_error <span class="token operator">=</span> /usr/local/mysql/data/error.log
+</span></code><input type="hidden" value="# 编辑配置文件
 sudo vim /etc/my.cnf
 
 # 在配置文件最后添加一行错误日志输入的配置
 log_error = /usr/local/mysql/data/error.log
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>上面添加完成之后，重新启动再查看日志</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token function">sudo</span> /usr/local/mysql/support-files/mysql.server start
-</span><span class="code-line"><span class="token function">tail</span> -100 /usr/local/mysql/data/error.log
-</span></code><div onclick="copied(this)" data-code="sudo /usr/local/mysql/support-files/mysql.server start
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token function">sudo</span> /usr/local/mysql/support-files/mysql.server start
+</span><span class="code-line line-number" line="2"><span class="token function">tail</span> -100 /usr/local/mysql/data/error.log
+</span></code><input type="hidden" value="sudo /usr/local/mysql/support-files/mysql.server start
 tail -100 /usr/local/mysql/data/error.log
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h3 id="日志显示错误一"><a aria-hidden="true" tabindex="-1" href="#日志显示错误一" class="anchor"><span class="icon icon-link"></span></a>日志显示错误一</h3>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token number">2017</span>-01-19T03:48:24.695505Z <span class="token number">0</span> <span class="token punctuation">[</span>ERROR<span class="token punctuation">]</span> InnoDB: Unable to lock ./ibdata1 error: <span class="token number">35</span>
-</span><span class="code-line"><span class="token number">2017</span>-01-19T03:48:24.695540Z <span class="token number">0</span> <span class="token punctuation">[</span>Note<span class="token punctuation">]</span> InnoDB: Check that you <span class="token keyword">do</span> not already have another mysqld process using the same InnoDB data or log files.
-</span></code><div onclick="copied(this)" data-code="2017-01-19T03:48:24.695505Z 0 [ERROR] InnoDB: Unable to lock ./ibdata1 error: 35
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token number">2017</span>-01-19T03:48:24.695505Z <span class="token number">0</span> <span class="token punctuation">[</span>ERROR<span class="token punctuation">]</span> InnoDB: Unable to lock ./ibdata1 error: <span class="token number">35</span>
+</span><span class="code-line line-number" line="2"><span class="token number">2017</span>-01-19T03:48:24.695540Z <span class="token number">0</span> <span class="token punctuation">[</span>Note<span class="token punctuation">]</span> InnoDB: Check that you <span class="token keyword">do</span> not already have another mysqld process using the same InnoDB data or log files.
+</span></code><input type="hidden" value="2017-01-19T03:48:24.695505Z 0 [ERROR] InnoDB: Unable to lock ./ibdata1 error: 35
 2017-01-19T03:48:24.695540Z 0 [Note] InnoDB: Check that you do not already have another mysqld process using the same InnoDB data or log files.
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>日志显示 mysqld 进程使用相同的InnoDB data 文件或日志文件，通过 <code>ps -ef | grep mysql | grep -v grep</code> 查看是否有该进程，发现果然有，这时候你需要杀掉该进程，我在我本地是杀不掉的，于是我尝试使用 mysqld 启动MySQL，启动成功。</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token function">sudo</span> /usr/local/mysql/bin/mysqld restart
-</span></code><div onclick="copied(this)" data-code="sudo /usr/local/mysql/bin/mysqld restart
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token function">sudo</span> /usr/local/mysql/bin/mysqld restart
+</span></code><input type="hidden" value="sudo /usr/local/mysql/bin/mysqld restart
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h3 id="日志显示错误二"><a aria-hidden="true" tabindex="-1" href="#日志显示错误二" class="anchor"><span class="icon icon-link"></span></a>日志显示错误二</h3>
-<pre><code class="code-highlight"><span class="code-line">[ERROR] InnoDB: The innodb_system data file 'ibdata1' must be writable
-</span></code><div onclick="copied(this)" data-code="[ERROR] InnoDB: The innodb_system data file &#x27;ibdata1&#x27; must be writable
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre><code class="code-highlight"><span class="code-line line-number" line="1">[ERROR] InnoDB: The innodb_system data file 'ibdata1' must be writable
+</span></code><input type="hidden" value="[ERROR] InnoDB: The innodb_system data file &#x27;ibdata1&#x27; must be writable
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>上面的错误信息说的是 <code>ibdata1</code> 文件不可写。<code>ibdata1</code> 是InnoDB的共有表空间，默认情况下会把表空间存放在一个文件<code>ibdata1</code>中，（此原因会造成这个文件越来越大）。所以大概能猜测是 mysql 用户的权限不够了。所以再给 <code>ibdata1</code> 目录分配一下权限即可。</p>
 <p>这个时候需要查看一下mysql 安装目录权限。使用 chown 改变了整个 mysql 目录的权限，这是一个非常不好的习惯。</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token builtin class-name">cd</span> /usr/local/mysql
-</span><span class="code-line"><span class="token function">sudo</span> <span class="token function">chown</span> -R _mysql:_mysql *
-</span></code><div onclick="copied(this)" data-code="cd /usr/local/mysql
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token builtin class-name">cd</span> /usr/local/mysql
+</span><span class="code-line line-number" line="2"><span class="token function">sudo</span> <span class="token function">chown</span> -R _mysql:_mysql *
+</span></code><input type="hidden" value="cd /usr/local/mysql
 sudo chown -R _mysql:_mysql *
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>这里需要注意的是，Mac OS系统下，mysql 的用户组和用户名都是 <code>_mysql</code>，Linux 是 <code>mysql</code>。然后再重启 MySQL 你就完事大吉了。</p>
 <p>上面调试定位错误的方法非常有用。我通过这个方法多次解决各种问题。</p>
     
@@ -465,43 +466,110 @@ sudo chown -R _mysql:_mysql *
     <span>Edit this page on GitHub</span>
   </a>
   
-  <span class="atime">2022/04/22</span>
+  <span class="atime">2022/04/30</span>
   
 </section>
 
   </markdown-style>
   
 <nav class="tocs">
-  <aside class="inner toc"></aside>
+  <aside class="inner toc">
+    <ol class="tocs-list">
+    
+      <li>
+        <a href="#命令行启动关闭重启mysql服务" class="tocs-link">命令行启动关闭重启MySQL服务</a>
+        
+          <ol class="tocs-list is-collapsed">
+            
+              <li>
+                <a href="#查看服务是否启动" class="tocs-link">查看服务是否启动</a>
+                
+              </li>
+            
+              <li>
+                <a href="#mac-os-x-下命令操作" class="tocs-link">Mac OS X 下命令操作</a>
+                
+              </li>
+            
+              <li>
+                <a href="#linux-下命令操作" class="tocs-link">Linux 下命令操作</a>
+                
+              </li>
+            
+              <li>
+                <a href="#windows-下命令操作" class="tocs-link">Windows 下命令操作</a>
+                
+              </li>
+            
+          </ol>
+        
+      </li>
+    
+      <li>
+        <a href="#图像界面启动关闭重启mysql服务" class="tocs-link">图像界面启动关闭重启MySQL服务</a>
+        
+          <ol class="tocs-list is-collapsed">
+            
+              <li>
+                <a href="#mac-os-x-下操作" class="tocs-link">Mac OS X 下操作</a>
+                
+              </li>
+            
+              <li>
+                <a href="#windows-下操作" class="tocs-link">Windows 下操作</a>
+                
+              </li>
+            
+          </ol>
+        
+      </li>
+    
+      <li>
+        <a href="#查看初始密码" class="tocs-link">查看初始密码</a>
+        
+      </li>
+    
+      <li>
+        <a href="#设置初始化密码" class="tocs-link">设置初始化密码</a>
+        
+      </li>
+    
+      <li>
+        <a href="#启动报错处理" class="tocs-link">启动报错处理</a>
+        
+          <ol class="tocs-list is-collapsed">
+            
+              <li>
+                <a href="#日志显示错误一" class="tocs-link">日志显示错误一</a>
+                
+              </li>
+            
+              <li>
+                <a href="#日志显示错误二" class="tocs-link">日志显示错误二</a>
+                
+              </li>
+            
+          </ol>
+        
+      </li>
+    
+    </ol>
+  </aside>
 </nav>
 
-
-<script src="../js/tocbot.min.js?v=4.18.2"></script>
-<script>
-tocbot.init({
-  tocSelector: 'aside.inner',
-  contentSelector: 'markdown-style',
-  positionFixedSelector: 'aside.inner',
-  headingSelector: 'h1, h2, h3, h4',
-  collapseDepth: 2,
-
-  includeHtml: true,
-  includeTitleTags: false,
-  hasInnerContainers: true,
-  onClick: (e) => { console.log('you clicked a link', e) },
-  headingsOffset: 40,
-  scrollSmoothOffset: -40,
-});
-</script>
-
 </div>
+
+<script src="../js/demo-preview.js?v=1.17.7"></script>
 
 
 <div class="footer warpper">
   Released under the MIT License. Copyright © 2022 Kenny Wong<br />
-Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.13.4
+Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.17.7
 
 </div>
+
+
+<script src="../js/tocbot.js?v=1.17.7"></script>
 
 </body>
 </html>

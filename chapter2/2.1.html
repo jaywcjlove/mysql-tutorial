@@ -9,17 +9,18 @@
   <meta name="description" content="官网下载安装包，选择相应的版本和格式，有 .dmg 和 tar压缩包两种。我选择了 Mac OS X 10.11 (x86, 64-bit), DMG Archive 的版本下载，目前网站下载需要你注册登录，这个完全免费注册登录进去，就可以">
   
   
-  <link rel="stylesheet" type="text/css" href="../css/main.css?v=1650650848981">
-  <link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1650650848981">
-  <link rel="stylesheet" type="text/css" href="../css/media.css?v=1650650848981">
-  <link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1650650848981">
-  <link rel="stylesheet" type="text/css" href="../css/copy.css?v=1650650848981">
+  <link rel="stylesheet" type="text/css" href="../css/main.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/media.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/copy.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/demo-preview.css?v=1.17.7">
   
     <link rel="icon" href="../mysql.svg" type="image/x-icon">
   
-  <script src="../js/copy.js"></script>
-  <script src="../js/dark-mode.js"></script>
-  <script src="../js/markdown-style.js"></script>
+  <script src="../js/copy.js?v=1.17.7"></script>
+  <script src="../js/dark-mode.js?v=1.17.7"></script>
+  <script src="../js/markdown-style.js?v=1.17.7"></script>
 </head>
 <body id="idoctotop">
   <a href="#idoctotop" class="gototop">top</a>
@@ -152,17 +153,17 @@
 <p><img src="../img/2.1_1.jpg" alt="MySQL"></p>
 <h2 id="mac-卸载mysql"><a aria-hidden="true" tabindex="-1" href="#mac-卸载mysql" class="anchor"><span class="icon icon-link"></span></a>Mac 卸载MySQL</h2>
 <p>通过下面命令删除干净MySQL，同时在进入 <strong>系统偏好设置</strong> 里面删除 MySQL 的图标的设置项，点击右键会弹出 <strong>移除MySQL偏好设置面板</strong></p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token function">sudo</span> <span class="token function">rm</span> -rf /usr/local/mysql*
-</span><span class="code-line"><span class="token function">sudo</span> <span class="token function">rm</span> -rf /Library/StartupItems/MySQLCOM
-</span><span class="code-line"><span class="token function">sudo</span> <span class="token function">rm</span> -rf /Library/PreferencePanes/My*
-</span><span class="code-line"><span class="token function">sudo</span> <span class="token function">rm</span> -rf /Library/Receipts/mysql*
-</span><span class="code-line"><span class="token function">sudo</span> <span class="token function">rm</span> -rf /Library/Receipts/MySQL*
-</span><span class="code-line"><span class="token function">sudo</span> <span class="token function">rm</span> -rf /var/db/receipts/com.mysql.*
-</span><span class="code-line"><span class="token function">vi</span> /Library/Receipts/InstallHistory.plist <span class="token comment"># 进入搜素 mysql , “shif+:” 输入mysql</span>
-</span><span class="code-line">
-</span><span class="code-line"><span class="token function">find</span> / -name mysql -print <span class="token operator"><span class="token file-descriptor important">2</span>></span> /dev/null
-</span><span class="code-line"><span class="token function">sudo</span> <span class="token function">find</span> / <span class="token operator">|</span> <span class="token function">grep</span> -i mysql
-</span></code><div onclick="copied(this)" data-code="sudo rm -rf /usr/local/mysql*
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token function">sudo</span> <span class="token function">rm</span> -rf /usr/local/mysql*
+</span><span class="code-line line-number" line="2"><span class="token function">sudo</span> <span class="token function">rm</span> -rf /Library/StartupItems/MySQLCOM
+</span><span class="code-line line-number" line="3"><span class="token function">sudo</span> <span class="token function">rm</span> -rf /Library/PreferencePanes/My*
+</span><span class="code-line line-number" line="4"><span class="token function">sudo</span> <span class="token function">rm</span> -rf /Library/Receipts/mysql*
+</span><span class="code-line line-number" line="5"><span class="token function">sudo</span> <span class="token function">rm</span> -rf /Library/Receipts/MySQL*
+</span><span class="code-line line-number" line="6"><span class="token function">sudo</span> <span class="token function">rm</span> -rf /var/db/receipts/com.mysql.*
+</span><span class="code-line line-number" line="7"><span class="token function">vi</span> /Library/Receipts/InstallHistory.plist <span class="token comment"># 进入搜素 mysql , “shif+:” 输入mysql</span>
+</span><span class="code-line line-number" line="8">
+</span><span class="code-line line-number" line="9"><span class="token function">find</span> / -name mysql -print <span class="token operator"><span class="token file-descriptor important">2</span>></span> /dev/null
+</span><span class="code-line line-number" line="10"><span class="token function">sudo</span> <span class="token function">find</span> / <span class="token operator">|</span> <span class="token function">grep</span> -i mysql
+</span></code><input type="hidden" value="sudo rm -rf /usr/local/mysql*
 sudo rm -rf /Library/StartupItems/MySQLCOM
 sudo rm -rf /Library/PreferencePanes/My*
 sudo rm -rf /Library/Receipts/mysql*
@@ -172,27 +173,27 @@ vi /Library/Receipts/InstallHistory.plist # 进入搜素 mysql , “shif+:” �
 
 find / -name mysql -print 2> /dev/null
 sudo find / | grep -i mysql
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h2 id="mysql命令不存在"><a aria-hidden="true" tabindex="-1" href="#mysql命令不存在" class="anchor"><span class="icon icon-link"></span></a>mysql命令不存在</h2>
 <p>有一个设置开机启动的勾选配置和一个服务启动和停止的按钮，管理MySQL服务。在命令行中就可以使用 MySQL 命令，新版 MySQL 如果没有mysql命令，提示 <strong>-bash: mysql: command not found</strong> 命令没有找到，你需要检测服务是否启动。</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">$ mysql -uroot -p
-</span><span class="code-line">-bash: mysql: <span class="token builtin class-name">command</span> not found
-</span></code><div onclick="copied(this)" data-code="$ mysql -uroot -p
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">$ mysql -uroot -p
+</span><span class="code-line line-number" line="2">-bash: mysql: <span class="token builtin class-name">command</span> not found
+</span></code><input type="hidden" value="$ mysql -uroot -p
 -bash: mysql: command not found
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>两种方式可以查看到服务是否启动，进入 <strong>系统偏好设置</strong> 查看服务运行状态。也可通过命令 <strong>ps -ef | grep mysql</strong> 查看服务是否启动，如果有多条记录输出到命令行面板，说明服务启动了。在服务启动中，MySQL 命令找不到，需要配置环境变量。</p>
 <p>编辑 <code>.bash_profile</code> ，如果你命令行安装了 oh-my-zsh 命令行工具，你需配置 <code>.zshrc</code> 。</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token function">sudo</span> <span class="token function">vim</span> ~/.bash_profile
-</span></code><div onclick="copied(this)" data-code="sudo vim ~/.bash_profile
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token function">sudo</span> <span class="token function">vim</span> ~/.bash_profile
+</span></code><input type="hidden" value="sudo vim ~/.bash_profile
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>在 .bash_profile 文件中添加下面文本</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token variable">${<span class="token environment constant">PATH</span>}</span>:/usr/local/mysql/bin 
-</span></code><div onclick="copied(this)" data-code="export PATH=${PATH}:/usr/local/mysql/bin 
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token variable">${<span class="token environment constant">PATH</span>}</span>:/usr/local/mysql/bin 
+</span></code><input type="hidden" value="export PATH=${PATH}:/usr/local/mysql/bin 
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>让 .bash_profile 配置文件立即生效：</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token builtin class-name">source</span> ~/.bash_profile
-</span></code><div onclick="copied(this)" data-code="source ~/.bash_profile
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token builtin class-name">source</span> ~/.bash_profile
+</span></code><input type="hidden" value="source ~/.bash_profile
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
     
 
 <div class="previous">
@@ -230,43 +231,48 @@ sudo find / | grep -i mysql
     <span>Edit this page on GitHub</span>
   </a>
   
-  <span class="atime">2022/04/22</span>
+  <span class="atime">2022/04/30</span>
   
 </section>
 
   </markdown-style>
   
 <nav class="tocs">
-  <aside class="inner toc"></aside>
+  <aside class="inner toc">
+    <ol class="tocs-list">
+    
+      <li>
+        <a href="#mac-安装mysql" class="tocs-link">Mac 安装MySQL</a>
+        
+      </li>
+    
+      <li>
+        <a href="#mac-卸载mysql" class="tocs-link">Mac 卸载MySQL</a>
+        
+      </li>
+    
+      <li>
+        <a href="#mysql命令不存在" class="tocs-link">mysql命令不存在</a>
+        
+      </li>
+    
+    </ol>
+  </aside>
 </nav>
 
-
-<script src="../js/tocbot.min.js?v=4.18.2"></script>
-<script>
-tocbot.init({
-  tocSelector: 'aside.inner',
-  contentSelector: 'markdown-style',
-  positionFixedSelector: 'aside.inner',
-  headingSelector: 'h1, h2, h3, h4',
-  collapseDepth: 2,
-
-  includeHtml: true,
-  includeTitleTags: false,
-  hasInnerContainers: true,
-  onClick: (e) => { console.log('you clicked a link', e) },
-  headingsOffset: 40,
-  scrollSmoothOffset: -40,
-});
-</script>
-
 </div>
+
+<script src="../js/demo-preview.js?v=1.17.7"></script>
 
 
 <div class="footer warpper">
   Released under the MIT License. Copyright © 2022 Kenny Wong<br />
-Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.13.4
+Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.17.7
 
 </div>
+
+
+<script src="../js/tocbot.js?v=1.17.7"></script>
 
 </body>
 </html>

@@ -9,17 +9,18 @@
   <meta name="description" content="这里简单的介绍几种Linux平台(Centos)/Mac安装MySQL，基本上大同小异，通过一些平台的软件管理工具来快速安装MySQL。">
   
   
-  <link rel="stylesheet" type="text/css" href="../css/main.css?v=1650650849030">
-  <link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1650650849030">
-  <link rel="stylesheet" type="text/css" href="../css/media.css?v=1650650849030">
-  <link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1650650849030">
-  <link rel="stylesheet" type="text/css" href="../css/copy.css?v=1650650849030">
+  <link rel="stylesheet" type="text/css" href="../css/main.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/media.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/copy.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/demo-preview.css?v=1.17.7">
   
     <link rel="icon" href="../mysql.svg" type="image/x-icon">
   
-  <script src="../js/copy.js"></script>
-  <script src="../js/dark-mode.js"></script>
-  <script src="../js/markdown-style.js"></script>
+  <script src="../js/copy.js?v=1.17.7"></script>
+  <script src="../js/dark-mode.js?v=1.17.7"></script>
+  <script src="../js/markdown-style.js?v=1.17.7"></script>
 </head>
 <body id="idoctotop">
   <a href="#idoctotop" class="gototop">top</a>
@@ -149,35 +150,35 @@
 <p>这里简单的介绍几种Linux平台(Centos)/Mac安装MySQL，基本上大同小异，通过一些平台的软件管理工具来快速安装MySQL。</p>
 <p>在 Centos6 中直接使用 yum 命令去安装 mysql，极为简单，接下来介绍在Centos6中 通过 yum工具安装 mysql 的步骤。</p>
 <h3 id="检查是否已安装"><a aria-hidden="true" tabindex="-1" href="#检查是否已安装" class="anchor"><span class="icon icon-link"></span></a>检查是否已安装</h3>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token comment"># 检查 MySQL 是否已安装</span>
-</span><span class="code-line">yum list installed <span class="token operator">|</span> <span class="token function">grep</span> mysql
-</span><span class="code-line">yum list installed mysql*
-</span><span class="code-line">
-</span><span class="code-line"><span class="token comment"># 查看当前 mysql 版本，看是否已安装</span>
-</span><span class="code-line">mysql --version
-</span><span class="code-line"><span class="token function">rpm</span> -qa <span class="token operator">|</span> <span class="token function">grep</span> mysql
-</span></code><div onclick="copied(this)" data-code="# 检查 MySQL 是否已安装
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token comment"># 检查 MySQL 是否已安装</span>
+</span><span class="code-line line-number" line="2">yum list installed <span class="token operator">|</span> <span class="token function">grep</span> mysql
+</span><span class="code-line line-number" line="3">yum list installed mysql*
+</span><span class="code-line line-number" line="4">
+</span><span class="code-line line-number" line="5"><span class="token comment"># 查看当前 mysql 版本，看是否已安装</span>
+</span><span class="code-line line-number" line="6">mysql --version
+</span><span class="code-line line-number" line="7"><span class="token function">rpm</span> -qa <span class="token operator">|</span> <span class="token function">grep</span> mysql
+</span></code><input type="hidden" value="# 检查 MySQL 是否已安装
 yum list installed | grep mysql
 yum list installed mysql*
 
 # 查看当前 mysql 版本，看是否已安装
 mysql --version
 rpm -qa | grep mysql
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h3 id="更新安装源"><a aria-hidden="true" tabindex="-1" href="#更新安装源" class="anchor"><span class="icon icon-link"></span></a>更新安装源</h3>
 <p>经过查看你可以开始安装了，直接使用 yum 命令去安装 mysql，按之前可以先看一下源的版本，如果源的版本过低，可以在<a href="http://dev.mysql.com/downloads/repo/yum/">这里下载</a>开发版新的源，发布吧源<a href="http://repo.mysql.com/yum/">在这里</a>更新，在安装的过程可以编辑<code>vim /etc/yum.repos.d/mysql-community.repo</code>选择发布系列版本，编辑如下，其中参数<code>enabled</code>的值为 0 的表示禁用，更改为 1 的时候你就可以默认安装 5.7，否则安装的将是 5.6 版。</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token comment"># 安装如果上面编辑前没有看到你想要的版本</span>
-</span><span class="code-line"><span class="token comment"># 可以更新源</span>
-</span><span class="code-line"><span class="token comment"># ===== CentOS6 =====</span>
-</span><span class="code-line"><span class="token comment"># wget http://dev.mysql.com/get/mysql57-community-release-el6-8.noarch.rpm</span>
-</span><span class="code-line"><span class="token comment"># ===== CentOS7 =====</span>
-</span><span class="code-line"><span class="token function">wget</span> http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
-</span><span class="code-line">yum localinstall mysql-community-release-el7-5.noarch.rpm
-</span><span class="code-line">
-</span><span class="code-line"><span class="token comment"># 卸载方法</span>
-</span><span class="code-line"><span class="token function">rpm</span> -e mysql-community-common-5.7.16-1.el6.x86_64
-</span><span class="code-line">
-</span></code><div onclick="copied(this)" data-code="# 安装如果上面编辑前没有看到你想要的版本
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token comment"># 安装如果上面编辑前没有看到你想要的版本</span>
+</span><span class="code-line line-number" line="2"><span class="token comment"># 可以更新源</span>
+</span><span class="code-line line-number" line="3"><span class="token comment"># ===== CentOS6 =====</span>
+</span><span class="code-line line-number" line="4"><span class="token comment"># wget http://dev.mysql.com/get/mysql57-community-release-el6-8.noarch.rpm</span>
+</span><span class="code-line line-number" line="5"><span class="token comment"># ===== CentOS7 =====</span>
+</span><span class="code-line line-number" line="6"><span class="token function">wget</span> http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
+</span><span class="code-line line-number" line="7">yum localinstall mysql-community-release-el7-5.noarch.rpm
+</span><span class="code-line line-number" line="8">
+</span><span class="code-line line-number" line="9"><span class="token comment"># 卸载方法</span>
+</span><span class="code-line line-number" line="10"><span class="token function">rpm</span> -e mysql-community-common-5.7.16-1.el6.x86_64
+</span><span class="code-line line-number" line="11">
+</span></code><input type="hidden" value="# 安装如果上面编辑前没有看到你想要的版本
 # 可以更新源
 # ===== CentOS6 =====
 # wget http://dev.mysql.com/get/mysql57-community-release-el6-8.noarch.rpm
@@ -188,35 +189,35 @@ yum localinstall mysql-community-release-el7-5.noarch.rpm
 # 卸载方法
 rpm -e mysql-community-common-5.7.16-1.el6.x86_64
 
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h3 id="检查是否下载成功"><a aria-hidden="true" tabindex="-1" href="#检查是否下载成功" class="anchor"><span class="icon icon-link"></span></a>检查是否下载成功</h3>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token punctuation">[</span>root@localhost yum.repos.d<span class="token punctuation">]</span><span class="token comment"># yum repolist enabled | grep "mysql.*-community.*"</span>
-</span><span class="code-line">mysql-connectors-community/x86_64       MySQL Connectors Community           <span class="token number">36</span>
-</span><span class="code-line">mysql-tools-community/x86_64            MySQL Tools Community                <span class="token number">47</span>
-</span><span class="code-line">mysql56-community/x86_64                MySQL <span class="token number">5.6</span> Community Server          <span class="token number">327</span>
-</span></code><div onclick="copied(this)" data-code="[root@localhost yum.repos.d]# yum repolist enabled | grep &#x22;mysql.*-community.*&#x22;
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token punctuation">[</span>root@localhost yum.repos.d<span class="token punctuation">]</span><span class="token comment"># yum repolist enabled | grep "mysql.*-community.*"</span>
+</span><span class="code-line line-number" line="2">mysql-connectors-community/x86_64       MySQL Connectors Community           <span class="token number">36</span>
+</span><span class="code-line line-number" line="3">mysql-tools-community/x86_64            MySQL Tools Community                <span class="token number">47</span>
+</span><span class="code-line line-number" line="4">mysql56-community/x86_64                MySQL <span class="token number">5.6</span> Community Server          <span class="token number">327</span>
+</span></code><input type="hidden" value="[root@localhost yum.repos.d]# yum repolist enabled | grep &#x22;mysql.*-community.*&#x22;
 mysql-connectors-community/x86_64       MySQL Connectors Community           36
 mysql-tools-community/x86_64            MySQL Tools Community                47
 mysql56-community/x86_64                MySQL 5.6 Community Server          327
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h3 id="查看版本"><a aria-hidden="true" tabindex="-1" href="#查看版本" class="anchor"><span class="icon icon-link"></span></a>查看版本</h3>
 <p>选择要启用 MySQL 版本查看 MySQL 版本，执行</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">yum repolist all <span class="token operator">|</span> <span class="token function">grep</span> mysql
-</span></code><div onclick="copied(this)" data-code="yum repolist all | grep mysql
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">yum repolist all <span class="token operator">|</span> <span class="token function">grep</span> mysql
+</span></code><input type="hidden" value="yum repolist all | grep mysql
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>可以看到 5.5， 5.7 版本是默认禁用的，因为现在最新的稳定版是 5.6</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token punctuation">[</span>root@localhost yum.repos.d<span class="token punctuation">]</span><span class="token comment"># yum repolist all | grep mysql</span>
-</span><span class="code-line">mysql-connectors-community/x86_64 MySQL Connectors Community      enabled:    <span class="token number">36</span>
-</span><span class="code-line">mysql-connectors-community-source MySQL Connectors Community - So disabled
-</span><span class="code-line">mysql-tools-community/x86_64      MySQL Tools Community           enabled:    <span class="token number">47</span>
-</span><span class="code-line">mysql-tools-community-source      MySQL Tools Community - Source  disabled
-</span><span class="code-line">mysql55-community/x86_64          MySQL <span class="token number">5.5</span> Community Server      disabled
-</span><span class="code-line">mysql55-community-source          MySQL <span class="token number">5.5</span> Community Server - So disabled
-</span><span class="code-line">mysql56-community/x86_64          MySQL <span class="token number">5.6</span> Community Server      enabled:   <span class="token number">327</span>
-</span><span class="code-line">mysql56-community-source          MySQL <span class="token number">5.6</span> Community Server - So disabled
-</span><span class="code-line">mysql57-community-dmr/x86_64      MySQL <span class="token number">5.7</span> Community Server Deve disabled
-</span><span class="code-line">mysql57-community-dmr-source      MySQL <span class="token number">5.7</span> Community Server Deve disabled
-</span></code><div onclick="copied(this)" data-code="[root@localhost yum.repos.d]# yum repolist all | grep mysql
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token punctuation">[</span>root@localhost yum.repos.d<span class="token punctuation">]</span><span class="token comment"># yum repolist all | grep mysql</span>
+</span><span class="code-line line-number" line="2">mysql-connectors-community/x86_64 MySQL Connectors Community      enabled:    <span class="token number">36</span>
+</span><span class="code-line line-number" line="3">mysql-connectors-community-source MySQL Connectors Community - So disabled
+</span><span class="code-line line-number" line="4">mysql-tools-community/x86_64      MySQL Tools Community           enabled:    <span class="token number">47</span>
+</span><span class="code-line line-number" line="5">mysql-tools-community-source      MySQL Tools Community - Source  disabled
+</span><span class="code-line line-number" line="6">mysql55-community/x86_64          MySQL <span class="token number">5.5</span> Community Server      disabled
+</span><span class="code-line line-number" line="7">mysql55-community-source          MySQL <span class="token number">5.5</span> Community Server - So disabled
+</span><span class="code-line line-number" line="8">mysql56-community/x86_64          MySQL <span class="token number">5.6</span> Community Server      enabled:   <span class="token number">327</span>
+</span><span class="code-line line-number" line="9">mysql56-community-source          MySQL <span class="token number">5.6</span> Community Server - So disabled
+</span><span class="code-line line-number" line="10">mysql57-community-dmr/x86_64      MySQL <span class="token number">5.7</span> Community Server Deve disabled
+</span><span class="code-line line-number" line="11">mysql57-community-dmr-source      MySQL <span class="token number">5.7</span> Community Server Deve disabled
+</span></code><input type="hidden" value="[root@localhost yum.repos.d]# yum repolist all | grep mysql
 mysql-connectors-community/x86_64 MySQL Connectors Community      enabled:    36
 mysql-connectors-community-source MySQL Connectors Community - So disabled
 mysql-tools-community/x86_64      MySQL Tools Community           enabled:    47
@@ -227,24 +228,24 @@ mysql56-community/x86_64          MySQL 5.6 Community Server      enabled:   327
 mysql56-community-source          MySQL 5.6 Community Server - So disabled
 mysql57-community-dmr/x86_64      MySQL 5.7 Community Server Deve disabled
 mysql57-community-dmr-source      MySQL 5.7 Community Server Deve disabled
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h3 id="启动指定版本"><a aria-hidden="true" tabindex="-1" href="#启动指定版本" class="anchor"><span class="icon icon-link"></span></a>启动指定版本</h3>
 <p>可以通过类似下面的语句来启动某些版本</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">yum-config-manager --disable mysql56-community
-</span><span class="code-line">yum-config-manager --enable mysql57-community-dmr
-</span></code><div onclick="copied(this)" data-code="yum-config-manager --disable mysql56-community
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">yum-config-manager --disable mysql56-community
+</span><span class="code-line line-number" line="2">yum-config-manager --enable mysql57-community-dmr
+</span></code><input type="hidden" value="yum-config-manager --disable mysql56-community
 yum-config-manager --enable mysql57-community-dmr
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>或者通过修改 <code>/etc/yum.repos.d/mysql-community.repo</code> 文件。</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token comment"># Note: MySQL 5.7 is currently in development. For use at your own risk.</span>
-</span><span class="code-line"><span class="token comment"># Please read with sub pages: https://dev.mysql.com/doc/relnotes/mysql/5.7/en/</span>
-</span><span class="code-line"><span class="token punctuation">[</span>mysql57-community-dmr<span class="token punctuation">]</span>
-</span><span class="code-line"><span class="token assign-left variable">name</span><span class="token operator">=</span>MySQL <span class="token number">5.7</span> Community Server Development Milestone Release
-</span><span class="code-line"><span class="token assign-left variable">baseurl</span><span class="token operator">=</span>http://repo.mysql.com/yum/mysql-5.7-community/el/7/<span class="token variable">$basearch</span>/
-</span><span class="code-line"><span class="token assign-left variable">enabled</span><span class="token operator">=</span><span class="token number">1</span>
-</span><span class="code-line"><span class="token assign-left variable">gpgcheck</span><span class="token operator">=</span><span class="token number">1</span>
-</span><span class="code-line"><span class="token assign-left variable">gpgkey</span><span class="token operator">=</span>file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
-</span></code><div onclick="copied(this)" data-code="# Note: MySQL 5.7 is currently in development. For use at your own risk.
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token comment"># Note: MySQL 5.7 is currently in development. For use at your own risk.</span>
+</span><span class="code-line line-number" line="2"><span class="token comment"># Please read with sub pages: https://dev.mysql.com/doc/relnotes/mysql/5.7/en/</span>
+</span><span class="code-line line-number" line="3"><span class="token punctuation">[</span>mysql57-community-dmr<span class="token punctuation">]</span>
+</span><span class="code-line line-number" line="4"><span class="token assign-left variable">name</span><span class="token operator">=</span>MySQL <span class="token number">5.7</span> Community Server Development Milestone Release
+</span><span class="code-line line-number" line="5"><span class="token assign-left variable">baseurl</span><span class="token operator">=</span>http://repo.mysql.com/yum/mysql-5.7-community/el/7/<span class="token variable">$basearch</span>/
+</span><span class="code-line line-number" line="6"><span class="token assign-left variable">enabled</span><span class="token operator">=</span><span class="token number">1</span>
+</span><span class="code-line line-number" line="7"><span class="token assign-left variable">gpgcheck</span><span class="token operator">=</span><span class="token number">1</span>
+</span><span class="code-line line-number" line="8"><span class="token assign-left variable">gpgkey</span><span class="token operator">=</span>file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
+</span></code><input type="hidden" value="# Note: MySQL 5.7 is currently in development. For use at your own risk.
 # Please read with sub pages: https://dev.mysql.com/doc/relnotes/mysql/5.7/en/
 [mysql57-community-dmr]
 name=MySQL 5.7 Community Server Development Milestone Release
@@ -252,43 +253,43 @@ baseurl=http://repo.mysql.com/yum/mysql-5.7-community/el/7/$basearch/
 enabled=1
 gpgcheck=1
 gpgkey=file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>其中 <code>enabled=0</code> 是指禁用，<code>enabled=1</code> 指启用。<br>
 注意： 任何时候，只能启用一个版本。</p>
 <p>查看当前启用的版本</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token punctuation">[</span>root@localhost yum.repos.d<span class="token punctuation">]</span><span class="token comment"># yum repolist enabled | grep mysql</span>
-</span><span class="code-line">mysql-connectors-community/x86_64 MySQL Connectors Community                 <span class="token number">36</span>
-</span><span class="code-line">mysql-tools-community/x86_64      MySQL Tools Community                      <span class="token number">47</span>
-</span><span class="code-line">mysql57-community-dmr/x86_64      MySQL <span class="token number">5.7</span> Community Server Development    <span class="token number">187</span>
-</span></code><div onclick="copied(this)" data-code="[root@localhost yum.repos.d]# yum repolist enabled | grep mysql
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token punctuation">[</span>root@localhost yum.repos.d<span class="token punctuation">]</span><span class="token comment"># yum repolist enabled | grep mysql</span>
+</span><span class="code-line line-number" line="2">mysql-connectors-community/x86_64 MySQL Connectors Community                 <span class="token number">36</span>
+</span><span class="code-line line-number" line="3">mysql-tools-community/x86_64      MySQL Tools Community                      <span class="token number">47</span>
+</span><span class="code-line line-number" line="4">mysql57-community-dmr/x86_64      MySQL <span class="token number">5.7</span> Community Server Development    <span class="token number">187</span>
+</span></code><input type="hidden" value="[root@localhost yum.repos.d]# yum repolist enabled | grep mysql
 mysql-connectors-community/x86_64 MySQL Connectors Community                 36
 mysql-tools-community/x86_64      MySQL Tools Community                      47
 mysql57-community-dmr/x86_64      MySQL 5.7 Community Server Development    187
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h3 id="安装mysql"><a aria-hidden="true" tabindex="-1" href="#安装mysql" class="anchor"><span class="icon icon-link"></span></a>安装MySQL</h3>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">yum <span class="token function">install</span> mysql-server
-</span><span class="code-line">
-</span><span class="code-line">Retrieving key from file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
-</span><span class="code-line">Importing GPG key 0x5072E1F5:
-</span><span class="code-line"> Userid     <span class="token builtin class-name">:</span> <span class="token string">"MySQL Release Engineering &#x3C;mysql-build@oss.oracle.com>"</span>
-</span><span class="code-line"> Fingerprint: a4a9 <span class="token number">4068</span> 76fc bd3c <span class="token number">4567</span> 70c8 8c71 8d3b <span class="token number">5072</span> e1f5
-</span><span class="code-line"> Package    <span class="token builtin class-name">:</span> mysql-community-release-el7-5.noarch <span class="token punctuation">(</span>installed<span class="token punctuation">)</span>
-</span><span class="code-line"> From       <span class="token builtin class-name">:</span> file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
-</span><span class="code-line">Is this ok <span class="token punctuation">[</span>y/N<span class="token punctuation">]</span>: y
-</span><span class="code-line">
-</span><span class="code-line"><span class="token comment">## 遇到上述提示，输入 y 继续，执行完成会提示“完毕！”。此时MySQL 安装完成，它包含了 mysql-community-server、mysql-community-client、mysql-community-common、mysql-community-libs 四个包。</span>
-</span><span class="code-line">
-</span><span class="code-line"><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span>
-</span><span class="code-line">
-</span><span class="code-line">Installed:
-</span><span class="code-line">  mysql-community-libs.x86_64 <span class="token number">0</span>:5.7.18-1.el7  mysql-community-libs-compat.x86_64 <span class="token number">0</span>:5.7.18-1.el7  mysql-community-server.x86_64 <span class="token number">0</span>:5.7.18-1.el7
-</span><span class="code-line">
-</span><span class="code-line">Dependency Installed:
-</span><span class="code-line">  mysql-community-client.x86_64 <span class="token number">0</span>:5.7.18-1.el7   mysql-community-common.x86_64 <span class="token number">0</span>:5.7.18-1.el7   net-tools.x86_64 <span class="token number">0</span>:2.0-0.17.20131004git.el7
-</span><span class="code-line">
-</span><span class="code-line">Replaced:
-</span><span class="code-line">  mariadb-libs.x86_64 <span class="token number">1</span>:5.5.44-2.el7.centos
-</span></code><div onclick="copied(this)" data-code="yum install mysql-server
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">yum <span class="token function">install</span> mysql-server
+</span><span class="code-line line-number" line="2">
+</span><span class="code-line line-number" line="3">Retrieving key from file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
+</span><span class="code-line line-number" line="4">Importing GPG key 0x5072E1F5:
+</span><span class="code-line line-number" line="5"> Userid     <span class="token builtin class-name">:</span> <span class="token string">"MySQL Release Engineering &#x3C;mysql-build@oss.oracle.com>"</span>
+</span><span class="code-line line-number" line="6"> Fingerprint: a4a9 <span class="token number">4068</span> 76fc bd3c <span class="token number">4567</span> 70c8 8c71 8d3b <span class="token number">5072</span> e1f5
+</span><span class="code-line line-number" line="7"> Package    <span class="token builtin class-name">:</span> mysql-community-release-el7-5.noarch <span class="token punctuation">(</span>installed<span class="token punctuation">)</span>
+</span><span class="code-line line-number" line="8"> From       <span class="token builtin class-name">:</span> file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
+</span><span class="code-line line-number" line="9">Is this ok <span class="token punctuation">[</span>y/N<span class="token punctuation">]</span>: y
+</span><span class="code-line line-number" line="10">
+</span><span class="code-line line-number" line="11"><span class="token comment">## 遇到上述提示，输入 y 继续，执行完成会提示“完毕！”。此时MySQL 安装完成，它包含了 mysql-community-server、mysql-community-client、mysql-community-common、mysql-community-libs 四个包。</span>
+</span><span class="code-line line-number" line="12">
+</span><span class="code-line line-number" line="13"><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span>
+</span><span class="code-line line-number" line="14">
+</span><span class="code-line line-number" line="15">Installed:
+</span><span class="code-line line-number" line="16">  mysql-community-libs.x86_64 <span class="token number">0</span>:5.7.18-1.el7  mysql-community-libs-compat.x86_64 <span class="token number">0</span>:5.7.18-1.el7  mysql-community-server.x86_64 <span class="token number">0</span>:5.7.18-1.el7
+</span><span class="code-line line-number" line="17">
+</span><span class="code-line line-number" line="18">Dependency Installed:
+</span><span class="code-line line-number" line="19">  mysql-community-client.x86_64 <span class="token number">0</span>:5.7.18-1.el7   mysql-community-common.x86_64 <span class="token number">0</span>:5.7.18-1.el7   net-tools.x86_64 <span class="token number">0</span>:2.0-0.17.20131004git.el7
+</span><span class="code-line line-number" line="20">
+</span><span class="code-line line-number" line="21">Replaced:
+</span><span class="code-line line-number" line="22">  mariadb-libs.x86_64 <span class="token number">1</span>:5.5.44-2.el7.centos
+</span></code><input type="hidden" value="yum install mysql-server
 
 Retrieving key from file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
 Importing GPG key 0x5072E1F5:
@@ -310,46 +311,46 @@ Dependency Installed:
 
 Replaced:
   mariadb-libs.x86_64 1:5.5.44-2.el7.centos
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>执行</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token function">rpm</span> -qi mysql-community-server.x86_64 <span class="token number">0</span>:5.6.24-3.el7
-</span></code><div onclick="copied(this)" data-code="rpm -qi mysql-community-server.x86_64 0:5.6.24-3.el7
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token function">rpm</span> -qi mysql-community-server.x86_64 <span class="token number">0</span>:5.6.24-3.el7
+</span></code><input type="hidden" value="rpm -qi mysql-community-server.x86_64 0:5.6.24-3.el7
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h3 id="查看安装目录"><a aria-hidden="true" tabindex="-1" href="#查看安装目录" class="anchor"><span class="icon icon-link"></span></a>查看安装目录</h3>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token function">whereis</span> mysql
-</span><span class="code-line">
-</span><span class="code-line">mysql: /usr/bin/mysql /usr/lib64/mysql /usr/share/mysql /usr/share/man/man1/mysql.1.gz
-</span></code><div onclick="copied(this)" data-code="whereis mysql
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token function">whereis</span> mysql
+</span><span class="code-line line-number" line="2">
+</span><span class="code-line line-number" line="3">mysql: /usr/bin/mysql /usr/lib64/mysql /usr/share/mysql /usr/share/man/man1/mysql.1.gz
+</span></code><input type="hidden" value="whereis mysql
 
 mysql: /usr/bin/mysql /usr/lib64/mysql /usr/share/mysql /usr/share/man/man1/mysql.1.gz
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>可以看到 MySQL 的安装目录是 /usr/bin/</p>
 <h3 id="mariadb切换mysql"><a aria-hidden="true" tabindex="-1" href="#mariadb切换mysql" class="anchor"><span class="icon icon-link"></span></a>MariaDB切换MySQL</h3>
 <p>Centos7 上面默认是 MariaDB 不是MySQL了，所以 Centos6 安装会报错。在 Centos7 中，运行下面命令安装就不会有错误了，但是你的数据库被换成了MariaDB，MariaDB登录链接SQL语句等几乎一样。</p>
-<pre class="language-shell"><code class="language-shell code-highlight"><span class="code-line"><span class="token comment"># 安装 mariadb-server</span>
-</span><span class="code-line">yum <span class="token function">install</span> mariadb-server -y
-</span><span class="code-line">
-</span><span class="code-line"><span class="token comment"># 启动 mariadb</span>
-</span><span class="code-line">systemctl start mariadb.service
-</span><span class="code-line">systemctl <span class="token builtin class-name">enable</span> mariadb.service
-</span></code><div onclick="copied(this)" data-code="# 安装 mariadb-server
+<pre class="language-shell"><code class="language-shell code-highlight"><span class="code-line line-number" line="1"><span class="token comment"># 安装 mariadb-server</span>
+</span><span class="code-line line-number" line="2">yum <span class="token function">install</span> mariadb-server -y
+</span><span class="code-line line-number" line="3">
+</span><span class="code-line line-number" line="4"><span class="token comment"># 启动 mariadb</span>
+</span><span class="code-line line-number" line="5">systemctl start mariadb.service
+</span><span class="code-line line-number" line="6">systemctl <span class="token builtin class-name">enable</span> mariadb.service
+</span></code><input type="hidden" value="# 安装 mariadb-server
 yum install mariadb-server -y
 
 # 启动 mariadb
 systemctl start mariadb.service
 systemctl enable mariadb.service
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>那在 Centos7 中默认安装 MySQL 会报错误，大概是我下面这样样子：</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">--<span class="token operator">></span> 正在处理依赖关系 libmysqlclient.so.18<span class="token punctuation">(</span>libmysqlclient_18<span class="token punctuation">)</span><span class="token punctuation">(</span>64bit<span class="token punctuation">)</span>，它被软件包 <span class="token number">2</span>:postfix-2.10.1-6.el7.x86_64 需要
-</span><span class="code-line">---<span class="token operator">></span> 软件包 mysql-community-libs.x86_64.0.5.7.16-1.el6 将被 舍弃
-</span><span class="code-line">--<span class="token operator">></span> 解决依赖关系完成
-</span><span class="code-line">错误：软件包：2:postfix-2.10.1-6.el7.x86_64 <span class="token punctuation">(</span>@anaconda<span class="token punctuation">)</span>
-</span><span class="code-line">          需要：libmysqlclient.so.18<span class="token punctuation">(</span>libmysqlclient_18<span class="token punctuation">)</span><span class="token punctuation">(</span>64bit<span class="token punctuation">)</span>
-</span><span class="code-line">          正在删除: <span class="token number">1</span>:mariadb-libs-5.5.50-1.el7_2.x86_64 <span class="token punctuation">(</span>@updates<span class="token punctuation">)</span>
-</span><span class="code-line">              libmysqlclient.so.18<span class="token punctuation">(</span>libmysqlclient_18<span class="token punctuation">)</span><span class="token punctuation">(</span>64bit<span class="token punctuation">)</span>
-</span><span class="code-line">          取代，由: mysql-community-libs-5.7.16-1.el6.x86_64 <span class="token punctuation">(</span>mysql57-community<span class="token punctuation">)</span>
-</span><span class="code-line">             <span class="token punctuation">..</span><span class="token punctuation">..</span>
-</span></code><div onclick="copied(this)" data-code="--> 正在处理依赖关系 libmysqlclient.so.18(libmysqlclient_18)(64bit)，它被软件包 2:postfix-2.10.1-6.el7.x86_64 需要
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">--<span class="token operator">></span> 正在处理依赖关系 libmysqlclient.so.18<span class="token punctuation">(</span>libmysqlclient_18<span class="token punctuation">)</span><span class="token punctuation">(</span>64bit<span class="token punctuation">)</span>，它被软件包 <span class="token number">2</span>:postfix-2.10.1-6.el7.x86_64 需要
+</span><span class="code-line line-number" line="2">---<span class="token operator">></span> 软件包 mysql-community-libs.x86_64.0.5.7.16-1.el6 将被 舍弃
+</span><span class="code-line line-number" line="3">--<span class="token operator">></span> 解决依赖关系完成
+</span><span class="code-line line-number" line="4">错误：软件包：2:postfix-2.10.1-6.el7.x86_64 <span class="token punctuation">(</span>@anaconda<span class="token punctuation">)</span>
+</span><span class="code-line line-number" line="5">          需要：libmysqlclient.so.18<span class="token punctuation">(</span>libmysqlclient_18<span class="token punctuation">)</span><span class="token punctuation">(</span>64bit<span class="token punctuation">)</span>
+</span><span class="code-line line-number" line="6">          正在删除: <span class="token number">1</span>:mariadb-libs-5.5.50-1.el7_2.x86_64 <span class="token punctuation">(</span>@updates<span class="token punctuation">)</span>
+</span><span class="code-line line-number" line="7">              libmysqlclient.so.18<span class="token punctuation">(</span>libmysqlclient_18<span class="token punctuation">)</span><span class="token punctuation">(</span>64bit<span class="token punctuation">)</span>
+</span><span class="code-line line-number" line="8">          取代，由: mysql-community-libs-5.7.16-1.el6.x86_64 <span class="token punctuation">(</span>mysql57-community<span class="token punctuation">)</span>
+</span><span class="code-line line-number" line="9">             <span class="token punctuation">..</span><span class="token punctuation">..</span>
+</span></code><input type="hidden" value="--> 正在处理依赖关系 libmysqlclient.so.18(libmysqlclient_18)(64bit)，它被软件包 2:postfix-2.10.1-6.el7.x86_64 需要
 ---> 软件包 mysql-community-libs.x86_64.0.5.7.16-1.el6 将被 舍弃
 --> 解决依赖关系完成
 错误：软件包：2:postfix-2.10.1-6.el7.x86_64 (@anaconda)
@@ -358,58 +359,58 @@ systemctl enable mariadb.service
               libmysqlclient.so.18(libmysqlclient_18)(64bit)
           取代，由: mysql-community-libs-5.7.16-1.el6.x86_64 (mysql57-community)
              ....
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>如果你非要用 MySQL 那你先卸载 <strong>yum remove mariadb</strong> 和 <strong>yum remove mysql-libs</strong> 重新进行安装 <strong>yum install mysql-server</strong> 或许可解决 Centos7 安装mysql报上面错误的问题，具体问题还得具体看。</p>
-<pre class="language-shell"><code class="language-shell code-highlight"><span class="code-line"><span class="token comment"># 卸载 mariadb 和 mysql-libs</span>
-</span><span class="code-line">yum remove mariadb
-</span><span class="code-line">yum remove mysql-libs
-</span><span class="code-line"><span class="token comment"># 安装mysql</span>
-</span><span class="code-line">yum <span class="token function">install</span> mysql-server
-</span></code><div onclick="copied(this)" data-code="# 卸载 mariadb 和 mysql-libs
+<pre class="language-shell"><code class="language-shell code-highlight"><span class="code-line line-number" line="1"><span class="token comment"># 卸载 mariadb 和 mysql-libs</span>
+</span><span class="code-line line-number" line="2">yum remove mariadb
+</span><span class="code-line line-number" line="3">yum remove mysql-libs
+</span><span class="code-line line-number" line="4"><span class="token comment"># 安装mysql</span>
+</span><span class="code-line line-number" line="5">yum <span class="token function">install</span> mysql-server
+</span></code><input type="hidden" value="# 卸载 mariadb 和 mysql-libs
 yum remove mariadb
 yum remove mysql-libs
 # 安装mysql
 yum install mysql-server
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p><strong>安装发生依赖错误</strong></p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">--<span class="token operator">></span> Finished Dependency Resolution
-</span><span class="code-line">Error: Package: mysql-community-server-5.7.19-1.el6.x86_64 <span class="token punctuation">(</span>mysql57-community<span class="token punctuation">)</span>
-</span><span class="code-line">           Requires: libsasl2.so.2<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">(</span>64bit<span class="token punctuation">)</span>
-</span><span class="code-line"> You could try using --skip-broken to work around the problem
-</span><span class="code-line"> You could try running: <span class="token function">rpm</span> -Va --nofiles --nodigest
-</span></code><div onclick="copied(this)" data-code="--> Finished Dependency Resolution
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">--<span class="token operator">></span> Finished Dependency Resolution
+</span><span class="code-line line-number" line="2">Error: Package: mysql-community-server-5.7.19-1.el6.x86_64 <span class="token punctuation">(</span>mysql57-community<span class="token punctuation">)</span>
+</span><span class="code-line line-number" line="3">           Requires: libsasl2.so.2<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">(</span>64bit<span class="token punctuation">)</span>
+</span><span class="code-line line-number" line="4"> You could try using --skip-broken to work around the problem
+</span><span class="code-line line-number" line="5"> You could try running: <span class="token function">rpm</span> -Va --nofiles --nodigest
+</span></code><input type="hidden" value="--> Finished Dependency Resolution
 Error: Package: mysql-community-server-5.7.19-1.el6.x86_64 (mysql57-community)
            Requires: libsasl2.so.2()(64bit)
  You could try using --skip-broken to work around the problem
  You could try running: rpm -Va --nofiles --nodigest
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>通过更新来解决</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">yum update
-</span><span class="code-line"><span class="token comment"># 通过提示来解决错误，80%软件不能用，或者部分功能不能用</span>
-</span><span class="code-line"><span class="token comment"># 不建议下面方式解决</span>
-</span><span class="code-line">yum <span class="token function">install</span> mysql-server --skip-broken
-</span><span class="code-line"><span class="token function">rpm</span> -Va --nofiles --nodiges
-</span></code><div onclick="copied(this)" data-code="yum update
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">yum update
+</span><span class="code-line line-number" line="2"><span class="token comment"># 通过提示来解决错误，80%软件不能用，或者部分功能不能用</span>
+</span><span class="code-line line-number" line="3"><span class="token comment"># 不建议下面方式解决</span>
+</span><span class="code-line line-number" line="4">yum <span class="token function">install</span> mysql-server --skip-broken
+</span><span class="code-line line-number" line="5"><span class="token function">rpm</span> -Va --nofiles --nodiges
+</span></code><input type="hidden" value="yum update
 # 通过提示来解决错误，80%软件不能用，或者部分功能不能用
 # 不建议下面方式解决
 yum install mysql-server --skip-broken
 rpm -Va --nofiles --nodiges
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h2 id="卸载-mysql-软件"><a aria-hidden="true" tabindex="-1" href="#卸载-mysql-软件" class="anchor"><span class="icon icon-link"></span></a>卸载 MySQL 软件</h2>
 <h3 id="卸载mysql"><a aria-hidden="true" tabindex="-1" href="#卸载mysql" class="anchor"><span class="icon icon-link"></span></a>卸载mysql</h3>
 <p>通过下面这条命令查看本地mysql安装包</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token comment"># Linux查看</span>
-</span><span class="code-line"><span class="token function">rpm</span> -qa <span class="token operator">|</span> <span class="token function">grep</span> -i mysql
-</span><span class="code-line">
-</span><span class="code-line"><span class="token comment"># 输出结果</span>
-</span><span class="code-line">perl-DBD-MySQL-4.013-3.el6.x86_64
-</span><span class="code-line">mysql-community-libs-5.6.33-2.el6.x86_64
-</span><span class="code-line">mysql-community-release-el6-5.noarch
-</span><span class="code-line">mysql-community-client-5.6.33-2.el6.x86_64
-</span><span class="code-line">compat-mysql51-5.1.54-1.el6.remi.x86_64
-</span><span class="code-line">mysql-community-server-5.6.33-2.el6.x86_64
-</span><span class="code-line">mysql-community-common-5.6.33-2.el6.x86_64
-</span></code><div onclick="copied(this)" data-code="# Linux查看
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token comment"># Linux查看</span>
+</span><span class="code-line line-number" line="2"><span class="token function">rpm</span> -qa <span class="token operator">|</span> <span class="token function">grep</span> -i mysql
+</span><span class="code-line line-number" line="3">
+</span><span class="code-line line-number" line="4"><span class="token comment"># 输出结果</span>
+</span><span class="code-line line-number" line="5">perl-DBD-MySQL-4.013-3.el6.x86_64
+</span><span class="code-line line-number" line="6">mysql-community-libs-5.6.33-2.el6.x86_64
+</span><span class="code-line line-number" line="7">mysql-community-release-el6-5.noarch
+</span><span class="code-line line-number" line="8">mysql-community-client-5.6.33-2.el6.x86_64
+</span><span class="code-line line-number" line="9">compat-mysql51-5.1.54-1.el6.remi.x86_64
+</span><span class="code-line line-number" line="10">mysql-community-server-5.6.33-2.el6.x86_64
+</span><span class="code-line line-number" line="11">mysql-community-common-5.6.33-2.el6.x86_64
+</span></code><input type="hidden" value="# Linux查看
 rpm -qa | grep -i mysql
 
 # 输出结果
@@ -420,28 +421,28 @@ mysql-community-client-5.6.33-2.el6.x86_64
 compat-mysql51-5.1.54-1.el6.remi.x86_64
 mysql-community-server-5.6.33-2.el6.x86_64
 mysql-community-common-5.6.33-2.el6.x86_64
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>你下面命令将它删除</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token function">rpm</span> -e mysql-community-server-5.6.33-2.el6.x86_64
-</span><span class="code-line"><span class="token function">rpm</span> -e compat-mysql51-5.1.54-1.el6.remi.x86_64
-</span></code><div onclick="copied(this)" data-code="rpm -e mysql-community-server-5.6.33-2.el6.x86_64
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token function">rpm</span> -e mysql-community-server-5.6.33-2.el6.x86_64
+</span><span class="code-line line-number" line="2"><span class="token function">rpm</span> -e compat-mysql51-5.1.54-1.el6.remi.x86_64
+</span></code><input type="hidden" value="rpm -e mysql-community-server-5.6.33-2.el6.x86_64
 rpm -e compat-mysql51-5.1.54-1.el6.remi.x86_64
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h3 id="删除mysql服务"><a aria-hidden="true" tabindex="-1" href="#删除mysql服务" class="anchor"><span class="icon icon-link"></span></a>删除mysql服务</h3>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token function">chkconfig</span> --list <span class="token operator">|</span> <span class="token function">grep</span> -i mysql
-</span><span class="code-line"><span class="token function">chkconfig</span> --del mysql
-</span></code><div onclick="copied(this)" data-code="chkconfig --list | grep -i mysql
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token function">chkconfig</span> --list <span class="token operator">|</span> <span class="token function">grep</span> -i mysql
+</span><span class="code-line line-number" line="2"><span class="token function">chkconfig</span> --del mysql
+</span></code><input type="hidden" value="chkconfig --list | grep -i mysql
 chkconfig --del mysql
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h3 id="删除分散mysql文件夹"><a aria-hidden="true" tabindex="-1" href="#删除分散mysql文件夹" class="anchor"><span class="icon icon-link"></span></a>删除分散mysql文件夹</h3>
 <p>清空相关mysql的所有目录以及文件，<code>whereis mysql</code> 或者 <code>find / -name mysql</code> 找到所有文件夹。</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token function">rm</span> -rf /usr/lib/mysql
-</span><span class="code-line"><span class="token function">rm</span> -rf /usr/share/mysql
-</span><span class="code-line"><span class="token function">rm</span> -rf /usr/my.cnf
-</span></code><div onclick="copied(this)" data-code="rm -rf /usr/lib/mysql
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token function">rm</span> -rf /usr/lib/mysql
+</span><span class="code-line line-number" line="2"><span class="token function">rm</span> -rf /usr/share/mysql
+</span><span class="code-line line-number" line="3"><span class="token function">rm</span> -rf /usr/my.cnf
+</span></code><input type="hidden" value="rm -rf /usr/lib/mysql
 rm -rf /usr/share/mysql
 rm -rf /usr/my.cnf
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
     
 
 <div class="previous">
@@ -479,43 +480,73 @@ rm -rf /usr/my.cnf
     <span>Edit this page on GitHub</span>
   </a>
   
-  <span class="atime">2022/04/22</span>
+  <span class="atime">2022/04/30</span>
   
 </section>
 
   </markdown-style>
   
 <nav class="tocs">
-  <aside class="inner toc"></aside>
+  <aside class="inner toc">
+    <ol class="tocs-list">
+    
+      <li>
+        <a href="#检查是否已安装" class="tocs-link">检查是否已安装</a>
+        
+      </li>
+    
+      <li>
+        <a href="#更新安装源" class="tocs-link">更新安装源</a>
+        
+      </li>
+    
+      <li>
+        <a href="#检查是否下载成功" class="tocs-link">检查是否下载成功</a>
+        
+      </li>
+    
+      <li>
+        <a href="#查看版本" class="tocs-link">查看版本</a>
+        
+      </li>
+    
+      <li>
+        <a href="#启动指定版本" class="tocs-link">启动指定版本</a>
+        
+      </li>
+    
+      <li>
+        <a href="#安装mysql" class="tocs-link">安装MySQL</a>
+        
+      </li>
+    
+      <li>
+        <a href="#查看安装目录" class="tocs-link">查看安装目录</a>
+        
+      </li>
+    
+      <li>
+        <a href="#mariadb切换mysql" class="tocs-link">MariaDB切换MySQL</a>
+        
+      </li>
+    
+    </ol>
+  </aside>
 </nav>
 
-
-<script src="../js/tocbot.min.js?v=4.18.2"></script>
-<script>
-tocbot.init({
-  tocSelector: 'aside.inner',
-  contentSelector: 'markdown-style',
-  positionFixedSelector: 'aside.inner',
-  headingSelector: 'h1, h2, h3, h4',
-  collapseDepth: 2,
-
-  includeHtml: true,
-  includeTitleTags: false,
-  hasInnerContainers: true,
-  onClick: (e) => { console.log('you clicked a link', e) },
-  headingsOffset: 40,
-  scrollSmoothOffset: -40,
-});
-</script>
-
 </div>
+
+<script src="../js/demo-preview.js?v=1.17.7"></script>
 
 
 <div class="footer warpper">
   Released under the MIT License. Copyright © 2022 Kenny Wong<br />
-Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.13.4
+Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.17.7
 
 </div>
+
+
+<script src="../js/tocbot.js?v=1.17.7"></script>
 
 </body>
 </html>

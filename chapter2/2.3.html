@@ -9,17 +9,18 @@
   <meta name="description" content="通过 Docker 搭建 MySQL 数据库环境，同时能同时启动多个 MySQL 版本。在安装前，最好上 docker 官网上看一下 MySQL 的版本，更具具体需求版本安装 MySQL，假设你已经搭建好 Docker 环境下面介绍如何创建">
   
   
-  <link rel="stylesheet" type="text/css" href="../css/main.css?v=1650650849092">
-  <link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1650650849092">
-  <link rel="stylesheet" type="text/css" href="../css/media.css?v=1650650849092">
-  <link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1650650849092">
-  <link rel="stylesheet" type="text/css" href="../css/copy.css?v=1650650849092">
+  <link rel="stylesheet" type="text/css" href="../css/main.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/media.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/copy.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/demo-preview.css?v=1.17.7">
   
     <link rel="icon" href="../mysql.svg" type="image/x-icon">
   
-  <script src="../js/copy.js"></script>
-  <script src="../js/dark-mode.js"></script>
-  <script src="../js/markdown-style.js"></script>
+  <script src="../js/copy.js?v=1.17.7"></script>
+  <script src="../js/dark-mode.js?v=1.17.7"></script>
+  <script src="../js/markdown-style.js?v=1.17.7"></script>
 </head>
 <body id="idoctotop">
   <a href="#idoctotop" class="gototop">top</a>
@@ -158,36 +159,36 @@
 <!-- /TOC -->
 <h2 id="快速启动一个-mysql-服务器实例"><a aria-hidden="true" tabindex="-1" href="#快速启动一个-mysql-服务器实例" class="anchor"><span class="icon icon-link"></span></a>快速启动一个 MySQL 服务器实例</h2>
 <p>下面，我们通过通过 <a href="https://hub.docker.com/_/mysql">docker</a> 镜像，或者 <a href="https://hub.docker.com/r/mysql/mysql-server">MySQL</a> 官方镜像，进行快速启动一个实例。</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token comment"># Docker 官方镜像</span>
-</span><span class="code-line">$ <span class="token function">docker</span> image pull library/mysql:8.0.18
-</span><span class="code-line"><span class="token comment"># MySQL 官方镜像</span>
-</span><span class="code-line">$ <span class="token function">docker</span> image pull mysql/mysql-server:8.0.18
-</span></code><div onclick="copied(this)" data-code="# Docker 官方镜像
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token comment"># Docker 官方镜像</span>
+</span><span class="code-line line-number" line="2">$ <span class="token function">docker</span> image pull library/mysql:8.0.18
+</span><span class="code-line line-number" line="3"><span class="token comment"># MySQL 官方镜像</span>
+</span><span class="code-line line-number" line="4">$ <span class="token function">docker</span> image pull mysql/mysql-server:8.0.18
+</span></code><input type="hidden" value="# Docker 官方镜像
 $ docker image pull library/mysql:8.0.18
 # MySQL 官方镜像
 $ docker image pull mysql/mysql-server:8.0.18
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>上面命令中 <code>docker image pull</code> 是抓取 <code>image</code> 镜像的命令。<code>library/mysql:8.0.18</code> 是指定镜像仓库的位置和相对应的 <code>tag</code> 版本。由于 <code>Docker</code> 官方提供的 image 文件，都放在 <a href="https://hub.docker.com/r/library/"><code>library</code></a> 组里面，所以它的是默认组，可以省略。因此，上面的 Docker 命令可以写成下面这样。</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token comment"># Docker 官方镜像拉取，简写</span>
-</span><span class="code-line">$ <span class="token function">docker</span> image pull mysql:8.0.18
-</span></code><div onclick="copied(this)" data-code="# Docker 官方镜像拉取，简写
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token comment"># Docker 官方镜像拉取，简写</span>
+</span><span class="code-line line-number" line="2">$ <span class="token function">docker</span> image pull mysql:8.0.18
+</span></code><input type="hidden" value="# Docker 官方镜像拉取，简写
 $ docker image pull mysql:8.0.18
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>拉取镜像成功以后，就可以在本机看到这个 <code>image</code> 文件了。</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">$ <span class="token function">docker</span> image <span class="token function">ls</span>
-</span></code><div onclick="copied(this)" data-code="$ docker image ls
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">$ <span class="token function">docker</span> image <span class="token function">ls</span>
+</span></code><input type="hidden" value="$ docker image ls
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>现在，运行这个 image 文件。</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token comment"># Docker 官方镜像</span>
-</span><span class="code-line">$ <span class="token function">docker</span> run --name mysqlname <span class="token punctuation">\</span>
-</span><span class="code-line">  -p <span class="token number">3308</span>:3306 <span class="token punctuation">\</span>
-</span><span class="code-line">  -e <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span>my123456 <span class="token punctuation">\</span>
-</span><span class="code-line">  -v /etc/localtime:/etc/localtime:ro <span class="token punctuation">\</span>
-</span><span class="code-line">  --rm <span class="token punctuation">\</span>
-</span><span class="code-line">  -d mysql:8.0.18 --character-set-server<span class="token operator">=</span>utf8mb4 --collation-server<span class="token operator">=</span>utf8mb4_unicode_ci
-</span><span class="code-line"><span class="token comment"># MySQL 官方镜像</span>
-</span><span class="code-line">$ <span class="token function">docker</span> run -d --name mysqlname mysql/mysql-server:8.0.18 --character-set-server<span class="token operator">=</span>utf8mb4 --collation-server<span class="token operator">=</span>utf8mb4_col
-</span></code><div onclick="copied(this)" data-code="# Docker 官方镜像
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token comment"># Docker 官方镜像</span>
+</span><span class="code-line line-number" line="2">$ <span class="token function">docker</span> run --name mysqlname <span class="token punctuation">\</span>
+</span><span class="code-line line-number" line="3">  -p <span class="token number">3308</span>:3306 <span class="token punctuation">\</span>
+</span><span class="code-line line-number" line="4">  -e <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span>my123456 <span class="token punctuation">\</span>
+</span><span class="code-line line-number" line="5">  -v /etc/localtime:/etc/localtime:ro <span class="token punctuation">\</span>
+</span><span class="code-line line-number" line="6">  --rm <span class="token punctuation">\</span>
+</span><span class="code-line line-number" line="7">  -d mysql:8.0.18 --character-set-server<span class="token operator">=</span>utf8mb4 --collation-server<span class="token operator">=</span>utf8mb4_unicode_ci
+</span><span class="code-line line-number" line="8"><span class="token comment"># MySQL 官方镜像</span>
+</span><span class="code-line line-number" line="9">$ <span class="token function">docker</span> run -d --name mysqlname mysql/mysql-server:8.0.18 --character-set-server<span class="token operator">=</span>utf8mb4 --collation-server<span class="token operator">=</span>utf8mb4_col
+</span></code><input type="hidden" value="# Docker 官方镜像
 $ docker run --name mysqlname \
   -p 3308:3306 \
   -e MYSQL_ROOT_PASSWORD=my123456 \
@@ -196,7 +197,7 @@ $ docker run --name mysqlname \
   -d mysql:8.0.18 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
 # MySQL 官方镜像
 $ docker run -d --name mysqlname mysql/mysql-server:8.0.18 --character-set-server=utf8mb4 --collation-server=utf8mb4_col
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>上面命令的各个参数含义如下：</p>
 <ul>
 <li><code>--name mysqlname</code> 容器的名字叫做 <code>mysqlname</code></li>
@@ -208,60 +209,60 @@ $ docker run -d --name mysqlname mysql/mysql-server:8.0.18 --character-set-serve
 <li><code>-v /etc/localtime:/etc/localtime:ro</code> 是让容器的时钟与宿主机时钟同步，避免时区的问题，<code>ro</code> 是 <code>read only</code> 的意思，就是只读。</li>
 </ul>
 <p>可以通过 <code>容器id</code>/<code>容器名称</code> 查看 MySQL 日志</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">$ <span class="token function">docker</span> logs mysqlname
-</span></code><div onclick="copied(this)" data-code="$ docker logs mysqlname
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">$ <span class="token function">docker</span> logs mysqlname
+</span></code><input type="hidden" value="$ docker logs mysqlname
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h2 id="通过命令行访问-mysql-容器"><a aria-hidden="true" tabindex="-1" href="#通过命令行访问-mysql-容器" class="anchor"><span class="icon icon-link"></span></a>通过命令行访问 MySQL 容器</h2>
 <p>可以通过[容器名字]或者[容器 ID]进入 MySQL 容器</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">$ <span class="token function">docker</span> <span class="token builtin class-name">exec</span> -it mysqlname <span class="token function">bash</span>
-</span></code><div onclick="copied(this)" data-code="$ docker exec -it mysqlname bash
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">$ <span class="token function">docker</span> <span class="token builtin class-name">exec</span> -it mysqlname <span class="token function">bash</span>
+</span></code><input type="hidden" value="$ docker exec -it mysqlname bash
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h2 id="使用-mysql-自定义配置文件"><a aria-hidden="true" tabindex="-1" href="#使用-mysql-自定义配置文件" class="anchor"><span class="icon icon-link"></span></a>使用 MySQL 自定义配置文件</h2>
 <p>MySQL 的默认配置可以在 <code>/etc/mysql/my.cnf</code> 中找到，该目录可以包含附加目录，例如 <code>/etc/mysql/conf.d</code> 或 <code>/etc/mysql/mysql.conf.d</code>。 请检查 MySQL 镜像本身中的相关文件和目录，以获取更多详细信息。</p>
 <p>如果 <code>/my/custom/config-file.cnf</code> 是自定义配置文件的路径和名称，则可以像这样启动 MySQL 容器（请注意，此命令仅使用自定义配置文件的目录路径）：</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">$ <span class="token function">docker</span> run --name mysqlname <span class="token punctuation">\</span>
-</span><span class="code-line">  --rm <span class="token punctuation">\</span>
-</span><span class="code-line">  -p <span class="token number">3306</span>:3306 <span class="token punctuation">\</span>
-</span><span class="code-line">  -e <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span>my123456 <span class="token punctuation">\</span>
-</span><span class="code-line">  -v /my/custom:/etc/mysql/conf.d <span class="token punctuation">\</span>
-</span><span class="code-line">  -v /etc/localtime:/etc/localtime:ro <span class="token punctuation">\</span>
-</span><span class="code-line">  -d mysql:8.0.18 --character-set-server<span class="token operator">=</span>utf8mb4 --collation-server<span class="token operator">=</span>utf8mb4_unicode_ci
-</span></code><div onclick="copied(this)" data-code="$ docker run --name mysqlname \
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">$ <span class="token function">docker</span> run --name mysqlname <span class="token punctuation">\</span>
+</span><span class="code-line line-number" line="2">  --rm <span class="token punctuation">\</span>
+</span><span class="code-line line-number" line="3">  -p <span class="token number">3306</span>:3306 <span class="token punctuation">\</span>
+</span><span class="code-line line-number" line="4">  -e <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span>my123456 <span class="token punctuation">\</span>
+</span><span class="code-line line-number" line="5">  -v /my/custom:/etc/mysql/conf.d <span class="token punctuation">\</span>
+</span><span class="code-line line-number" line="6">  -v /etc/localtime:/etc/localtime:ro <span class="token punctuation">\</span>
+</span><span class="code-line line-number" line="7">  -d mysql:8.0.18 --character-set-server<span class="token operator">=</span>utf8mb4 --collation-server<span class="token operator">=</span>utf8mb4_unicode_ci
+</span></code><input type="hidden" value="$ docker run --name mysqlname \
   --rm \
   -p 3306:3306 \
   -e MYSQL_ROOT_PASSWORD=my123456 \
   -v /my/custom:/etc/mysql/conf.d \
   -v /etc/localtime:/etc/localtime:ro \
   -d mysql:8.0.18 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>上面命令将启动一个新的容器 <code>mysqlname</code>，其中 MySQL 实例使用 <code>/etc/mysql/my.cnf</code> 和 <code>/etc/mysql/conf.d/config-file.cnf</code> 中的组合启动设置，其中后者的设置优先。</p>
 <p>配置修改，可以通过【容器名字】或者【容器 ID】来重启 MySQL，可让配置生效。</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token function">docker</span> restart mysqlname
-</span></code><div onclick="copied(this)" data-code="docker restart mysqlname
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token function">docker</span> restart mysqlname
+</span></code><input type="hidden" value="docker restart mysqlname
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h2 id="使用-stack-部署-mysql"><a aria-hidden="true" tabindex="-1" href="#使用-stack-部署-mysql" class="anchor"><span class="icon icon-link"></span></a>使用 stack 部署 MySQL</h2>
 <p>MySQL 的实例 <code>stack.yml</code>，下面实例使用 <code>root</code>/<code>example</code> 作为 <code>用户</code>/<code>密码</code> 凭据，<code>default_authentication_plugin=mysql_native_password</code> 这个是因 <code>MySQL 8</code> 的安全机制升级而需要修改的配置，不配置的话将无法登录管理：</p>
-<pre class="language-yml"><code class="language-yml code-highlight"><span class="code-line"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">'3.1'</span>
-</span><span class="code-line"><span class="token key atrule">services</span><span class="token punctuation">:</span>
-</span><span class="code-line">
-</span><span class="code-line">  <span class="token key atrule">db</span><span class="token punctuation">:</span>
-</span><span class="code-line">    <span class="token key atrule">image</span><span class="token punctuation">:</span> mysql<span class="token punctuation">:</span>8.0.18
-</span><span class="code-line">    <span class="token key atrule">command</span><span class="token punctuation">:</span> <span class="token punctuation">-</span><span class="token punctuation">-</span>default<span class="token punctuation">-</span>authentication<span class="token punctuation">-</span>plugin=mysql_native_password
-</span><span class="code-line">    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
-</span><span class="code-line">    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
-</span><span class="code-line">      <span class="token punctuation">-</span> <span class="token string">"3306:3306"</span>
-</span><span class="code-line">    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
-</span><span class="code-line">      <span class="token comment"># - /my/custom:/etc/mysql/conf.d</span>
-</span><span class="code-line">      <span class="token punctuation">-</span> /etc/localtime<span class="token punctuation">:</span>/etc/localtime<span class="token punctuation">:</span>ro
-</span><span class="code-line">    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
-</span><span class="code-line">      <span class="token key atrule">MYSQL_ROOT_PASSWORD</span><span class="token punctuation">:</span> example
-</span><span class="code-line">
-</span><span class="code-line">  <span class="token key atrule">adminer</span><span class="token punctuation">:</span>
-</span><span class="code-line">    <span class="token key atrule">image</span><span class="token punctuation">:</span> adminer
-</span><span class="code-line">    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
-</span><span class="code-line">    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
-</span><span class="code-line">      <span class="token punctuation">-</span> 8080<span class="token punctuation">:</span><span class="token number">8080</span>
-</span></code><div onclick="copied(this)" data-code="version: &#x27;3.1&#x27;
+<pre class="language-yml"><code class="language-yml code-highlight"><span class="code-line line-number" line="1"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">'3.1'</span>
+</span><span class="code-line line-number" line="2"><span class="token key atrule">services</span><span class="token punctuation">:</span>
+</span><span class="code-line line-number" line="3">
+</span><span class="code-line line-number" line="4">  <span class="token key atrule">db</span><span class="token punctuation">:</span>
+</span><span class="code-line line-number" line="5">    <span class="token key atrule">image</span><span class="token punctuation">:</span> mysql<span class="token punctuation">:</span>8.0.18
+</span><span class="code-line line-number" line="6">    <span class="token key atrule">command</span><span class="token punctuation">:</span> <span class="token punctuation">-</span><span class="token punctuation">-</span>default<span class="token punctuation">-</span>authentication<span class="token punctuation">-</span>plugin=mysql_native_password
+</span><span class="code-line line-number" line="7">    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+</span><span class="code-line line-number" line="8">    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+</span><span class="code-line line-number" line="9">      <span class="token punctuation">-</span> <span class="token string">"3306:3306"</span>
+</span><span class="code-line line-number" line="10">    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+</span><span class="code-line line-number" line="11">      <span class="token comment"># - /my/custom:/etc/mysql/conf.d</span>
+</span><span class="code-line line-number" line="12">      <span class="token punctuation">-</span> /etc/localtime<span class="token punctuation">:</span>/etc/localtime<span class="token punctuation">:</span>ro
+</span><span class="code-line line-number" line="13">    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+</span><span class="code-line line-number" line="14">      <span class="token key atrule">MYSQL_ROOT_PASSWORD</span><span class="token punctuation">:</span> example
+</span><span class="code-line line-number" line="15">
+</span><span class="code-line line-number" line="16">  <span class="token key atrule">adminer</span><span class="token punctuation">:</span>
+</span><span class="code-line line-number" line="17">    <span class="token key atrule">image</span><span class="token punctuation">:</span> adminer
+</span><span class="code-line line-number" line="18">    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+</span><span class="code-line line-number" line="19">    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+</span><span class="code-line line-number" line="20">      <span class="token punctuation">-</span> 8080<span class="token punctuation">:</span><span class="token number">8080</span>
+</span></code><input type="hidden" value="version: &#x27;3.1&#x27;
 services:
 
   db:
@@ -281,15 +282,15 @@ services:
     restart: always
     ports:
       - 8080:8080
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>通过下面命令运行 <code>stack</code>，等待它初始化，然后可以访问 <code>http://swarm-ip:8080</code>，<code>http://localhost:8080</code>, 或者 <code>http://host-ip:8080</code>，web 界面来管理 MySQL，有 web 管理工具是因为，在这个 stack 中我们除了添加了 <code>db</code> 的 <code>mysql</code> 容器，还添加了个添加了个额外的 <code>adminer</code> 容器，对外暴露了 <code>8080</code> 端口。</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">$ <span class="token function">docker</span> stack deploy -c stack.yml mysql
-</span><span class="code-line"><span class="token comment"># 或者使用 docker-compose，方便开发模式下调试。</span>
-</span><span class="code-line">$ <span class="token function">docker-compose</span> -f stack.yml up
-</span></code><div onclick="copied(this)" data-code="$ docker stack deploy -c stack.yml mysql
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">$ <span class="token function">docker</span> stack deploy -c stack.yml mysql
+</span><span class="code-line line-number" line="2"><span class="token comment"># 或者使用 docker-compose，方便开发模式下调试。</span>
+</span><span class="code-line line-number" line="3">$ <span class="token function">docker-compose</span> -f stack.yml up
+</span></code><input type="hidden" value="$ docker stack deploy -c stack.yml mysql
 # 或者使用 docker-compose，方便开发模式下调试。
 $ docker-compose -f stack.yml up
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h2 id="参考资料"><a aria-hidden="true" tabindex="-1" href="#参考资料" class="anchor"><span class="icon icon-link"></span></a>参考资料</h2>
 <ul>
 <li><a href="https://hub.docker.com/_/mysql">Docker 官方镜像地址</a></li>
@@ -333,43 +334,58 @@ $ docker-compose -f stack.yml up
     <span>Edit this page on GitHub</span>
   </a>
   
-  <span class="atime">2022/04/22</span>
+  <span class="atime">2022/04/30</span>
   
 </section>
 
   </markdown-style>
   
 <nav class="tocs">
-  <aside class="inner toc"></aside>
+  <aside class="inner toc">
+    <ol class="tocs-list">
+    
+      <li>
+        <a href="#快速启动一个-mysql-服务器实例" class="tocs-link">快速启动一个 MySQL 服务器实例</a>
+        
+      </li>
+    
+      <li>
+        <a href="#通过命令行访问-mysql-容器" class="tocs-link">通过命令行访问 MySQL 容器</a>
+        
+      </li>
+    
+      <li>
+        <a href="#使用-mysql-自定义配置文件" class="tocs-link">使用 MySQL 自定义配置文件</a>
+        
+      </li>
+    
+      <li>
+        <a href="#使用-stack-部署-mysql" class="tocs-link">使用 stack 部署 MySQL</a>
+        
+      </li>
+    
+      <li>
+        <a href="#参考资料" class="tocs-link">参考资料</a>
+        
+      </li>
+    
+    </ol>
+  </aside>
 </nav>
 
-
-<script src="../js/tocbot.min.js?v=4.18.2"></script>
-<script>
-tocbot.init({
-  tocSelector: 'aside.inner',
-  contentSelector: 'markdown-style',
-  positionFixedSelector: 'aside.inner',
-  headingSelector: 'h1, h2, h3, h4',
-  collapseDepth: 2,
-
-  includeHtml: true,
-  includeTitleTags: false,
-  hasInnerContainers: true,
-  onClick: (e) => { console.log('you clicked a link', e) },
-  headingsOffset: 40,
-  scrollSmoothOffset: -40,
-});
-</script>
-
 </div>
+
+<script src="../js/demo-preview.js?v=1.17.7"></script>
 
 
 <div class="footer warpper">
   Released under the MIT License. Copyright © 2022 Kenny Wong<br />
-Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.13.4
+Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.17.7
 
 </div>
+
+
+<script src="../js/tocbot.js?v=1.17.7"></script>
 
 </body>
 </html>

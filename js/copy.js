@@ -29,9 +29,12 @@ function copyTextToClipboard(text, cb) {
 
 function copied(target, str) {
   target.classList.add('active');
-  copyTextToClipboard(target.dataset.code, function() {
-    setTimeout(() => {
-      target.classList.remove('active');
-    }, 2000);
-  });
+  const input = target.parentElement.querySelector('input');
+  if (input) {
+    copyTextToClipboard(input.value || '', function() {
+      setTimeout(() => {
+        target.classList.remove('active');
+      }, 2000);
+    });
+  }
 }

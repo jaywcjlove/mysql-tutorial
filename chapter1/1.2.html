@@ -9,17 +9,18 @@
   <meta name="description" content="数据库技术的出现是为了更加有效的管理和存取大量的数据资源。简单的来讲，数据库技术主要包括数据库系统，SQL语言，数据库访问技术。">
   
   
-  <link rel="stylesheet" type="text/css" href="../css/main.css?v=1650650848799">
-  <link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1650650848799">
-  <link rel="stylesheet" type="text/css" href="../css/media.css?v=1650650848799">
-  <link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1650650848799">
-  <link rel="stylesheet" type="text/css" href="../css/copy.css?v=1650650848799">
+  <link rel="stylesheet" type="text/css" href="../css/main.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/media.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/copy.css?v=1.17.7">
+  <link rel="stylesheet" type="text/css" href="../css/demo-preview.css?v=1.17.7">
   
     <link rel="icon" href="../mysql.svg" type="image/x-icon">
   
-  <script src="../js/copy.js"></script>
-  <script src="../js/dark-mode.js"></script>
-  <script src="../js/markdown-style.js"></script>
+  <script src="../js/copy.js?v=1.17.7"></script>
+  <script src="../js/dark-mode.js?v=1.17.7"></script>
+  <script src="../js/markdown-style.js?v=1.17.7"></script>
 </head>
 <body id="idoctotop">
   <a href="#idoctotop" class="gototop">top</a>
@@ -183,39 +184,39 @@
 </li>
 </ul>
 <p>数据库管理系统通过这些SQL语句可以操作数据库中的数据，在应用程序中，也可以通过SQL语句来操作数据。来几个 SQL 语句的例子，这条语句声明创建一个叫 user 的表：</p>
-<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token identifier"><span class="token punctuation">`</span>user<span class="token punctuation">`</span></span> <span class="token punctuation">(</span>
-</span><span class="code-line">  <span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span>     <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token keyword">unsigned</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token punctuation">,</span>
-</span><span class="code-line">  <span class="token identifier"><span class="token punctuation">`</span>name<span class="token punctuation">`</span></span>   <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">DEFAULT</span> <span class="token string">''</span> <span class="token keyword">COMMENT</span> <span class="token string">'姓名'</span><span class="token punctuation">,</span>
-</span><span class="code-line">  <span class="token identifier"><span class="token punctuation">`</span>sex<span class="token punctuation">`</span></span>    <span class="token keyword">tinyint</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">DEFAULT</span> <span class="token number">0</span>  <span class="token keyword">COMMENT</span> <span class="token string">'性别：0,保密；1,男；2,女'</span><span class="token punctuation">,</span>
-</span><span class="code-line">  <span class="token identifier"><span class="token punctuation">`</span>mobile<span class="token punctuation">`</span></span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">DEFAULT</span> <span class="token string">''</span> <span class="token keyword">COMMENT</span> <span class="token string">'手机'</span><span class="token punctuation">,</span>
-</span><span class="code-line">  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span><span class="token punctuation">)</span>
-</span><span class="code-line"><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</span></code><div onclick="copied(this)" data-code="CREATE TABLE &#x60;user&#x60; (
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token identifier"><span class="token punctuation">`</span>user<span class="token punctuation">`</span></span> <span class="token punctuation">(</span>
+</span><span class="code-line line-number" line="2">  <span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span>     <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token keyword">unsigned</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token punctuation">,</span>
+</span><span class="code-line line-number" line="3">  <span class="token identifier"><span class="token punctuation">`</span>name<span class="token punctuation">`</span></span>   <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">DEFAULT</span> <span class="token string">''</span> <span class="token keyword">COMMENT</span> <span class="token string">'姓名'</span><span class="token punctuation">,</span>
+</span><span class="code-line line-number" line="4">  <span class="token identifier"><span class="token punctuation">`</span>sex<span class="token punctuation">`</span></span>    <span class="token keyword">tinyint</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">DEFAULT</span> <span class="token number">0</span>  <span class="token keyword">COMMENT</span> <span class="token string">'性别：0,保密；1,男；2,女'</span><span class="token punctuation">,</span>
+</span><span class="code-line line-number" line="5">  <span class="token identifier"><span class="token punctuation">`</span>mobile<span class="token punctuation">`</span></span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">DEFAULT</span> <span class="token string">''</span> <span class="token keyword">COMMENT</span> <span class="token string">'手机'</span><span class="token punctuation">,</span>
+</span><span class="code-line line-number" line="6">  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span><span class="token punctuation">)</span>
+</span><span class="code-line line-number" line="7"><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="CREATE TABLE &#x60;user&#x60; (
   &#x60;id&#x60;     int(100) unsigned NOT NULL AUTO_INCREMENT,
   &#x60;name&#x60;   varchar(32) NOT NULL DEFAULT &#x27;&#x27; COMMENT &#x27;姓名&#x27;,
   &#x60;sex&#x60;    tinyint(32) NOT NULL DEFAULT 0  COMMENT &#x27;性别：0,保密；1,男；2,女&#x27;,
   &#x60;mobile&#x60; varchar(20) NOT NULL DEFAULT &#x27;&#x27; COMMENT &#x27;手机&#x27;,
   PRIMARY KEY (&#x60;id&#x60;)
 );
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>这张表包含 4 个字段，分别为 id、name、sex、mobile，其中 id 定义为表的主键，并且只能为正数的自增长字段。并且字段 sex 有默认值 0，每个 COMMENT 后面均为字段注释。</p>
 <p>表定义好了，我们可以向这张表插入数据，下面这条语句是在 user 表中插入一条数据记录：</p>
-<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token identifier"><span class="token punctuation">`</span>user<span class="token punctuation">`</span></span> <span class="token keyword">SET</span> name<span class="token operator">=</span><span class="token string">"张三"</span><span class="token punctuation">,</span>sex<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>mobile<span class="token operator">=</span><span class="token number">13811772277</span><span class="token punctuation">;</span>
-</span><span class="code-line"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token identifier"><span class="token punctuation">`</span>user<span class="token punctuation">`</span></span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">18</span><span class="token punctuation">,</span><span class="token string">'王小二'</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">12322224</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</span></code><div onclick="copied(this)" data-code="INSERT INTO &#x60;user&#x60; SET name=&#x22;张三&#x22;,sex=1,mobile=13811772277;
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token identifier"><span class="token punctuation">`</span>user<span class="token punctuation">`</span></span> <span class="token keyword">SET</span> name<span class="token operator">=</span><span class="token string">"张三"</span><span class="token punctuation">,</span>sex<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>mobile<span class="token operator">=</span><span class="token number">13811772277</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token identifier"><span class="token punctuation">`</span>user<span class="token punctuation">`</span></span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">18</span><span class="token punctuation">,</span><span class="token string">'王小二'</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">12322224</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="INSERT INTO &#x60;user&#x60; SET name=&#x22;张三&#x22;,sex=1,mobile=13811772277;
 INSERT INTO &#x60;user&#x60; VALUES (18,&#x27;王小二&#x27;,0,12322224);
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>上面两条语句执行完之后，user 表中就会相对应增加一行新记录，第一条该记录中 id 是自增长的，部分字段有初始默认值，所以只需插入部分值也是可以插入成功的。第二条是必须按顺序填写对应的值，表中的id 字段比较特殊，所以插入 id 值的时候必须比表中最后一条数据的 id 值大，否则会报错。</p>
 <p>插入数据之后我们再使用 SELECT 查询语句获取刚才插入的数据，如下：</p>
-<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line">mysql<span class="token operator">></span> <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token identifier"><span class="token punctuation">`</span>user<span class="token punctuation">`</span></span><span class="token punctuation">;</span>
-</span><span class="code-line">
-</span><span class="code-line"><span class="token comment">-- +----+-----------+-----+-------------+</span>
-</span><span class="code-line"><span class="token comment">-- | id | name      | sex | mobile      |</span>
-</span><span class="code-line"><span class="token comment">-- +----+-----------+-----+-------------+</span>
-</span><span class="code-line"><span class="token comment">-- |  1 | 张三      |   1 | 13811772277 |</span>
-</span><span class="code-line"><span class="token comment">-- | 19 | 王小二    |   0 | 12322224    |</span>
-</span><span class="code-line"><span class="token comment">-- +----+-----------+-----+-------------+</span>
-</span></code><div onclick="copied(this)" data-code="mysql> SELECT * FROM &#x60;user&#x60;;
+<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line line-number" line="1">mysql<span class="token operator">></span> <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token identifier"><span class="token punctuation">`</span>user<span class="token punctuation">`</span></span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2">
+</span><span class="code-line line-number" line="3"><span class="token comment">-- +----+-----------+-----+-------------+</span>
+</span><span class="code-line line-number" line="4"><span class="token comment">-- | id | name      | sex | mobile      |</span>
+</span><span class="code-line line-number" line="5"><span class="token comment">-- +----+-----------+-----+-------------+</span>
+</span><span class="code-line line-number" line="6"><span class="token comment">-- |  1 | 张三      |   1 | 13811772277 |</span>
+</span><span class="code-line line-number" line="7"><span class="token comment">-- | 19 | 王小二    |   0 | 12322224    |</span>
+</span><span class="code-line line-number" line="8"><span class="token comment">-- +----+-----------+-----+-------------+</span>
+</span></code><input type="hidden" value="mysql> SELECT * FROM &#x60;user&#x60;;
 
 -- +----+-----------+-----+-------------+
 -- | id | name      | sex | mobile      |
@@ -223,7 +224,7 @@ INSERT INTO &#x60;user&#x60; VALUES (18,&#x27;王小二&#x27;,0,12322224);
 -- |  1 | 张三      |   1 | 13811772277 |
 -- | 19 | 王小二    |   0 | 12322224    |
 -- +----+-----------+-----+-------------+
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>上面几条 SQL 语句的例子，大家看了之后会有一个印象，知道 SQL 语句语法是什么样子，后面有大量的 SQL 语句知识帮助你学习 SQL 语法，玩好 MySQL。</p>
 <h2 id="数据库访问技术"><a aria-hidden="true" tabindex="-1" href="#数据库访问技术" class="anchor"><span class="icon icon-link"></span></a>数据库访问技术</h2>
 <p>这个<code>数据库访问技术</code> 小弟认为这个是一个学术性的研究词汇，我在维基百科各种百科对这个词汇要么没有，要么就一句话解释，不知道谁想出的这个词汇，在下甚是佩服，初步了解到这个是个什么技术呢？</p>
@@ -273,43 +274,105 @@ INSERT INTO &#x60;user&#x60; VALUES (18,&#x27;王小二&#x27;,0,12322224);
     <span>Edit this page on GitHub</span>
   </a>
   
-  <span class="atime">2022/04/22</span>
+  <span class="atime">2022/04/30</span>
   
 </section>
 
   </markdown-style>
   
 <nav class="tocs">
-  <aside class="inner toc"></aside>
+  <aside class="inner toc">
+    <ol class="tocs-list">
+    
+      <li>
+        <a href="#数据库系统" class="tocs-link">数据库系统</a>
+        
+          <ol class="tocs-list is-collapsed">
+            
+              <li>
+                <a href="#数据库" class="tocs-link">数据库</a>
+                
+              </li>
+            
+              <li>
+                <a href="#数据库管理系统" class="tocs-link">数据库管理系统</a>
+                
+              </li>
+            
+              <li>
+                <a href="#数据库应用程序" class="tocs-link">数据库应用程序</a>
+                
+              </li>
+            
+          </ol>
+        
+      </li>
+    
+      <li>
+        <a href="#sql语言" class="tocs-link">SQL语言</a>
+        
+          <ol class="tocs-list is-collapsed">
+            
+              <li>
+                <a href="#sql的优点" class="tocs-link">SQL的优点:</a>
+                
+              </li>
+            
+              <li>
+                <a href="#sql为数据库管理系统提供的功能" class="tocs-link">SQL为数据库管理系统提供的功能</a>
+                
+              </li>
+            
+          </ol>
+        
+      </li>
+    
+      <li>
+        <a href="#数据库访问技术" class="tocs-link">数据库访问技术</a>
+        
+          <ol class="tocs-list is-collapsed">
+            
+              <li>
+                <a href="#odbc" class="tocs-link">ODBC</a>
+                
+              </li>
+            
+              <li>
+                <a href="#ado" class="tocs-link">ADO</a>
+                
+              </li>
+            
+              <li>
+                <a href="#mdac" class="tocs-link">MDAC</a>
+                
+              </li>
+            
+              <li>
+                <a href="#jdbc" class="tocs-link">JDBC</a>
+                
+              </li>
+            
+          </ol>
+        
+      </li>
+    
+    </ol>
+  </aside>
 </nav>
 
-
-<script src="../js/tocbot.min.js?v=4.18.2"></script>
-<script>
-tocbot.init({
-  tocSelector: 'aside.inner',
-  contentSelector: 'markdown-style',
-  positionFixedSelector: 'aside.inner',
-  headingSelector: 'h1, h2, h3, h4',
-  collapseDepth: 2,
-
-  includeHtml: true,
-  includeTitleTags: false,
-  hasInnerContainers: true,
-  onClick: (e) => { console.log('you clicked a link', e) },
-  headingsOffset: 40,
-  scrollSmoothOffset: -40,
-});
-</script>
-
 </div>
+
+<script src="../js/demo-preview.js?v=1.17.7"></script>
 
 
 <div class="footer warpper">
   Released under the MIT License. Copyright © 2022 Kenny Wong<br />
-Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.13.4
+Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.17.7
 
 </div>
+
+
+<script src="../js/tocbot.js?v=1.17.7"></script>
 
 </body>
 </html>
