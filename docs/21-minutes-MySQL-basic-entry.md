@@ -487,8 +487,7 @@ INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);
 
 ```sql
 -- 将选择所有 Customers 以及他们可能拥有的任何 Orders：
-SELECT Customers.CustomerName, Orders.OrderID
-FROM Customers
+SELECT Customers.CustomerName, Orders.OrderID FROM Customers
 LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
 ORDER BY Customers.CustomerName;
 ```
@@ -502,6 +501,13 @@ ORDER BY Customers.CustomerName;
 > RIGHT JOIN 表2
 > ON 表1.列名称 = 表2.列名称;
 > ```
+
+```sql
+-- 返回所有 Employees 以及他们可能下的任何 Orders：
+SELECT Orders.OrderID, Employees.LastName, Employees.FirstName FROM Orders
+RIGHT JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+ORDER BY Orders.OrderID;
+```
 
 ### FULL OUTER JOIN
 
