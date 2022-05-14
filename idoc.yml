@@ -1,7 +1,9 @@
-
-
 logo: ./mysql.svg
 favicon: ./mysql.svg
+
+cacheFileStat: true
+
+homepage: https://wangchujiang.com/swiftui-example/
 
 menus:
   Home: index.html
