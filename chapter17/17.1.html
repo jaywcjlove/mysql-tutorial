@@ -1,190 +1,106 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>让MySQL支持emoji图标存储 MySQL 入门教程 </title>
-  
-  <meta name="description" content="在MySLQ中 UPDATA 和 INSERT 数据的时候，如果数据上面带有emoji图标，例如：💗、👽、💔很容易更新或者插入不成功，导致报错。">
-  
-  
-  <link rel="stylesheet" type="text/css" href="../css/main.css?v=1.17.7">
-  <link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1.17.7">
-  <link rel="stylesheet" type="text/css" href="../css/media.css?v=1.17.7">
-  <link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1.17.7">
-  <link rel="stylesheet" type="text/css" href="../css/copy.css?v=1.17.7">
-  <link rel="stylesheet" type="text/css" href="../css/demo-preview.css?v=1.17.7">
-  
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>让MySQL支持emoji图标存储 MySQL 入门教程</title>
+    <meta name="description" content="在MySLQ中 UPDATA 和 INSERT 数据的时候，如果数据上面带有emoji图标，例如：💗、👽、💔很容易更新或者插入不成功，导致报错。">
+    <link rel="stylesheet" type="text/css" href="../css/main.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="../css/media.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="../css/copy.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="../css/demo-preview.css?v=1.21.1">
     <link rel="icon" href="../mysql.svg" type="image/x-icon">
-  
-  <script src="../js/copy.js?v=1.17.7"></script>
-  <script src="../js/dark-mode.js?v=1.17.7"></script>
-  <script src="../js/markdown-style.js?v=1.17.7"></script>
-</head>
-<body id="idoctotop">
-  <a href="#idoctotop" class="gototop">top</a>
-<header class="header">
-  <article class="inner warpper">
-    <a class="logo" href="../index.html">
-      
-        <svg viewBox="0 0 1117 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 0m177.009507 0l531.028522 0q177.009507 0 177.009508 177.009507l0 531.028522q0 177.009507-177.009508 177.009508l-531.028522 0q-177.009507 0-177.009507-177.009508l0-531.028522q0-177.009507 177.009507-177.009507Z" fill="#3aa0be73"></path>
-<path d="M572.448747 1023.955748l-81.73414-94.965601c-10.532066-22.789974-22.126188-44.650648-33.32204-67.440622v-1.504581c-4.867761 6.416595-3.274676 12.788937-5.664304 22.612964-10.532066 40.712187-2.478133 87.044425-38.986344 101.780467-41.15471 17.12567-72.042869-27.524978-85.008816-47.881072a359.108038 359.108038 0 0 1-23.365255-272.992912 230.422126 230.422126 0 0 1 18.630251-61.024028c-2.478133-14.51478-13.762489-18.674503-20.311841-27.524978a384.995678 384.995678 0 0 1-29.95886-50.713224 960.011063 960.011063 0 0 1-42.039758-108.9051c-5.664304-14.51478-7.345895-29.206569-13.010198-42.969058a383.358341 383.358341 0 0 0-41.243216-61.024027c-18.718755-26.772688-73.149179-78.724978-51.288504-131.518064 34.07433-83.814002 153.201729-20.356093 199.135695 8.850475a308.350562 308.350562 0 0 0 37.260502 28.454279c20.400346 0.75229 40.535177 2.433881 60.89127 3.186171a390.704235 390.704235 0 0 1 103.683319 33.366292 817.252895 817.252895 0 0 1 313.793604 303.925324 892.92446 892.92446 0 0 1 41.420225 92.708729c20.179084 47.084529 42.924806 96.647191 66.378565 141.29784 10.310804 21.285393 18.630251 42.570787 18.630251 42.570786v85.141573a933.061366 933.061366 0 0 1-81.91115-142.227139c-16.94866-38.986344-38.057044-79.654278-55.138461-119.481417-8.850475-19.382541-12.965946-36.552463-22.789974-55.182714a719.41089 719.41089 0 0 0-252.769577-278.081936 515.805704 515.805704 0 0 0-116.472255-55.979257c-24.515817-7.345895-53.633881-3.407433-79.654279-8.850475h-16.904408c-14.470527-3.938462-26.551426-19.382541-38.012791-27.480726a400.307001 400.307001 0 0 0-80.22956-40.844944c-10.576318-4.956266-40.446672-16.240622-51.02299-7.390147a12.700432 12.700432 0 0 0-11.240104 10.532065c-6.593604 9.824028-0.973552 24.515817 3.141919 33.366293a387.208297 387.208297 0 0 0 44.252377 63.325151 419.910804 419.910804 0 0 1 40.800691 62.705618c20.931374 45.447191 30.71115 95.894901 50.314953 141.297839a322.776837 322.776837 0 0 0 29.029559 51.996543c8.850475 12.257908 25.179602 21.108384 30.047364 36.552463 9.86828 16.19637-14.647537 69.918755-20.311841 87.044425a352.647191 352.647191 0 0 0 7.345894 216.836647c9.824028 22.612965 18.630251 49.3414 44.606396 55.935004 1.548833-1.68159 0-0.75229 3.274676-1.68159a458.852895 458.852895 0 0 1 22.568712-122.623336 298.216768 298.216768 0 0 1 38.897839-55.226967c8.142437 4.735004 8.142437 19.426793 13.010199 29.206569 10.532066 25.046845 21.904927 52.748833 34.826621 78.01694 26.551426 51.996543 93.416768 152.582195 93.416767 152.582196zM385.084183 378.092308a283.74624 283.74624 0 0 1-25.799135-33.543302h-1.637338v-1.504581a128.022126 128.022126 0 0 1 33.322039-4.159723c6.372342 6.593604 17.169922 10.576318 21.77217 18.674503a177.717545 177.717545 0 0 0 9.86828 17.12567 45.624201 45.624201 0 0 1-17.169922 40.712186 18.80726 18.80726 0 0 1-1.548834 1.681591c-6.593604-12.965946-12.213656-25.976145-18.80726-38.986344z" fill="currentColor"></path>
-</svg>
-      
-      <span class="title">MySQL 入门教程</span>
-    </a>
-    <div class="content">
-      <ul class="menu">
-        
-        <li>
-          <a href="../index.html" target="" class=""> Home </a>
-        </li>
-        
-        <li>
-          <a href="../21-minutes-MySQL-basic-entry.html" target="" class=""> Cheat Sheet </a>
-        </li>
-        
-        <li>
-          <a href="../awesome-mysql.html" target="" class=""> Awesome </a>
-        </li>
-        
-      </ul>
-      
-        <a href="https://github.com/jaywcjlove/mysql-tutorial.git" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+    <script src="../js/copy.js?v=1.21.1"></script>
+    <script src="../js/dark-mode.js?v=1.21.1"></script>
+    <script src="../js/markdown-style.js?v=1.21.1"></script>
+  </head>
+  <body id="idoctotop"><a href="#idoctotop" class="gototop">top</a>
+    <header class="header">
+      <article class="inner warpper"><a class="logo" href="../index.html"><svg viewBox="0 0 1117 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0m177.009507 0l531.028522 0q177.009507 0 177.009508 177.009507l0 531.028522q0 177.009507-177.009508 177.009508l-531.028522 0q-177.009507 0-177.009507-177.009508l0-531.028522q0-177.009507 177.009507-177.009507Z" fill="#3aa0be73"></path>
+            <path d="M572.448747 1023.955748l-81.73414-94.965601c-10.532066-22.789974-22.126188-44.650648-33.32204-67.440622v-1.504581c-4.867761 6.416595-3.274676 12.788937-5.664304 22.612964-10.532066 40.712187-2.478133 87.044425-38.986344 101.780467-41.15471 17.12567-72.042869-27.524978-85.008816-47.881072a359.108038 359.108038 0 0 1-23.365255-272.992912 230.422126 230.422126 0 0 1 18.630251-61.024028c-2.478133-14.51478-13.762489-18.674503-20.311841-27.524978a384.995678 384.995678 0 0 1-29.95886-50.713224 960.011063 960.011063 0 0 1-42.039758-108.9051c-5.664304-14.51478-7.345895-29.206569-13.010198-42.969058a383.358341 383.358341 0 0 0-41.243216-61.024027c-18.718755-26.772688-73.149179-78.724978-51.288504-131.518064 34.07433-83.814002 153.201729-20.356093 199.135695 8.850475a308.350562 308.350562 0 0 0 37.260502 28.454279c20.400346 0.75229 40.535177 2.433881 60.89127 3.186171a390.704235 390.704235 0 0 1 103.683319 33.366292 817.252895 817.252895 0 0 1 313.793604 303.925324 892.92446 892.92446 0 0 1 41.420225 92.708729c20.179084 47.084529 42.924806 96.647191 66.378565 141.29784 10.310804 21.285393 18.630251 42.570787 18.630251 42.570786v85.141573a933.061366 933.061366 0 0 1-81.91115-142.227139c-16.94866-38.986344-38.057044-79.654278-55.138461-119.481417-8.850475-19.382541-12.965946-36.552463-22.789974-55.182714a719.41089 719.41089 0 0 0-252.769577-278.081936 515.805704 515.805704 0 0 0-116.472255-55.979257c-24.515817-7.345895-53.633881-3.407433-79.654279-8.850475h-16.904408c-14.470527-3.938462-26.551426-19.382541-38.012791-27.480726a400.307001 400.307001 0 0 0-80.22956-40.844944c-10.576318-4.956266-40.446672-16.240622-51.02299-7.390147a12.700432 12.700432 0 0 0-11.240104 10.532065c-6.593604 9.824028-0.973552 24.515817 3.141919 33.366293a387.208297 387.208297 0 0 0 44.252377 63.325151 419.910804 419.910804 0 0 1 40.800691 62.705618c20.931374 45.447191 30.71115 95.894901 50.314953 141.297839a322.776837 322.776837 0 0 0 29.029559 51.996543c8.850475 12.257908 25.179602 21.108384 30.047364 36.552463 9.86828 16.19637-14.647537 69.918755-20.311841 87.044425a352.647191 352.647191 0 0 0 7.345894 216.836647c9.824028 22.612965 18.630251 49.3414 44.606396 55.935004 1.548833-1.68159 0-0.75229 3.274676-1.68159a458.852895 458.852895 0 0 1 22.568712-122.623336 298.216768 298.216768 0 0 1 38.897839-55.226967c8.142437 4.735004 8.142437 19.426793 13.010199 29.206569 10.532066 25.046845 21.904927 52.748833 34.826621 78.01694 26.551426 51.996543 93.416768 152.582195 93.416767 152.582196zM385.084183 378.092308a283.74624 283.74624 0 0 1-25.799135-33.543302h-1.637338v-1.504581a128.022126 128.022126 0 0 1 33.322039-4.159723c6.372342 6.593604 17.169922 10.576318 21.77217 18.674503a177.717545 177.717545 0 0 0 9.86828 17.12567 45.624201 45.624201 0 0 1-17.169922 40.712186 18.80726 18.80726 0 0 1-1.548834 1.681591c-6.593604-12.965946-12.213656-25.976145-18.80726-38.986344z" fill="currentColor"></path>
           </svg>
-        </a>
-      
-      <dark-mode permanent></dark-mode>
-    </div>
-  </article>
-</header>
-
-<div class="warpper-content warpper sidebar ">
-  
-<div class="sidebar-border">
-  <aside class="sidebar" role="navigation">
-    <div>
-    
-      
-        <label>第1章 初识 MySQL</label>
-      
-    
-      
-        <a href="../chapter1/1.1.html" class="">数据库基础</a>
-      
-    
-      
-        <a href="../chapter1/1.2.html" class="">数据库技术构成</a>
-      
-    
-      
-        <a href="../chapter1/1.3.html" class="">什么是MySQL</a>
-      
-    
-      
-        <a href="../chapter1/1.4.html" class="">如何学习MySQL</a>
-      
-    
-      
-        <label>第2章 MySQL 的安装与配置</label>
-      
-    
-      
-        <a href="../chapter2/2.1.html" class="">Mac平台下安装与配置MySQL</a>
-      
-    
-      
-        <a href="../chapter2/2.2.html" class="">Centos 平台安装与卸载MySQL</a>
-      
-    
-      
-        <a href="../chapter2/2.3.html" class="">Docker 安装 MySQL</a>
-      
-    
-      
-        <a href="../chapter2/2.4.html" class="">启动数据库设置初始密码</a>
-      
-    
-      
-        <a href="../chapter2/2.5.html" class="">MySQL工具</a>
-      
-    
-      
-        <a href="../chapter2/2.6.html" class="">MySQL配置修改</a>
-      
-    
-      
-        <label>第3章 数据库的基本操作</label>
-      
-    
-      
-        <a href="../chapter3/3.1.html" class="">连接数据库</a>
-      
-    
-      
-        <a href="../chapter3/3.2.html" class="">查看选择数据库</a>
-      
-    
-      
-        <a href="../chapter3/3.3.html" class="">创建数据库</a>
-      
-    
-      
-        <a href="../chapter3/3.4.html" class="">删除数据库</a>
-      
-    
-      
-        <a href="../chapter3/3.5.html" class="">数据库存储引擎</a>
-      
-    
-    </div>
-  </aside>
-</div>
-
-  <markdown-style>
-    <h1 id="让mysql支持emoji图标存储"><a aria-hidden="true" tabindex="-1" href="#让mysql支持emoji图标存储" class="anchor"><span class="icon icon-link"></span></a>让MySQL支持emoji图标存储</h1>
-<p>在<code>MySLQ</code>中 UPDATA 和 INSERT 数据的时候，如果数据上面带有<code>emoji</code>图标，例如：<code>💗</code>、<code>👽</code>、<code>💔</code>很容易更新或者插入不成功，导致报错。</p>
-<pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line line-number" line="1">Error: ER_TRUNCATED_WRONG_VALUE_FOR_FIELD: 
+<span class="title">MySQL 入门教程</span></a>
+        <div class="content">
+          <ul class="menu">
+            <li><a href="../index.html" target="" class="">Home</a></li>
+            <li><a href="../21-minutes-MySQL-basic-entry.html" target="" class="">Cheat Sheet</a></li>
+            <li><a href="../awesome-mysql.html" target="" class="">Awesome</a></li>
+          </ul><a href="https://github.com/jaywcjlove/mysql-tutorial.git" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg></a>
+          <dark-mode permanent=""></dark-mode>
+        </div>
+      </article>
+    </header>
+    <div class="warpper-content warpper sidebar">
+      <div class="sidebar-border">
+        <aside class="sidebar" role="navigation">
+          <div>
+            <label>第1章 初识 MySQL</label>
+            <a href="../chapter1/1.1.html" class="">数据库基础</a>
+            <a href="../chapter1/1.2.html" class="">数据库技术构成</a>
+            <a href="../chapter1/1.3.html" class="">什么是MySQL</a>
+            <a href="../chapter1/1.4.html" class="">如何学习MySQL</a>
+            <label>第2章 MySQL 的安装与配置</label>
+            <a href="../chapter2/2.1.html" class="">Mac平台下安装与配置MySQL</a>
+            <a href="../chapter2/2.2.html" class="">Centos 平台安装与卸载MySQL</a>
+            <a href="../chapter2/2.3.html" class="">Docker 安装 MySQL</a>
+            <a href="../chapter2/2.4.html" class="">启动数据库设置初始密码</a>
+            <a href="../chapter2/2.5.html" class="">MySQL工具</a>
+            <a href="../chapter2/2.6.html" class="">MySQL配置修改</a>
+            <label>第3章 数据库的基本操作</label>
+            <a href="../chapter3/3.1.html" class="">连接数据库</a>
+            <a href="../chapter3/3.2.html" class="">查看选择数据库</a>
+            <a href="../chapter3/3.3.html" class="">创建数据库</a>
+            <a href="../chapter3/3.4.html" class="">删除数据库</a>
+            <a href="../chapter3/3.5.html" class="">数据库存储引擎</a>
+          </div>
+        </aside>
+      </div>
+      <markdown-style>
+        <h1 id="让mysql支持emoji图标存储"><a aria-hidden="true" tabindex="-1" href="#让mysql支持emoji图标存储" class="anchor"><span class="icon icon-link"></span></a>让MySQL支持emoji图标存储</h1>
+        <p>在<code>MySLQ</code>中 UPDATA 和 INSERT 数据的时候，如果数据上面带有<code>emoji</code>图标，例如：<code>💗</code>、<code>👽</code>、<code>💔</code>很容易更新或者插入不成功，导致报错。</p>
+        <pre class="language-sql"><code class="language-sql code-highlight"><span class="code-line line-number" line="1">Error: ER_TRUNCATED_WRONG_VALUE_FOR_FIELD: 
 </span><span class="code-line line-number" line="2">Incorrect string <span class="token keyword">value</span>: <span class="token string">'\xF0\x9F\x91\xBD\xF0\x9F...'</span> <span class="token keyword">for</span> <span class="token keyword">column</span> <span class="token string">'name'</span> at <span class="token keyword">row</span>
 </span></code><input type="hidden" value="Error: ER_TRUNCATED_WRONG_VALUE_FOR_FIELD: 
 Incorrect string value: &#x27;\xF0\x9F\x91\xBD\xF0\x9F...&#x27; for column &#x27;name&#x27; at row
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<p>都快崩溃了，但是还好终于解决了这种鬼问题。资料显示原因是，MYSQL 5.5 之前， UTF8 编码只支持1-3个字节，只支持<a href="http://en.wikipedia.org/wiki/Mapping_of_Unicode_characters">BMP</a>这部分的unicode编码区，而 emoji 图标恰好是4个字节的编码进行存储。从MYSQL5.5开始，可支持4个字节UTF编码 utf8mb4 ，一个字符最多能有4字节，所以能支持更多的字符集。所以要解决问题，必需把数据库表字符编码全部改成 utf8mb4 。</p>
-<h3 id="常用字符集"><a aria-hidden="true" tabindex="-1" href="#常用字符集" class="anchor"><span class="icon icon-link"></span></a>常用字符集</h3>
-<ul>
-<li>ASCII：美国信息互换标准编码；英语和其他西欧语言；单字节编码，7位表示一个字符，共128字符。</li>
-<li>GBK：双字节，汉字内码扩展规范；中日韩汉字、英文、数字；双字节编码；共收录了21003个汉字，GB2312的扩展。</li>
-<li>UTF-8：Unicode标准的可变长度字符编码；Unicode标准（统一码），业界统一标准，包括世界上数十种文字的系统；</li>
-<li>UTF-8：使用一至三个字节为每个字符编码。</li>
-<li>utf8mb4：存储四个字节，应用场景用于存储<code>emoji</code>表情，因为可以<code>emoji</code>表情四个字节。</li>
-<li>utf8mb4：MySQL版本 > 5.5.3 。</li>
-<li>其他常见字符集：<code>UTF-32</code>，<code>UTF-16</code>，<code>Big5</code>，<code>latin1</code></li>
-<li>数据库中的字符集包含两层含义
-<ul>
-<li>各种文字和符号的集合，包括各国家文字、标点符号、图形符号、数字等。</li>
-<li>字符的编码方式，即二进制数据与字符的映射规则。</li>
-</ul>
-</li>
-</ul>
-<h3 id="确认版本"><a aria-hidden="true" tabindex="-1" href="#确认版本" class="anchor"><span class="icon icon-link"></span></a>确认版本</h3>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">mysql --version
+        <p>都快崩溃了，但是还好终于解决了这种鬼问题。资料显示原因是，MYSQL 5.5 之前， UTF8 编码只支持1-3个字节，只支持<a href="http://en.wikipedia.org/wiki/Mapping_of_Unicode_characters">BMP</a>这部分的unicode编码区，而 emoji 图标恰好是4个字节的编码进行存储。从MYSQL5.5开始，可支持4个字节UTF编码 utf8mb4 ，一个字符最多能有4字节，所以能支持更多的字符集。所以要解决问题，必需把数据库表字符编码全部改成 utf8mb4 。</p>
+        <h3 id="常用字符集"><a aria-hidden="true" tabindex="-1" href="#常用字符集" class="anchor"><span class="icon icon-link"></span></a>常用字符集</h3>
+        <ul>
+          <li>ASCII：美国信息互换标准编码；英语和其他西欧语言；单字节编码，7位表示一个字符，共128字符。</li>
+          <li>GBK：双字节，汉字内码扩展规范；中日韩汉字、英文、数字；双字节编码；共收录了21003个汉字，GB2312的扩展。</li>
+          <li>UTF-8：Unicode标准的可变长度字符编码；Unicode标准（统一码），业界统一标准，包括世界上数十种文字的系统；</li>
+          <li>UTF-8：使用一至三个字节为每个字符编码。</li>
+          <li>utf8mb4：存储四个字节，应用场景用于存储<code>emoji</code>表情，因为可以<code>emoji</code>表情四个字节。</li>
+          <li>utf8mb4：MySQL版本 > 5.5.3 。</li>
+          <li>其他常见字符集：<code>UTF-32</code>，<code>UTF-16</code>，<code>Big5</code>，<code>latin1</code></li>
+          <li>数据库中的字符集包含两层含义
+            <ul>
+              <li>各种文字和符号的集合，包括各国家文字、标点符号、图形符号、数字等。</li>
+              <li>字符的编码方式，即二进制数据与字符的映射规则。</li>
+            </ul>
+          </li>
+        </ul>
+        <h3 id="确认版本"><a aria-hidden="true" tabindex="-1" href="#确认版本" class="anchor"><span class="icon icon-link"></span></a>确认版本</h3>
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">mysql --version
 </span></code><input type="hidden" value="mysql --version
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<h3 id="系统环境"><a aria-hidden="true" tabindex="-1" href="#系统环境" class="anchor"><span class="icon icon-link"></span></a>系统环境</h3>
-<ul>
-<li>MySQL 5.7.14</li>
-<li>Mac OSX 10.11.6</li>
-</ul>
-<h3 id="首先备份"><a aria-hidden="true" tabindex="-1" href="#首先备份" class="anchor"><span class="icon icon-link"></span></a>首先备份</h3>
-<p>升级数据之前备份您服务器上的所有数据，保持良好习惯，安全第一！</p>
-<h3 id="升级您的mysql"><a aria-hidden="true" tabindex="-1" href="#升级您的mysql" class="anchor"><span class="icon icon-link"></span></a>升级您的MySQL</h3>
-<p>新的数据库可以在这里下载<a href="https://dev.mysql.com/downloads/mysql/">Upgrade the MySQL server to v5.5.3+</a>。</p>
-<h3 id="修改您的数据库表字段"><a aria-hidden="true" tabindex="-1" href="#修改您的数据库表字段" class="anchor"><span class="icon icon-link"></span></a>修改您的数据库、表、字段</h3>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token comment"># 对每一个数据库:</span>
+        <h3 id="系统环境"><a aria-hidden="true" tabindex="-1" href="#系统环境" class="anchor"><span class="icon icon-link"></span></a>系统环境</h3>
+        <ul>
+          <li>MySQL 5.7.14</li>
+          <li>Mac OSX 10.11.6</li>
+        </ul>
+        <h3 id="首先备份"><a aria-hidden="true" tabindex="-1" href="#首先备份" class="anchor"><span class="icon icon-link"></span></a>首先备份</h3>
+        <p>升级数据之前备份您服务器上的所有数据，保持良好习惯，安全第一！</p>
+        <h3 id="升级您的mysql"><a aria-hidden="true" tabindex="-1" href="#升级您的mysql" class="anchor"><span class="icon icon-link"></span></a>升级您的MySQL</h3>
+        <p>新的数据库可以在这里下载<a href="https://dev.mysql.com/downloads/mysql/">Upgrade the MySQL server to v5.5.3+</a>。</p>
+        <h3 id="修改您的数据库表字段"><a aria-hidden="true" tabindex="-1" href="#修改您的数据库表字段" class="anchor"><span class="icon icon-link"></span></a>修改您的数据库、表、字段</h3>
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token comment"># 对每一个数据库:</span>
 </span><span class="code-line line-number" line="2">ALTER DATABASE 这里数据库名字 CHARACTER SET <span class="token operator">=</span> utf8mb4 COLLATE <span class="token operator">=</span> utf8mb4_unicode_ci<span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="3"><span class="token comment"># 对每一个表:</span>
 </span><span class="code-line line-number" line="4">ALTER TABLE 这里是表名字 CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci<span class="token punctuation">;</span>
@@ -201,12 +117,12 @@ ALTER TABLE 这里是表名字 CHANGE 字段名字 重复字段名字 VARCHAR(19
 # 上面一句或者使用modify来更改
 ALTER TABLE 这里是表名字 modify 字段名字 VARCHAR(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT &#x27;&#x27;;
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<p>utf8mb4完全向后兼容utf8，无乱码或其他数据丢失的形式出现。理论上是可以放心修改，如果您不放心修改，您可以拿备份恢复数据，然后让程序员处理这种兼容<code>emoji</code>存储问题，存的时候过滤一遍转成<code>base64</code>，然后取的时候转回来？...  还是修改数据库比较方便。</p>
-<h3 id="检查你的字段和索引"><a aria-hidden="true" tabindex="-1" href="#检查你的字段和索引" class="anchor"><span class="icon icon-link"></span></a>检查你的字段和索引</h3>
-<p>不要将所有的都设置成<code>utf8mb4</code>，这个冒得必要。我只在我某些字段类型为<code>VARCHAR</code>的时候才设置成<code>utf8mb4</code>。</p>
-<h3 id="修改mysql配置文件"><a aria-hidden="true" tabindex="-1" href="#修改mysql配置文件" class="anchor"><span class="icon icon-link"></span></a>修改MySQL配置文件</h3>
-<p>这个地方最坑，我在我Mac osx 系统上找不到<code>/etc/my.cnf</code> 它根本不存在，所以我们需要创建这样一个文件并修改它。</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token comment"># 进入这个目录，</span>
+        <p>utf8mb4完全向后兼容utf8，无乱码或其他数据丢失的形式出现。理论上是可以放心修改，如果您不放心修改，您可以拿备份恢复数据，然后让程序员处理这种兼容<code>emoji</code>存储问题，存的时候过滤一遍转成<code>base64</code>，然后取的时候转回来？... 还是修改数据库比较方便。</p>
+        <h3 id="检查你的字段和索引"><a aria-hidden="true" tabindex="-1" href="#检查你的字段和索引" class="anchor"><span class="icon icon-link"></span></a>检查你的字段和索引</h3>
+        <p>不要将所有的都设置成<code>utf8mb4</code>，这个冒得必要。我只在我某些字段类型为<code>VARCHAR</code>的时候才设置成<code>utf8mb4</code>。</p>
+        <h3 id="修改mysql配置文件"><a aria-hidden="true" tabindex="-1" href="#修改mysql配置文件" class="anchor"><span class="icon icon-link"></span></a>修改MySQL配置文件</h3>
+        <p>这个地方最坑，我在我Mac osx 系统上找不到<code>/etc/my.cnf</code> 它根本不存在，所以我们需要创建这样一个文件并修改它。</p>
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token comment"># 进入这个目录，</span>
 </span><span class="code-line line-number" line="2"><span class="token comment"># 在这个目录下面有个后缀为`.cnf`的文件</span>
 </span><span class="code-line line-number" line="3"><span class="token builtin class-name">cd</span> /usr/local/mysql/support-files/
 </span><span class="code-line line-number" line="4">
@@ -225,8 +141,8 @@ sudo cp my-default.cnf /etc/my.cnf
 # 然后编辑&#x60;my.cnf&#x60;文件，将下面内容复制到里面。
 sudo vim /etc/my.cnf
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<p><a href="https://dev.mysql.com/doc/refman/5.5/en/option-files.html">MySQL configuration file (/etc/my.cnf):</a></p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token punctuation">[</span>client<span class="token punctuation">]</span>
+        <p><a href="https://dev.mysql.com/doc/refman/5.5/en/option-files.html">MySQL configuration file (/etc/my.cnf):</a></p>
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token punctuation">[</span>client<span class="token punctuation">]</span>
 </span><span class="code-line line-number" line="2">default-character-set <span class="token operator">=</span> utf8mb4
 </span><span class="code-line line-number" line="3">
 </span><span class="code-line line-number" line="4"><span class="token punctuation">[</span>mysql<span class="token punctuation">]</span>
@@ -247,25 +163,25 @@ character-set-client-handshake = FALSE
 character-set-server = utf8mb4
 collation-server = utf8mb4_unicode_ci
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<h3 id="重启mysql"><a aria-hidden="true" tabindex="-1" href="#重启mysql" class="anchor"><span class="icon icon-link"></span></a>重启MySQL</h3>
-<p>重启步骤很重要，不然没有任何效果。下面是 Mac 系统下服务管理：</p>
-<ol>
-<li>启动：<code>sudo /usr/local/mysql/support-files/mysql.server start</code></li>
-<li>停止：<code>sudo /usr/local/mysql/support-files/mysql.server stop</code></li>
-<li>重启：<code>sudo /usr/local/mysql/support-files/mysql.server restart</code></li>
-</ol>
-<p>其实可以使用 <code>mysql.server start</code> 简单的方式启动服务。</p>
-<p><strong>Linux系统中可以以这种形式重启、停止或启动</strong></p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token function">service</span> mysqld stop
+        <h3 id="重启mysql"><a aria-hidden="true" tabindex="-1" href="#重启mysql" class="anchor"><span class="icon icon-link"></span></a>重启MySQL</h3>
+        <p>重启步骤很重要，不然没有任何效果。下面是 Mac 系统下服务管理：</p>
+        <ol>
+          <li>启动：<code>sudo /usr/local/mysql/support-files/mysql.server start</code></li>
+          <li>停止：<code>sudo /usr/local/mysql/support-files/mysql.server stop</code></li>
+          <li>重启：<code>sudo /usr/local/mysql/support-files/mysql.server restart</code></li>
+        </ol>
+        <p>其实可以使用 <code>mysql.server start</code> 简单的方式启动服务。</p>
+        <p><strong>Linux系统中可以以这种形式重启、停止或启动</strong></p>
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token function">service</span> mysqld stop
 </span><span class="code-line line-number" line="2"><span class="token function">service</span> mysqld start
 </span><span class="code-line line-number" line="3"><span class="token function">service</span> mysqld restart
 </span></code><input type="hidden" value="service mysqld stop
 service mysqld start
 service mysqld restart
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<h3 id="查看是否设置成功"><a aria-hidden="true" tabindex="-1" href="#查看是否设置成功" class="anchor"><span class="icon icon-link"></span></a>查看是否设置成功</h3>
-<p>通过下面命令查询是否设置成功！</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token comment"># 登陆MySQL进行查询</span>
+        <h3 id="查看是否设置成功"><a aria-hidden="true" tabindex="-1" href="#查看是否设置成功" class="anchor"><span class="icon icon-link"></span></a>查看是否设置成功</h3>
+        <p>通过下面命令查询是否设置成功！</p>
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token comment"># 登陆MySQL进行查询</span>
 </span><span class="code-line line-number" line="2">mysql<span class="token operator">></span> SHOW VARIABLES WHERE Variable_name LIKE <span class="token string">'character\_set\_%'</span> OR Variable_name LIKE <span class="token string">'collation%'</span><span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="3">
 </span><span class="code-line line-number" line="4"><span class="token comment"># 运行上面代码显示下面结果</span>
@@ -308,130 +224,50 @@ mysql> SHOW VARIABLES WHERE Variable_name LIKE &#x27;character\_set\_%&#x27; OR 
 # 查看表的情况
 mysql>  SHOW FULL COLUMNS  FROM  users_profile;
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<p>到这一步表示你成功了！恭喜你！~</p>
-<h3 id="修复和优化表"><a aria-hidden="true" tabindex="-1" href="#修复和优化表" class="anchor"><span class="icon icon-link"></span></a>修复和优化表</h3>
-<p>我跑到这一步其实没有任何必要修复和优化表，为了保险起见，我还是运行了这两条命令，虽然不知道它有什么卵用，放在这里做个笔记吧。</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">REPAIR TABLE 表名字<span class="token punctuation">;</span>
+        <p>到这一步表示你成功了！恭喜你！~</p>
+        <h3 id="修复和优化表"><a aria-hidden="true" tabindex="-1" href="#修复和优化表" class="anchor"><span class="icon icon-link"></span></a>修复和优化表</h3>
+        <p>我跑到这一步其实没有任何必要修复和优化表，为了保险起见，我还是运行了这两条命令，虽然不知道它有什么卵用，放在这里做个笔记吧。</p>
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">REPAIR TABLE 表名字<span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="2">OPTIMIZE TABLE 表名字<span class="token punctuation">;</span>
 </span></code><input type="hidden" value="REPAIR TABLE 表名字;
 OPTIMIZE TABLE 表名字;
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<h2 id="参考资料"><a aria-hidden="true" tabindex="-1" href="#参考资料" class="anchor"><span class="icon icon-link"></span></a>参考资料</h2>
-<ul>
-<li><a href="https://mathiasbynens.be/notes/mysql-utf8mb4#character-sets">How to support full Unicode in MySQL databases</a></li>
-<li><a href="http://forums.mysql.com/read.php?11,366143,376017#msg-376017">my.cnf file does not exist on Mac OSX</a></li>
-</ul>
-    
-
-<div class="previous">
-  
-    <span></span>
-  
-  
-  <a class="next" href="../chapter1/1.1.html">
-    <span>
-      数据库基础
-    </span>
-    <svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
-      <path d="M544 522.666667c0-8.533333-4.266667-17.066667-10.666667-23.466667L192 189.866667c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733334 285.866667L149.333333 808.533333c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666z"></path>
-      <path d="M864 499.2l-341.333333-309.333333c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733333 285.866667-315.733333 285.866666c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466666 10.666667 8.533333 0 14.933333-2.133333 21.333334-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666 0-8.533333-4.266667-17.066667-10.666667-23.466667z"></path>
-    </svg>
-  </a>
-  
-</div>
-
-
-
-<section class="article-footer">
-  <a href="https://github.com/jaywcjlove/mysql-tutorial/blob/master/docs/chapter17/17.1.md" class="edit-button" target="_blank" rel="noopener noreferrer">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-    </svg>
-    <span>Edit this page on GitHub</span>
-  </a>
-  
-  <span class="atime">2022/05/01</span>
-  
-</section>
-
-  </markdown-style>
-  
-<nav class="tocs">
-  <aside class="inner toc">
-    <ol class="tocs-list">
-    
-      <li>
-        <a href="#常用字符集" class="tocs-link">常用字符集</a>
-        
-      </li>
-    
-      <li>
-        <a href="#确认版本" class="tocs-link">确认版本</a>
-        
-      </li>
-    
-      <li>
-        <a href="#系统环境" class="tocs-link">系统环境</a>
-        
-      </li>
-    
-      <li>
-        <a href="#首先备份" class="tocs-link">首先备份</a>
-        
-      </li>
-    
-      <li>
-        <a href="#升级您的mysql" class="tocs-link">升级您的MySQL</a>
-        
-      </li>
-    
-      <li>
-        <a href="#修改您的数据库表字段" class="tocs-link">修改您的数据库、表、字段</a>
-        
-      </li>
-    
-      <li>
-        <a href="#检查你的字段和索引" class="tocs-link">检查你的字段和索引</a>
-        
-      </li>
-    
-      <li>
-        <a href="#修改mysql配置文件" class="tocs-link">修改MySQL配置文件</a>
-        
-      </li>
-    
-      <li>
-        <a href="#重启mysql" class="tocs-link">重启MySQL</a>
-        
-      </li>
-    
-      <li>
-        <a href="#查看是否设置成功" class="tocs-link">查看是否设置成功</a>
-        
-      </li>
-    
-      <li>
-        <a href="#修复和优化表" class="tocs-link">修复和优化表</a>
-        
-      </li>
-    
-    </ol>
-  </aside>
-</nav>
-
-</div>
-
-<script src="../js/demo-preview.js?v=1.17.7"></script>
-
-
-<div class="footer warpper">
-  Released under the MIT License. Copyright © 2022 Kenny Wong<br />
-Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.17.7
-
-</div>
-
-
-<script src="../js/tocbot.js?v=1.17.7"></script>
-
-</body>
+        <h2 id="参考资料"><a aria-hidden="true" tabindex="-1" href="#参考资料" class="anchor"><span class="icon icon-link"></span></a>参考资料</h2>
+        <ul>
+          <li><a href="https://mathiasbynens.be/notes/mysql-utf8mb4#character-sets">How to support full Unicode in MySQL databases</a></li>
+          <li><a href="http://forums.mysql.com/read.php?11,366143,376017#msg-376017">my.cnf file does not exist on Mac OSX</a></li>
+        </ul>
+        <div class="previous"><span></span><a class="next" href="../chapter1/1.1.html"><span>数据库基础
+</span><svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
+              <path d="M544 522.666667c0-8.533333-4.266667-17.066667-10.666667-23.466667L192 189.866667c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733334 285.866667L149.333333 808.533333c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666z"></path>
+              <path d="M864 499.2l-341.333333-309.333333c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733333 285.866667-315.733333 285.866666c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466666 10.666667 8.533333 0 14.933333-2.133333 21.333334-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666 0-8.533333-4.266667-17.066667-10.666667-23.466667z"></path>
+            </svg></a></div>
+        <section class="article-footer"><a href="https://github.com/jaywcjlove/mysql-tutorial/blob/master/docs/chapter17/17.1.md" class="edit-button" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
+<span>Edit this page on GitHub</span>
+</a><span class="atime">2021/10/03</span></section>
+      </markdown-style>
+      <nav class="tocs">
+        <aside class="inner toc">
+          <ol class="tocs-list">
+            <li><a href="#常用字符集" class="tocs-link">常用字符集</a></li>
+            <li><a href="#确认版本" class="tocs-link">确认版本</a></li>
+            <li><a href="#系统环境" class="tocs-link">系统环境</a></li>
+            <li><a href="#首先备份" class="tocs-link">首先备份</a></li>
+            <li><a href="#升级您的mysql" class="tocs-link">升级您的MySQL</a></li>
+            <li><a href="#修改您的数据库表字段" class="tocs-link">修改您的数据库、表、字段</a></li>
+            <li><a href="#检查你的字段和索引" class="tocs-link">检查你的字段和索引</a></li>
+            <li><a href="#修改mysql配置文件" class="tocs-link">修改MySQL配置文件</a></li>
+            <li><a href="#重启mysql" class="tocs-link">重启MySQL</a></li>
+            <li><a href="#查看是否设置成功" class="tocs-link">查看是否设置成功</a></li>
+            <li><a href="#修复和优化表" class="tocs-link">修复和优化表</a></li>
+          </ol>
+        </aside>
+      </nav>
+    </div>
+    <script src="../js/demo-preview.js?v=1.21.1"></script>
+    <div class="footer warpper">Released under the MIT License. Copyright © 2022 Kenny Wong<br>Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.21.1</div>
+    <script src="../js/tocbot.js?v=1.21.1"></script>
+  </body>
 </html>

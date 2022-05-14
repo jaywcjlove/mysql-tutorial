@@ -1,288 +1,149 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>什么是MySQL MySQL 入门教程 </title>
-  
-  <meta name="description" content="MySQL（官方发音为英语发音：/maɪ ˌɛskjuːˈɛl/ My S-Q-L，但也经常读作英语发音：/maɪ ˈsiːkwəl/ My Sequel）原本是一个开放源代码的关系数据库管理系统（DBMS），原开发者为瑞典的MySQL A">
-  
-  
-  <link rel="stylesheet" type="text/css" href="../css/main.css?v=1.17.7">
-  <link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1.17.7">
-  <link rel="stylesheet" type="text/css" href="../css/media.css?v=1.17.7">
-  <link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1.17.7">
-  <link rel="stylesheet" type="text/css" href="../css/copy.css?v=1.17.7">
-  <link rel="stylesheet" type="text/css" href="../css/demo-preview.css?v=1.17.7">
-  
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>什么是MySQL MySQL 入门教程</title>
+    <meta name="description" content="MySQL（官方发音为英语发音：/maɪ ˌɛskjuːˈɛl/ My S-Q-L，但也经常读作英语发音：/maɪ ˈsiːkwəl/ My Sequel）原本是一个开放源代码的关系数据库管理系统（DBMS），原开发者为瑞典的MySQL A">
+    <link rel="stylesheet" type="text/css" href="../css/main.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="../css/media.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="../css/copy.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="../css/demo-preview.css?v=1.21.1">
     <link rel="icon" href="../mysql.svg" type="image/x-icon">
-  
-  <script src="../js/copy.js?v=1.17.7"></script>
-  <script src="../js/dark-mode.js?v=1.17.7"></script>
-  <script src="../js/markdown-style.js?v=1.17.7"></script>
-</head>
-<body id="idoctotop">
-  <a href="#idoctotop" class="gototop">top</a>
-<header class="header">
-  <article class="inner warpper">
-    <a class="logo" href="../index.html">
-      
-        <svg viewBox="0 0 1117 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 0m177.009507 0l531.028522 0q177.009507 0 177.009508 177.009507l0 531.028522q0 177.009507-177.009508 177.009508l-531.028522 0q-177.009507 0-177.009507-177.009508l0-531.028522q0-177.009507 177.009507-177.009507Z" fill="#3aa0be73"></path>
-<path d="M572.448747 1023.955748l-81.73414-94.965601c-10.532066-22.789974-22.126188-44.650648-33.32204-67.440622v-1.504581c-4.867761 6.416595-3.274676 12.788937-5.664304 22.612964-10.532066 40.712187-2.478133 87.044425-38.986344 101.780467-41.15471 17.12567-72.042869-27.524978-85.008816-47.881072a359.108038 359.108038 0 0 1-23.365255-272.992912 230.422126 230.422126 0 0 1 18.630251-61.024028c-2.478133-14.51478-13.762489-18.674503-20.311841-27.524978a384.995678 384.995678 0 0 1-29.95886-50.713224 960.011063 960.011063 0 0 1-42.039758-108.9051c-5.664304-14.51478-7.345895-29.206569-13.010198-42.969058a383.358341 383.358341 0 0 0-41.243216-61.024027c-18.718755-26.772688-73.149179-78.724978-51.288504-131.518064 34.07433-83.814002 153.201729-20.356093 199.135695 8.850475a308.350562 308.350562 0 0 0 37.260502 28.454279c20.400346 0.75229 40.535177 2.433881 60.89127 3.186171a390.704235 390.704235 0 0 1 103.683319 33.366292 817.252895 817.252895 0 0 1 313.793604 303.925324 892.92446 892.92446 0 0 1 41.420225 92.708729c20.179084 47.084529 42.924806 96.647191 66.378565 141.29784 10.310804 21.285393 18.630251 42.570787 18.630251 42.570786v85.141573a933.061366 933.061366 0 0 1-81.91115-142.227139c-16.94866-38.986344-38.057044-79.654278-55.138461-119.481417-8.850475-19.382541-12.965946-36.552463-22.789974-55.182714a719.41089 719.41089 0 0 0-252.769577-278.081936 515.805704 515.805704 0 0 0-116.472255-55.979257c-24.515817-7.345895-53.633881-3.407433-79.654279-8.850475h-16.904408c-14.470527-3.938462-26.551426-19.382541-38.012791-27.480726a400.307001 400.307001 0 0 0-80.22956-40.844944c-10.576318-4.956266-40.446672-16.240622-51.02299-7.390147a12.700432 12.700432 0 0 0-11.240104 10.532065c-6.593604 9.824028-0.973552 24.515817 3.141919 33.366293a387.208297 387.208297 0 0 0 44.252377 63.325151 419.910804 419.910804 0 0 1 40.800691 62.705618c20.931374 45.447191 30.71115 95.894901 50.314953 141.297839a322.776837 322.776837 0 0 0 29.029559 51.996543c8.850475 12.257908 25.179602 21.108384 30.047364 36.552463 9.86828 16.19637-14.647537 69.918755-20.311841 87.044425a352.647191 352.647191 0 0 0 7.345894 216.836647c9.824028 22.612965 18.630251 49.3414 44.606396 55.935004 1.548833-1.68159 0-0.75229 3.274676-1.68159a458.852895 458.852895 0 0 1 22.568712-122.623336 298.216768 298.216768 0 0 1 38.897839-55.226967c8.142437 4.735004 8.142437 19.426793 13.010199 29.206569 10.532066 25.046845 21.904927 52.748833 34.826621 78.01694 26.551426 51.996543 93.416768 152.582195 93.416767 152.582196zM385.084183 378.092308a283.74624 283.74624 0 0 1-25.799135-33.543302h-1.637338v-1.504581a128.022126 128.022126 0 0 1 33.322039-4.159723c6.372342 6.593604 17.169922 10.576318 21.77217 18.674503a177.717545 177.717545 0 0 0 9.86828 17.12567 45.624201 45.624201 0 0 1-17.169922 40.712186 18.80726 18.80726 0 0 1-1.548834 1.681591c-6.593604-12.965946-12.213656-25.976145-18.80726-38.986344z" fill="currentColor"></path>
-</svg>
-      
-      <span class="title">MySQL 入门教程</span>
-    </a>
-    <div class="content">
-      <ul class="menu">
-        
-        <li>
-          <a href="../index.html" target="" class=""> Home </a>
-        </li>
-        
-        <li>
-          <a href="../21-minutes-MySQL-basic-entry.html" target="" class=""> Cheat Sheet </a>
-        </li>
-        
-        <li>
-          <a href="../awesome-mysql.html" target="" class=""> Awesome </a>
-        </li>
-        
-      </ul>
-      
-        <a href="https://github.com/jaywcjlove/mysql-tutorial.git" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+    <script src="../js/copy.js?v=1.21.1"></script>
+    <script src="../js/dark-mode.js?v=1.21.1"></script>
+    <script src="../js/markdown-style.js?v=1.21.1"></script>
+  </head>
+  <body id="idoctotop"><a href="#idoctotop" class="gototop">top</a>
+    <header class="header">
+      <article class="inner warpper"><a class="logo" href="../index.html"><svg viewBox="0 0 1117 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0m177.009507 0l531.028522 0q177.009507 0 177.009508 177.009507l0 531.028522q0 177.009507-177.009508 177.009508l-531.028522 0q-177.009507 0-177.009507-177.009508l0-531.028522q0-177.009507 177.009507-177.009507Z" fill="#3aa0be73"></path>
+            <path d="M572.448747 1023.955748l-81.73414-94.965601c-10.532066-22.789974-22.126188-44.650648-33.32204-67.440622v-1.504581c-4.867761 6.416595-3.274676 12.788937-5.664304 22.612964-10.532066 40.712187-2.478133 87.044425-38.986344 101.780467-41.15471 17.12567-72.042869-27.524978-85.008816-47.881072a359.108038 359.108038 0 0 1-23.365255-272.992912 230.422126 230.422126 0 0 1 18.630251-61.024028c-2.478133-14.51478-13.762489-18.674503-20.311841-27.524978a384.995678 384.995678 0 0 1-29.95886-50.713224 960.011063 960.011063 0 0 1-42.039758-108.9051c-5.664304-14.51478-7.345895-29.206569-13.010198-42.969058a383.358341 383.358341 0 0 0-41.243216-61.024027c-18.718755-26.772688-73.149179-78.724978-51.288504-131.518064 34.07433-83.814002 153.201729-20.356093 199.135695 8.850475a308.350562 308.350562 0 0 0 37.260502 28.454279c20.400346 0.75229 40.535177 2.433881 60.89127 3.186171a390.704235 390.704235 0 0 1 103.683319 33.366292 817.252895 817.252895 0 0 1 313.793604 303.925324 892.92446 892.92446 0 0 1 41.420225 92.708729c20.179084 47.084529 42.924806 96.647191 66.378565 141.29784 10.310804 21.285393 18.630251 42.570787 18.630251 42.570786v85.141573a933.061366 933.061366 0 0 1-81.91115-142.227139c-16.94866-38.986344-38.057044-79.654278-55.138461-119.481417-8.850475-19.382541-12.965946-36.552463-22.789974-55.182714a719.41089 719.41089 0 0 0-252.769577-278.081936 515.805704 515.805704 0 0 0-116.472255-55.979257c-24.515817-7.345895-53.633881-3.407433-79.654279-8.850475h-16.904408c-14.470527-3.938462-26.551426-19.382541-38.012791-27.480726a400.307001 400.307001 0 0 0-80.22956-40.844944c-10.576318-4.956266-40.446672-16.240622-51.02299-7.390147a12.700432 12.700432 0 0 0-11.240104 10.532065c-6.593604 9.824028-0.973552 24.515817 3.141919 33.366293a387.208297 387.208297 0 0 0 44.252377 63.325151 419.910804 419.910804 0 0 1 40.800691 62.705618c20.931374 45.447191 30.71115 95.894901 50.314953 141.297839a322.776837 322.776837 0 0 0 29.029559 51.996543c8.850475 12.257908 25.179602 21.108384 30.047364 36.552463 9.86828 16.19637-14.647537 69.918755-20.311841 87.044425a352.647191 352.647191 0 0 0 7.345894 216.836647c9.824028 22.612965 18.630251 49.3414 44.606396 55.935004 1.548833-1.68159 0-0.75229 3.274676-1.68159a458.852895 458.852895 0 0 1 22.568712-122.623336 298.216768 298.216768 0 0 1 38.897839-55.226967c8.142437 4.735004 8.142437 19.426793 13.010199 29.206569 10.532066 25.046845 21.904927 52.748833 34.826621 78.01694 26.551426 51.996543 93.416768 152.582195 93.416767 152.582196zM385.084183 378.092308a283.74624 283.74624 0 0 1-25.799135-33.543302h-1.637338v-1.504581a128.022126 128.022126 0 0 1 33.322039-4.159723c6.372342 6.593604 17.169922 10.576318 21.77217 18.674503a177.717545 177.717545 0 0 0 9.86828 17.12567 45.624201 45.624201 0 0 1-17.169922 40.712186 18.80726 18.80726 0 0 1-1.548834 1.681591c-6.593604-12.965946-12.213656-25.976145-18.80726-38.986344z" fill="currentColor"></path>
           </svg>
-        </a>
-      
-      <dark-mode permanent></dark-mode>
+<span class="title">MySQL 入门教程</span></a>
+        <div class="content">
+          <ul class="menu">
+            <li><a href="../index.html" target="" class="">Home</a></li>
+            <li><a href="../21-minutes-MySQL-basic-entry.html" target="" class="">Cheat Sheet</a></li>
+            <li><a href="../awesome-mysql.html" target="" class="">Awesome</a></li>
+          </ul><a href="https://github.com/jaywcjlove/mysql-tutorial.git" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg></a>
+          <dark-mode permanent=""></dark-mode>
+        </div>
+      </article>
+    </header>
+    <div class="warpper-content warpper sidebar">
+      <div class="sidebar-border">
+        <aside class="sidebar" role="navigation">
+          <div>
+            <label>第1章 初识 MySQL</label>
+            <a href="1.1.html" class="">数据库基础</a>
+            <a href="1.2.html" class="">数据库技术构成</a>
+            <a href="1.3.html" class="active">什么是MySQL</a>
+            <a href="1.4.html" class="">如何学习MySQL</a>
+            <label>第2章 MySQL 的安装与配置</label>
+            <a href="../chapter2/2.1.html" class="">Mac平台下安装与配置MySQL</a>
+            <a href="../chapter2/2.2.html" class="">Centos 平台安装与卸载MySQL</a>
+            <a href="../chapter2/2.3.html" class="">Docker 安装 MySQL</a>
+            <a href="../chapter2/2.4.html" class="">启动数据库设置初始密码</a>
+            <a href="../chapter2/2.5.html" class="">MySQL工具</a>
+            <a href="../chapter2/2.6.html" class="">MySQL配置修改</a>
+            <label>第3章 数据库的基本操作</label>
+            <a href="../chapter3/3.1.html" class="">连接数据库</a>
+            <a href="../chapter3/3.2.html" class="">查看选择数据库</a>
+            <a href="../chapter3/3.3.html" class="">创建数据库</a>
+            <a href="../chapter3/3.4.html" class="">删除数据库</a>
+            <a href="../chapter3/3.5.html" class="">数据库存储引擎</a>
+          </div>
+        </aside>
+      </div>
+      <markdown-style>
+        <h1 id="什么是mysql"><a aria-hidden="true" tabindex="-1" href="#什么是mysql" class="anchor"><span class="icon icon-link"></span></a>什么是MySQL</h1>
+        <p>MySQL（官方发音为英语发音：<code>/maɪ ˌɛskjuːˈɛl/</code> <code>My S-Q-L</code>，但也经常读作英语发音：<code>/maɪ ˈsiːkwəl/</code> <code>My Sequel</code>）原本是一个开放源代码的关系数据库管理系统（DBMS），原开发者为瑞典的<code>MySQL AB</code>公司，该公司于2008年被昇阳微系统（Sun Microsystems）收购。2009年，甲骨文公司（Oracle）收购昇阳微系统公司，MySQL成为Oracle旗下产品。在本教程中，会让大家快速掌握MySQL的基本知识，并轻松使用MySQL数据库。</p>
+        <h3 id="mysql-介绍"><a aria-hidden="true" tabindex="-1" href="#mysql-介绍" class="anchor"><span class="icon icon-link"></span></a>MySQL 介绍</h3>
+        <p>MySQL在过去由于性能高、成本低、可靠性好，已经成为最流行的开源数据库，因此被广泛地应用在Internet上的中小型网站中，是最流行的关系型数据库管理系统，在WEB应用方面MySQL是最好的RDBMS(Relational Database Management System：关系数据库管理系统)应用软件之一。随着MySQL的不断成熟，它也逐渐用于更多大规模网站和应用，比如维基百科、Google和Facebook等网站。</p>
+        <p>但被甲骨文公司收购后，Oracle大幅调涨MySQL商业版的售价，且甲骨文公司不再支持另一个自由软件项目OpenSolaris的发展，因此导致自由软件社区们对于Oracle是否还会持续支持MySQL社区版（MySQL之中唯一的免费版本）有所隐忧，因此原先一些使用MySQL的开源软件逐渐转向其它的数据库。例如维基百科已于2013年正式宣布将从MySQL迁移到<code>MariaDB</code>数据库。MySQL的创始人麦克尔·维德纽斯以MySQL为基础，成立分支计划<a href="https://github.com/MariaDB/server">MariaDB</a>。</p>
+        <h3 id="mysql-发展历史"><a aria-hidden="true" tabindex="-1" href="#mysql-发展历史" class="anchor"><span class="icon icon-link"></span></a>MySQL 发展历史</h3>
+        <p>很多人以为MySQL是最近15年内才出现的数据库，其实MySQL数据库的历史可以追溯到1979年，那时 Bill Gates 退学没多久，微软公司也才刚刚起步，而Larry的Oracle公司也才成立不久。那时有一个天才程序员 Monty Widenius 用 BASIC 设计了一个报表工具，过了不久，又将此工具使用 C 语言重写，移植到 UNIX 平台，当时只是一个底层的面向报表存储引擎名叫Unireg。</p>
+        <ul>
+          <li>1985年，瑞典的几位志同道合小伙子(David Axmark、Allan Larsson 和Monty Widenius) 成立了一家公司，这就是MySQL AB 的前身。</li>
+          <li>1990年，TcX公司的客户中开始有人要求为他的API提供SQL支持。当时有人提议直接使用商用数据库，但是Monty觉得商用数据库的速度难以令人满意。于是，他直接借助于mSQL的代码，将它集成到自己的存储引擎中。令人失望的是，效果并不太令人满意，于是，Monty雄心大起，决心自己重写一个SQL支持。</li>
+          <li>1996年，MySQL 1.0发布，它只面向一小拨人，相当于内部发布。</li>
+          <li>1996年10月，MySQL 3.11.1发布(MySQL没有2.x版本)，最开始只提供Solaris下的二进制版本。一个月后，Linux版本出现了。</li>
+          <li>1999～2000年，MySQL AB公司在瑞典成立。Monty雇了几个人与Sleepycat合作，开发出了Berkeley DB引擎，因为BDB支持事务处理，所以MySQL从此开始支持事务处理了。</li>
+          <li>2003年12月，MySQL 5.0版本发布，提供了视图、存储过程等功能。</li>
+          <li>2008年1月16日，Sun（太阳微系统）正式收购MySQL。</li>
+          <li>2009年4月20日，甲骨文公司宣布以每股9.50美元，74亿美元的总额收购Sun电脑公司。</li>
+          <li>2010年12月，MySQL 5.5发布，其主要新特性包括半同步的复制及对SIGNAL/RESIGNAL的异常处理功能的支持，最重要的是InnoDB存储引擎终于变为当前MySQL的默认存储引擎。</li>
+          <li>2013年6月18日，甲骨文公司修改MySQL授权协议，移除了GPL。但随后有消息称这是一个bug。</li>
+        </ul>
+        <h3 id="mysql-版本"><a aria-hidden="true" tabindex="-1" href="#mysql-版本" class="anchor"><span class="icon icon-link"></span></a>MySQL 版本</h3>
+        <p><code>MySQL</code>针对不同的用户，分了<code>社区版</code>和<code>企业服务器版</code>，还提供一些其它版本，是属于<code>MySQL</code>相关工具。</p>
+        <ol>
+          <li>MySQL Community Server 社区版本，开源免费，但不提供官方技术支持。</li>
+          <li>MySQL Enterprise Edition 企业版本，需付费，可以试用30天。</li>
+          <li>MySQL Cluster 集群版，开源免费。可将几个MySQL Server封装成一个Server。</li>
+          <li>MySQL Cluster CGE 高级集群版，需付费。</li>
+          <li>MySQL Workbench（GUI TOOL）一款专为MySQL设计的ER/数据库建模工具。</li>
+        </ol>
+        <blockquote>
+          <p>MySQL Workbench是著名的数据库设计工具DBDesigner4的继任者。MySQL Workbench又分为两个版本，分别是社区版（MySQL Workbench OSS）、商用版（MySQL Workbench SE）。</p>
+        </blockquote>
+        <p>MySQL 版本命命机制由三个数字组成，例如<code>mysql-5.6.33-osx10.11-x86_64.tar.gz</code></p>
+        <ul>
+          <li>第一个数字（5）主版本号：当你做了不兼容的 API 修改，</li>
+          <li>第二个数字（7）次版本号：当你做了向下兼容的功能性新增，合计，主要和次要的数字构成发布系列号。该系列号描述了稳定的特征集。</li>
+          <li>第三个数字（1）修订号：当你做了向下兼容的问题修正。这是一个新的bugfix释放增加。在大多数情况下，在一系列最新版本是最好的选择。</li>
+        </ul>
+        <blockquote>
+          <p>Github 上面有<a href="http://semver.org/lang/zh-CN/">语义化版本标准</a>, 开源仓库<a href="https://github.com/mojombo/semver">mojombo/semver</a>，上面的版本命名大致是跟语义化版本标准差不多，你可以看语义化版本标准来学习版本名机制。通过语义化版本标准来理解MySQL版本命命机制。</p>
+        </blockquote>
+        <h3 id="mysql-的优势"><a aria-hidden="true" tabindex="-1" href="#mysql-的优势" class="anchor"><span class="icon icon-link"></span></a>MySQL 的优势</h3>
+        <ul>
+          <li>使用C和C++编写，并使用了多种编译器进行测试，保证源代码的可移植性。</li>
+          <li>支持AIX、BSDi、FreeBSD、HP-UX、Linux、Mac OS、Novell NetWare、NetBSD、OpenBSD、OS/2 Wrap、Solaris、Windows等多种操作系统。</li>
+          <li>为多种编程语言提供了API。这些编程语言包括C、C++、C#、VB.NET、Delphi、Eiffel、Java、Perl、PHP、Python、Ruby和Tcl等。</li>
+          <li>支持多线程，充分利用CPU资源，支持多用户。</li>
+          <li>优化的SQL查询算法，有效地提高查询速度。</li>
+          <li>既能够作为一个单独的应用程序在客户端服务器网络环境中运行，也能够作为一个程序库而嵌入到其他的软件中。</li>
+          <li>提供多语言支持，常见的编码如中文的GB 2312、BIG5、日文的Shift JIS等都可以用作数据表名和数据列名。</li>
+          <li>提供TCP/IP、ODBC和JDBC等多种数据库连接途径。</li>
+          <li>提供用于管理、检查、优化数据库操作的管理工具。</li>
+          <li>可以处理拥有上千万条记录的大型数据库。</li>
+        </ul>
+        <div class="previous"><a class="prev" href="1.2.html"><svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
+              <path d="M842.666667 864c-8.533333 0-14.933333-2.133333-21.333334-8.533333l-341.333333-309.333334c-6.4-6.4-10.666667-14.933333-10.666667-23.466666 0-8.533333 4.266667-17.066667 10.666667-23.466667l341.333333-309.333333c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133333 44.8L548.266667 522.666667l315.733333 285.866666c12.8 10.666667 14.933333 32 2.133333 44.8-6.4 6.4-14.933333 10.666667-23.466666 10.666667z"></path>
+              <path d="M512 864c-8.533333 0-14.933333-2.133333-21.333333-8.533333L149.333333 546.133333c-6.4-6.4-10.666667-14.933333-10.666666-23.466666 0-8.533333 4.266667-17.066667 10.666666-23.466667L490.666667 189.866667c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133334 44.8L217.6 522.666667 533.333333 808.533333c12.8 12.8 14.933333 32 2.133334 44.8-6.4 6.4-14.933333 10.666667-23.466667 10.666667z"></path>
+            </svg>
+<span>数据库技术构成
+</span></a><a class="next" href="1.4.html"><span>如何学习MySQL
+</span><svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
+              <path d="M544 522.666667c0-8.533333-4.266667-17.066667-10.666667-23.466667L192 189.866667c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733334 285.866667L149.333333 808.533333c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666z"></path>
+              <path d="M864 499.2l-341.333333-309.333333c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733333 285.866667-315.733333 285.866666c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466666 10.666667 8.533333 0 14.933333-2.133333 21.333334-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666 0-8.533333-4.266667-17.066667-10.666667-23.466667z"></path>
+            </svg></a></div>
+        <section class="article-footer"><a href="https://github.com/jaywcjlove/mysql-tutorial/blob/master/docs/chapter1/1.3.md" class="edit-button" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
+<span>Edit this page on GitHub</span>
+</a><span class="atime">2021/10/03</span></section>
+      </markdown-style>
+      <nav class="tocs">
+        <aside class="inner toc">
+          <ol class="tocs-list">
+            <li><a href="#mysql-介绍" class="tocs-link">MySQL 介绍</a></li>
+            <li><a href="#mysql-发展历史" class="tocs-link">MySQL 发展历史</a></li>
+            <li><a href="#mysql-版本" class="tocs-link">MySQL 版本</a></li>
+            <li><a href="#mysql-的优势" class="tocs-link">MySQL 的优势</a></li>
+          </ol>
+        </aside>
+      </nav>
     </div>
-  </article>
-</header>
-
-<div class="warpper-content warpper sidebar ">
-  
-<div class="sidebar-border">
-  <aside class="sidebar" role="navigation">
-    <div>
-    
-      
-        <label>第1章 初识 MySQL</label>
-      
-    
-      
-        <a href="1.1.html" class="">数据库基础</a>
-      
-    
-      
-        <a href="1.2.html" class="">数据库技术构成</a>
-      
-    
-      
-        <a href="1.3.html" class="active">什么是MySQL</a>
-      
-    
-      
-        <a href="1.4.html" class="">如何学习MySQL</a>
-      
-    
-      
-        <label>第2章 MySQL 的安装与配置</label>
-      
-    
-      
-        <a href="../chapter2/2.1.html" class="">Mac平台下安装与配置MySQL</a>
-      
-    
-      
-        <a href="../chapter2/2.2.html" class="">Centos 平台安装与卸载MySQL</a>
-      
-    
-      
-        <a href="../chapter2/2.3.html" class="">Docker 安装 MySQL</a>
-      
-    
-      
-        <a href="../chapter2/2.4.html" class="">启动数据库设置初始密码</a>
-      
-    
-      
-        <a href="../chapter2/2.5.html" class="">MySQL工具</a>
-      
-    
-      
-        <a href="../chapter2/2.6.html" class="">MySQL配置修改</a>
-      
-    
-      
-        <label>第3章 数据库的基本操作</label>
-      
-    
-      
-        <a href="../chapter3/3.1.html" class="">连接数据库</a>
-      
-    
-      
-        <a href="../chapter3/3.2.html" class="">查看选择数据库</a>
-      
-    
-      
-        <a href="../chapter3/3.3.html" class="">创建数据库</a>
-      
-    
-      
-        <a href="../chapter3/3.4.html" class="">删除数据库</a>
-      
-    
-      
-        <a href="../chapter3/3.5.html" class="">数据库存储引擎</a>
-      
-    
-    </div>
-  </aside>
-</div>
-
-  <markdown-style>
-    <h1 id="什么是mysql"><a aria-hidden="true" tabindex="-1" href="#什么是mysql" class="anchor"><span class="icon icon-link"></span></a>什么是MySQL</h1>
-<p>MySQL（官方发音为英语发音：<code>/maɪ ˌɛskjuːˈɛl/</code> <code>My S-Q-L</code>，但也经常读作英语发音：<code>/maɪ ˈsiːkwəl/</code> <code>My Sequel</code>）原本是一个开放源代码的关系数据库管理系统（DBMS），原开发者为瑞典的<code>MySQL AB</code>公司，该公司于2008年被昇阳微系统（Sun Microsystems）收购。2009年，甲骨文公司（Oracle）收购昇阳微系统公司，MySQL成为Oracle旗下产品。在本教程中，会让大家快速掌握MySQL的基本知识，并轻松使用MySQL数据库。</p>
-<h3 id="mysql-介绍"><a aria-hidden="true" tabindex="-1" href="#mysql-介绍" class="anchor"><span class="icon icon-link"></span></a>MySQL 介绍</h3>
-<p>MySQL在过去由于性能高、成本低、可靠性好，已经成为最流行的开源数据库，因此被广泛地应用在Internet上的中小型网站中，是最流行的关系型数据库管理系统，在WEB应用方面MySQL是最好的RDBMS(Relational Database Management System：关系数据库管理系统)应用软件之一。随着MySQL的不断成熟，它也逐渐用于更多大规模网站和应用，比如维基百科、Google和Facebook等网站。</p>
-<p>但被甲骨文公司收购后，Oracle大幅调涨MySQL商业版的售价，且甲骨文公司不再支持另一个自由软件项目OpenSolaris的发展，因此导致自由软件社区们对于Oracle是否还会持续支持MySQL社区版（MySQL之中唯一的免费版本）有所隐忧，因此原先一些使用MySQL的开源软件逐渐转向其它的数据库。例如维基百科已于2013年正式宣布将从MySQL迁移到<code>MariaDB</code>数据库。MySQL的创始人麦克尔·维德纽斯以MySQL为基础，成立分支计划<a href="https://github.com/MariaDB/server">MariaDB</a>。</p>
-<h3 id="mysql-发展历史"><a aria-hidden="true" tabindex="-1" href="#mysql-发展历史" class="anchor"><span class="icon icon-link"></span></a>MySQL 发展历史</h3>
-<p>很多人以为MySQL是最近15年内才出现的数据库，其实MySQL数据库的历史可以追溯到1979年，那时 Bill Gates 退学没多久，微软公司也才刚刚起步，而Larry的Oracle公司也才成立不久。那时有一个天才程序员 Monty Widenius 用 BASIC 设计了一个报表工具，过了不久，又将此工具使用 C 语言重写，移植到 UNIX 平台，当时只是一个底层的面向报表存储引擎名叫Unireg。</p>
-<ul>
-<li>1985年，瑞典的几位志同道合小伙子(David Axmark、Allan Larsson 和Monty Widenius) 成立了一家公司，这就是MySQL AB 的前身。</li>
-<li>1990年，TcX公司的客户中开始有人要求为他的API提供SQL支持。当时有人提议直接使用商用数据库，但是Monty觉得商用数据库的速度难以令人满意。于是，他直接借助于mSQL的代码，将它集成到自己的存储引擎中。令人失望的是，效果并不太令人满意，于是，Monty雄心大起，决心自己重写一个SQL支持。</li>
-<li>1996年，MySQL 1.0发布，它只面向一小拨人，相当于内部发布。</li>
-<li>1996年10月，MySQL 3.11.1发布(MySQL没有2.x版本)，最开始只提供Solaris下的二进制版本。一个月后，Linux版本出现了。</li>
-<li>1999～2000年，MySQL AB公司在瑞典成立。Monty雇了几个人与Sleepycat合作，开发出了Berkeley DB引擎，因为BDB支持事务处理，所以MySQL从此开始支持事务处理了。</li>
-<li>2003年12月，MySQL 5.0版本发布，提供了视图、存储过程等功能。</li>
-<li>2008年1月16日，Sun（太阳微系统）正式收购MySQL。</li>
-<li>2009年4月20日，甲骨文公司宣布以每股9.50美元，74亿美元的总额收购Sun电脑公司。</li>
-<li>2010年12月，MySQL 5.5发布，其主要新特性包括半同步的复制及对SIGNAL/RESIGNAL的异常处理功能的支持，最重要的是InnoDB存储引擎终于变为当前MySQL的默认存储引擎。</li>
-<li>2013年6月18日，甲骨文公司修改MySQL授权协议，移除了GPL。但随后有消息称这是一个bug。</li>
-</ul>
-<h3 id="mysql-版本"><a aria-hidden="true" tabindex="-1" href="#mysql-版本" class="anchor"><span class="icon icon-link"></span></a>MySQL 版本</h3>
-<p><code>MySQL</code>针对不同的用户，分了<code>社区版</code>和<code>企业服务器版</code>，还提供一些其它版本，是属于<code>MySQL</code>相关工具。</p>
-<ol>
-<li>MySQL Community Server 社区版本，开源免费，但不提供官方技术支持。</li>
-<li>MySQL Enterprise Edition 企业版本，需付费，可以试用30天。</li>
-<li>MySQL Cluster 集群版，开源免费。可将几个MySQL Server封装成一个Server。</li>
-<li>MySQL Cluster CGE 高级集群版，需付费。</li>
-<li>MySQL Workbench（GUI TOOL）一款专为MySQL设计的ER/数据库建模工具。</li>
-</ol>
-<blockquote>
-<p>MySQL Workbench是著名的数据库设计工具DBDesigner4的继任者。MySQL Workbench又分为两个版本，分别是社区版（MySQL Workbench OSS）、商用版（MySQL Workbench SE）。</p>
-</blockquote>
-<p>MySQL 版本命命机制由三个数字组成，例如<code>mysql-5.6.33-osx10.11-x86_64.tar.gz</code></p>
-<ul>
-<li>第一个数字（5）主版本号：当你做了不兼容的 API 修改，</li>
-<li>第二个数字（7）次版本号：当你做了向下兼容的功能性新增，合计，主要和次要的数字构成发布系列号。该系列号描述了稳定的特征集。</li>
-<li>第三个数字（1）修订号：当你做了向下兼容的问题修正。这是一个新的bugfix释放增加。在大多数情况下，在一系列最新版本是最好的选择。</li>
-</ul>
-<blockquote>
-<p>Github 上面有<a href="http://semver.org/lang/zh-CN/">语义化版本标准</a>, 开源仓库<a href="https://github.com/mojombo/semver">mojombo/semver</a>，上面的版本命名大致是跟语义化版本标准差不多，你可以看语义化版本标准来学习版本名机制。通过语义化版本标准来理解MySQL版本命命机制。</p>
-</blockquote>
-<h3 id="mysql-的优势"><a aria-hidden="true" tabindex="-1" href="#mysql-的优势" class="anchor"><span class="icon icon-link"></span></a>MySQL 的优势</h3>
-<ul>
-<li>使用C和C++编写，并使用了多种编译器进行测试，保证源代码的可移植性。</li>
-<li>支持AIX、BSDi、FreeBSD、HP-UX、Linux、Mac OS、Novell NetWare、NetBSD、OpenBSD、OS/2 Wrap、Solaris、Windows等多种操作系统。</li>
-<li>为多种编程语言提供了API。这些编程语言包括C、C++、C#、VB.NET、Delphi、Eiffel、Java、Perl、PHP、Python、Ruby和Tcl等。</li>
-<li>支持多线程，充分利用CPU资源，支持多用户。</li>
-<li>优化的SQL查询算法，有效地提高查询速度。</li>
-<li>既能够作为一个单独的应用程序在客户端服务器网络环境中运行，也能够作为一个程序库而嵌入到其他的软件中。</li>
-<li>提供多语言支持，常见的编码如中文的GB 2312、BIG5、日文的Shift JIS等都可以用作数据表名和数据列名。</li>
-<li>提供TCP/IP、ODBC和JDBC等多种数据库连接途径。</li>
-<li>提供用于管理、检查、优化数据库操作的管理工具。</li>
-<li>可以处理拥有上千万条记录的大型数据库。</li>
-</ul>
-    
-
-<div class="previous">
-  
-  <a class="prev" href="1.2.html">
-    <svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
-      <path d="M842.666667 864c-8.533333 0-14.933333-2.133333-21.333334-8.533333l-341.333333-309.333334c-6.4-6.4-10.666667-14.933333-10.666667-23.466666 0-8.533333 4.266667-17.066667 10.666667-23.466667l341.333333-309.333333c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133333 44.8L548.266667 522.666667l315.733333 285.866666c12.8 10.666667 14.933333 32 2.133333 44.8-6.4 6.4-14.933333 10.666667-23.466666 10.666667z"></path>
-      <path d="M512 864c-8.533333 0-14.933333-2.133333-21.333333-8.533333L149.333333 546.133333c-6.4-6.4-10.666667-14.933333-10.666666-23.466666 0-8.533333 4.266667-17.066667 10.666666-23.466667L490.666667 189.866667c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133334 44.8L217.6 522.666667 533.333333 808.533333c12.8 12.8 14.933333 32 2.133334 44.8-6.4 6.4-14.933333 10.666667-23.466667 10.666667z"></path>
-    </svg>
-    <span>
-      数据库技术构成
-    </span>
-  </a>
-  
-  
-  <a class="next" href="1.4.html">
-    <span>
-      如何学习MySQL
-    </span>
-    <svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
-      <path d="M544 522.666667c0-8.533333-4.266667-17.066667-10.666667-23.466667L192 189.866667c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733334 285.866667L149.333333 808.533333c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666z"></path>
-      <path d="M864 499.2l-341.333333-309.333333c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733333 285.866667-315.733333 285.866666c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466666 10.666667 8.533333 0 14.933333-2.133333 21.333334-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666 0-8.533333-4.266667-17.066667-10.666667-23.466667z"></path>
-    </svg>
-  </a>
-  
-</div>
-
-
-
-<section class="article-footer">
-  <a href="https://github.com/jaywcjlove/mysql-tutorial/blob/master/docs/chapter1/1.3.md" class="edit-button" target="_blank" rel="noopener noreferrer">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-    </svg>
-    <span>Edit this page on GitHub</span>
-  </a>
-  
-  <span class="atime">2022/05/01</span>
-  
-</section>
-
-  </markdown-style>
-  
-<nav class="tocs">
-  <aside class="inner toc">
-    <ol class="tocs-list">
-    
-      <li>
-        <a href="#mysql-介绍" class="tocs-link">MySQL 介绍</a>
-        
-      </li>
-    
-      <li>
-        <a href="#mysql-发展历史" class="tocs-link">MySQL 发展历史</a>
-        
-      </li>
-    
-      <li>
-        <a href="#mysql-版本" class="tocs-link">MySQL 版本</a>
-        
-      </li>
-    
-      <li>
-        <a href="#mysql-的优势" class="tocs-link">MySQL 的优势</a>
-        
-      </li>
-    
-    </ol>
-  </aside>
-</nav>
-
-</div>
-
-<script src="../js/demo-preview.js?v=1.17.7"></script>
-
-
-<div class="footer warpper">
-  Released under the MIT License. Copyright © 2022 Kenny Wong<br />
-Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.17.7
-
-</div>
-
-
-<script src="../js/tocbot.js?v=1.17.7"></script>
-
-</body>
+    <script src="../js/demo-preview.js?v=1.21.1"></script>
+    <div class="footer warpper">Released under the MIT License. Copyright © 2022 Kenny Wong<br>Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.21.1</div>
+    <script src="../js/tocbot.js?v=1.21.1"></script>
+  </body>
 </html>

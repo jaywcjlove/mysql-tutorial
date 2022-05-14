@@ -1,468 +1,270 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>数据库基础 MySQL 入门教程 </title>
-  
-  <meta name="description" content="数据库(Database，DB)是按照数据结构来组织、存储和管理数据的建立在计算机存储设备上的仓库。">
-  
-  
-  <link rel="stylesheet" type="text/css" href="../css/main.css?v=1.17.7">
-  <link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1.17.7">
-  <link rel="stylesheet" type="text/css" href="../css/media.css?v=1.17.7">
-  <link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1.17.7">
-  <link rel="stylesheet" type="text/css" href="../css/copy.css?v=1.17.7">
-  <link rel="stylesheet" type="text/css" href="../css/demo-preview.css?v=1.17.7">
-  
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据库基础 MySQL 入门教程</title>
+    <meta name="description" content="数据库(Database，DB)是按照数据结构来组织、存储和管理数据的建立在计算机存储设备上的仓库。">
+    <link rel="stylesheet" type="text/css" href="../css/main.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="../css/media.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="../css/copy.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="../css/demo-preview.css?v=1.21.1">
     <link rel="icon" href="../mysql.svg" type="image/x-icon">
-  
-  <script src="../js/copy.js?v=1.17.7"></script>
-  <script src="../js/dark-mode.js?v=1.17.7"></script>
-  <script src="../js/markdown-style.js?v=1.17.7"></script>
-</head>
-<body id="idoctotop">
-  <a href="#idoctotop" class="gototop">top</a>
-<header class="header">
-  <article class="inner warpper">
-    <a class="logo" href="../index.html">
-      
-        <svg viewBox="0 0 1117 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 0m177.009507 0l531.028522 0q177.009507 0 177.009508 177.009507l0 531.028522q0 177.009507-177.009508 177.009508l-531.028522 0q-177.009507 0-177.009507-177.009508l0-531.028522q0-177.009507 177.009507-177.009507Z" fill="#3aa0be73"></path>
-<path d="M572.448747 1023.955748l-81.73414-94.965601c-10.532066-22.789974-22.126188-44.650648-33.32204-67.440622v-1.504581c-4.867761 6.416595-3.274676 12.788937-5.664304 22.612964-10.532066 40.712187-2.478133 87.044425-38.986344 101.780467-41.15471 17.12567-72.042869-27.524978-85.008816-47.881072a359.108038 359.108038 0 0 1-23.365255-272.992912 230.422126 230.422126 0 0 1 18.630251-61.024028c-2.478133-14.51478-13.762489-18.674503-20.311841-27.524978a384.995678 384.995678 0 0 1-29.95886-50.713224 960.011063 960.011063 0 0 1-42.039758-108.9051c-5.664304-14.51478-7.345895-29.206569-13.010198-42.969058a383.358341 383.358341 0 0 0-41.243216-61.024027c-18.718755-26.772688-73.149179-78.724978-51.288504-131.518064 34.07433-83.814002 153.201729-20.356093 199.135695 8.850475a308.350562 308.350562 0 0 0 37.260502 28.454279c20.400346 0.75229 40.535177 2.433881 60.89127 3.186171a390.704235 390.704235 0 0 1 103.683319 33.366292 817.252895 817.252895 0 0 1 313.793604 303.925324 892.92446 892.92446 0 0 1 41.420225 92.708729c20.179084 47.084529 42.924806 96.647191 66.378565 141.29784 10.310804 21.285393 18.630251 42.570787 18.630251 42.570786v85.141573a933.061366 933.061366 0 0 1-81.91115-142.227139c-16.94866-38.986344-38.057044-79.654278-55.138461-119.481417-8.850475-19.382541-12.965946-36.552463-22.789974-55.182714a719.41089 719.41089 0 0 0-252.769577-278.081936 515.805704 515.805704 0 0 0-116.472255-55.979257c-24.515817-7.345895-53.633881-3.407433-79.654279-8.850475h-16.904408c-14.470527-3.938462-26.551426-19.382541-38.012791-27.480726a400.307001 400.307001 0 0 0-80.22956-40.844944c-10.576318-4.956266-40.446672-16.240622-51.02299-7.390147a12.700432 12.700432 0 0 0-11.240104 10.532065c-6.593604 9.824028-0.973552 24.515817 3.141919 33.366293a387.208297 387.208297 0 0 0 44.252377 63.325151 419.910804 419.910804 0 0 1 40.800691 62.705618c20.931374 45.447191 30.71115 95.894901 50.314953 141.297839a322.776837 322.776837 0 0 0 29.029559 51.996543c8.850475 12.257908 25.179602 21.108384 30.047364 36.552463 9.86828 16.19637-14.647537 69.918755-20.311841 87.044425a352.647191 352.647191 0 0 0 7.345894 216.836647c9.824028 22.612965 18.630251 49.3414 44.606396 55.935004 1.548833-1.68159 0-0.75229 3.274676-1.68159a458.852895 458.852895 0 0 1 22.568712-122.623336 298.216768 298.216768 0 0 1 38.897839-55.226967c8.142437 4.735004 8.142437 19.426793 13.010199 29.206569 10.532066 25.046845 21.904927 52.748833 34.826621 78.01694 26.551426 51.996543 93.416768 152.582195 93.416767 152.582196zM385.084183 378.092308a283.74624 283.74624 0 0 1-25.799135-33.543302h-1.637338v-1.504581a128.022126 128.022126 0 0 1 33.322039-4.159723c6.372342 6.593604 17.169922 10.576318 21.77217 18.674503a177.717545 177.717545 0 0 0 9.86828 17.12567 45.624201 45.624201 0 0 1-17.169922 40.712186 18.80726 18.80726 0 0 1-1.548834 1.681591c-6.593604-12.965946-12.213656-25.976145-18.80726-38.986344z" fill="currentColor"></path>
-</svg>
-      
-      <span class="title">MySQL 入门教程</span>
-    </a>
-    <div class="content">
-      <ul class="menu">
-        
-        <li>
-          <a href="../index.html" target="" class=""> Home </a>
-        </li>
-        
-        <li>
-          <a href="../21-minutes-MySQL-basic-entry.html" target="" class=""> Cheat Sheet </a>
-        </li>
-        
-        <li>
-          <a href="../awesome-mysql.html" target="" class=""> Awesome </a>
-        </li>
-        
-      </ul>
-      
-        <a href="https://github.com/jaywcjlove/mysql-tutorial.git" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+    <script src="../js/copy.js?v=1.21.1"></script>
+    <script src="../js/dark-mode.js?v=1.21.1"></script>
+    <script src="../js/markdown-style.js?v=1.21.1"></script>
+  </head>
+  <body id="idoctotop"><a href="#idoctotop" class="gototop">top</a>
+    <header class="header">
+      <article class="inner warpper"><a class="logo" href="../index.html"><svg viewBox="0 0 1117 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0m177.009507 0l531.028522 0q177.009507 0 177.009508 177.009507l0 531.028522q0 177.009507-177.009508 177.009508l-531.028522 0q-177.009507 0-177.009507-177.009508l0-531.028522q0-177.009507 177.009507-177.009507Z" fill="#3aa0be73"></path>
+            <path d="M572.448747 1023.955748l-81.73414-94.965601c-10.532066-22.789974-22.126188-44.650648-33.32204-67.440622v-1.504581c-4.867761 6.416595-3.274676 12.788937-5.664304 22.612964-10.532066 40.712187-2.478133 87.044425-38.986344 101.780467-41.15471 17.12567-72.042869-27.524978-85.008816-47.881072a359.108038 359.108038 0 0 1-23.365255-272.992912 230.422126 230.422126 0 0 1 18.630251-61.024028c-2.478133-14.51478-13.762489-18.674503-20.311841-27.524978a384.995678 384.995678 0 0 1-29.95886-50.713224 960.011063 960.011063 0 0 1-42.039758-108.9051c-5.664304-14.51478-7.345895-29.206569-13.010198-42.969058a383.358341 383.358341 0 0 0-41.243216-61.024027c-18.718755-26.772688-73.149179-78.724978-51.288504-131.518064 34.07433-83.814002 153.201729-20.356093 199.135695 8.850475a308.350562 308.350562 0 0 0 37.260502 28.454279c20.400346 0.75229 40.535177 2.433881 60.89127 3.186171a390.704235 390.704235 0 0 1 103.683319 33.366292 817.252895 817.252895 0 0 1 313.793604 303.925324 892.92446 892.92446 0 0 1 41.420225 92.708729c20.179084 47.084529 42.924806 96.647191 66.378565 141.29784 10.310804 21.285393 18.630251 42.570787 18.630251 42.570786v85.141573a933.061366 933.061366 0 0 1-81.91115-142.227139c-16.94866-38.986344-38.057044-79.654278-55.138461-119.481417-8.850475-19.382541-12.965946-36.552463-22.789974-55.182714a719.41089 719.41089 0 0 0-252.769577-278.081936 515.805704 515.805704 0 0 0-116.472255-55.979257c-24.515817-7.345895-53.633881-3.407433-79.654279-8.850475h-16.904408c-14.470527-3.938462-26.551426-19.382541-38.012791-27.480726a400.307001 400.307001 0 0 0-80.22956-40.844944c-10.576318-4.956266-40.446672-16.240622-51.02299-7.390147a12.700432 12.700432 0 0 0-11.240104 10.532065c-6.593604 9.824028-0.973552 24.515817 3.141919 33.366293a387.208297 387.208297 0 0 0 44.252377 63.325151 419.910804 419.910804 0 0 1 40.800691 62.705618c20.931374 45.447191 30.71115 95.894901 50.314953 141.297839a322.776837 322.776837 0 0 0 29.029559 51.996543c8.850475 12.257908 25.179602 21.108384 30.047364 36.552463 9.86828 16.19637-14.647537 69.918755-20.311841 87.044425a352.647191 352.647191 0 0 0 7.345894 216.836647c9.824028 22.612965 18.630251 49.3414 44.606396 55.935004 1.548833-1.68159 0-0.75229 3.274676-1.68159a458.852895 458.852895 0 0 1 22.568712-122.623336 298.216768 298.216768 0 0 1 38.897839-55.226967c8.142437 4.735004 8.142437 19.426793 13.010199 29.206569 10.532066 25.046845 21.904927 52.748833 34.826621 78.01694 26.551426 51.996543 93.416768 152.582195 93.416767 152.582196zM385.084183 378.092308a283.74624 283.74624 0 0 1-25.799135-33.543302h-1.637338v-1.504581a128.022126 128.022126 0 0 1 33.322039-4.159723c6.372342 6.593604 17.169922 10.576318 21.77217 18.674503a177.717545 177.717545 0 0 0 9.86828 17.12567 45.624201 45.624201 0 0 1-17.169922 40.712186 18.80726 18.80726 0 0 1-1.548834 1.681591c-6.593604-12.965946-12.213656-25.976145-18.80726-38.986344z" fill="currentColor"></path>
           </svg>
-        </a>
-      
-      <dark-mode permanent></dark-mode>
-    </div>
-  </article>
-</header>
-
-<div class="warpper-content warpper sidebar ">
-  
-<div class="sidebar-border">
-  <aside class="sidebar" role="navigation">
-    <div>
-    
-      
-        <label>第1章 初识 MySQL</label>
-      
-    
-      
-        <a href="1.1.html" class="active">数据库基础</a>
-      
-    
-      
-        <a href="1.2.html" class="">数据库技术构成</a>
-      
-    
-      
-        <a href="1.3.html" class="">什么是MySQL</a>
-      
-    
-      
-        <a href="1.4.html" class="">如何学习MySQL</a>
-      
-    
-      
-        <label>第2章 MySQL 的安装与配置</label>
-      
-    
-      
-        <a href="../chapter2/2.1.html" class="">Mac平台下安装与配置MySQL</a>
-      
-    
-      
-        <a href="../chapter2/2.2.html" class="">Centos 平台安装与卸载MySQL</a>
-      
-    
-      
-        <a href="../chapter2/2.3.html" class="">Docker 安装 MySQL</a>
-      
-    
-      
-        <a href="../chapter2/2.4.html" class="">启动数据库设置初始密码</a>
-      
-    
-      
-        <a href="../chapter2/2.5.html" class="">MySQL工具</a>
-      
-    
-      
-        <a href="../chapter2/2.6.html" class="">MySQL配置修改</a>
-      
-    
-      
-        <label>第3章 数据库的基本操作</label>
-      
-    
-      
-        <a href="../chapter3/3.1.html" class="">连接数据库</a>
-      
-    
-      
-        <a href="../chapter3/3.2.html" class="">查看选择数据库</a>
-      
-    
-      
-        <a href="../chapter3/3.3.html" class="">创建数据库</a>
-      
-    
-      
-        <a href="../chapter3/3.4.html" class="">删除数据库</a>
-      
-    
-      
-        <a href="../chapter3/3.5.html" class="">数据库存储引擎</a>
-      
-    
-    </div>
-  </aside>
-</div>
-
-  <markdown-style>
-    <h1 id="数据库基础"><a aria-hidden="true" tabindex="-1" href="#数据库基础" class="anchor"><span class="icon icon-link"></span></a>数据库基础</h1>
-<p>数据库(Database，DB)是按照数据结构来组织、存储和管理数据的建立在计算机存储设备上的仓库。</p>
-<p>简单来说是本身可视为电子化的文件柜——存储电子文件的处所，用户可以对文件中的数据进行新增、截取、更新、删除等操作。数据管理不再仅仅是存储和管理数据，而转变成用户所需要的各种数据管理的方式。数据库有很多种类型，从最简单的存储有各种数据的表格到能够进行海量数据存储的大型数据库系统都在各个方面得到了广泛的应用。</p>
-<h2 id="什么是数据库"><a aria-hidden="true" tabindex="-1" href="#什么是数据库" class="anchor"><span class="icon icon-link"></span></a>什么是数据库</h2>
-<blockquote>
-<p>人们通常用数据库这个术语来代表他们使用的数据库软件。这是不正确的，它是引起混淆的根源。确切地说，数据库软件应称为<code>DBMS</code>(数据库管理系统)。数据库是通过 <code>DBMS</code> 创建和操纵的容器。数据库可以是保存在硬设备上的文件，但也可以不是。在很大程度上说，数据库究竟是文件还是别的什么东西并不重要，因为你并不直接访问数据库；你使用的是<code>DBMS</code>，它替你访问数据库。</p>
-</blockquote>
-<p>数据库指的是以一定方式储存在一起、能为多个用户共享、具有尽可能小的冗余度、与应用程序彼此独立的数据集合。简单来说可视为电子化的文件柜——存储电子文件的处所，用户可以对文件中的数据运行新增、截取、更新、删除等操作。</p>
-<p>RDBMS即关系数据库管理系统(Relational Database Management System)的特点：</p>
-<ol>
-<li>数据以表格的形式出现</li>
-<li>每行为各种记录名称</li>
-<li>每列为记录名称所对应的数据域</li>
-<li>许多的行和列组成一张表单</li>
-<li>若干的表单组成database</li>
-</ol>
-<h2 id="数据库分类"><a aria-hidden="true" tabindex="-1" href="#数据库分类" class="anchor"><span class="icon icon-link"></span></a>数据库分类</h2>
-<p>数据库的分类可多了去了，在维基百科上面有下面这些数据库，并粗略的分了个类别。一看这里面的学问大了去了，还是先搬一些代表性的吧，长长见识，要深入了解各种概念推荐看《数据库系统概论》。</p>
-<h3 id="关系数据库"><a aria-hidden="true" tabindex="-1" href="#关系数据库" class="anchor"><span class="icon icon-link"></span></a>关系数据库</h3>
-<p><em>（英语：Relational database），是创建在关系模型基础上的数据库，借助于集合代数等数学概念和方法来处理数据库中的数据。现实世界中的各种实体以及实体之间的各种联系均用关系模型来表示。关系模型是由埃德加·科德于1970年首先提出的，并配合“科德十二定律”。现如今虽然对此模型有一些批评意见，但它还是数据存储的传统标准。标准数据查询语言SQL就是一种基于关系数据库的语言，这种语言执行对关系数据库中数据的检索和操作。</em></p>
-<ul>
-<li>MySQL
-<ul>
-<li>MariaDB（MySQL的代替品，英文维基百科从MySQL转向MariaDB）</li>
-<li>Percona Server（MySQL的代替品）</li>
-</ul>
-</li>
-<li>PostgreSQL</li>
-<li>Microsoft Access</li>
-<li>Google Fusion Tables</li>
-<li>SQL Server</li>
-<li>FileMaker</li>
-<li>Oracle</li>
-<li>Sybase</li>
-<li>dBASE</li>
-<li>Clipper</li>
-<li>FoxPro</li>
-</ul>
-<p>几乎所有的数据库管理系统都配备了一个开放式数据库连接（ODBC）驱动程序，令各个数据库之间得以互相集成。</p>
-<h3 id="非关系型数据库nosql"><a aria-hidden="true" tabindex="-1" href="#非关系型数据库nosql" class="anchor"><span class="icon icon-link"></span></a>非关系型数据库（NoSQL）</h3>
-<p><em>NoSQL一词最早出现于1998年，是Carlo Strozzi开发的一个轻量、开源、不提供SQL功能的关系数据库。当代典型的关系数据库在一些数据敏感的应用中表现了糟糕的性能，例如为巨量文档创建索引、高流量网站的网页服务，以及发送流式媒体。关系型数据库的典型实现主要被调整用于执行规模小而读写频繁，或者大批量极少写访问的事务。</em></p>
-<h4 id="keyvalue最终一致性存储"><a aria-hidden="true" tabindex="-1" href="#keyvalue最终一致性存储" class="anchor"><span class="icon icon-link"></span></a>Key/value最终一致性存储</h4>
-<ul>
-<li>Apache Cassandra（为Facebook所使用）：高度可扩展</li>
-<li>Dynamo</li>
-<li>Hibari</li>
-<li>Project Voldemort</li>
-<li>Riak</li>
-</ul>
-<h4 id="keyvalue硬盘存储"><a aria-hidden="true" tabindex="-1" href="#keyvalue硬盘存储" class="anchor"><span class="icon icon-link"></span></a>Key/value硬盘存储</h4>
-<ul>
-<li>LevelDB（Google）</li>
-<li>BigTable</li>
-<li>MemcacheDB</li>
-<li>Tokyo Cabinet</li>
-<li>Tuple space</li>
-<li>TreapDB</li>
-</ul>
-<h4 id="keyvalue-ram存储"><a aria-hidden="true" tabindex="-1" href="#keyvalue-ram存储" class="anchor"><span class="icon icon-link"></span></a>Key/value RAM存储</h4>
-<ul>
-<li>Oracle Coherence</li>
-<li>memcached</li>
-<li>Citrusleaf database</li>
-<li>Velocity</li>
-<li><strong>Redis</strong></li>
-<li>Tuple space</li>
-</ul>
-<h4 id="keyvalue基于paxos算法的存储"><a aria-hidden="true" tabindex="-1" href="#keyvalue基于paxos算法的存储" class="anchor"><span class="icon icon-link"></span></a>Key/value基于Paxos算法的存储</h4>
-<ul>
-<li>Keyspace</li>
-</ul>
-<h2 id="数据库模型"><a aria-hidden="true" tabindex="-1" href="#数据库模型" class="anchor"><span class="icon icon-link"></span></a>数据库模型</h2>
-<p>数据库模型描述了在数据库中结构化和操纵数据的方法，模型的结构部分规定了数据如何被描述（例如树、表等）。数据库模型的分类如下：</p>
-<ul>
-<li>对象模型</li>
-<li>层次模型（轻量级数据访问协议）</li>
-<li>网状模型（大型数据储存）</li>
-<li>关系模型</li>
-<li>面向对象模型</li>
-<li>半结构化模型</li>
-<li>平面模型（表格模型，一般在形式上是一个二维数组。如表格模型数据Excel)</li>
-</ul>
-<h3 id="架构"><a aria-hidden="true" tabindex="-1" href="#架构" class="anchor"><span class="icon icon-link"></span></a>架构</h3>
-<p><em>数据库的架构可以大致区分为三个概括层次：内层、概念层和外层。</em></p>
-<ul>
-<li>内层：最接近实际存储体，亦即有关数据的实际存储方式。</li>
-<li>外层：最接近用户，即有关个别用户观看数据的方式。</li>
-<li>概念层：介于两者之间的间接层。</li>
-</ul>
-<h3 id="数据库索引"><a aria-hidden="true" tabindex="-1" href="#数据库索引" class="anchor"><span class="icon icon-link"></span></a>数据库索引</h3>
-<p>数据索引的观念由来已久，像是一本书前面几页都有目录，目录也算是索引的一种，只是它的分类较广，例如车牌、身份证字号、条码等，都是一个索引的号码，当我们看到号码时，可以从号码中看出其中的端倪，若是要找的人、车或物品，也只要提供相关的号码，即可迅速查到正确的人事物。</p>
-<h3 id="数据库操作事务"><a aria-hidden="true" tabindex="-1" href="#数据库操作事务" class="anchor"><span class="icon icon-link"></span></a>数据库操作：事务</h3>
-<p>事务（transaction）是用户定义的一个数据库操作序列，这些操作要么全做，要么全不做，是一个不可分区的工作单位。</p>
-<h2 id="数据表"><a aria-hidden="true" tabindex="-1" href="#数据表" class="anchor"><span class="icon icon-link"></span></a>数据表</h2>
-<p>关系数据库没有数据表，关键字、主键、索引等也就无从谈起，数据表是关系数据库中一个非常重要的对象，是其它对象的基础，也是一系列二维数组的集合，用来存储、操作数据的逻辑结构。根据信息的分类情况。一个数据库中可能包含若干个数据表，每张表是由行和列组成，记录一条数据数据表就增加一行，每一列是由字段名和字段数据集合组成，列被称之为字段，每一列还有自己的多个属性，例如是否允许为空、默认值、长度、类型、存储编码、注释等</p>
-<p><img src="../img/data.jpg" alt="MySQL"></p>
-<p><strong>数据类型</strong></p>
-<p>在定义数据字段的类型对你的数据库的优化非常重要，数据类型决定了数据在计算机中的存储格式，代表不同的信息类型，大致可以分为：数值、日期/时间和字符串(字符)类型，字符串类型又包括二进制类型。</p>
-<p>上图中每一列就是一个字段，每个字段都有自己的类型，例如<code>name</code>列为字符串类型，<code>level</code> 列为数字类型。</p>
-<h2 id="关系键"><a aria-hidden="true" tabindex="-1" href="#关系键" class="anchor"><span class="icon icon-link"></span></a>关系键</h2>
-<p><em>关系键是关系数据库的重要组成部分。关系键是一个表中的一个或几个属性，用来标识该表的每一行或与另一个表产生联系。一列(或一组列)，其值能够唯一区分表中每个行。</em></p>
-<h3 id="主键"><a aria-hidden="true" tabindex="-1" href="#主键" class="anchor"><span class="icon icon-link"></span></a>主键</h3>
-<p>主键（primary key或unique key），又称主码，数据库表中对储存数据对象予以唯一和完整标识的数据列或属性的组合。一个数据列只能有一个主键，且主键的取值不能缺失，即不能为空值（Null）。unique 可空，可以在一个表里的一个或多个字段定义；primary key 不可空不可重复，在一个表里可以定义联合主键；unique索引和primary索引区别:</p>
-<ol>
-<li>primary key = unique + not null</li>
-<li>唯一约束和主键一样都是约束的范畴，而且都可以作为外键的参考，不同的是，一张表只能有一个主键</li>
-<li>主键和唯一约束的创建需要依靠索引，如果在创建主键或唯一约束的时候没有已经建好的索引可以使用的话，Oracle会自动建立一个唯一的索引。</li>
-</ol>
-<p>表中的任何列都可以作为主键，只要它满足以下条件:</p>
-<ul>
-<li>unique 就是唯一，当你需要限定你的某个表字段每个值都唯一，没有重复值时使用。</li>
-<li>任意两行都不具有相同的主键值；</li>
-<li>每个行都必须具有一个主键值(主键列不允许NULL值)。</li>
-</ul>
-<p>除MySQL强制实施的规则外，应该坚持的几个普遍认可的最好习惯为:</p>
-<ul>
-<li>不更新主键列中的值；</li>
-<li>不重用主键列的值；</li>
-<li>不在主键列中使用可能会更改的值。(例如，如果使用一个名字作为主键以标识某个供应商，当该供应商合并和更改其名字时，必须更改这个主键。)</li>
-</ul>
-<h3 id="超键"><a aria-hidden="true" tabindex="-1" href="#超键" class="anchor"><span class="icon icon-link"></span></a>超键</h3>
-<p>超键（superkey），有的文献称“超码”，是在数据库关系模式设计中能够唯一标示多元组（即“行”）的属性集。包含所有属性的集叫做明显（平凡）超键。</p>
-<h3 id="候选键"><a aria-hidden="true" tabindex="-1" href="#候选键" class="anchor"><span class="icon icon-link"></span></a>候选键</h3>
-<p>在关系模型中，候选键或候选码（candidate key）是某个关系变量的一组属性所组成的集合，它需要同时满足下列两个条件：</p>
-<ul>
-<li>这个属性集合始终能够确保在关系中能唯一标识元组</li>
-<li>在这个属性集合中找不出真子集能够满足条件</li>
-</ul>
-<p>满足第一个条件的属性集合称为超键，因此我们也可以把候选键定义为“最小超键”，也就是不含有多余属性的超键。</p>
-<p>候选键的重要性是它们能够在关系中唯一标识出不同的元组，因此超键也是在设计数据库模式时需要指定的最重要的约束之一。由于在关系模型中，每个关系都是一个集合（没有重复的元素），所以每个关系都至少有一个候选键（因为所有属性组合必然是个超键）。但是在某些关系型数据库中表也能代表多重集，所以在每个关系中都显式地定义至少一个候选键是一条很重要的设计原则。数据库管理系统通常都需要将每个关系中的某个候选键定义为主键，亦即这个候选键是区分不同元组时首选的识别方式，例如外键通常就是引用主键而非其他候选键。</p>
-<h3 id="外键"><a aria-hidden="true" tabindex="-1" href="#外键" class="anchor"><span class="icon icon-link"></span></a>外键</h3>
-<p>外键（foreign key，台湾译作外来键），又称外部键。其实在关系数据库中，每个数据表都是由关系来连系彼此的关系，父数据表（Parent Entity）的主键（primary key）会放在另一个数据表，当做属性以创建彼此的关系，而这个属性就是外键。</p>
-<p>比如，学生跟老师之间是教学的关系，学生数据表会有个属性叫指导老师（FK），而这个值就是对应到老师数据表的老师代号（PK），学生的指导老师就是外键。</p>
-<h3 id="代理键"><a aria-hidden="true" tabindex="-1" href="#代理键" class="anchor"><span class="icon icon-link"></span></a>代理键</h3>
-<p>在关系型数据库设计中，代理键是在当数据表中的候选键都不适合当主键时，例如数据太长，或是意义层面太多，就会请一个无意义的但唯一的字段来代为作主键。</p>
-<p>代理键是：</p>
-<ul>
-<li>Surrogate (1) – Hall, Owlett and Codd (1976)
-一个代理键值确定了外部世界的一个实体。代理键值是数据库生成的，从来不显示给用户或应用程序看。</li>
-<li>Surrogate (2) – Wieringa and De Jonge (1991)
-一个代理键值确定了数据库中的一个对象。代理键值是数据库生成的，用户或应用程序看不到它。</li>
-</ul>
-<p>在实践中，代理键值通常是个自动递增的数字。在Sybase或SQL Server，用identity column标识代理键，PostgreSQL里用serial，Oracle里用SEQUENCE，在MySQL里用一个标记有AUTO_INCREMENT的字段。</p>
-<h3 id="自然键"><a aria-hidden="true" tabindex="-1" href="#自然键" class="anchor"><span class="icon icon-link"></span></a>自然键</h3>
-<p>自然键与代理键相反，它是在自然生活中唯一确定一个事物的标识。身份证号就是一个自然键，用于确定一个人。</p>
-    
-
-<div class="previous">
-  
-    <span></span>
-  
-  
-  <a class="next" href="1.2.html">
-    <span>
-      数据库技术构成
-    </span>
-    <svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
-      <path d="M544 522.666667c0-8.533333-4.266667-17.066667-10.666667-23.466667L192 189.866667c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733334 285.866667L149.333333 808.533333c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666z"></path>
-      <path d="M864 499.2l-341.333333-309.333333c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733333 285.866667-315.733333 285.866666c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466666 10.666667 8.533333 0 14.933333-2.133333 21.333334-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666 0-8.533333-4.266667-17.066667-10.666667-23.466667z"></path>
-    </svg>
-  </a>
-  
-</div>
-
-
-
-<section class="article-footer">
-  <a href="https://github.com/jaywcjlove/mysql-tutorial/blob/master/docs/chapter1/1.1.md" class="edit-button" target="_blank" rel="noopener noreferrer">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-    </svg>
-    <span>Edit this page on GitHub</span>
-  </a>
-  
-  <span class="atime">2022/05/01</span>
-  
-</section>
-
-  </markdown-style>
-  
-<nav class="tocs">
-  <aside class="inner toc">
-    <ol class="tocs-list">
-    
-      <li>
-        <a href="#什么是数据库" class="tocs-link">什么是数据库</a>
-        
-      </li>
-    
-      <li>
-        <a href="#数据库分类" class="tocs-link">数据库分类</a>
-        
-          <ol class="tocs-list is-collapsed">
-            
-              <li>
-                <a href="#关系数据库" class="tocs-link">关系数据库</a>
-                
-              </li>
-            
-              <li>
-                <a href="#非关系型数据库nosql" class="tocs-link">非关系型数据库（NoSQL）</a>
-                
+<span class="title">MySQL 入门教程</span></a>
+        <div class="content">
+          <ul class="menu">
+            <li><a href="../index.html" target="" class="">Home</a></li>
+            <li><a href="../21-minutes-MySQL-basic-entry.html" target="" class="">Cheat Sheet</a></li>
+            <li><a href="../awesome-mysql.html" target="" class="">Awesome</a></li>
+          </ul><a href="https://github.com/jaywcjlove/mysql-tutorial.git" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg></a>
+          <dark-mode permanent=""></dark-mode>
+        </div>
+      </article>
+    </header>
+    <div class="warpper-content warpper sidebar">
+      <div class="sidebar-border">
+        <aside class="sidebar" role="navigation">
+          <div>
+            <label>第1章 初识 MySQL</label>
+            <a href="1.1.html" class="active">数据库基础</a>
+            <a href="1.2.html" class="">数据库技术构成</a>
+            <a href="1.3.html" class="">什么是MySQL</a>
+            <a href="1.4.html" class="">如何学习MySQL</a>
+            <label>第2章 MySQL 的安装与配置</label>
+            <a href="../chapter2/2.1.html" class="">Mac平台下安装与配置MySQL</a>
+            <a href="../chapter2/2.2.html" class="">Centos 平台安装与卸载MySQL</a>
+            <a href="../chapter2/2.3.html" class="">Docker 安装 MySQL</a>
+            <a href="../chapter2/2.4.html" class="">启动数据库设置初始密码</a>
+            <a href="../chapter2/2.5.html" class="">MySQL工具</a>
+            <a href="../chapter2/2.6.html" class="">MySQL配置修改</a>
+            <label>第3章 数据库的基本操作</label>
+            <a href="../chapter3/3.1.html" class="">连接数据库</a>
+            <a href="../chapter3/3.2.html" class="">查看选择数据库</a>
+            <a href="../chapter3/3.3.html" class="">创建数据库</a>
+            <a href="../chapter3/3.4.html" class="">删除数据库</a>
+            <a href="../chapter3/3.5.html" class="">数据库存储引擎</a>
+          </div>
+        </aside>
+      </div>
+      <markdown-style>
+        <h1 id="数据库基础"><a aria-hidden="true" tabindex="-1" href="#数据库基础" class="anchor"><span class="icon icon-link"></span></a>数据库基础</h1>
+        <p>数据库(Database，DB)是按照数据结构来组织、存储和管理数据的建立在计算机存储设备上的仓库。</p>
+        <p>简单来说是本身可视为电子化的文件柜——存储电子文件的处所，用户可以对文件中的数据进行新增、截取、更新、删除等操作。数据管理不再仅仅是存储和管理数据，而转变成用户所需要的各种数据管理的方式。数据库有很多种类型，从最简单的存储有各种数据的表格到能够进行海量数据存储的大型数据库系统都在各个方面得到了广泛的应用。</p>
+        <h2 id="什么是数据库"><a aria-hidden="true" tabindex="-1" href="#什么是数据库" class="anchor"><span class="icon icon-link"></span></a>什么是数据库</h2>
+        <blockquote>
+          <p>人们通常用数据库这个术语来代表他们使用的数据库软件。这是不正确的，它是引起混淆的根源。确切地说，数据库软件应称为<code>DBMS</code>(数据库管理系统)。数据库是通过 <code>DBMS</code> 创建和操纵的容器。数据库可以是保存在硬设备上的文件，但也可以不是。在很大程度上说，数据库究竟是文件还是别的什么东西并不重要，因为你并不直接访问数据库；你使用的是<code>DBMS</code>，它替你访问数据库。</p>
+        </blockquote>
+        <p>数据库指的是以一定方式储存在一起、能为多个用户共享、具有尽可能小的冗余度、与应用程序彼此独立的数据集合。简单来说可视为电子化的文件柜——存储电子文件的处所，用户可以对文件中的数据运行新增、截取、更新、删除等操作。</p>
+        <p>RDBMS即关系数据库管理系统(Relational Database Management System)的特点：</p>
+        <ol>
+          <li>数据以表格的形式出现</li>
+          <li>每行为各种记录名称</li>
+          <li>每列为记录名称所对应的数据域</li>
+          <li>许多的行和列组成一张表单</li>
+          <li>若干的表单组成database</li>
+        </ol>
+        <h2 id="数据库分类"><a aria-hidden="true" tabindex="-1" href="#数据库分类" class="anchor"><span class="icon icon-link"></span></a>数据库分类</h2>
+        <p>数据库的分类可多了去了，在维基百科上面有下面这些数据库，并粗略的分了个类别。一看这里面的学问大了去了，还是先搬一些代表性的吧，长长见识，要深入了解各种概念推荐看《数据库系统概论》。</p>
+        <h3 id="关系数据库"><a aria-hidden="true" tabindex="-1" href="#关系数据库" class="anchor"><span class="icon icon-link"></span></a>关系数据库</h3>
+        <p><em>（英语：Relational database），是创建在关系模型基础上的数据库，借助于集合代数等数学概念和方法来处理数据库中的数据。现实世界中的各种实体以及实体之间的各种联系均用关系模型来表示。关系模型是由埃德加·科德于1970年首先提出的，并配合“科德十二定律”。现如今虽然对此模型有一些批评意见，但它还是数据存储的传统标准。标准数据查询语言SQL就是一种基于关系数据库的语言，这种语言执行对关系数据库中数据的检索和操作。</em></p>
+        <ul>
+          <li>MySQL
+            <ul>
+              <li>MariaDB（MySQL的代替品，英文维基百科从MySQL转向MariaDB）</li>
+              <li>Percona Server（MySQL的代替品）</li>
+            </ul>
+          </li>
+          <li>PostgreSQL</li>
+          <li>Microsoft Access</li>
+          <li>Google Fusion Tables</li>
+          <li>SQL Server</li>
+          <li>FileMaker</li>
+          <li>Oracle</li>
+          <li>Sybase</li>
+          <li>dBASE</li>
+          <li>Clipper</li>
+          <li>FoxPro</li>
+        </ul>
+        <p>几乎所有的数据库管理系统都配备了一个开放式数据库连接（ODBC）驱动程序，令各个数据库之间得以互相集成。</p>
+        <h3 id="非关系型数据库nosql"><a aria-hidden="true" tabindex="-1" href="#非关系型数据库nosql" class="anchor"><span class="icon icon-link"></span></a>非关系型数据库（NoSQL）</h3>
+        <p><em>NoSQL一词最早出现于1998年，是Carlo Strozzi开发的一个轻量、开源、不提供SQL功能的关系数据库。当代典型的关系数据库在一些数据敏感的应用中表现了糟糕的性能，例如为巨量文档创建索引、高流量网站的网页服务，以及发送流式媒体。关系型数据库的典型实现主要被调整用于执行规模小而读写频繁，或者大批量极少写访问的事务。</em></p>
+        <h4 id="keyvalue最终一致性存储"><a aria-hidden="true" tabindex="-1" href="#keyvalue最终一致性存储" class="anchor"><span class="icon icon-link"></span></a>Key/value最终一致性存储</h4>
+        <ul>
+          <li>Apache Cassandra（为Facebook所使用）：高度可扩展</li>
+          <li>Dynamo</li>
+          <li>Hibari</li>
+          <li>Project Voldemort</li>
+          <li>Riak</li>
+        </ul>
+        <h4 id="keyvalue硬盘存储"><a aria-hidden="true" tabindex="-1" href="#keyvalue硬盘存储" class="anchor"><span class="icon icon-link"></span></a>Key/value硬盘存储</h4>
+        <ul>
+          <li>LevelDB（Google）</li>
+          <li>BigTable</li>
+          <li>MemcacheDB</li>
+          <li>Tokyo Cabinet</li>
+          <li>Tuple space</li>
+          <li>TreapDB</li>
+        </ul>
+        <h4 id="keyvalue-ram存储"><a aria-hidden="true" tabindex="-1" href="#keyvalue-ram存储" class="anchor"><span class="icon icon-link"></span></a>Key/value RAM存储</h4>
+        <ul>
+          <li>Oracle Coherence</li>
+          <li>memcached</li>
+          <li>Citrusleaf database</li>
+          <li>Velocity</li>
+          <li><strong>Redis</strong></li>
+          <li>Tuple space</li>
+        </ul>
+        <h4 id="keyvalue基于paxos算法的存储"><a aria-hidden="true" tabindex="-1" href="#keyvalue基于paxos算法的存储" class="anchor"><span class="icon icon-link"></span></a>Key/value基于Paxos算法的存储</h4>
+        <ul>
+          <li>Keyspace</li>
+        </ul>
+        <h2 id="数据库模型"><a aria-hidden="true" tabindex="-1" href="#数据库模型" class="anchor"><span class="icon icon-link"></span></a>数据库模型</h2>
+        <p>数据库模型描述了在数据库中结构化和操纵数据的方法，模型的结构部分规定了数据如何被描述（例如树、表等）。数据库模型的分类如下：</p>
+        <ul>
+          <li>对象模型</li>
+          <li>层次模型（轻量级数据访问协议）</li>
+          <li>网状模型（大型数据储存）</li>
+          <li>关系模型</li>
+          <li>面向对象模型</li>
+          <li>半结构化模型</li>
+          <li>平面模型（表格模型，一般在形式上是一个二维数组。如表格模型数据Excel)</li>
+        </ul>
+        <h3 id="架构"><a aria-hidden="true" tabindex="-1" href="#架构" class="anchor"><span class="icon icon-link"></span></a>架构</h3>
+        <p><em>数据库的架构可以大致区分为三个概括层次：内层、概念层和外层。</em></p>
+        <ul>
+          <li>内层：最接近实际存储体，亦即有关数据的实际存储方式。</li>
+          <li>外层：最接近用户，即有关个别用户观看数据的方式。</li>
+          <li>概念层：介于两者之间的间接层。</li>
+        </ul>
+        <h3 id="数据库索引"><a aria-hidden="true" tabindex="-1" href="#数据库索引" class="anchor"><span class="icon icon-link"></span></a>数据库索引</h3>
+        <p>数据索引的观念由来已久，像是一本书前面几页都有目录，目录也算是索引的一种，只是它的分类较广，例如车牌、身份证字号、条码等，都是一个索引的号码，当我们看到号码时，可以从号码中看出其中的端倪，若是要找的人、车或物品，也只要提供相关的号码，即可迅速查到正确的人事物。</p>
+        <h3 id="数据库操作事务"><a aria-hidden="true" tabindex="-1" href="#数据库操作事务" class="anchor"><span class="icon icon-link"></span></a>数据库操作：事务</h3>
+        <p>事务（transaction）是用户定义的一个数据库操作序列，这些操作要么全做，要么全不做，是一个不可分区的工作单位。</p>
+        <h2 id="数据表"><a aria-hidden="true" tabindex="-1" href="#数据表" class="anchor"><span class="icon icon-link"></span></a>数据表</h2>
+        <p>关系数据库没有数据表，关键字、主键、索引等也就无从谈起，数据表是关系数据库中一个非常重要的对象，是其它对象的基础，也是一系列二维数组的集合，用来存储、操作数据的逻辑结构。根据信息的分类情况。一个数据库中可能包含若干个数据表，每张表是由行和列组成，记录一条数据数据表就增加一行，每一列是由字段名和字段数据集合组成，列被称之为字段，每一列还有自己的多个属性，例如是否允许为空、默认值、长度、类型、存储编码、注释等</p>
+        <p>
+          <img src="../img/data.jpg" alt="MySQL">
+        </p>
+        <p><strong>数据类型</strong></p>
+        <p>在定义数据字段的类型对你的数据库的优化非常重要，数据类型决定了数据在计算机中的存储格式，代表不同的信息类型，大致可以分为：数值、日期/时间和字符串(字符)类型，字符串类型又包括二进制类型。</p>
+        <p>上图中每一列就是一个字段，每个字段都有自己的类型，例如<code>name</code>列为字符串类型，<code>level</code> 列为数字类型。</p>
+        <h2 id="关系键"><a aria-hidden="true" tabindex="-1" href="#关系键" class="anchor"><span class="icon icon-link"></span></a>关系键</h2>
+        <p><em>关系键是关系数据库的重要组成部分。关系键是一个表中的一个或几个属性，用来标识该表的每一行或与另一个表产生联系。一列(或一组列)，其值能够唯一区分表中每个行。</em></p>
+        <h3 id="主键"><a aria-hidden="true" tabindex="-1" href="#主键" class="anchor"><span class="icon icon-link"></span></a>主键</h3>
+        <p>主键（primary key或unique key），又称主码，数据库表中对储存数据对象予以唯一和完整标识的数据列或属性的组合。一个数据列只能有一个主键，且主键的取值不能缺失，即不能为空值（Null）。unique 可空，可以在一个表里的一个或多个字段定义；primary key 不可空不可重复，在一个表里可以定义联合主键；unique索引和primary索引区别:</p>
+        <ol>
+          <li>primary key = unique + not null</li>
+          <li>唯一约束和主键一样都是约束的范畴，而且都可以作为外键的参考，不同的是，一张表只能有一个主键</li>
+          <li>主键和唯一约束的创建需要依靠索引，如果在创建主键或唯一约束的时候没有已经建好的索引可以使用的话，Oracle会自动建立一个唯一的索引。</li>
+        </ol>
+        <p>表中的任何列都可以作为主键，只要它满足以下条件:</p>
+        <ul>
+          <li>unique 就是唯一，当你需要限定你的某个表字段每个值都唯一，没有重复值时使用。</li>
+          <li>任意两行都不具有相同的主键值；</li>
+          <li>每个行都必须具有一个主键值(主键列不允许NULL值)。</li>
+        </ul>
+        <p>除MySQL强制实施的规则外，应该坚持的几个普遍认可的最好习惯为:</p>
+        <ul>
+          <li>不更新主键列中的值；</li>
+          <li>不重用主键列的值；</li>
+          <li>不在主键列中使用可能会更改的值。(例如，如果使用一个名字作为主键以标识某个供应商，当该供应商合并和更改其名字时，必须更改这个主键。)</li>
+        </ul>
+        <h3 id="超键"><a aria-hidden="true" tabindex="-1" href="#超键" class="anchor"><span class="icon icon-link"></span></a>超键</h3>
+        <p>超键（superkey），有的文献称“超码”，是在数据库关系模式设计中能够唯一标示多元组（即“行”）的属性集。包含所有属性的集叫做明显（平凡）超键。</p>
+        <h3 id="候选键"><a aria-hidden="true" tabindex="-1" href="#候选键" class="anchor"><span class="icon icon-link"></span></a>候选键</h3>
+        <p>在关系模型中，候选键或候选码（candidate key）是某个关系变量的一组属性所组成的集合，它需要同时满足下列两个条件：</p>
+        <ul>
+          <li>这个属性集合始终能够确保在关系中能唯一标识元组</li>
+          <li>在这个属性集合中找不出真子集能够满足条件</li>
+        </ul>
+        <p>满足第一个条件的属性集合称为超键，因此我们也可以把候选键定义为“最小超键”，也就是不含有多余属性的超键。</p>
+        <p>候选键的重要性是它们能够在关系中唯一标识出不同的元组，因此超键也是在设计数据库模式时需要指定的最重要的约束之一。由于在关系模型中，每个关系都是一个集合（没有重复的元素），所以每个关系都至少有一个候选键（因为所有属性组合必然是个超键）。但是在某些关系型数据库中表也能代表多重集，所以在每个关系中都显式地定义至少一个候选键是一条很重要的设计原则。数据库管理系统通常都需要将每个关系中的某个候选键定义为主键，亦即这个候选键是区分不同元组时首选的识别方式，例如外键通常就是引用主键而非其他候选键。</p>
+        <h3 id="外键"><a aria-hidden="true" tabindex="-1" href="#外键" class="anchor"><span class="icon icon-link"></span></a>外键</h3>
+        <p>外键（foreign key，台湾译作外来键），又称外部键。其实在关系数据库中，每个数据表都是由关系来连系彼此的关系，父数据表（Parent Entity）的主键（primary key）会放在另一个数据表，当做属性以创建彼此的关系，而这个属性就是外键。</p>
+        <p>比如，学生跟老师之间是教学的关系，学生数据表会有个属性叫指导老师（FK），而这个值就是对应到老师数据表的老师代号（PK），学生的指导老师就是外键。</p>
+        <h3 id="代理键"><a aria-hidden="true" tabindex="-1" href="#代理键" class="anchor"><span class="icon icon-link"></span></a>代理键</h3>
+        <p>在关系型数据库设计中，代理键是在当数据表中的候选键都不适合当主键时，例如数据太长，或是意义层面太多，就会请一个无意义的但唯一的字段来代为作主键。</p>
+        <p>代理键是：</p>
+        <ul>
+          <li>
+            Surrogate (1) – Hall, Owlett and Codd (1976)
+            一个代理键值确定了外部世界的一个实体。代理键值是数据库生成的，从来不显示给用户或应用程序看。
+          </li>
+          <li>
+            Surrogate (2) – Wieringa and De Jonge (1991)
+            一个代理键值确定了数据库中的一个对象。代理键值是数据库生成的，用户或应用程序看不到它。
+          </li>
+        </ul>
+        <p>在实践中，代理键值通常是个自动递增的数字。在Sybase或SQL Server，用identity column标识代理键，PostgreSQL里用serial，Oracle里用SEQUENCE，在MySQL里用一个标记有AUTO_INCREMENT的字段。</p>
+        <h3 id="自然键"><a aria-hidden="true" tabindex="-1" href="#自然键" class="anchor"><span class="icon icon-link"></span></a>自然键</h3>
+        <p>自然键与代理键相反，它是在自然生活中唯一确定一个事物的标识。身份证号就是一个自然键，用于确定一个人。</p>
+        <div class="previous"><span></span><a class="next" href="1.2.html"><span>数据库技术构成
+</span><svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
+              <path d="M544 522.666667c0-8.533333-4.266667-17.066667-10.666667-23.466667L192 189.866667c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733334 285.866667L149.333333 808.533333c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666z"></path>
+              <path d="M864 499.2l-341.333333-309.333333c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733333 285.866667-315.733333 285.866666c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466666 10.666667 8.533333 0 14.933333-2.133333 21.333334-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666 0-8.533333-4.266667-17.066667-10.666667-23.466667z"></path>
+            </svg></a></div>
+        <section class="article-footer"><a href="https://github.com/jaywcjlove/mysql-tutorial/blob/master/docs/chapter1/1.1.md" class="edit-button" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
+<span>Edit this page on GitHub</span>
+</a><span class="atime">2022/04/22</span></section>
+      </markdown-style>
+      <nav class="tocs">
+        <aside class="inner toc">
+          <ol class="tocs-list">
+            <li><a href="#什么是数据库" class="tocs-link">什么是数据库</a></li>
+            <li><a href="#数据库分类" class="tocs-link">数据库分类</a>
+              <ol class="tocs-list is-collapsed">
+                <li><a href="#关系数据库" class="tocs-link">关系数据库</a></li>
+                <li><a href="#非关系型数据库nosql" class="tocs-link">非关系型数据库（NoSQL）</a>
                   <ol class="tocs-list is-collapsed">
-                    
-                      <li>
-                        <a href="#keyvalue最终一致性存储" class="tocs-link">Key/value最终一致性存储</a>
-                        
-                      </li>
-                    
-                      <li>
-                        <a href="#keyvalue硬盘存储" class="tocs-link">Key/value硬盘存储</a>
-                        
-                      </li>
-                    
-                      <li>
-                        <a href="#keyvalue-ram存储" class="tocs-link">Key/value RAM存储</a>
-                        
-                      </li>
-                    
-                      <li>
-                        <a href="#keyvalue基于paxos算法的存储" class="tocs-link">Key/value基于Paxos算法的存储</a>
-                        
-                      </li>
-                    
+                    <li><a href="#keyvalue最终一致性存储" class="tocs-link">Key/value最终一致性存储</a></li>
+                    <li><a href="#keyvalue硬盘存储" class="tocs-link">Key/value硬盘存储</a></li>
+                    <li><a href="#keyvalue-ram存储" class="tocs-link">Key/value RAM存储</a></li>
+                    <li><a href="#keyvalue基于paxos算法的存储" class="tocs-link">Key/value基于Paxos算法的存储</a></li>
                   </ol>
-                
-              </li>
-            
+                </li>
+              </ol>
+            </li>
+            <li><a href="#数据库模型" class="tocs-link">数据库模型</a>
+              <ol class="tocs-list is-collapsed">
+                <li><a href="#架构" class="tocs-link">架构</a></li>
+                <li><a href="#数据库索引" class="tocs-link">数据库索引</a></li>
+                <li><a href="#数据库操作事务" class="tocs-link">数据库操作：事务</a></li>
+              </ol>
+            </li>
+            <li><a href="#数据表" class="tocs-link">数据表</a></li>
+            <li><a href="#关系键" class="tocs-link">关系键</a>
+              <ol class="tocs-list is-collapsed">
+                <li><a href="#主键" class="tocs-link">主键</a></li>
+                <li><a href="#超键" class="tocs-link">超键</a></li>
+                <li><a href="#候选键" class="tocs-link">候选键</a></li>
+                <li><a href="#外键" class="tocs-link">外键</a></li>
+                <li><a href="#代理键" class="tocs-link">代理键</a></li>
+                <li><a href="#自然键" class="tocs-link">自然键</a></li>
+              </ol>
+            </li>
           </ol>
-        
-      </li>
-    
-      <li>
-        <a href="#数据库模型" class="tocs-link">数据库模型</a>
-        
-          <ol class="tocs-list is-collapsed">
-            
-              <li>
-                <a href="#架构" class="tocs-link">架构</a>
-                
-              </li>
-            
-              <li>
-                <a href="#数据库索引" class="tocs-link">数据库索引</a>
-                
-              </li>
-            
-              <li>
-                <a href="#数据库操作事务" class="tocs-link">数据库操作：事务</a>
-                
-              </li>
-            
-          </ol>
-        
-      </li>
-    
-      <li>
-        <a href="#数据表" class="tocs-link">数据表</a>
-        
-      </li>
-    
-      <li>
-        <a href="#关系键" class="tocs-link">关系键</a>
-        
-          <ol class="tocs-list is-collapsed">
-            
-              <li>
-                <a href="#主键" class="tocs-link">主键</a>
-                
-              </li>
-            
-              <li>
-                <a href="#超键" class="tocs-link">超键</a>
-                
-              </li>
-            
-              <li>
-                <a href="#候选键" class="tocs-link">候选键</a>
-                
-              </li>
-            
-              <li>
-                <a href="#外键" class="tocs-link">外键</a>
-                
-              </li>
-            
-              <li>
-                <a href="#代理键" class="tocs-link">代理键</a>
-                
-              </li>
-            
-              <li>
-                <a href="#自然键" class="tocs-link">自然键</a>
-                
-              </li>
-            
-          </ol>
-        
-      </li>
-    
-    </ol>
-  </aside>
-</nav>
-
-</div>
-
-<script src="../js/demo-preview.js?v=1.17.7"></script>
-
-
-<div class="footer warpper">
-  Released under the MIT License. Copyright © 2022 Kenny Wong<br />
-Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.17.7
-
-</div>
-
-
-<script src="../js/tocbot.js?v=1.17.7"></script>
-
-</body>
+        </aside>
+      </nav>
+    </div>
+    <script src="../js/demo-preview.js?v=1.21.1"></script>
+    <div class="footer warpper">Released under the MIT License. Copyright © 2022 Kenny Wong<br>Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.21.1</div>
+    <script src="../js/tocbot.js?v=1.21.1"></script>
+  </body>
 </html>

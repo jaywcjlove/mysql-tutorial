@@ -95,7 +95,9 @@
   function updateSiderBarScroll() {
     const siderBar = document.querySelector(".sidebar[role*='navigation']");
     const siderAnchor = document.querySelector(".sidebar[role*='navigation'] a[class*='active']");
-    siderBar.scrollTop = siderAnchor.offsetTop;
+    if (siderAnchor) {
+      siderBar.scrollTop = siderAnchor.offsetTop;
+    }
   }
 
   const timer = setTimeout(() => {
