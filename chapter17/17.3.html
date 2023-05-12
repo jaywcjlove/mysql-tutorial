@@ -4,26 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MySQL修改密码 MySQL 入门教程</title>
+    <title>MySQL修改密码</title>
     <meta name="description" content="以前的老版本root的默认密码为空，Mysql 5.6及以后版本出处于安全考虑，root密码已经不为空了。">
-    <link rel="stylesheet" type="text/css" href="../css/main.css?v=1.21.1">
-    <link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1.21.1">
-    <link rel="stylesheet" type="text/css" href="../css/media.css?v=1.21.1">
-    <link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1.21.1">
-    <link rel="stylesheet" type="text/css" href="../css/copy.css?v=1.21.1">
-    <link rel="stylesheet" type="text/css" href="../css/demo-preview.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="../css/main.css?v=1.25.3">
+    <link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1.25.3">
+    <link rel="stylesheet" type="text/css" href="../css/media.css?v=1.25.3">
+    <link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1.25.3">
+    <link rel="stylesheet" type="text/css" href="../css/copy.css?v=1.25.3">
+    <link rel="stylesheet" type="text/css" href="../css/demo-preview.css?v=1.25.3">
     <link rel="icon" href="../mysql.svg" type="image/x-icon">
-    <script src="../js/copy.js?v=1.21.1"></script>
-    <script src="../js/dark-mode.js?v=1.21.1"></script>
-    <script src="../js/markdown-style.js?v=1.21.1"></script>
+    <script src="../js/copy.js?v=1.25.3"></script>
+    <script src="../js/dark-mode.js?v=1.25.3"></script>
+    <script src="../js/markdown-style.js?v=1.25.3"></script>
   </head>
   <body id="idoctotop"><a href="#idoctotop" class="gototop">top</a>
     <header class="header">
       <article class="inner warpper"><a class="logo" href="../index.html"><svg viewBox="0 0 1117 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 0m177.009507 0l531.028522 0q177.009507 0 177.009508 177.009507l0 531.028522q0 177.009507-177.009508 177.009508l-531.028522 0q-177.009507 0-177.009507-177.009508l0-531.028522q0-177.009507 177.009507-177.009507Z" fill="#3aa0be73"></path>
             <path d="M572.448747 1023.955748l-81.73414-94.965601c-10.532066-22.789974-22.126188-44.650648-33.32204-67.440622v-1.504581c-4.867761 6.416595-3.274676 12.788937-5.664304 22.612964-10.532066 40.712187-2.478133 87.044425-38.986344 101.780467-41.15471 17.12567-72.042869-27.524978-85.008816-47.881072a359.108038 359.108038 0 0 1-23.365255-272.992912 230.422126 230.422126 0 0 1 18.630251-61.024028c-2.478133-14.51478-13.762489-18.674503-20.311841-27.524978a384.995678 384.995678 0 0 1-29.95886-50.713224 960.011063 960.011063 0 0 1-42.039758-108.9051c-5.664304-14.51478-7.345895-29.206569-13.010198-42.969058a383.358341 383.358341 0 0 0-41.243216-61.024027c-18.718755-26.772688-73.149179-78.724978-51.288504-131.518064 34.07433-83.814002 153.201729-20.356093 199.135695 8.850475a308.350562 308.350562 0 0 0 37.260502 28.454279c20.400346 0.75229 40.535177 2.433881 60.89127 3.186171a390.704235 390.704235 0 0 1 103.683319 33.366292 817.252895 817.252895 0 0 1 313.793604 303.925324 892.92446 892.92446 0 0 1 41.420225 92.708729c20.179084 47.084529 42.924806 96.647191 66.378565 141.29784 10.310804 21.285393 18.630251 42.570787 18.630251 42.570786v85.141573a933.061366 933.061366 0 0 1-81.91115-142.227139c-16.94866-38.986344-38.057044-79.654278-55.138461-119.481417-8.850475-19.382541-12.965946-36.552463-22.789974-55.182714a719.41089 719.41089 0 0 0-252.769577-278.081936 515.805704 515.805704 0 0 0-116.472255-55.979257c-24.515817-7.345895-53.633881-3.407433-79.654279-8.850475h-16.904408c-14.470527-3.938462-26.551426-19.382541-38.012791-27.480726a400.307001 400.307001 0 0 0-80.22956-40.844944c-10.576318-4.956266-40.446672-16.240622-51.02299-7.390147a12.700432 12.700432 0 0 0-11.240104 10.532065c-6.593604 9.824028-0.973552 24.515817 3.141919 33.366293a387.208297 387.208297 0 0 0 44.252377 63.325151 419.910804 419.910804 0 0 1 40.800691 62.705618c20.931374 45.447191 30.71115 95.894901 50.314953 141.297839a322.776837 322.776837 0 0 0 29.029559 51.996543c8.850475 12.257908 25.179602 21.108384 30.047364 36.552463 9.86828 16.19637-14.647537 69.918755-20.311841 87.044425a352.647191 352.647191 0 0 0 7.345894 216.836647c9.824028 22.612965 18.630251 49.3414 44.606396 55.935004 1.548833-1.68159 0-0.75229 3.274676-1.68159a458.852895 458.852895 0 0 1 22.568712-122.623336 298.216768 298.216768 0 0 1 38.897839-55.226967c8.142437 4.735004 8.142437 19.426793 13.010199 29.206569 10.532066 25.046845 21.904927 52.748833 34.826621 78.01694 26.551426 51.996543 93.416768 152.582195 93.416767 152.582196zM385.084183 378.092308a283.74624 283.74624 0 0 1-25.799135-33.543302h-1.637338v-1.504581a128.022126 128.022126 0 0 1 33.322039-4.159723c6.372342 6.593604 17.169922 10.576318 21.77217 18.674503a177.717545 177.717545 0 0 0 9.86828 17.12567 45.624201 45.624201 0 0 1-17.169922 40.712186 18.80726 18.80726 0 0 1-1.548834 1.681591c-6.593604-12.965946-12.213656-25.976145-18.80726-38.986344z" fill="currentColor"></path>
-          </svg>
-<span class="title">MySQL 入门教程</span></a>
+          </svg><span class="title"></span></a>
         <div class="content">
           <ul class="menu">
             <li><a href="../index.html" target="" class="">Home</a></li>
@@ -85,7 +84,7 @@
         <ol start="4">
           <li>以root身份登录</li>
         </ol>
-        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">mysql -u root
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">mysql <span class="token parameter variable">-u</span> root
 </span></code><input type="hidden" value="mysql -u root
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
         <ol start="5">
@@ -121,7 +120,7 @@ mysql> quit
         <ol start="9">
           <li>尝试使用您的新密码登录：</li>
         </ol>
-        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">mysql -u root -p
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">mysql <span class="token parameter variable">-u</span> root <span class="token parameter variable">-p</span>
 </span></code><input type="hidden" value="mysql -u root -p
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
         <h2 id="启动修改丢失的mysql单实例root密码方法"><a aria-hidden="true" tabindex="-1" href="#启动修改丢失的mysql单实例root密码方法" class="anchor"><span class="icon icon-link"></span></a>启动修改丢失的mysql单实例root密码方法</h2>
@@ -146,9 +145,9 @@ service mysqld stop
         <ol start="2">
           <li>使用--skip-grant-tables启动mysql，忽略授权登录验证，服务不要停止，新开窗口做接下来的操作。</li>
         </ol>
-        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token function">sudo</span> mysqld_safe --skip-grant-tables --user<span class="token operator">=</span>mysql <span class="token comment"># 提示：在启动时加--skip-grant-tables 参数，表示忽略授权验证</span>
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token function">sudo</span> mysqld_safe --skip-grant-tables <span class="token parameter variable">--user</span><span class="token operator">=</span>mysql <span class="token comment"># 提示：在启动时加--skip-grant-tables 参数，表示忽略授权验证</span>
 </span><span class="code-line line-number" line="2"><span class="token comment"># 或者下面</span>
-</span><span class="code-line line-number" line="3"><span class="token function">sudo</span> /usr/local/mysql/bin/mysqld_safe  --skip-grant-tables --user<span class="token operator">=</span>mysql
+</span><span class="code-line line-number" line="3"><span class="token function">sudo</span> /usr/local/mysql/bin/mysqld_safe  --skip-grant-tables <span class="token parameter variable">--user</span><span class="token operator">=</span>mysql
 </span></code><input type="hidden" value="sudo mysqld_safe --skip-grant-tables --user=mysql # 提示：在启动时加--skip-grant-tables 参数，表示忽略授权验证
 # 或者下面
 sudo /usr/local/mysql/bin/mysqld_safe  --skip-grant-tables --user=mysql
@@ -169,7 +168,7 @@ mysql
 </span><span class="code-line line-number" line="3">mysql<span class="token operator">></span> flush privileges<span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="4">
 </span><span class="code-line line-number" line="5"><span class="token comment"># 终端中运行</span>
-</span><span class="code-line line-number" line="6">mysqladmin -uroot -p123456 <span class="token function">shutdown</span>
+</span><span class="code-line line-number" line="6">mysqladmin <span class="token parameter variable">-uroot</span> <span class="token parameter variable">-p123456</span> <span class="token function">shutdown</span>
 </span></code><input type="hidden" value="# 终端进入MySQL数据中运行
 mysql> update mysql.user set password=password(&#x22;123456&#x22;) where user=&#x27;root&#x27; and host=&#x27;localhost&#x27;;
 mysql> flush privileges;
@@ -182,7 +181,7 @@ mysqladmin -uroot -p123456 shutdown
         </ol>
         <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token comment"># 终端中运行</span>
 </span><span class="code-line line-number" line="2">/etc/init.d/mysql start
-</span><span class="code-line line-number" line="3">mysql -uroot -p123456
+</span><span class="code-line line-number" line="3">mysql <span class="token parameter variable">-uroot</span> <span class="token parameter variable">-p123456</span>
 </span></code><input type="hidden" value="# 终端中运行
 /etc/init.d/mysql start
 mysql -uroot -p123456
@@ -219,7 +218,7 @@ sudo /etc/init.d/mysqld stop
 </span></code><input type="hidden" value="sudo /usr/local/mysql/bin/mysqld_safe --skip-grant-tables
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
         <p>3、新开终端，输入</p>
-        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token function">sudo</span> /usr/local/mysql/bin/mysql -u root
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token function">sudo</span> /usr/local/mysql/bin/mysql <span class="token parameter variable">-u</span> root
 </span><span class="code-line line-number" line="2"><span class="token comment"># 输入 Mac 系统用户密码后，</span>
 </span><span class="code-line line-number" line="3"><span class="token comment"># 直接敲回车进入 mysql 终端，输入：</span>
 </span><span class="code-line line-number" line="4">mysql<span class="token operator">></span> FLUSH PRIVILEGES<span class="token punctuation">;</span>
@@ -235,7 +234,7 @@ mysql> ALTER USER &#x27;root&#x27;@&#x27;localhost&#x27; IDENTIFIED BY &#x27;MyN
 \q
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
         <p>4、重启MySQL.</p>
-        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token function">ps</span> -ef <span class="token operator">|</span> <span class="token function">grep</span> mysql
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token function">ps</span> <span class="token parameter variable">-ef</span> <span class="token operator">|</span> <span class="token function">grep</span> mysql
 </span></code><input type="hidden" value="ps -ef | grep mysql
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
         <ul>
@@ -379,8 +378,8 @@ mysql>
         </aside>
       </nav>
     </div>
-    <script src="../js/demo-preview.js?v=1.21.1"></script>
-    <div class="footer warpper">Released under the MIT License. Copyright © 2022 Kenny Wong<br>Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.21.1</div>
-    <script src="../js/tocbot.js?v=1.21.1"></script>
+    <script src="../js/demo-preview.js?v=1.25.3"></script>
+    <div class="footer warpper">Released under the MIT License. Copyright © 2022 Kenny Wong<br>Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.25.3</div>
+    <script src="../js/tocbot.js?v=1.25.3"></script>
   </body>
 </html>

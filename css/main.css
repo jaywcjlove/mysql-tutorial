@@ -20,6 +20,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-size: 14px;
@@ -106,7 +110,7 @@ a.gototop {
   z-index: 9999;
   color: var(--color-theme-bg);
   font-size: 10px;
-  opacity: 0.5;
+  opacity: 0;
   transition: all 0.3s;
 }
 a.gototop:hover {
@@ -137,8 +141,17 @@ a.gototop:hover {
   color: var(--color-theme-text);
   align-items: center;
 }
+.header .logo:hover {
+  text-decoration: none;
+}
 .header .logo .title {
   padding-left: 8px;
+  display: flex;
+}
+.header .logo .title sup {
+  margin-top: -5px;
+  font-weight: normal;
+  color: var(--color-fg-subtle);
 }
 .header .logo img,
 .header .logo svg {
@@ -157,6 +170,10 @@ a.gototop:hover {
   display: flex;
   list-style: none;
   padding-right: 10px;
+}
+.header .menu li {
+  display: flex;
+  align-items: center;
 }
 .header a {
   color: var(--color-theme-text);

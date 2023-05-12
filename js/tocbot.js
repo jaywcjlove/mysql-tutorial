@@ -1,4 +1,13 @@
 ;(() => {
+  function debounce(fn, delay = 1000) {
+    let time = null
+    function _debounce(...args) {
+      if (time !== null) clearTimeout(time);
+      time = setTimeout(() => fn.apply(this, args), delay)
+    }
+    return _debounce
+  }
+
   const scrollSmoothOffset = 56;
   function updateScroll() {
     const heading = document.getElementById(decodeURIComponent(location.hash.replace(/^#/, '')));
@@ -21,6 +30,14 @@
       });
     }
   }
+  function tocButton() {
+    const tocElement = document.querySelector(`a.gototop`);
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+      tocElement.style.opacity = 0.5;
+    } else {
+      tocElement.style.opacity = 0;
+    }
+  }
   function scrollListener(evn) {
     const anchors = document.querySelectorAll('markdown-style a.anchor[href*="#"][aria-hidden]');
     const scrollTop = evn && evn.target && evn.target.scrollingElement && evn.target.scrollingElement.scrollTop;
@@ -32,7 +49,7 @@
         index = idx;
       }
     });
-
+    tocButton();
     if (element) {
       const tocElement = document.querySelector(`a.tocs-link[href='${decodeURIComponent(element.hash)}']`);
       if (tocElement) {
@@ -48,7 +65,7 @@
     }
   }
 
-  document.addEventListener('scroll', scrollListener, false);
+  document.addEventListener('scroll',debounce(scrollListener, 30), false);
 
   function updateAnchor(element) {
     const anchorContainer = document.querySelectorAll('.tocs aside.inner.toc a.tocs-link');
