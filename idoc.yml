@@ -9,6 +9,7 @@ menus:
   Home: index.html
   Cheat Sheet: 21-minutes-MySQL-basic-entry.html
   Awesome: awesome-mysql.html
+  Sponsor: https://jaywcjlove.github.io/#/sponsor
 
 editButton: 
   label: Edit this page on GitHub

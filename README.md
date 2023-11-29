@@ -6,7 +6,10 @@ MySQL入门教程
 ===
 <!--idoc:ignore:end-->
 
-[![](https://jaywcjlove.github.io/sb/ico/mysql.svg)](http://www.mysql.com/) [![](https://jaywcjlove.github.io/sb/ico/awesome.svg)](./docs/awesome-mysql.md) [![](https://jaywcjlove.github.io/sb/license/mit.svg)](#)
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![](https://jaywcjlove.github.io/sb/ico/mysql.svg)](http://www.mysql.com/)
+[![](https://jaywcjlove.github.io/sb/ico/awesome.svg)](./docs/awesome-mysql.md)
+![](https://jaywcjlove.github.io/sb/license/mit.svg)
 
 从零开始学习MySQL，主要是面向MySQL数据库管理系统初学者。前端开发工程师为什么写这个入门教程呢？最近项目强迫我这个前端老司机使用MySQL，虽然我在项目中已经使用过一段时间，为了写出高质量的SQL语句，能快速定位解决数据库引发的问题，系统的过一遍基础，你也可以当做是我的笔记。有幸也认识一些 MySQL 的 DBA，这让我学习起来比较快，能快速入门，进入实战开发阶段。
 
