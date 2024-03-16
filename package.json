@@ -16,6 +16,6 @@
     "url": "git+https://github.com/jaywcjlove/mysql-tutorial.git"
   },
   "devDependencies": {
-    "idoc": "^1.21.1"
+    "idoc": "^1"
   }
 }
