@@ -3,7 +3,7 @@
  * @version 1.1.0
  * @author 小弟调调
  * https://github.com/jaywcjlove/markdown-style
- * 
+ *
  * Integrate markdown styles into web components, Markdown CSS styles will not be conflicted.
  * The minimal amount of CSS to replicate the GitHub Markdown style. Support dark-mode/night mode.
  */
@@ -587,15 +587,17 @@ markdown-style sup>a::before {
 markdown-style sup>a::after {
   content: "]";
 }
-
-.markdown-body .octicon-video {
-  border: 1px solid #d0d7de !important;
+markdown-style .octicon-video .octicon.octicon-device-camera-video {
+  margin: 0 0.5rem 0 0.25rem;
+}
+markdown-style .octicon-video {
+  border: 1px solid var(--color-border-default) !important;
   border-radius: 6px !important;
   display: block;
 }
 
 markdown-style .octicon-video summary {
-    border-bottom: 1px solid #d0d7de !important;
+    border-bottom: 1px solid var(--color-border-default) !important;
     padding: 8px 16px !important;
     cursor: pointer;
 }
@@ -1000,48 +1002,46 @@ markdown-style ::-webkit-calendar-picker-indicator {
 <slot></slot>
 `;
 class MarkdownStyle extends HTMLElement {
-    get theme() {
-        const value = this.getAttribute('theme');
-        return value === null ? '' : value;
+  get theme() {
+    const value = this.getAttribute('theme');
+    return value === null ? '' : value;
+  }
+  set theme(name) {
+    this.setAttribute('theme', name);
+  }
+  constructor() {
+    super();
+    this.shadow = this.attachShadow({ mode: 'open' });
+    this.shadow.appendChild(__TEMPLATE__.content.cloneNode(true));
+    const style = Array.prototype.slice.call(this.shadow.children).find((item) => item.tagName === 'STYLE');
+    if (style) {
+      const id = '__MARKDOWN_STYLE__';
+      const findStyle = document.getElementById(id);
+      if (!findStyle) {
+        style.id = id;
+        document.head.append(style);
+      }
     }
-    set theme(name) {
-        this.setAttribute('theme', name);
+  }
+  connectedCallback() {
+    const disableThemeAutoSwitch = this.getAttribute('theme-auto-switch-disabled');
+    if (disableThemeAutoSwitch == '' || (disableThemeAutoSwitch && disableThemeAutoSwitch.toLowerCase() === 'true')) {
+      return;
     }
-    constructor() {
-        super();
-        this.shadow = this.attachShadow({ mode: 'open' });
-        this.shadow.appendChild(__TEMPLATE__.content.cloneNode(true));
-        const style = Array.prototype.slice
-            .call(this.shadow.children)
-            .find((item) => item.tagName === 'STYLE');
-        if (style) {
-            const id = '__MARKDOWN_STYLE__';
-            const findStyle = document.getElementById(id);
-            if (!findStyle) {
-                style.id = id;
-                document.head.append(style);
-            }
-        }
+    if (!this.theme) {
+      const { colorMode } = document.documentElement.dataset;
+      this.theme = colorMode;
+      const observer = new MutationObserver((mutationsList, observer) => {
+        this.theme = document.documentElement.dataset.colorMode;
+      });
+      observer.observe(document.documentElement, { attributes: true });
+      window.matchMedia('(prefers-color-scheme: light)').onchange = (event) => {
+        this.theme = event.matches ? 'light' : 'dark';
+      };
+      window.matchMedia('(prefers-color-scheme: dark)').onchange = (event) => {
+        this.theme = event.matches ? 'dark' : 'light';
+      };
     }
-    connectedCallback() {
-        const disableThemeAutoSwitch = this.getAttribute('theme-auto-switch-disabled');
-        if (disableThemeAutoSwitch == "" || disableThemeAutoSwitch && disableThemeAutoSwitch.toLowerCase() === 'true') {
-            return;
-        }
-        if (!this.theme) {
-            const { colorMode } = document.documentElement.dataset;
-            this.theme = colorMode;
-            const observer = new MutationObserver((mutationsList, observer) => {
-                this.theme = document.documentElement.dataset.colorMode;
-            });
-            observer.observe(document.documentElement, { attributes: true });
-            window.matchMedia('(prefers-color-scheme: light)').onchange = (event) => {
-                this.theme = event.matches ? 'light' : 'dark';
-            };
-            window.matchMedia('(prefers-color-scheme: dark)').onchange = (event) => {
-                this.theme = event.matches ? 'dark' : 'light';
-            };
-        }
-    }
+  }
 }
 customElements.define('markdown-style', MarkdownStyle);
